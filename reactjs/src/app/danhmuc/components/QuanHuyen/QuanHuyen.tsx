@@ -5,9 +5,9 @@ import { inject, observer } from "mobx-react";
 @inject('storeapp')
 @observer
 class QuanHuyen extends PureComponent<any, any> {
-  constructor(props: any) {
-    super(props);
-  }
+  // constructor(props: any) {
+  //   super(props);
+  // }
 
   componentDidMount = () => {
     console.log("QuanHuyen mounted");

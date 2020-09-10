@@ -35,34 +35,17 @@ class Login extends React.Component<any, any> {
   async onSubmit(e: any) {
     e.preventDefault();
     let loginModel = this.state.loginModel;
-    //const { loginModel } = this.props.authenticationStore;
     await this.props.authenticationStore.login(loginModel);
     sessionStorage.setItem("rememberMe", loginModel.rememberMe ? "1" : "0");
-    //localStorage.setItem('isLogin', "true");
-    //await this.refreshSession();
     const { state } = this.props.location;
-    //this.props.history.push(state ? state.from.pathname : "/");
+    //let url: any = '/#' + state.from.pathname;
+    //setTimeout(() => { window.location = state ? url : "/"; }, 10);
     window.location = state ? state.from.pathname : "/";
+    //window.location.reload();
   }
 
-  async refreshSession() {
-    await this.props.sessionStore!.getCurrentLoginInformations();
-
-    if (!!this.props.sessionStore!.currentLogin.user && this.props.sessionStore!.currentLogin.application.features['SignalR']) {
-      if (this.props.sessionStore!.currentLogin.application.features['SignalR.AspNetCore']) {
-
-        //SignalRAspNetCoreHelper.initSignalR();
-      }
-    }
-  }
   render() {
     let { from } = this.props.location.state || { from: { pathname: '/' } };
-    debugger
-    // if (from['pathname'].indexOf('logout') >= 0) {
-    //   from = {
-    //     from: { pathname: '/' }
-    //   }
-    // }
     if (this.props.authenticationStore!.isAuthenticated) return <Redirect to={from} />;
     return (
       <div id="extr-page">

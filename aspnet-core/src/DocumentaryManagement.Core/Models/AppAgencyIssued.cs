@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DocumentaryManagement.Model
 {
-    public partial class AppAgencyIssued : Entity
+    public partial class AppAgencyIssued : Entity, ISoftDelete
     {
         public AppAgencyIssued()
         {
@@ -26,9 +26,9 @@ namespace DocumentaryManagement.Model
         [Column("Creation_Date", TypeName = "datetime")]
         public DateTime? CreationDate { get; set; }
         [Column("Updated_Id")]
-        public int UpdatedId { get; set; }
+        public int? UpdatedId { get; set; }
         [Column("Updated_Date", TypeName = "datetime")]
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
 
         [InverseProperty("AgencyIssued")]

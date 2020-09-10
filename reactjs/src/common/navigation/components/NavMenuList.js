@@ -2,7 +2,7 @@ import React from 'react'
 
 import NavMenuItem from './NavMenuItem';
 
-import AsideChat from "../../chat/components/AsideChat";
+//import AsideChat from "../../chat/components/AsideChat";
 
 export default function SmartMenuList(props) {
 

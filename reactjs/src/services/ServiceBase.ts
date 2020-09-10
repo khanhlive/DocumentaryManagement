@@ -2,7 +2,10 @@ import http from "./httpService";
 import { AxiosResponse, AxiosInstance } from "axios";
 import * as AspNetData from "devextreme-aspnet-data-nojquery";
 import AppConsts from "../lib/appconst";
+//import AbpRespond from "./dto/AbpRespond";
+
 declare var abp: any;
+
 export interface IServiceBase<Dto, CreateDto, UpdateDto> {
   /**
    * @param input (optional)
@@ -116,7 +119,7 @@ class ServiceBase<Dto, CreateDto, UpdateDto>
     return this.processResponseData(res);
   }
   public async delete(id: number | null | undefined): Promise<void> {
-    let res = await this.httpBase.get(
+    let res = await this.httpBase.delete(
       `/api/services/app/${this.entityName}/${Abp_Actions.Delete}`,
       {
         params: { id: id },

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DataGrid, { Column, Paging, Pager, IDataGridOptions, Editing } from 'devextreme-react/data-grid';
+import DataGrid, { Paging, Pager, IDataGridOptions, Editing } from 'devextreme-react/data-grid';
 import dxDataGrid, { dxDataGridSelection } from 'devextreme/ui/data_grid';
 import { dxElement } from 'devextreme/core/element';
 import { dxToolbarOptions, dxToolbarItem } from 'devextreme/ui/toolbar';
@@ -8,7 +8,8 @@ export interface IDataGridOptionsCustom extends IDataGridOptions {
     selectionMode?: 'single' | 'multiple' | 'none',
     customSelection?: boolean,
     customEditing?: boolean,
-    gridName?: string
+    gridName?: string,
+    onAddNewRowCustom?: () => any
 }
 const buttonExclude: Array<string> = [];// ['columnChooserButton'];
 export default class DataGridCustom extends Component<IDataGridOptionsCustom, any> {
@@ -19,25 +20,32 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
         this.onToolbarPreparing = this.onToolbarPreparing.bind(this);
     }
     onSelectionChanged(e: { component?: dxDataGrid, element?: dxElement, model?: any, currentSelectedRowKeys?: Array<any>, currentDeselectedRowKeys?: Array<any>, selectedRowKeys?: Array<any>, selectedRowsData?: Array<any> }) {
-        if (this.props.selectionMode == 'single') {
+        if (this.props.selectionMode === 'single') {
             let customSelection = e.component?.option("customSelection");
             if (customSelection) return;
             e.component?.option("customSelection", true);
-            e.component?.selectRows(e.currentSelectedRowKeys != undefined ? e.currentSelectedRowKeys[0] : undefined, false);
+            e.component?.selectRows(e.currentSelectedRowKeys !== undefined ? e.currentSelectedRowKeys[0] : undefined, false);
             e.component?.option("customSelection", false);
         }
-        if (this.props.onSelectionChanged != undefined) {
+        if (this.props.onSelectionChanged !== undefined) {
             this.props.onSelectionChanged(e)
         };
     }
-    onGridRefresh() {
+    refresh() {
         this.dataGrid?.instance.refresh();
     }
+
+    addNewRow() {
+        if (this.props.onAddNewRowCustom !== undefined) {
+            this.props.onAddNewRowCustom();
+        }
+    }
+
     onToolbarPreparing(e: { component?: dxDataGrid, element?: dxElement, model?: any, toolbarOptions?: dxToolbarOptions }) {
-        let grid = e.component;
+        //let grid = e.component;
         console.log(e.toolbarOptions?.items);
         e.toolbarOptions?.items?.forEach((item: dxToolbarItem) => {
-            if (item.widget == "dxButton" && buttonExclude.indexOf(item['name']) < 0) {
+            if (item.widget === "dxButton" && buttonExclude.indexOf(item['name']) < 0) {
                 item.location = "before";
             }
         });
@@ -45,22 +53,31 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
             location: 'before',
             widget: 'dxButton',
             options: {
-                icon: 'refresh',
-                onClick: this.onGridRefresh.bind(this)
+                icon: 'plus',
+                onClick: this.addNewRow.bind(this)
             }
-        })
-        if (this.props.onToolbarPreparing != undefined) {
+        }, {
+            location: 'before',
+            widget: 'dxButton',
+            options: {
+                icon: 'refresh',
+                onClick: this.refresh.bind(this)
+            }
+        },
+
+        )
+        if (this.props.onToolbarPreparing !== undefined) {
             this.props.onToolbarPreparing(e)
         };
     }
     render() {
         let _selection: dxDataGridSelection = {};
 
-        if (this.props.selectionMode != 'none') {
+        if (this.props.selectionMode !== 'none') {
             _selection = {
                 mode: 'multiple',
                 selectAllMode: 'page',
-                allowSelectAll: this.props.selectionMode == 'multiple',
+                allowSelectAll: this.props.selectionMode === 'multiple',
                 showCheckBoxesMode: 'always'
             }
         }
@@ -106,7 +123,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
             onToolbarPreparing: this.onToolbarPreparing,
             onInitialized: (e: { component: dxDataGrid, element: dxElement }) => {
                 e.element?.classList.add('dx-datagrid-smart');
-                if (this.props.onInitialized != undefined) {
+                if (this.props.onInitialized !== undefined) {
                     this.props.onInitialized(e)
                 };
             },
@@ -127,7 +144,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
                 ]}
                 /> */}
                 {
-                    this.props.customEditing == true ? (
+                    this.props.customEditing === true ? (
                         <Editing {...options.editing}
                         />
                     ) : null
@@ -137,6 +154,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
                     showPageSizeSelector={true}
                     showNavigationButtons={true}
                     visible={true}
+                    showInfo={true}
                     allowedPageSizes={[5, 10, 25, 50, 100]}
                 />
             </DataGrid>

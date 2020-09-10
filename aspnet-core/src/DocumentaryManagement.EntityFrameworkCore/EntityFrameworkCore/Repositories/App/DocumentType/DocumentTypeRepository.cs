@@ -41,9 +41,10 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.DocumentTyp
             }
         }
 
-        public override void Delete(AppDocumentType entity)
-        {
-            base.Delete(entity);
-        }
+        //public override void Delete(AppDocumentType entity)
+        //{
+        //    throw new UserFriendlyException($"Mã loại văn bản: \"{entity.Code}\" đã tồn tại trong hệ thống");
+        //    //base.Delete(entity);
+        //}
     }
 }

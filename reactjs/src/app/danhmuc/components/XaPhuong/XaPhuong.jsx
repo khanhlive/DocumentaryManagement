@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { inject, observer } from "mobx-react";
+//import PropTypes from "prop-types";
+//import { inject, observer } from "mobx-react";
 //import Stores from "../../../../stores/storeIdentifier";
 class XaPhuong extends PureComponent {
   constructor(props) {

@@ -17,7 +17,7 @@ namespace DocumentaryManagement.Core
        : AsyncCrudAppService<TEntity, TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput>
            where TEntity : class, IEntity<TPrimaryKey>
            where TEntityDto : IEntityDto<TPrimaryKey>
-           where TUpdateInput : IEntityDto<TPrimaryKey>
+           where TUpdateInput : IEntityDto<TPrimaryKey>, IUpdateEntityDto
         where TCreateInput : new()
     {
         protected IDocumentaryManagementRepositoryBase<TEntity> AbpRepository;
@@ -31,10 +31,9 @@ namespace DocumentaryManagement.Core
         {
             var entity = Repository.Get(input.Id);
             if (entity == null) throw new NullReferenceException("Đối tượng không tồn tại trong hệ thống");
-            if (typeof(IDocumentaryManagementRepositoryBase<TEntity>).IsAssignableFrom(Repository.GetType()))
-            {
-                ((IDocumentaryManagementRepositoryBase<TEntity>)Repository).Before_InsertUpdate(entity);
-            }
+            MapToEntity(input, entity);
+            AbpRepository.Before_InsertUpdate(entity);
+            input.BeforeUpdate(AbpSession);
             StandardizedStringOfEntity(input);
             return base.Update(input);
         }
@@ -88,10 +87,10 @@ namespace DocumentaryManagement.Core
         public async Task<IActionResult> StoreEdit(TPrimaryKey key, string values)
         {
             TEntity item = Repository.Get(key);
-            JsonConvert.PopulateObject(values, item);            
+            JsonConvert.PopulateObject(values, item);
             try
             {
-                TEntity result = await Repository.UpdateAsync(item);                
+                TEntity result = await Repository.UpdateAsync(item);
                 if (result != null) return new OkResult();
                 else return new BadRequestResult();
             }

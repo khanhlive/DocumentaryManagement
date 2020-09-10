@@ -12,8 +12,5 @@ namespace DocumentaryManagement.DocumentType.Dto
         public string Description { get; set; }
         public long CreationId { get; set; }
         public DateTime CreationDate { get; set; }
-        public long? UpdatedId { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

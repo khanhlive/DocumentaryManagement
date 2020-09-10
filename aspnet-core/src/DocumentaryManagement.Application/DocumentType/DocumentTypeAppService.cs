@@ -2,7 +2,6 @@
 using DocumentaryManagement.DocumentType.Dto;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.DocumentType;
 using DocumentaryManagement.Model;
-using Microsoft.Extensions.Configuration;
 
 namespace DocumentaryManagement.DocumentType
 {

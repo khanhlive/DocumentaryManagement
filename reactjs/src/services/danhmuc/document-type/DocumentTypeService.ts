@@ -1,6 +1,13 @@
 import ServiceBase from "../../ServiceBase";
+import { DocumentTypeDto } from "./dto/DocumentTypeDto";
+import { CreateDocumentTypeDto } from "./dto/CreateDocumentTypeDto";
+import { UpdateDocumentTypeDto } from "./dto/UpdateDocumentTypeDto";
 
-class DocumentTypeService extends ServiceBase<any, any, any> {
+class DocumentTypeService extends ServiceBase<
+  DocumentTypeDto,
+  CreateDocumentTypeDto,
+  UpdateDocumentTypeDto
+> {
   constructor() {
     super("id", "documenttype");
   }

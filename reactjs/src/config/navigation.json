@@ -427,6 +427,10 @@
         {
           "route": "/danh-muc/loai-van-ban",
           "title": "Loại văn bản"
+        },
+        {
+          "route": "/danh-muc/co-quan-ban-hanh",
+          "title": "Cơ quan ban hành"
         }
       ]
     }

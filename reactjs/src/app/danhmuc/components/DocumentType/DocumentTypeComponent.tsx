@@ -1,32 +1,69 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import Stores from "../../../../stores/storeIdentifier";
-import LoginModel from '../../../../models/Login/loginModel';
-import { PagedTenantResultRequestDto } from '../../../../services/tenant/dto/PagedTenantResultRequestDto'
-import { PagedResultDto } from '../../../../services/dto/pagedResultDto';
-import { GetAllTenantOutput } from '../../../../services/tenant/dto/getAllTenantOutput';
-import { BenhvienClient } from '../../../../services/nswag/axios-service';
-import AppConsts from '../../../../lib/appconst';
-import http from '../../../../services/httpService';
-import BenhVienService from '../../../../services/danhmuc/benh-vien/BenhVienService';
-import DataGrid, { Column, Paging, Pager, Editing } from 'devextreme-react/data-grid';
+import { Column } from 'devextreme-react/data-grid';
 import DocumentTypeService from '../../../../services/danhmuc/document-type/DocumentTypeService';
 import { JarvisWidget, WidgetGrid, Stats, BigBreadcrumbs } from '../../../../common';
 import DataGridCustom from '../../../../common/tables/components/DataGridCustom';
+import { confirm } from 'devextreme/ui/dialog';
+import notify from '../../../../common/utils/functions/notify';
+import DocumentTypeEditComponent from './DocumentTypeEditComponent';
+import { CreateDocumentTypeDto } from '../../../../services/danhmuc/document-type/dto/CreateDocumentTypeDto';
 
 const store: any = DocumentTypeService.GetAspNetDataSource();
+
+export interface IDocumentTypeStates {
+
+}
 
 @inject('storeapp', Stores.AccountStore, Stores.AuthenticationStore, Stores.SessionStore)
 @observer
 export default class DocumentTypeComponent extends Component<any, any> {
-    constructor(props: any) {
-        super(props);
-    }
+    dataGrid?: DataGridCustom;
+    editComponent?: DocumentTypeEditComponent;
+    // constructor(props: any) {
+    //     super(props);
+    // }
 
     componentDidMount() {
-        DocumentTypeService.getPaging(0, 10).then((res: any) => {
-            console.log(res);
+
+    }
+    onGridEditData(cellData: { data: any }) {
+        let dataRow = cellData.data;
+        this.editComponent?.edit(dataRow.id, dataRow);
+    }
+    onGridDeleteData(cellData: { data: any }) {
+        let dataRow = cellData.data;
+        let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa loại văn bản");
+        result.then(res => {
+            if (res) {
+                DocumentTypeService.delete(dataRow.id).then(res1 => {
+                    notify('Thông báo', 'Xóa dữ liệu thành công', 'success');
+                    this.dataGrid?.refresh();
+                })
+            }
         })
+    }
+
+    handleAdNewRow() {
+        let createItem: CreateDocumentTypeDto = new CreateDocumentTypeDto();
+        this.editComponent?.create(createItem);
+    }
+
+    handleSave(id: number, model: any) {
+        if (id > 0) {
+            DocumentTypeService.update(model).then(res => {
+                notify('', `Cập nhật loại văn bản thành công`, 'success');
+                this.dataGrid?.refresh();
+                this.editComponent?.handleClose();
+            })
+        } else {
+            DocumentTypeService.create(model).then(res => {
+                notify('', `Thêm mới loại văn bản thành công`, 'success');
+                this.dataGrid?.refresh();
+                this.editComponent?.handleClose();
+            })
+        }
     }
 
     render() {
@@ -36,9 +73,8 @@ export default class DocumentTypeComponent extends Component<any, any> {
                     <BigBreadcrumbs
                         items={["Danh mục", "Loại văn bản"]}
                         icon="fa fa-fw fa-table"
-
                     />
-                    <Stats />
+                    {/* <Stats /> */}
                 </div>
                 <WidgetGrid>
                     <div className="row">
@@ -52,10 +88,11 @@ export default class DocumentTypeComponent extends Component<any, any> {
                                 </header>
                                 <div>
                                     <div className="widget-body no-padding">
-                                        <DataGridCustom
-                                            gridName="grid-loai-van-ban"
+                                        <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
+                                            gridName="grid-co-quan-ban-hanh"
+                                            onAddNewRowCustom={this.handleAdNewRow.bind(this)}
                                             keyExpr="id"
-                                            customEditing={true}
+                                            customEditing={false}
                                             dataSource={store}
                                             selectionMode="single"
                                             onSelectionChanged={(e: any) => console.log(e)}
@@ -75,6 +112,21 @@ export default class DocumentTypeComponent extends Component<any, any> {
                                                 caption="Ghi chú"
                                                 dataType="string"
                                             />
+                                            <Column
+                                                dataField="id"
+                                                caption="Chức năng"
+                                                width={100}
+                                                alignment="center"
+                                                cellRender={(cellData: any) => {
+                                                    return (
+                                                        <React.Fragment>
+                                                            <button type="button" onClick={this.onGridEditData.bind(this, cellData)} className="btn-sm btn btn-info btn-grid-func"><i className="fa fa-pencil"></i></button>
+                                                            <button type="button" onClick={this.onGridDeleteData.bind(this, cellData)} className="btn-sm btn btn-danger btn-grid-func"><i className="fa fa-trash"></i></button>
+                                                        </React.Fragment>
+                                                    );
+                                                }}
+                                                type="buttons"
+                                            />
 
                                         </DataGridCustom>
                                     </div>
@@ -83,6 +135,8 @@ export default class DocumentTypeComponent extends Component<any, any> {
                         </article>
                     </div>
                 </WidgetGrid>
+                <DocumentTypeEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)} ></DocumentTypeEditComponent>
+
             </div>
 
         )

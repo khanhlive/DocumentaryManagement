@@ -4,7 +4,7 @@ import UserStore from "./userStore";
 import SessionStore from "./sessionStore";
 import AuthenticationStore from "./authenticationStore";
 import AccountStore from "./accountStore";
-import StoreApp from "./StoreApp";
+//import StoreApp from "./StoreApp";
 import AuthStore from "./AuthStore";
 
 export default function initializeStores() {

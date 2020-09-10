@@ -2,13 +2,13 @@ import React, { PureComponent } from "react";
 import { inject, observer } from "mobx-react";
 import Stores from "../../../../stores/storeIdentifier";
 import LoginModel from '../../../../models/Login/loginModel';
-import { PagedTenantResultRequestDto } from '../../../../services/tenant/dto/PagedTenantResultRequestDto'
-import { PagedResultDto } from '../../../../services/dto/pagedResultDto';
-import { GetAllTenantOutput } from '../../../../services/tenant/dto/getAllTenantOutput';
+//import { PagedTenantResultRequestDto } from '../../../../services/tenant/dto/PagedTenantResultRequestDto'
+//import { PagedResultDto } from '../../../../services/dto/pagedResultDto';
+//import { GetAllTenantOutput } from '../../../../services/tenant/dto/getAllTenantOutput';
 import { BenhvienClient } from '../../../../services/nswag/axios-service';
 import AppConsts from '../../../../lib/appconst';
 import http from '../../../../services/httpService';
-import BenhVienService from '../../../../services/danhmuc/benh-vien/BenhVienService';
+//import BenhVienService from '../../../../services/danhmuc/benh-vien/BenhVienService';
 import DataGrid, { Column, Paging, Pager } from 'devextreme-react/data-grid';
 import PhongBanService from '../../../../services/danhmuc/phong-ban/PhongBanService';
 import { JarvisWidget, WidgetGrid, Stats, BigBreadcrumbs } from '../../../../common';
@@ -19,10 +19,10 @@ const store: any = PhongBanService.GetAspNetDataSource();
 @inject('storeapp', Stores.AccountStore, Stores.AuthenticationStore, Stores.SessionStore)
 @observer
 class PhongBan extends PureComponent<any, any> {
-  constructor(props: any) {
-    super(props);
+  // constructor(props: any) {
+  //   super(props);
 
-  }
+  // }
   service: BenhvienClient = new BenhvienClient(AppConsts.remoteServiceBaseUrl, http);
 
   componentDidMount = () => {

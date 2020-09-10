@@ -23,6 +23,10 @@ const DocumentType = Loadable({
     loader: () => import("./components/DocumentType/DocumentTypeComponent"),
     loading: Loading
 });
+const AgencyIssued = Loadable({
+    loader: () => import("./components/AgencyIssued/AgencyIssuedComponent"),
+    loading: Loading
+});
 export const routes = [
     {
         path: "/danh-muc/phong-ban",
@@ -53,5 +57,11 @@ export const routes = [
         exact: true,
         component: DocumentType,
         name: "loai-van-ban"
+    },
+    {
+        path: "/danh-muc/co-quan-ban-hanh",
+        exact: true,
+        component: AgencyIssued,
+        name: "co-quan-ban-hanh"
     },
 ];

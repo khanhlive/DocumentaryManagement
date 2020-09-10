@@ -5,10 +5,10 @@ import ToggleMenu from "./ToggleMenu";
 import SpeechButton from "../../voice-control/components/SpeechButton";
 import SearchMobile from "./SearchMobile";
 
-import { Activities } from "../../activities";
+//import { Activities } from "../../activities";
 import { LanguageSelector } from "../../i18n";
 
-import RecentProjects from "./RecentProjects";
+//import RecentProjects from "./RecentProjects";
 
 export default class Header extends React.Component {
   render() {
@@ -24,10 +24,10 @@ export default class Header extends React.Component {
           {/* Note: The activity badge color changes when clicked and resets the number to 0
          Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications */}
 
-          <Activities />
+          {/* <Activities /> */}
         </div>
 
-        <RecentProjects />
+        {/* <RecentProjects /> */}
         <div className="pull-right" /*pulled right: nav area*/>
           <ToggleMenu
             className="btn-header pull-right" /* collapse menu button */

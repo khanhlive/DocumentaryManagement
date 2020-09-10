@@ -57,4 +57,18 @@
 .dx-datagrid-smart .dx-toolbar-before {
   margin-left: 10px;
 }
+
+/* .td-no-padding {
+  padding: 0px !important;
+} */
 /* end devextreme css custom  */
+.btn-grid-func {
+  padding: 3px 7px 2px;
+}
+.btn-grid-func + .btn-grid-func {
+  margin-left: 5px;
+}
+.dx-command-select {
+  width: 50px !important;
+  min-width: 50px !important;
+}
