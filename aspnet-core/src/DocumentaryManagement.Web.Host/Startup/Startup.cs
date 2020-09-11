@@ -17,6 +17,10 @@ using DocumentaryManagement.Identity;
 
 using Abp.AspNetCore.SignalR.Hubs;
 using Microsoft.AspNetCore.Mvc;
+using System.Buffers;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Newtonsoft.Json.Serialization;
 
 namespace DocumentaryManagement.Web.Host.Startup
 {
@@ -34,9 +38,19 @@ namespace DocumentaryManagement.Web.Host.Startup
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // MVC
-            services.AddMvc(
-                options => options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName))
-            ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options =>
+                {
+                    options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName));
+                    options.OutputFormatters.Clear();
+                    options.OutputFormatters.Add(new JsonOutputFormatter(new JsonSerializerSettings()
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                        ContractResolver=new CamelCasePropertyNamesContractResolver()
+
+                    }, ArrayPool<char>.Shared));
+                }
+            )
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);

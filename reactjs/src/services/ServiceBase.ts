@@ -2,6 +2,7 @@ import http from "./httpService";
 import { AxiosResponse, AxiosInstance } from "axios";
 import * as AspNetData from "devextreme-aspnet-data-nojquery";
 import AppConsts from "../lib/appconst";
+import { PagedResultDto } from "./dto/pagedResultDto";
 //import AbpRespond from "./dto/AbpRespond";
 
 declare var abp: any;
@@ -85,7 +86,7 @@ class ServiceBase<Dto, CreateDto, UpdateDto>
   public async getPaging(
     skipCount: number | null | undefined,
     maxResultCount: number | null | undefined
-  ): Promise<any> {
+  ): Promise<PagedResultDto<Dto>> {
     let res = await this.httpBase.get(
       `/api/services/app/${this.entityName}/${Abp_Actions.GetPaging}`,
       {

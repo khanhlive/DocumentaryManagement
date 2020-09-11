@@ -5,6 +5,7 @@ import notify from '../../../../common/utils/functions/notify';
 import IEditComponentProps from '../../../../common/core/models/EditingComponentProps';
 import IEditComponentStates from '../../../../common/core/models/EditComponentStates';
 import EditComponentBase from '../../../../common/core/models/EditComponent';
+import { validatorCode } from '../../../../common/core';
 
 export interface IAgencyIssuedEditProps extends IEditComponentProps {
 
@@ -29,6 +30,10 @@ const validationRules = {
                 stringLength: {
                     max: 50,
                     message: "Nhập tối đa 50 ký tự"
+                },
+                callback: {
+                    message: 'Mã chỉ bao gồm chữ số, chữ cái và dấu gạch dưới',
+                    callback: validatorCode
                 }
             }
         },
@@ -69,8 +74,8 @@ export default class AgencyIssuedEditComponent extends EditComponentBase<IAgency
             isEdit: false
         }
     }
-    onSubmit(e: any) {
-        e.preventDefault();
+    onSubmit(e?: any) {
+        e?.preventDefault();
         let isValid = this.validator?.isValid();
         if (isValid) {
             if (this.props.onSave !== undefined) {
@@ -91,7 +96,7 @@ export default class AgencyIssuedEditComponent extends EditComponentBase<IAgency
                 <Modal.Body>
                     <BootstrapValidator ref={ref => this.validator = ref || undefined} options={validationRules}>
 
-                        <form ref={ref => this.form = ref || undefined} className="form-horizontal" onSubmit={this.onSubmit.bind(this)}>
+                        <div ref={ref => this.divForm = ref || undefined} className="form-horizontal">
                             <div className="form-group">
                                 <label className="control-label col-md-2">Mã cơ quan</label>
                                 <div className="col-md-10">
@@ -112,7 +117,7 @@ export default class AgencyIssuedEditComponent extends EditComponentBase<IAgency
                                     </textarea>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </BootstrapValidator>
                 </Modal.Body>
 

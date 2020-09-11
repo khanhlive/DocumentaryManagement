@@ -6,13 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DocumentaryManagement.Model
 {
-    public partial class AppDocumentaryPersonal : Entity
+    public partial class AppDocumentaryPersonal : Entity, ISoftDelete
     {
         public AppDocumentaryPersonal()
         {
             AppAttachments = new HashSet<AppAttachments>();
         }
-        
+
         [Required]
         [StringLength(200)]
         public string Code { get; set; }
@@ -48,5 +48,22 @@ namespace DocumentaryManagement.Model
         public virtual AppDocumentType DocumentType { get; set; }
         [InverseProperty("DocumentaryPersonal")]
         public virtual ICollection<AppAttachments> AppAttachments { get; set; }
+
+        [NotMapped]
+        public string DocumentTypeId_Name
+        {
+            get
+            {
+                return this.DocumentType?.Name;
+            }
+        }
+        [NotMapped]
+        public string AgencyIssuedId_Name
+        {
+            get
+            {
+                return this.AgencyIssued?.Name;
+            }
+        }
     }
 }

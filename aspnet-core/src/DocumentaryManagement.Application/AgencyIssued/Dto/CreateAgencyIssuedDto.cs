@@ -4,7 +4,7 @@ using System;
 
 namespace DocumentaryManagement.AgencyIssued.Dto
 {
-    [AutoMapTo(typeof(AppDocumentType))]
+    [AutoMapTo(typeof(AppAgencyIssued))]
     public class CreateAgencyIssuedDto
     {
         public string Code { get; set; }

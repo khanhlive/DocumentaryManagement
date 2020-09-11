@@ -5,6 +5,7 @@ import notify from '../../../../common/utils/functions/notify';
 import IEditComponentProps from '../../../../common/core/models/EditingComponentProps';
 import IEditComponentStates from '../../../../common/core/models/EditComponentStates';
 import EditComponentBase from '../../../../common/core/models/EditComponent';
+import { validatorCode } from '../../../../common/core/functions/validateRules';
 
 export interface IDocumentTypeEditProps extends IEditComponentProps {
 
@@ -29,6 +30,10 @@ const validationRules = {
                 stringLength: {
                     max: 50,
                     message: "Nhập tối đa 50 ký tự"
+                },
+                callback: {
+                    message: 'Mã chỉ bao gồm chữ số, chữ cái và dấu gạch dưới',
+                    callback: validatorCode
                 }
             }
         },
@@ -69,37 +74,14 @@ export default class DocumentTypeEditComponent extends EditComponentBase<IDocume
             isEdit: false
         }
     }
-    // create(model: any) {
-    //     this.setState({
-    //         isShow: true,
-    //         model: model || {},
-    //         id: 0,
-    //         isEdit: false
-    //     })
-
-    // }
-
-    // edit(id: number, model: any) {
-    //     this.setState({
-    //         isShow: true,
-    //         model: model,
-    //         id: id,
-    //         isEdit: true
-    //     })
-    // }
 
     // handleSave() {
     //     this.form?.dispatchEvent(new Event('submit'));
+    //     let isValid = this.validator?.isValid();
     // }
 
-    // handleClose() {
-    //     this.setState({ isShow: false })
-    //     if (this.props.onCancle != undefined) {
-    //         this.props.onCancle();
-    //     }
-    // }
-    onSubmit(e: any) {
-        e.preventDefault();
+    onSubmit(e?: any) {
+        e?.preventDefault();
         let isValid = this.validator?.isValid();
         if (isValid) {
             if (this.props.onSave !== undefined) {
@@ -109,16 +91,6 @@ export default class DocumentTypeEditComponent extends EditComponentBase<IDocume
             notify('Thông báo', 'Dữ liệu nhập chưa chính xác', 'error', 'fa fa-remove');
         }
     }
-    // handleInputChange(e: any) {
-    //     let model = this.state.model;
-    //     let name = e.target.name;
-    //     let value = e.target.value;
-    //     model[name] = value;
-    //     this.setState({
-    //         model: model
-    //     })
-
-    // }
     render() {
         return (
             <Modal show={this.state.isShow} onHide={() => this.setState({ isShow: false })}>
@@ -130,7 +102,7 @@ export default class DocumentTypeEditComponent extends EditComponentBase<IDocume
                 <Modal.Body>
                     <BootstrapValidator ref={ref => this.validator = ref || undefined} options={validationRules}>
 
-                        <form ref={ref => this.form = ref || undefined} className="form-horizontal" onSubmit={this.onSubmit.bind(this)}>
+                        <div ref={ref => this.divForm = ref || undefined} className="form-horizontal">
                             <div className="form-group">
                                 <label className="control-label col-md-2">Mã loại</label>
                                 <div className="col-md-10">
@@ -151,7 +123,7 @@ export default class DocumentTypeEditComponent extends EditComponentBase<IDocume
                                     </textarea>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </BootstrapValidator>
                 </Modal.Body>
 

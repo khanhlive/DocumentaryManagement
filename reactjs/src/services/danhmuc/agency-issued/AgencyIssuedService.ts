@@ -11,11 +11,6 @@ class AgencyIssuedService extends ServiceBase<
   constructor() {
     super("id", "agencyissued");
   }
-
-  public async GetCustomData(): Promise<any> {
-    let res = await this.httpBase.get("");
-    return this.processResponseData(res);
-  }
 }
 
 export default new AgencyIssuedService();

@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import { Column } from 'devextreme-react/data-grid';
-import AgencyIssuedService from '../../../../services/danhmuc/agency-issued/AgencyIssuedService';
+import DocumentaryPersonalService from '../../../../services/danhmuc/documentary-personal/DocumentaryPersonalService';
 import { JarvisWidget, WidgetGrid, Stats, BigBreadcrumbs } from '../../../../common';
 import DataGridCustom from '../../../../common/tables/components/DataGridCustom';
 import { confirm } from 'devextreme/ui/dialog';
 import notify from '../../../../common/utils/functions/notify';
-import CreateAgencyIssuedDto from '../../../../services/danhmuc/agency-issued/dto/CreateAgencyIssuedDto';
-import AgencyIssuedEditComponent from './AgencyIssuedEditComponent';
+import CreateDocumentaryPersonalDto from '../../../../services/danhmuc/documentary-personal/dto/CreateDocumentaryPersonalDto';
+import DocumentaryPersonalEditComponent from './DocumentaryPersonalEditComponent';
 
-const store: any = AgencyIssuedService.GetAspNetDataSource();
+const store: any = DocumentaryPersonalService.GetAspNetDataSource();
 
-export interface IAgencyIssuedStates {
+export interface IDocumentaryPersonalStates {
 
 }
 
-export default class AgencyIssuedComponent extends Component<any, any> {
+export default class DocumentaryPersonalComponent extends Component<any, any> {
     dataGrid?: DataGridCustom;
-    editComponent?: AgencyIssuedEditComponent;
+    editComponent?: DocumentaryPersonalEditComponent;
     // constructor(props: any) {
     //     super(props);
     // }
@@ -30,10 +30,10 @@ export default class AgencyIssuedComponent extends Component<any, any> {
     }
     onGridDeleteData(cellData: { data: any }) {
         let dataRow = cellData.data;
-        let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa cơ quan ban hành");
+        let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa văn bản cá nhân");
         result.then(res => {
             if (res) {
-                AgencyIssuedService.delete(dataRow.id).then(res1 => {
+                DocumentaryPersonalService.delete(dataRow.id).then(res1 => {
                     notify('Thông báo', 'Xóa dữ liệu thành công', 'success');
                     this.dataGrid?.refresh();
                 })
@@ -42,20 +42,20 @@ export default class AgencyIssuedComponent extends Component<any, any> {
     }
 
     handleAdNewRow() {
-        let createItem: CreateAgencyIssuedDto = new CreateAgencyIssuedDto();
+        let createItem: CreateDocumentaryPersonalDto = new CreateDocumentaryPersonalDto();
         this.editComponent?.create(createItem);
     }
 
     handleSave(id: number, model: any) {
         if (id > 0) {
-            AgencyIssuedService.update(model).then(res => {
-                notify('', `Cập nhật cơ quan ban hành thành công`, 'success');
+            DocumentaryPersonalService.update(model).then(res => {
+                notify('', `Cập nhật văn bản cá nhân thành công`, 'success');
                 this.dataGrid?.refresh();
                 this.editComponent?.handleClose();
             })
         } else {
-            AgencyIssuedService.create(model).then(res => {
-                notify('', `Thêm mới cơ quan ban hành thành công`, 'success');
+            DocumentaryPersonalService.create(model).then(res => {
+                notify('', `Thêm mới văn bản cá nhân thành công`, 'success');
                 this.dataGrid?.refresh();
                 this.editComponent?.handleClose();
             })
@@ -67,7 +67,7 @@ export default class AgencyIssuedComponent extends Component<any, any> {
             <div id="content">
                 <div className="row">
                     <BigBreadcrumbs
-                        items={["Danh mục", "Cơ quan ban hành"]}
+                        items={["Danh mục", "Văn bản cá nhân"]}
                         icon="fa fa-fw fa-table"
                     />
                     {/* <Stats /> */}
@@ -80,12 +80,12 @@ export default class AgencyIssuedComponent extends Component<any, any> {
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />
                                     </span>
-                                    <h2>Danh sách cơ quan ban hành</h2>
+                                    <h2>Danh sách văn bản cá nhân</h2>
                                 </header>
                                 <div>
                                     <div className="widget-body no-padding">
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
-                                            gridName="grid-co-quan-ban-hanh"
+                                            gridName="grid-van-ban-ca-nhan"
                                             onAddNewRowCustom={this.handleAdNewRow.bind(this)}
                                             keyExpr="id"
                                             customEditing={false}
@@ -104,9 +104,25 @@ export default class AgencyIssuedComponent extends Component<any, any> {
                                                 dataType="string"
                                             />
                                             <Column
-                                                dataField="description"
-                                                caption="Ghi chú"
+                                                dataField="documentTypeId_Name"
+                                                caption="Loại văn bản"
                                                 dataType="string"
+                                            />
+                                            <Column
+                                                dataField="agencyIssuedId_Name"
+                                                caption="Cơ quan ban hành"
+                                                dataType="string"
+                                            />
+                                            <Column
+                                                dataField="abridgment"
+                                                caption="Trích yếu"
+                                                dataType="string"
+                                            />
+                                            <Column
+                                                dataField="creationDate"
+                                                caption="Ngày tạo"
+                                                dataType="datetime"
+                                                format="dd/MM/yyyy"
                                             />
                                             <Column
                                                 dataField="id"
@@ -131,7 +147,7 @@ export default class AgencyIssuedComponent extends Component<any, any> {
                         </article>
                     </div>
                 </WidgetGrid>
-                <AgencyIssuedEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)} ></AgencyIssuedEditComponent>
+                <DocumentaryPersonalEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)} ></DocumentaryPersonalEditComponent>
 
             </div>
 

@@ -72,3 +72,53 @@
   width: 50px !important;
   min-width: 50px !important;
 }
+
+.modal-large-80vw {
+  width: 80vw;
+  min-width: 800px;
+}
+.modal-large-70vw {
+  width: 70vw;
+  min-width: 700px;
+}
+.modal-large-60vw {
+  width: 60vw;
+  min-width: 600px;
+}
+
+.has-error .input-group .input-group-btn .btn {
+  border-top: 1px solid #b94a48;
+  border-bottom: 1px solid #b94a48;
+  border-right: 1px solid #b94a48;
+}
+.has-success .input-group .input-group-btn .btn {
+  border-top: 1px solid #468847;
+  border-bottom: 1px solid #468847;
+  border-right: 1px solid #468847;
+}
+.ck-editor__main .ck-content {
+  min-height: 300px;
+}
+.attachment-container {
+  /* min-height: 50px; */
+  /* overflow: hidden; */
+  border: 1px solid #cecece;
+}
+.btn-attachment {
+  padding: 7px 10px;
+  box-shadow: none;
+  width: 100%;
+}
+.btn-attachment:hover {
+  /* border: 1px solid #cecece; */
+  background-color: #cecece83;
+}
+.attachment-list {
+  min-height: 30px;
+  padding: 10px 5px;
+}
+.attachment-footer {
+  border-top: 1px solid #cecece;
+  /* padding: 5px; */
+  background-color: #f8f8f8;
+}

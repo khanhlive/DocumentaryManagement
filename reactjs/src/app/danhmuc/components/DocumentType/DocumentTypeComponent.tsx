@@ -89,7 +89,7 @@ export default class DocumentTypeComponent extends Component<any, any> {
                                 <div>
                                     <div className="widget-body no-padding">
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
-                                            gridName="grid-co-quan-ban-hanh"
+                                            gridName="grid-loai-van-ban"
                                             onAddNewRowCustom={this.handleAdNewRow.bind(this)}
                                             keyExpr="id"
                                             customEditing={false}

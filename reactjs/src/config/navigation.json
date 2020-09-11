@@ -431,6 +431,10 @@
         {
           "route": "/danh-muc/co-quan-ban-hanh",
           "title": "Cơ quan ban hành"
+        },
+        {
+          "route": "/danh-muc/van-ban-ca-nhan",
+          "title": "Văn bản cá nhân"
         }
       ]
     }

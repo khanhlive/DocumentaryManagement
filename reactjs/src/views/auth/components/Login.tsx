@@ -38,10 +38,7 @@ class Login extends React.Component<any, any> {
     await this.props.authenticationStore.login(loginModel);
     sessionStorage.setItem("rememberMe", loginModel.rememberMe ? "1" : "0");
     const { state } = this.props.location;
-    //let url: any = '/#' + state.from.pathname;
-    //setTimeout(() => { window.location = state ? url : "/"; }, 10);
     window.location = state ? state.from.pathname : "/";
-    //window.location.reload();
   }
 
   render() {

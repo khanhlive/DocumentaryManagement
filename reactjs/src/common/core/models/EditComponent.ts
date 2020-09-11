@@ -20,13 +20,18 @@ export default abstract class EditComponentBase<
   //   constructor(props: P) {
   //     super(props);
   //   }
-  public abstract onSubmit(e: any): any;
+  public abstract onSubmit(e?: any): any;
   //public abstract handleInputChange(e: any): any;
 
   public form?: HTMLFormElement;
+  public divForm?: HTMLDivElement;
   public validator?: BootstrapValidator;
   public handleSave() {
-    this.form?.dispatchEvent(new Event("submit"));
+    if (this.form != undefined) {
+      this.form?.dispatchEvent(new Event("submit"));
+    } else if (this.divForm != undefined) {
+      this.onSubmit();
+    }
   }
   public create(model: any) {
     this.setState({

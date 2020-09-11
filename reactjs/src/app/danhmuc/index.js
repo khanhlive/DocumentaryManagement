@@ -27,6 +27,10 @@ const AgencyIssued = Loadable({
     loader: () => import("./components/AgencyIssued/AgencyIssuedComponent"),
     loading: Loading
 });
+const DocumentaryPersonal = Loadable({
+    loader: () => import("./components/DocumentaryPersonal/DocumentaryPersonalComponent"),
+    loading: Loading
+});
 export const routes = [
     {
         path: "/danh-muc/phong-ban",
@@ -63,5 +67,11 @@ export const routes = [
         exact: true,
         component: AgencyIssued,
         name: "co-quan-ban-hanh"
+    },
+    {
+        path: "/danh-muc/van-ban-ca-nhan",
+        exact: true,
+        component: DocumentaryPersonal,
+        name: "van-ban-ca-nhan"
     },
 ];
