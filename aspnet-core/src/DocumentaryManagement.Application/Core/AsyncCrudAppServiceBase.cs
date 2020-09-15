@@ -3,6 +3,7 @@ using Abp.Application.Services.Dto;
 using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
 using Abp.Web.Models;
+using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 using DocumentaryManagement.EntityFrameworkCore.Repositories;
@@ -13,12 +14,28 @@ using System.Threading.Tasks;
 
 namespace DocumentaryManagement.Core
 {
+
     public abstract class AsyncCrudAppServiceBase<TEntity, TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput>
-       : AsyncCrudAppService<TEntity, TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput>
+       : AsyncCrudAppServiceBase<TEntity, TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, DataSourceLoadOptions>
            where TEntity : class, IEntity<TPrimaryKey>
            where TEntityDto : IEntityDto<TPrimaryKey>
            where TUpdateInput : IEntityDto<TPrimaryKey>, IUpdateEntityDto
         where TCreateInput : new()
+    {
+        protected AsyncCrudAppServiceBase(IRepository<TEntity, TPrimaryKey> repository)
+            : base(repository)
+        {
+
+        }
+    }
+
+    public abstract class AsyncCrudAppServiceBase<TEntity, TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, DevLoadOptions>
+   : AsyncCrudAppService<TEntity, TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput>
+       where TEntity : class, IEntity<TPrimaryKey>
+       where TEntityDto : IEntityDto<TPrimaryKey>
+       where TUpdateInput : IEntityDto<TPrimaryKey>, IUpdateEntityDto
+        where DevLoadOptions : DataSourceLoadOptionsBase
+    where TCreateInput : new()
     {
         protected IDocumentaryManagementRepositoryBase<TEntity> AbpRepository;
         protected AsyncCrudAppServiceBase(IRepository<TEntity, TPrimaryKey> repository)
@@ -52,7 +69,7 @@ namespace DocumentaryManagement.Core
         [HttpPost]
         [DontWrapResult]
         [ActionName("get-devextreme")]
-        public virtual LoadResult GetDevExtreme(DataSourceLoadOptions loadOptions)
+        public virtual LoadResult GetDevExtreme(DevLoadOptions loadOptions)
         {
             return AbpRepository.GetDevExtreme(loadOptions);
         }

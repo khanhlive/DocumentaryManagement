@@ -128,19 +128,23 @@ class ServiceBase<Dto, CreateDto, UpdateDto>
     );
     return this.processResponseData(res);
   }
-  public GetAspNetDataSource(): any {
+  public GetAspNetDataSource(
+    callback?: (method: string, ajaxOptions: any) => any
+  ): any {
     return AspNetData.createStore({
       key: this.keyExpr,
       loadUrl: `${this.baseUrl}/api/services/app/${this.entityName}/${Abp_Actions.DevExtreme}`,
       loadMethod: "POST",
-      onBeforeSend: function (method, ajaxOptions) {
-        //callback(component, method, ajaxOptions);
+      onBeforeSend: (method, ajaxOptions) => {
+        if (callback !== undefined) {
+          callback(method, ajaxOptions);
+        }
         ajaxOptions.headers = ajaxOptions.headers || {};
         if (!!abp.auth.getToken()) {
           ajaxOptions.headers["Authorization"] =
             "Bearer " + abp.auth.getToken();
         }
-
+        //ajaxOptions.headers["Content-Type"] = "application/json; charset=utf-8";
         ajaxOptions.headers[".AspNetCore.Culture"] = abp.utils.getCookieValue(
           "Abp.Localization.CultureName"
         );
@@ -148,6 +152,9 @@ class ServiceBase<Dto, CreateDto, UpdateDto>
           "Abp.TenantId"
         ] = abp.multiTenancy.getTenantIdCookie();
         ajaxOptions.xhrFields = { withCredentials: true };
+        if (ajaxOptions.data) {
+          //ajaxOptions.data["data"] = JSON.stringify({ id: 1, name: "khanhnd" });
+        }
       },
       insertUrl: `${this.baseUrl}/api/services/app/${this.entityName}/store-create`,
       insertMethod: "POST",

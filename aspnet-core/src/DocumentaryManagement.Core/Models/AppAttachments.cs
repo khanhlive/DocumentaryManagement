@@ -1,12 +1,11 @@
 ﻿using Abp.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DocumentaryManagement.Model
 {
-    public partial class AppAttachments : Entity
+    public partial class AppAttachments : Entity, ISoftDelete
     {
         [Column("Documentary_Id")]
         public int? DocumentaryId { get; set; }
@@ -32,6 +31,6 @@ namespace DocumentaryManagement.Model
         public virtual AppDocumentary Documentary { get; set; }
         [ForeignKey("DocumentaryPersonalId")]
         [InverseProperty("AppAttachments")]
-        public virtual AppDocumentaryPersonal DocumentaryPersonal { get; set; }
+        public virtual AppDocumentaryPersonal DocumentaryPersonal { get; set; }       
     }
 }

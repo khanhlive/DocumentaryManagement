@@ -13,6 +13,7 @@ import { routes as tables } from "./views/tables";
 import { routes as ui } from "./views/ui";
 import { routes as widgets } from "./views/widgets";
 import { routes as danhmuc } from "./app/danhmuc";
+import { routes as book } from "./app/features";
 
 export const routes = [
   ...appViews,
@@ -29,6 +30,7 @@ export const routes = [
   ...ui,
   ...widgets,
   ...danhmuc,
+  ...book,
 ];
 
 export const authRoutes = [...auth];

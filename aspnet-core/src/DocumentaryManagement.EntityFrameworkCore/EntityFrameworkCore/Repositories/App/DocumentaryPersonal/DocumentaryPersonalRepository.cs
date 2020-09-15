@@ -16,7 +16,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
         {
 
         }
-        protected override IQueryable<AppDocumentaryPersonal> SetEntityIncludes(DbSet<AppDocumentaryPersonal> entities)
+        protected override IQueryable<AppDocumentaryPersonal> SetEntityIncludes(IQueryable<AppDocumentaryPersonal> entities)
         {
             return entities.Where(p => !p.IsDeleted).Include(p=>p.DocumentType).Include(p=>p.AgencyIssued);
         }
@@ -37,7 +37,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             }
             if (item != null)
             {
-                throw new UserFriendlyException($"Mã cơ quan ban hành: \"{entity.Code}\" đã tồn tại trong hệ thống");
+                throw new UserFriendlyException($"Ký hiệu văn bản: \"{entity.Code}\" đã tồn tại trong hệ thống");
             }
         }
         

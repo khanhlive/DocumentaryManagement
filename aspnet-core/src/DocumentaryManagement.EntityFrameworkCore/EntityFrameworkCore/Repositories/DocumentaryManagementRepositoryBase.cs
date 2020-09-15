@@ -128,16 +128,27 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories
 
         }
 
-        public virtual LoadResult GetDevExtreme(DataSourceLoadOptions loadOptions)
+        public virtual LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions)
+        {
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            return DataSourceLoader.Load(SetEntityIncludes(DbContext.Set<TEntity>()), loadOptions);
+        }
+
+        protected virtual DocumentaryManagementDbContext GetDevContext()
         {
             string str = _configuration.GetConnectionString(DocumentaryManagementConsts.ConnectionStringName);
             DbContextOptionsBuilder<DocumentaryManagementDbContext> dbContextOptionsBuilder = new DbContextOptionsBuilder<DocumentaryManagementDbContext>();
             dbContextOptionsBuilder.UseSqlServer(str);
             DocumentaryManagementDbContext DbContext = new DocumentaryManagementDbContext(dbContextOptionsBuilder.Options);
-            return DataSourceLoader.Load(SetEntityIncludes(DbContext.Set<TEntity>()), loadOptions);
+            return DbContext;
         }
 
-        protected virtual IQueryable<TEntity> SetEntityIncludes(DbSet<TEntity> entities)
+        //protected virtual IQueryable<TEntity> WhereClause(DbSet<TEntity> entities, DataSourceLoadOptionsBase loadOptions)
+        //{
+        //    return entities;
+        //}
+
+        protected virtual IQueryable<TEntity> SetEntityIncludes(IQueryable<TEntity> entities)
         {
             return entities;
         }
@@ -159,7 +170,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories
         where TEntity : class, IEntity<int>
     {
         protected DocumentaryManagementRepositoryBase(IDbContextProvider<DocumentaryManagementDbContext> dbContextProvider, IConfiguration configuration, IAbpSession abpSession)
-            : base(dbContextProvider, configuration,abpSession)
+            : base(dbContextProvider, configuration, abpSession)
         {
         }
 

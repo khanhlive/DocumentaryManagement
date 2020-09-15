@@ -17,6 +17,9 @@
  * - BODY
  * - CUSTOM STYLES
  */
+html > body:not(.menu-on-top).fixed-header {
+  min-height: calc(100vh - 49px) !important;
+}
 #extr-page #header {
   position: relative;
 }
@@ -116,9 +119,67 @@
 .attachment-list {
   min-height: 30px;
   padding: 10px 5px;
+  max-height: 180px;
+  overflow: auto;
+}
+.attachment-list ul {
+  list-style: none;
+  padding-left: 10px;
 }
 .attachment-footer {
   border-top: 1px solid #cecece;
   /* padding: 5px; */
   background-color: #f8f8f8;
+}
+.file-attach-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 5px 44px 5px 10px;
+  width: 60%;
+  background-color: #efefef;
+}
+.file-attach-container .file-attach-name {
+  flex-grow: 1;
+  line-height: 21px;
+  font-weight: bold;
+}
+.file-attach-container .file-attach-name .file-attach-link {
+  color: rgba(17, 85, 204, 1);
+}
+.file-attach-container .file-attach-progress {
+  width: 20%;
+  min-width: 120px;
+}
+.file-attach-container .file-attach-progress .progress {
+  margin-bottom: 0;
+  background-color: #ffffff;
+  border: 1px solid #c1c0c0;
+}
+.file-attach-container .file-attach-close {
+  position: absolute;
+  top: 2px;
+  font-size: 20px;
+  right: 4px;
+}
+.file-attach-item {
+  margin: 5px;
+}
+.file-attach-container .file-attach-close .btn-close {
+  color: inherit;
+  padding: 0px 5px;
+  border: 1px solid transparent;
+}
+.file-attach-container .file-attach-close .btn-close:hover {
+  background-color: #c1c1c1;
+  border: 1px solid #aba8a8;
+}
+.form-no-padding .control-label {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (min-width: 992px) {
+  .form-custom .control-label {
+    padding-top: 7px;
+  }
 }

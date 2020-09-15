@@ -3,13 +3,15 @@ import DataGrid, { Paging, Pager, IDataGridOptions, Editing } from 'devextreme-r
 import dxDataGrid, { dxDataGridSelection } from 'devextreme/ui/data_grid';
 import { dxElement } from 'devextreme/core/element';
 import { dxToolbarOptions, dxToolbarItem } from 'devextreme/ui/toolbar';
+import { isBuffer } from 'util';
 
 export interface IDataGridOptionsCustom extends IDataGridOptions {
     selectionMode?: 'single' | 'multiple' | 'none',
     customSelection?: boolean,
     customEditing?: boolean,
     gridName?: string,
-    onAddNewRowCustom?: () => any
+    onAddNewRowCustom?: () => any,
+    removeButtonAdd?: boolean
 }
 const buttonExclude: Array<string> = [];// ['columnChooserButton'];
 export default class DataGridCustom extends Component<IDataGridOptionsCustom, any> {
@@ -42,30 +44,30 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
     }
 
     onToolbarPreparing(e: { component?: dxDataGrid, element?: dxElement, model?: any, toolbarOptions?: dxToolbarOptions }) {
-        //let grid = e.component;
-        console.log(e.toolbarOptions?.items);
         e.toolbarOptions?.items?.forEach((item: dxToolbarItem) => {
             if (item.widget === "dxButton" && buttonExclude.indexOf(item['name']) < 0) {
                 item.location = "before";
             }
         });
+
         e.toolbarOptions?.items?.unshift({
-            location: 'before',
-            widget: 'dxButton',
-            options: {
-                icon: 'plus',
-                onClick: this.addNewRow.bind(this)
-            }
-        }, {
             location: 'before',
             widget: 'dxButton',
             options: {
                 icon: 'refresh',
                 onClick: this.refresh.bind(this)
             }
-        },
-
-        )
+        })
+        if (!this.props.removeButtonAdd === true) {
+            e.toolbarOptions?.items?.unshift({
+                location: 'before',
+                widget: 'dxButton',
+                options: {
+                    icon: 'plus',
+                    onClick: this.addNewRow.bind(this)
+                }
+            })
+        }
         if (this.props.onToolbarPreparing !== undefined) {
             this.props.onToolbarPreparing(e)
         };

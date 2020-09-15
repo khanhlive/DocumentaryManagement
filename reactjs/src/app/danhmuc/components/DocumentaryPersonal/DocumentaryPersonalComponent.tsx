@@ -7,6 +7,7 @@ import { confirm } from 'devextreme/ui/dialog';
 import notify from '../../../../common/utils/functions/notify';
 import CreateDocumentaryPersonalDto from '../../../../services/danhmuc/documentary-personal/dto/CreateDocumentaryPersonalDto';
 import DocumentaryPersonalEditComponent from './DocumentaryPersonalEditComponent';
+import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
 
 const store: any = DocumentaryPersonalService.GetAspNetDataSource();
 
@@ -54,7 +55,8 @@ export default class DocumentaryPersonalComponent extends Component<any, any> {
                 this.editComponent?.handleClose();
             })
         } else {
-            DocumentaryPersonalService.create(model).then(res => {
+            let data = Object.assign({}, model);
+            DocumentaryPersonalService.create(data).then(res => {
                 notify('', `Thêm mới văn bản cá nhân thành công`, 'success');
                 this.dataGrid?.refresh();
                 this.editComponent?.handleClose();
@@ -75,7 +77,7 @@ export default class DocumentaryPersonalComponent extends Component<any, any> {
                 <WidgetGrid>
                     <div className="row">
                         <article className="col-sm-12">
-                            <JarvisWidget id="wid-id-0" editbutton={false} color="darken" refresh={true}>
+                            <JarvisWidget id="wid-id-list-van-ban-ca-nhan" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                 <header>
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />
@@ -95,7 +97,7 @@ export default class DocumentaryPersonalComponent extends Component<any, any> {
                                         >
                                             <Column
                                                 dataField="code"
-                                                caption="Mã"
+                                                caption="Ký hiệu"
                                                 dataType="string"
                                             />
                                             <Column

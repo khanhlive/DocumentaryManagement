@@ -38,6 +38,10 @@ export default class UiDatepicker extends React.Component {
       prevText: '<i class="fa fa-chevron-left"></i>',
       nextText: '<i class="fa fa-chevron-right"></i>',
       onSelect: selectedDate => {
+        //console.log("selectedDate:", selectedDate);
+        if (this.props.onChange !== undefined) {
+          this.props.onChange(this.props.name, selectedDate);
+        }
         onSelectCallbacks.forEach(cb => {
           cb.call(cb, selectedDate);
         });
@@ -66,6 +70,6 @@ export default class UiDatepicker extends React.Component {
       changeMonth,
       ...props
     } = { ...this.props };
-    return <input type="text" {...props} ref="input" />;
+    return <input autoComplete="off" type="text" {...props} ref="input" />;
   }
 }

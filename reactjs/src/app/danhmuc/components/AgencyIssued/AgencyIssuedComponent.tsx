@@ -7,6 +7,7 @@ import { confirm } from 'devextreme/ui/dialog';
 import notify from '../../../../common/utils/functions/notify';
 import CreateAgencyIssuedDto from '../../../../services/danhmuc/agency-issued/dto/CreateAgencyIssuedDto';
 import AgencyIssuedEditComponent from './AgencyIssuedEditComponent';
+import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
 
 const store: any = AgencyIssuedService.GetAspNetDataSource();
 
@@ -75,7 +76,7 @@ export default class AgencyIssuedComponent extends Component<any, any> {
                 <WidgetGrid>
                     <div className="row">
                         <article className="col-sm-12">
-                            <JarvisWidget id="wid-id-0" editbutton={false} color="darken" refresh={true}>
+                            <JarvisWidget id="wid-id-list-co-quan-ban-hanh" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                 <header>
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />

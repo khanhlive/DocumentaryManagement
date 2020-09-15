@@ -16,7 +16,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.AgencyIssue
         {
 
         }
-        protected override IQueryable<AppAgencyIssued> SetEntityIncludes(DbSet<AppAgencyIssued> entities)
+        protected override IQueryable<AppAgencyIssued> SetEntityIncludes(IQueryable<AppAgencyIssued> entities)
         {
             return entities.Where(p => !p.IsDeleted);
         }

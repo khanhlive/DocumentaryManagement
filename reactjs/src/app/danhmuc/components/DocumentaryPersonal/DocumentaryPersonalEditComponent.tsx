@@ -10,6 +10,7 @@ import AgencyIssuedSelect from '../../commons/AgencyIssuedSelect';
 import { validatorCode } from '../../../../common/core';
 import CKEditorCommon from '../../../../common/forms/editors/CKEditorCommon';
 import AttachmentsCommon from '../../../../common/core/controls/AttachmentsCommon';
+import { DocumentaryType, FileUploadInfo } from '../../../../common/core/models/Attachment';
 
 export interface IDocumentaryPersonalEditProps extends IEditComponentProps {
 
@@ -88,6 +89,7 @@ const validationRules = {
 }
 
 export default class DocumentaryPersonalEditComponent extends EditComponentBase<IDocumentaryPersonalEditProps, IDocumentaryPersonalEditState> {
+    attachmentRef?: AttachmentsCommon;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -101,6 +103,7 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
         this.isValidField = this.isValidField.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleEditorChange = this.handleEditorChange.bind(this);
+        this.handleAttachmentChange = this.handleAttachmentChange.bind(this);
     }
     onSubmit(e: any) {
         e.preventDefault();
@@ -112,6 +115,26 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
         } else {
             notify('Thông báo', 'Dữ liệu nhập chưa chính xác', 'error', 'fa fa-remove');
         }
+    }
+    public create(model: any) {
+        this.setState({
+            isShow: true,
+            model: model || {},
+            id: 0,
+            isEdit: false,
+        }, () => {
+            this.attachmentRef?.loadData();
+        });
+    }
+    public edit(id: number, model: any) {
+        this.setState({
+            isShow: true,
+            model: model,
+            id: id,
+            isEdit: true,
+        }, () => {
+            this.attachmentRef?.loadData();
+        });
     }
     handleValidateField(data: { field: string, valid: boolean }) {
         let fields = this.state.validates;
@@ -137,6 +160,16 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
             return undefined;
         }
     }
+
+    handleAttachmentChange(data: FileUploadInfo[], dataDelete: FileUploadInfo[]) {
+        let model = this.state.model || {};
+        model['appAttachments'] = data;
+        model['appAttachmentsDelete'] = dataDelete;
+        this.setState({
+            model: model,
+        });
+    }
+
     handleSelectChange(fieldName: string, selectedItem: any) {
         let model = this.state.model || {};
         model[fieldName] = selectedItem.value;
@@ -202,8 +235,7 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
                                 <div className="form-group">
                                     <label className="control-label col-md-2">Tệp đính kèm</label>
                                     <div className="col-md-10">
-                                        <AttachmentsCommon></AttachmentsCommon>
-                                        <input type="file" name="attachment" className="form-control"></input>
+                                        <AttachmentsCommon onChange={this.handleAttachmentChange} ref={ref => this.attachmentRef = ref || undefined} id={this.state.model.id || 0} type={DocumentaryType.DocumentaryPersonal}></AttachmentsCommon>
                                     </div>
                                 </div>
                             </div>

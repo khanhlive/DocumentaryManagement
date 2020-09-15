@@ -9,6 +9,7 @@ import { confirm } from 'devextreme/ui/dialog';
 import notify from '../../../../common/utils/functions/notify';
 import DocumentTypeEditComponent from './DocumentTypeEditComponent';
 import { CreateDocumentTypeDto } from '../../../../services/danhmuc/document-type/dto/CreateDocumentTypeDto';
+import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
 
 const store: any = DocumentTypeService.GetAspNetDataSource();
 
@@ -79,7 +80,7 @@ export default class DocumentTypeComponent extends Component<any, any> {
                 <WidgetGrid>
                     <div className="row">
                         <article className="col-sm-12">
-                            <JarvisWidget id="wid-id-0" editbutton={false} color="darken" refresh={true}>
+                            <JarvisWidget id="wid-id-list-loai-van-ban" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                 <header>
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />

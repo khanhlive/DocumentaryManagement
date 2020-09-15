@@ -1,4 +1,5 @@
 ﻿using Abp.Runtime.Session;
+using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 
@@ -8,7 +9,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories
     {
         void Before_InsertUpdate(TEntity entity);
         void Before_Delete(TEntity entity);
-        LoadResult GetDevExtreme(DataSourceLoadOptions loadOptions);
+        LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions);
         void SetSession(IAbpSession abpSession);
     }
 }

@@ -404,14 +404,24 @@
       ]
     },
     {
+      "title": "Sổ",
+      "icon": "fa fa-lg fa-fw fa-book",
+      "items": [
+        {
+          "route": "/so-van-ban/so-van-ban-di",
+          "title": "Sổ văn bản đi"
+        },
+        {
+          "route": "/so-van-ban/so-van-ban-den",
+          "title": "Sổ văn bản đến"
+        }
+      ]
+    },
+    {
       "title": "Danh mục",
 
       "icon": "fa fa-lg fa-fw fa-list",
       "items": [
-        {
-          "route": "/danh-muc/phong-ban",
-          "title": "Phòng ban"
-        },
         {
           "route": "/danh-muc/tinh-thanh",
           "title": "Tỉnh thành"
@@ -435,6 +445,14 @@
         {
           "route": "/danh-muc/van-ban-ca-nhan",
           "title": "Văn bản cá nhân"
+        },
+        {
+          "route": "/danh-muc/van-ban-di",
+          "title": "Văn bản đi"
+        },
+        {
+          "route": "/danh-muc/van-ban-den",
+          "title": "Văn bản đến"
         }
       ]
     }

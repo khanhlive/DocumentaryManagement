@@ -23,7 +23,8 @@ namespace DocumentaryManagement.Model
         public DateTime ReleaseDate { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime ReceivedDate { get; set; }
-        public int TextNumber { get; set; }
+        [StringLength(250)]
+        public string TextNumber { get; set; }
         [StringLength(250)]
         public string Signer { get; set; }
         [StringLength(250)]
@@ -41,9 +42,9 @@ namespace DocumentaryManagement.Model
         [StringLength(250)]
         public string PerformancePerson { get; set; }
         public string Description { get; set; }
-        [Column(TypeName = "ntext")]
+        //[Column(TypeName = "ntext")]
         public string SummaryContent { get; set; }
-        [Column(TypeName = "ntext")]
+        //[Column(TypeName = "ntext")]
         public string Content { get; set; }
         public int? Type { get; set; }
         [Column("Creation_Id")]
@@ -64,5 +65,22 @@ namespace DocumentaryManagement.Model
         public virtual AppDocumentType DocumentType { get; set; }
         [InverseProperty("Documentary")]
         public virtual ICollection<AppAttachments> AppAttachments { get; set; }
+
+        [NotMapped]
+        public string DocumentTypeId_Name
+        {
+            get
+            {
+                return this.DocumentType?.Name;
+            }
+        }
+        [NotMapped]
+        public string AgencyIssuedId_Name
+        {
+            get
+            {
+                return this.AgencyIssued?.Name;
+            }
+        }
     }
 }

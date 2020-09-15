@@ -15,12 +15,12 @@ namespace DocumentaryManagement.DocumentaryPersonal.Dto
 
             CreateMap<CreateDocumentaryPersonalDto, AppDocumentaryPersonal>();
             CreateMap<CreateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(x => x.AgencyIssued, opt => opt.Ignore());
-            CreateMap<CreateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(p => p.AppAttachments, opt => opt.Ignore());
+            //CreateMap<CreateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(p => p.AppAttachments, opt => opt.Ignore());
             CreateMap<CreateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(p => p.DocumentType, opt => opt.Ignore());
 
             CreateMap<UpdateDocumentaryPersonalDto, AppDocumentaryPersonal>();
             CreateMap<UpdateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(x => x.AgencyIssued, opt => opt.Ignore());
-            CreateMap<UpdateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(p => p.AppAttachments, opt => opt.Ignore());
+            //CreateMap<UpdateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(p => p.AppAttachments, opt => opt.Ignore());
             CreateMap<UpdateDocumentaryPersonalDto, AppDocumentaryPersonal>().ForMember(p => p.DocumentType, opt => opt.Ignore());
         }
     }

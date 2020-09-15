@@ -1,12 +1,6 @@
 import Loadable from "react-loadable";
 import { Loading } from "../../common/navigation";
 
-
-const PhongBan = Loadable({
-    loader: () => import("./components/PhongBan/PhongBan"),
-    loading: Loading
-});
-
 const TinhThanh = Loadable({
     loader: () => import("./components/TinhThanh/TinhThanh"),
     loading: Loading
@@ -31,13 +25,17 @@ const DocumentaryPersonal = Loadable({
     loader: () => import("./components/DocumentaryPersonal/DocumentaryPersonalComponent"),
     loading: Loading
 });
+
+const DocumentaryAway = Loadable({
+    loader: () => import("./components/DocumentaryAway/DocumentaryAwayComponent"),
+    loading: Loading
+});
+
+const DocumentaryArrived = Loadable({
+    loader: () => import("./components/DocumentaryArrived/DocumentaryArrivedComponent"),
+    loading: Loading
+});
 export const routes = [
-    {
-        path: "/danh-muc/phong-ban",
-        exact: true,
-        component: PhongBan,
-        name: "phong-ban"
-    },
     {
         path: "/danh-muc/tinh-thanh",
         exact: true,
@@ -73,5 +71,17 @@ export const routes = [
         exact: true,
         component: DocumentaryPersonal,
         name: "van-ban-ca-nhan"
+    },
+    {
+        path: "/danh-muc/van-ban-di",
+        exact: true,
+        component: DocumentaryAway,
+        name: "van-ban-di"
+    },
+    {
+        path: "/danh-muc/van-ban-den",
+        exact: true,
+        component: DocumentaryArrived,
+        name: "van-ban-den"
     },
 ];

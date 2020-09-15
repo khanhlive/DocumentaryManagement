@@ -21,6 +21,10 @@ using System.Buffers;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json.Serialization;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace DocumentaryManagement.Web.Host.Startup
 {
@@ -45,8 +49,8 @@ namespace DocumentaryManagement.Web.Host.Startup
                     options.OutputFormatters.Add(new JsonOutputFormatter(new JsonSerializerSettings()
                     {
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                        ContractResolver=new CamelCasePropertyNamesContractResolver()
-
+                        ContractResolver=new CamelCasePropertyNamesContractResolver(),
+                        DateFormatString="dd/MM/yyyy HH:mm:ss"
                     }, ArrayPool<char>.Shared));
                 }
             )
@@ -74,6 +78,12 @@ namespace DocumentaryManagement.Web.Host.Startup
                         .AllowCredentials()
                 )
             );
+
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
 
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
             services.AddSwaggerGen(options =>
@@ -107,6 +117,12 @@ namespace DocumentaryManagement.Web.Host.Startup
             app.UseCors(_defaultCorsPolicyName); // Enable CORS!
 
             app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads")),
+                RequestPath = new PathString("/Uploads")
+            });
 
             app.UseAuthentication();
 

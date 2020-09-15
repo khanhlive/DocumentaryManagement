@@ -1,4 +1,4 @@
-import ServiceBase from "../../ServiceBase";
+import ServiceBase, { Abp_Actions } from "../../ServiceBase";
 import DocumentaryPersonalDto from "./dto/DocumentaryPersonalDto";
 import CreateDocumentaryPersonalDto from "./dto/CreateDocumentaryPersonalDto";
 import UpdateDocumentaryPersonalDto from "./dto/UpdateDocumentaryPersonalDto";

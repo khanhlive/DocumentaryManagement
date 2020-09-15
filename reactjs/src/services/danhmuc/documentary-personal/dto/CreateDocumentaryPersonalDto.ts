@@ -1,3 +1,5 @@
+import AppAttachments from "../../attachment/dto/AppAttachments";
+
 export default class CreateDocumentaryPersonalDto
   implements ICreateDocumentaryPersonalDto {
   code?: string | undefined;
@@ -10,6 +12,8 @@ export default class CreateDocumentaryPersonalDto
   abridgment?: string | undefined;
   creationId?: number | undefined;
   creationDate?: Date | undefined;
+  appAttachments?: AppAttachments[];
+  appAttachmentsDelete?: AppAttachments[];
 
   constructor(data?: ICreateDocumentaryPersonalDto) {
     if (data) {
@@ -25,6 +29,8 @@ export default class CreateDocumentaryPersonalDto
       this.summaryContent = "";
       this.content = "";
       this.abridgment = "";
+      this.appAttachments = [];
+      this.appAttachmentsDelete = [];
     }
   }
 
@@ -81,4 +87,6 @@ export interface ICreateDocumentaryPersonalDto {
   abridgment?: string | undefined;
   creationId?: number | undefined;
   creationDate?: Date | undefined;
+  appAttachments?: AppAttachments[];
+  appAttachmentsDelete?: AppAttachments[];
 }

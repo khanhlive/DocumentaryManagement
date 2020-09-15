@@ -16,7 +16,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.DocumentTyp
         {
 
         }
-        protected override IQueryable<AppDocumentType> SetEntityIncludes(DbSet<AppDocumentType> entities)
+        protected override IQueryable<AppDocumentType> SetEntityIncludes(IQueryable<AppDocumentType> entities)
         {
             return entities.Where(p => !p.IsDeleted);
         }
