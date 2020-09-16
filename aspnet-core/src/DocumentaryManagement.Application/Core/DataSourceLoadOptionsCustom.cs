@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DocumentaryManagement.Core
 {
-    
+
     [ModelBinder(BinderType = typeof(DataSourceLoadOptionsCustomBinder))]
     public class DataSourceLoadOptionsCustom : DataSourceLoadOptionsBase
     {
@@ -19,7 +19,10 @@ namespace DocumentaryManagement.Core
         {
             if (this.Data != null && this.Data.ToString() != string.Empty)
             {
-                return JsonConvert.DeserializeObject<T>(this.Data);
+                return JsonConvert.DeserializeObject<T>(this.Data, new JsonSerializerSettings()
+                {
+                    DateFormatString = "dd/MM/yyyy"
+                });
             }
             else
             {

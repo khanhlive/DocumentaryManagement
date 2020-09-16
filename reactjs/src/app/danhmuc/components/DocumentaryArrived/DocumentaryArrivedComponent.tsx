@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Column } from 'devextreme-react/data-grid';
 import DocumentaryService from '../../../../services/danhmuc/documentary/DocumentaryService';
-import { JarvisWidget, WidgetGrid, BigBreadcrumbs } from '../../../../common';
+import { JarvisWidget, WidgetGrid, BigBreadcrumbs, Stats } from '../../../../common';
 import DataGridCustom from '../../../../common/tables/components/DataGridCustom';
 import { confirm } from 'devextreme/ui/dialog';
 import notify from '../../../../common/utils/functions/notify';
@@ -11,18 +11,27 @@ import { DocumentaryType } from '../../../../common/core/models/Attachment';
 import DocumentaryArrivedFilterComponent from './DocumentaryArrivedFilterComponent';
 import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
 import columnFormatDate from '../../../../common/core/functions/columnRenderDate';
+import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
+import { inject, observer } from 'mobx-react';
+import Stores from '../../../../stores/storeIdentifier';
 
 export interface IDocumentaryStates {
 
 }
+export interface IDocumentaryArivedProps {
+    breadcrumbStore?: BreadcrumbStoreApp
+}
 
-export default class DocumentaryArivedComponent extends Component<any, any> {
+@inject(Stores.BreadcrumbStore)
+@observer
+export default class DocumentaryArivedComponent extends Component<IDocumentaryArivedProps, any> {
     dataGrid?: DataGridCustom;
     editComponent?: DocumentaryArrivedEditComponent;
     filterComponent?: DocumentaryArrivedFilterComponent;
     constructor(props: any) {
         super(props);
         this.handleSearch = this.handleSearch.bind(this);
+        this.props.breadcrumbStore?.setItems(["Danh mục", "Văn bản đến"]);
     }
     store: any = DocumentaryService.GetAspNetDataSource((method: string, ajaxOptions: any) => {
         let filterData = this.filterComponent?.getData();
@@ -75,14 +84,21 @@ export default class DocumentaryArivedComponent extends Component<any, any> {
     render() {
         return (
             <div id="content">
-                <div className="row">
-                    <BigBreadcrumbs
-                        items={["Danh mục", "Văn bản đến"]}
-                        icon="fa fa-fw fa-table"
-                    />
-                    {/* <Stats /> */}
-                </div>
-
+                {
+                    this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                        <div className="row">
+                            <BigBreadcrumbs
+                                items={["Danh mục", "Văn bản đến"]}
+                                icon="fa fa-fw fa-table"
+                            />
+                            {
+                                this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                    <Stats />
+                                ) : null
+                            }
+                        </div>
+                    ) : null
+                }
                 <WidgetGrid>
                     <div className="row">
                         <article className="col-sm-12">

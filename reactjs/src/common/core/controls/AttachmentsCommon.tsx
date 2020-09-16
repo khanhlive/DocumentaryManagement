@@ -4,6 +4,7 @@ import AttachmentService from '../../../services/danhmuc/attachment/AttachmentSe
 import guid from '../functions/guid';
 import { FileUploadInfo, IAttachmentCommonProps, IAttachmentCommonStates } from '../models/Attachment';
 import { AttachmentsItem } from './AttachmentItem';
+import LinkButton from './LinkButton';
 
 export default class AttachmentsCommon extends Component<IAttachmentCommonProps, IAttachmentCommonStates> {
     dropzone?: DropzoneRef;
@@ -130,27 +131,32 @@ export default class AttachmentsCommon extends Component<IAttachmentCommonProps,
                     <ul>
                         {
                             this.state.files?.map((file: any, index: any) =>
-                                <AttachmentsItem onDelete={this.handleDelete} onSuccess={this.handleSuccess} key={'item_' + index} file={file} ></AttachmentsItem>
+                                <AttachmentsItem readOnly={this.props.readOnly} onDelete={this.handleDelete} onSuccess={this.handleSuccess} key={'item_' + index} file={file} ></AttachmentsItem>
                             )
                         }
                     </ul>
                 </div>
                 <div className="attachment-footer">
-                    <a type='button' className="btn btn-attachment" onClick={this.handleOpenFile}><i className="fa fa-upload"></i></a>
-                    <div className="hidden">
-                        <Dropzone onDrop={this.handleAcceptedFiles} ref={ref => this.dropzone = ref || undefined}
-                            multiple={multi} maxSize={this.state.maxSize}
-                            accept={accept}
-                        >
-                            {({ getRootProps, getInputProps }) => (
-                                <section>
-                                    <div {...getRootProps()}>
-                                        <input {...getInputProps()} />
-                                    </div>
-                                </section>
-                            )}
-                        </Dropzone>
-                    </div>
+                    <LinkButton disabled={this.props.readOnly} type='button' className="btn btn-attachment" onClick={this.handleOpenFile}><i className="fa fa-upload"></i></LinkButton>
+                    {
+                        !this.props.readOnly === true ? (
+                            <div className="hidden">
+                                <Dropzone onDrop={this.handleAcceptedFiles} ref={ref => this.dropzone = ref || undefined}
+                                    multiple={multi} maxSize={this.state.maxSize}
+                                    accept={accept}
+                                >
+                                    {({ getRootProps, getInputProps }) => (
+                                        <section>
+                                            <div {...getRootProps()}>
+                                                <input {...getInputProps()} />
+                                            </div>
+                                        </section>
+                                    )}
+                                </Dropzone>
+                            </div>
+                        ) : (null)
+                    }
+
                 </div>
             </div>
         )

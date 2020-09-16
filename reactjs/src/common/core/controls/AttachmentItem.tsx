@@ -86,10 +86,12 @@ export class AttachmentsItem extends Component<IAttachmentsItemProps, IAttachmen
                             </div>
                         ) : null
                     }
-
                     <span className="file-attach-close">
-                        <a onClick={this.handleDelete} title="Xóa tệp tin đính kèm" className="btn-close">&times;</a>
-
+                        {
+                            this.props.readOnly !== true ? (
+                                <a onClick={this.handleDelete} title="Xóa tệp tin đính kèm" className="btn-close">&times;</a>
+                            ) : null
+                        }
                     </span>
                 </div>
 

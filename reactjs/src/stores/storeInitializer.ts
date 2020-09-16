@@ -4,7 +4,7 @@ import UserStore from "./userStore";
 import SessionStore from "./sessionStore";
 import AuthenticationStore from "./authenticationStore";
 import AccountStore from "./accountStore";
-//import StoreApp from "./StoreApp";
+import BreadcrumbStore from "./BreadcrumbStore";
 import AuthStore from "./AuthStore";
 
 export default function initializeStores() {
@@ -16,5 +16,6 @@ export default function initializeStores() {
     sessionStore: new SessionStore(),
     accountStore: new AccountStore(),
     storeapp: new AuthStore(),
+    breadcrumbStore: new BreadcrumbStore(),
   };
 }

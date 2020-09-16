@@ -3,10 +3,14 @@ import $ from "jquery";
 import "smartadmin-plugins/es6/jquery-ui.min";
 
 export default class UiDatepicker extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
   componentDidMount() {
     const onSelectCallbacks = [];
     const props = this.props;
-    const element = $(this.refs.input);
+    const element = $(this.input);
 
     if (props.minRestrict) {
       onSelectCallbacks.push(selectedDate => {
@@ -22,9 +26,8 @@ export default class UiDatepicker extends React.Component {
     //Let others know about changes to the data field
     onSelectCallbacks.push(selectedDate => {
       element.triggerHandler("change");
-
       const form = element.closest("form");
-
+      this.input.dispatchEvent(new Event('change'));
       if (typeof form.bootstrapValidator === "function") {
         try {
           form.bootstrapValidator("revalidateField", element);
@@ -55,10 +58,14 @@ export default class UiDatepicker extends React.Component {
     if (props.defaultDate) options.defaultDate = props.defaultDate;
 
     if (props.changeMonth) options.changeMonth = props.changeMonth;
-
-    element.datepicker(options);
+    if (props.readOnly !== true)
+      element.datepicker(options);
   }
-
+  handleInputChange(e) {
+    if (this.props.onChange !== undefined) {
+      this.props.onChange(this.props.name, e.target.value);
+    }
+  }
   render() {
     const {
       minRestrict,
@@ -68,8 +75,9 @@ export default class UiDatepicker extends React.Component {
       dateFormat,
       defaultDate,
       changeMonth,
+      onChange,
       ...props
     } = { ...this.props };
-    return <input autoComplete="off" type="text" {...props} ref="input" />;
+    return <input autoComplete="off" onChange={this.handleInputChange} type="text" {...props} ref={ref => this.input = ref} />;
   }
 }

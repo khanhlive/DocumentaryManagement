@@ -1,8 +1,6 @@
 import React, { PureComponent } from "react";
 import { inject, observer } from "mobx-react";
-//import Stores from "../../../../stores/storeIdentifier";
 
-@inject('storeapp')
 @observer
 class QuanHuyen extends PureComponent<any, any> {
   // constructor(props: any) {
@@ -24,8 +22,7 @@ class QuanHuyen extends PureComponent<any, any> {
   render() {
     return (
       <div className="QuanHuyenWrapper">QuanHuyenWrapper
-      PhongBanWrapper storeapp:{this.props.storeapp.name}
-        <br />
+      
       </div>);
   }
 }

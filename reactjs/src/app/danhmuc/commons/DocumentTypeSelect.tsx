@@ -12,7 +12,8 @@ export interface IDocumentTypeProps {
     fieldName: string,
     value?: any,
     useQuickAdd?: boolean,
-    label?: string
+    label?: string,
+    readOnly?: boolean
 }
 export interface IDocumentTypeStates {
     options: Array<any>
@@ -68,24 +69,26 @@ export default class DocumentTypeSelect extends Component<IDocumentTypeProps, ID
     }
     render() {
         let selectControl = (
-            <CommonSelect value={this.props.value} label={this.props.label} options={this.state.options} fieldName={this.props.fieldName} onChange={this.handleSelectChange}>
+            <CommonSelect readOnly={this.props.readOnly} value={this.props.value} label={this.props.label} options={this.state.options} fieldName={this.props.fieldName} onChange={this.handleSelectChange}>
             </CommonSelect>
         );
         return (
             <React.Fragment>
                 {
-                    (this.props.useQuickAdd === true) ? (
-                        <div className="input-group">
-                            {selectControl}
-                            <span className="input-group-btn">
-                                <button type='button' onClick={this.handleAdNewRow.bind(this)} className="btn btn-default"><i className="fa fa-plus"></i></button>
-                            </span>
-                        </div>
+                    (this.props.useQuickAdd === true && this.props.readOnly !== true) ? (
+                        <React.Fragment>
+                            <div className="input-group">
+                                {selectControl}
+                                <span className="input-group-btn">
+                                    <button type='button' onClick={this.handleAdNewRow.bind(this)} className="btn btn-default"><i className="fa fa-plus"></i></button>
+                                </span>
+                            </div>
+                            <DocumentTypeEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)}>
+                            </DocumentTypeEditComponent>
+                        </React.Fragment>
                     ) : (selectControl)
                 }
-                <DocumentTypeEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)}>
 
-                </DocumentTypeEditComponent>
             </React.Fragment>
         )
     }

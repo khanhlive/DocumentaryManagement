@@ -7,7 +7,7 @@ import IEditComponentStates from '../../../../common/core/models/EditComponentSt
 import EditComponentBase from '../../../../common/core/models/EditComponent';
 import DocumentTypeSelect from '../../commons/DocumentTypeSelect';
 import AgencyIssuedSelect from '../../commons/AgencyIssuedSelect';
-import { validatorCode } from '../../../../common/core';
+import { validatorCode, validatorDate } from '../../../../common/core';
 import CKEditorCommon from '../../../../common/forms/editors/CKEditorCommon';
 import AttachmentsCommon from '../../../../common/core/controls/AttachmentsCommon';
 import { DocumentaryType, FileUploadInfo } from '../../../../common/core/models/Attachment';
@@ -63,15 +63,20 @@ const validationRules = {
                 notEmpty: {
                     message: "Bạn chưa nhập ngày ban hành"
                 },
+                callback: {
+                    message: "Ngày không đúng định đạng",
+                    callback: validatorDate
+                }
             }
         },
         receivedDate: {
             group: ".col-md-3",
-            // validators: {
-            //     notEmpty: {
-            //         message: "Bạn chưa nhập ngày ban hành"
-            //     },
-            // }
+            validators: {
+                callback: {
+                    message: "Ngày không đúng định đạng",
+                    callback: validatorDate
+                }
+            }
         },
         signer: {
             group: ".col-md-3",
@@ -339,7 +344,7 @@ export default class DocumentaryArrivedEditComponent extends EditComponentBase<I
                                             value={this.state.model.releaseDate}
                                             id="releaseDate"
                                             placeholder="dd/MM/yyyy"
-                                            onChange={(fieldname: any, selectedDate: any) => console.log(fieldname, selectedDate)}
+                                            onChange={this.handleDateChange}
                                         />
                                         {/* <input type="text" onChange={this.handleInputChange} name="releaseDate" value={this.state.model.releaseDate} className="form-control"></input> */}
                                     </div>
@@ -353,7 +358,7 @@ export default class DocumentaryArrivedEditComponent extends EditComponentBase<I
                                             name="receivedDate"
                                             id="receivedDate"
                                             placeholder="dd/MM/yyyy"
-                                            onChange={(fieldname: any, selectedDate: any) => console.log(fieldname, selectedDate)}
+                                            onChange={this.handleDateChange}
                                         />
                                         {/* <input type="text" onChange={this.handleInputChange} name="receivedDate" value={this.state.model.receivedDate} className="form-control"></input> */}
                                     </div>

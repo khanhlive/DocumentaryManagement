@@ -10,21 +10,23 @@ import notify from '../../../../common/utils/functions/notify';
 import DocumentTypeEditComponent from './DocumentTypeEditComponent';
 import { CreateDocumentTypeDto } from '../../../../services/danhmuc/document-type/dto/CreateDocumentTypeDto';
 import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
+import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
 
 const store: any = DocumentTypeService.GetAspNetDataSource();
 
-export interface IDocumentTypeStates {
-
+export interface IDocumentTypeProps {
+    breadcrumbStore?: BreadcrumbStoreApp
 }
 
-@inject('storeapp', Stores.AccountStore, Stores.AuthenticationStore, Stores.SessionStore)
+@inject(Stores.BreadcrumbStore, Stores.AccountStore, Stores.AuthenticationStore, Stores.SessionStore)
 @observer
-export default class DocumentTypeComponent extends Component<any, any> {
+export default class DocumentTypeComponent extends Component<IDocumentTypeProps, any> {
     dataGrid?: DataGridCustom;
     editComponent?: DocumentTypeEditComponent;
-    // constructor(props: any) {
-    //     super(props);
-    // }
+    constructor(props: any) {
+        super(props);
+        this.props.breadcrumbStore?.setItems(["Danh mục", "Loại văn bản"]);
+    }
 
     componentDidMount() {
 
@@ -70,13 +72,21 @@ export default class DocumentTypeComponent extends Component<any, any> {
     render() {
         return (
             <div id="content">
-                <div className="row">
-                    <BigBreadcrumbs
-                        items={["Danh mục", "Loại văn bản"]}
-                        icon="fa fa-fw fa-table"
-                    />
-                    {/* <Stats /> */}
-                </div>
+                {
+                    this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                        <div className="row">
+                            <BigBreadcrumbs
+                                items={["Danh mục", "Loại văn bản"]}
+                                icon="fa fa-fw fa-table"
+                            />
+                            {
+                                this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                    <Stats />
+                                ) : null
+                            }
+                        </div>
+                    ) : null
+                }
                 <WidgetGrid>
                     <div className="row">
                         <article className="col-sm-12">

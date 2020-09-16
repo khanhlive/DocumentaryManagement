@@ -10,5 +10,6 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
     {
         LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions);
         LoadResult GetBookDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions);
+        LoadResult GetSearchDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentSearchOptions searchOptions);
     }
 }

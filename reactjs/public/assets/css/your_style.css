@@ -51,7 +51,7 @@ html > body:not(.menu-on-top).fixed-header {
   border-left: none;
   border-right: none;
 }
-.dx-datagrid-smart .dx-datagrid-search-panel {
+.dx-datagrid-smart .dx-toolbar-after {
   margin-right: 10px;
 }
 .dx-datagrid-smart {
@@ -179,7 +179,7 @@ html > body:not(.menu-on-top).fixed-header {
   padding-right: 0;
 }
 @media (min-width: 992px) {
-  .form-custom .control-label {
-    padding-top: 7px;
+  .form-custom .radio-inline {
+    padding-top: 0px;
   }
 }

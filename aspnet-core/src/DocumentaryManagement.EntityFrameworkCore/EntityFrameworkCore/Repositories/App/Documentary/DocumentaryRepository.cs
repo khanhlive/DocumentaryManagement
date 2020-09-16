@@ -74,10 +74,33 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
             if (documentFilterOptions != null)
             {
-                query = query.Where(p => p.Type == documentFilterOptions.Type && p.ReleaseDate.Year==documentFilterOptions.Year);
+                query = query.Where(p => p.Type == documentFilterOptions.Type && p.ReleaseDate.Year == documentFilterOptions.Year);
             }
             return DataSourceLoader.Load(SetEntityIncludes(query), loadOptions);
         }
 
+        public LoadResult GetSearchDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentSearchOptions searchOptions)
+        {
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
+            if (searchOptions != null)
+            {
+                query = (from doc in query.Where(p => p.Type == searchOptions.Type)
+                         where (searchOptions.Code != null && searchOptions.Code != string.Empty) ? doc.Code.ToLower().Contains(searchOptions.Code.ToLower()) : true
+                         where (searchOptions.NoiDungTomTat != null && searchOptions.NoiDungTomTat != string.Empty) ? doc.SummaryContent.ToLower().Contains(searchOptions.NoiDungTomTat.ToLower()) : true
+                         where ((searchOptions.NgayBanHanhTu.HasValue ? doc.ReleaseDate >= searchOptions.NgayBanHanhTu : true) && (searchOptions.NgayBanHanhDen.HasValue ? doc.ReleaseDate <= searchOptions.NgayBanHanhDen : true))
+                         where ((searchOptions.NgayGuiTu.HasValue ? doc.ReceivedDate >= searchOptions.NgayGuiTu : true) && (searchOptions.NgayGuiDen.HasValue ? doc.ReceivedDate <= searchOptions.NgayGuiDen : true))
+                         select doc
+                          );
+                if (searchOptions.NoiBanHanh != null && searchOptions.NoiBanHanh != string.Empty)
+                {
+                    query = (from doc in query
+                             join pl in DbContext.AppAgencyIssued.Where(p => p.Name.ToLower().Contains(searchOptions.NoiBanHanh)).Select(p => p.Id) on doc.AgencyIssuedId equals pl
+                             select doc
+                           );
+                }
+            }
+            return DataSourceLoader.Load(SetEntityIncludes(query), loadOptions);
+        }
     }
 }

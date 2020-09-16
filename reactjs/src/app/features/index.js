@@ -7,7 +7,17 @@ const BookDocumentaryAway = Loadable({
 });
 
 const BookDocumentaryArrived = Loadable({
-    loader: () => import("./books/BookDucumentArrived"),
+    loader: () => import("./books/BookDocumentArrived"),
+    loading: Loading
+});
+
+const SearchDocumentaryAway = Loadable({
+    loader: () => import("./search/SearchDocumentAway"),
+    loading: Loading
+});
+
+const SearchDocumentaryArrived = Loadable({
+    loader: () => import("./search/SearchDocumentArrived"),
     loading: Loading
 });
 export const routes = [
@@ -22,5 +32,17 @@ export const routes = [
         exact: true,
         component: BookDocumentaryArrived,
         name: "so-van-ban-den"
+    },
+    {
+        path: "/tim-kiem/van-ban-di",
+        exact: true,
+        component: SearchDocumentaryAway,
+        name: "tim-kiem-van-ban-di"
+    },
+    {
+        path: "/tim-kiem/van-ban-den",
+        exact: true,
+        component: SearchDocumentaryArrived,
+        name: "tim-kiem-van-ban-den"
     },
 ];

@@ -26,6 +26,7 @@ export default class CKEditorCommon extends Component {
             <CKEditor
                 data={this.props.data}
                 type="classic"
+                readOnly={this.props.readOnly}
                 onChange={evt => this.handleValueChange(evt, evt.editor)}
             />
         )

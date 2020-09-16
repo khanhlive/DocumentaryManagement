@@ -1,6 +1,7 @@
 import { Template } from 'devextreme-react/core/template';
 import { Column } from 'devextreme-react/data-grid';
 import { dxElement } from 'devextreme/core/element';
+import dxDataGrid from 'devextreme/ui/data_grid';
 import { dxToolbarOptions } from 'devextreme/ui/toolbar';
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react'
@@ -14,13 +15,13 @@ import BreadcrumbStoreApp from '../../../stores/BreadcrumbStore';
 import Stores from '../../../stores/storeIdentifier';
 import BookCommonFilter from './BookCommonFilter';
 
-export interface IBookDocumentAwayProps {
+export interface IBookDocumentArrivedProps {
     breadcrumbStore?: BreadcrumbStoreApp
 }
 
 @inject(Stores.BreadcrumbStore)
 @observer
-export default class BookDocumentAway extends Component<IBookDocumentAwayProps, any> {
+export default class BookDucumentArrived extends Component<IBookDocumentArrivedProps, any> {
     dataGrid?: DataGridCustom;
     filterComponent?: BookCommonFilter;
     store: any = DocumentaryService.GetAspNetDataSourceBook((method: string, ajaxOptions: any) => {
@@ -29,7 +30,7 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
     });
     constructor(props: any) {
         super(props);
-        this.props.breadcrumbStore?.setItems(["Sổ văn bản", "Văn bản đi"]);
+        this.props.breadcrumbStore?.setItems(["Sổ văn bản", "Văn bản đến"]);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleToolbarPreparing = this.handleToolbarPreparing.bind(this);
         this.toolbarSearchRenderer = this.toolbarSearchRenderer.bind(this);
@@ -46,7 +47,7 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
     }
     toolbarSearchRenderer() {
         return (
-            <BookCommonFilter type={DocumentaryType.DocumentaryAway} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
+            <BookCommonFilter type={DocumentaryType.DocumentaryArrived} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
 
             </BookCommonFilter>
         );
@@ -58,7 +59,7 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                     this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                         <div className="row">
                             <BigBreadcrumbs
-                                items={["Sổ", "Sổ văn bản đi"]}
+                                items={["Sổ", "Sổ văn bản đến"]}
                                 icon="fa fa-fw fa-table"
                             />
                             {
@@ -77,14 +78,14 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />
                                     </span>
-                                    <h2>Danh sách văn bản đi</h2>
+                                    <h2>Danh sách văn bản đến</h2>
                                 </header>
                                 <div>
 
                                     <div className="widget-body no-padding">
 
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
-                                            gridName="grid-so-van-ban-di"
+                                            gridName="grid-so-van-ban-den"
                                             removeButtonAdd={true}
                                             keyExpr="id"
                                             filterRow={{ visible: false }}
@@ -108,7 +109,7 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                             />
                                             <Column
                                                 dataField="textNumber"
-                                                caption="Số đi"
+                                                caption="Số đến"
                                                 dataType="string"
                                             />
                                             <Column
@@ -141,19 +142,19 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                             />
                                             <Column
                                                 dataField="receivedDate"
-                                                caption="Ngày gửi"
+                                                caption="Ngày nhận"
                                                 dataType="datetime"
                                                 format="dd/MM/yyyy"
                                                 cellRender={columnFormatDate}
                                             />
                                             <Column
                                                 dataField="receivedBy"
-                                                caption="Người gửi"
+                                                caption="Người nhận"
                                                 dataType="string"
                                             />
                                             <Column
                                                 dataField="performancePerson"
-                                                caption="Nơi nhận"
+                                                caption="Người thực hiện"
                                                 dataType="string"
                                             />
                                             <Column

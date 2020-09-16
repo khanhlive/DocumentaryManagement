@@ -52,14 +52,14 @@ export default class DocumentaryAwayFilterComponent extends Component<IDocumenta
                 </header>
                 <div>
                     <div className="widget-body" style={{ minHeight: 'unset' }}>
-                        <div className="row form-horizontial form-custom">
+                        <div className="row form-horizontal form-custom">
 
                             <div className="form-group">
                                 <label className="control-label col-md-1">Từ khóa:&nbsp;&nbsp;</label>
                                 <div className="col-md-5">
                                     <input className="form-control" onChange={this.handleInputChange} value={this.state.filterData.keyword} placeholder="Nhập từ khóa cần tìm kiếm..." name="keyword" type="text"></input>
                                 </div>
-                                <div className="radio-inline col-md-3">
+                                <div className="col-md-3">
                                     <div className="form-control">
                                         <label className="radio-inline" style={{ width: '47%' }}>
                                             <input onChange={this.handleInputChange} checked={this.state.filterData.filterBy == '1'} type="radio" value="1" name="filterBy"></input>Theo ký hiệu
@@ -69,8 +69,8 @@ export default class DocumentaryAwayFilterComponent extends Component<IDocumenta
                                                             </label>
                                     </div>
                                 </div>
-                                <div className="checkbox-inline col-md-2">
-                                    <label className="checkbox-inline" style={{ paddingTop: '7px' }}>
+                                <div className="col-md-2">
+                                    <label className="checkbox-inline">
                                         <input onChange={this.handleInputChange} checked={this.state.filterData.exactly} type="checkbox" name="exactly"></input>Tìm chính xác</label>
                                 </div>
                                 <div className="col-md-1">

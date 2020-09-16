@@ -37,21 +37,5 @@ class TinhThanh extends PureComponent {
     return <div className="TinhThanhWrapper">TinhThanhWrapper</div>;
   }
 }
-// const TinhThanh = inject(
-//   Stores.AuthenticationStore,
-//   Stores.SessionStore,
-//   Stores.AccountStore
-// )(
-//   observer(
-
-//   )
-// );
-// TinhThanh.propTypes = {
-//   // bla: PropTypes.string,
-// };
-
-// TinhThanh.defaultProps = {
-//   // bla: 'test',
-// };
 
 export default TinhThanh;

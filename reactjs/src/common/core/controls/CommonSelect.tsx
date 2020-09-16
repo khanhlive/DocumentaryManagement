@@ -110,10 +110,12 @@ export default class CommonSelect extends Component<any, any> {
                         return (
                             <React.Fragment>
                                 {/* <span>{JSON.stringify(context)}</span> */}
-                                <Select placeholder="Chọn..."
+                                <Select
+                                    placeholder="Chọn..."
                                     styles={(isvalid == null || isvalid == undefined) ? normalStyles : (isvalid ? successStyles : errorStyles)}
                                     options={this.props.options}
                                     onChange={this.handleChange}
+                                    isDisabled={this.props.readOnly}
                                     defaultValue={{ value: this.state.value, label: this.props.label }}
                                 >
                                 </Select>

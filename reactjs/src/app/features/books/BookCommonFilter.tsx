@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { DocumentaryType } from '../../../common/core/models/Attachment';
 export interface IBookCommonFilterProps {
-    onSearch?: (filterData: any) => any
+    onSearch?: (filterData: any) => any,
+    useTemplate: boolean,
+    type: number
 }
 export default class BookCommonFilter extends Component<IBookCommonFilterProps, any> {
     constructor(props: any) {
@@ -9,7 +10,7 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
         this.state = {
             filterData: {
                 year: new Date().getFullYear(),
-                type: DocumentaryType.DocumentaryAway
+                type: this.props.type
             }
         }
         this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -42,7 +43,7 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
         }
         return (
 
-            <div className="form-inline" style={{ padding: '13px' }}>
+            <div className="form-inline" style={this.props.useTemplate === true ? {} : { padding: '13px' }}>
                 <div className="form-group">
                     <label>Năm:&nbsp;</label>
                     <select onChange={this.handleSelectChange} name="year" className="form-control" style={{ width: '120px' }}>

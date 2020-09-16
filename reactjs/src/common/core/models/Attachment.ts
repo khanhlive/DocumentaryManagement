@@ -13,6 +13,7 @@ export interface IAttachmentsItemProps {
   file?: FileUploadInfo;
   onSuccess?: (fileInfo?: FileUploadInfo) => any;
   onDelete?: (fileInfo?: FileUploadInfo) => any;
+  readOnly?: boolean;
 }
 export interface IAttachmentsItemState {
   fileUpload?: FileUploadInfo;
@@ -30,6 +31,7 @@ export interface IAttachmentCommonProps {
   onChange?: (files: FileUploadInfo[], filesDelete: FileUploadInfo[]) => any;
   type: number;
   id: number;
+  readOnly?: boolean;
 }
 export interface IAttachmentCommonStates {
   maxSize?: number;

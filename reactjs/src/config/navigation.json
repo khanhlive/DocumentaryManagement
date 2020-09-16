@@ -404,6 +404,20 @@
       ]
     },
     {
+      "title": "Tìm kiếm",
+      "icon": "fa fa-lg fa-fw fa-filter",
+      "items": [
+        {
+          "route": "/tim-kiem/van-ban-di",
+          "title": "Văn bản đi"
+        },
+        {
+          "route": "/tim-kiem/van-ban-den",
+          "title": "Văn bản đến"
+        }
+      ]
+    },
+    {
       "title": "Sổ",
       "icon": "fa fa-lg fa-fw fa-book",
       "items": [

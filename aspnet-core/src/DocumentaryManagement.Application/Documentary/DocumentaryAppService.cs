@@ -79,5 +79,14 @@ namespace DocumentaryManagement.Documentary
             var filter = loadOptions.Parse<DocumentFilterOptions>();
             return ((IDocumentaryRepository)AbpRepository).GetBookDevExtreme(loadOptions, filter);
         }
+
+        [HttpPost]
+        [DontWrapResult]
+        [ActionName("get-search-devextreme")]
+        public LoadResult GetSearchDevExtreme(DataSourceLoadOptionsCustom loadOptions)
+        {
+            var filter = loadOptions.Parse<DocumentSearchOptions>();
+            return ((IDocumentaryRepository)AbpRepository).GetSearchDevExtreme(loadOptions, filter);
+        }
     }
 }
