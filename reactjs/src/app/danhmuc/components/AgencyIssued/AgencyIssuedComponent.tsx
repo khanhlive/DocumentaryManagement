@@ -32,11 +32,11 @@ export default class AgencyIssuedComponent extends Component<IAgencyIssuedProps,
 
     }
     onGridEditData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         this.editComponent?.edit(dataRow.id, dataRow);
     }
     onGridDeleteData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa cơ quan ban hành");
         result.then(res => {
             if (res) {

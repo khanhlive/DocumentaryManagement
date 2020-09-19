@@ -20,6 +20,19 @@ const SearchDocumentaryArrived = Loadable({
     loader: () => import("./search/SearchDocumentArrived"),
     loading: Loading
 });
+
+const ConfigSystem = Loadable({
+    loader: () => import("./systems/Config/ConfigSystem"),
+    loading: Loading
+});
+const Profile = Loadable({
+    loader: () => import("./systems/Profile/ProfileComponent"),
+    loading: Loading
+});
+const UserComponent = Loadable({
+    loader: () => import("./systems/User/UserComponent"),
+    loading: Loading
+});
 export const routes = [
     {
         path: "/so-van-ban/so-van-ban-di",
@@ -44,5 +57,23 @@ export const routes = [
         exact: true,
         component: SearchDocumentaryArrived,
         name: "tim-kiem-van-ban-den"
+    },
+    {
+        path: "/cau-hinh/thong-tin-nguoi-ky-duyet",
+        exact: true,
+        component: ConfigSystem,
+        name: "cau-hinh-thong-tin-nguoi-ky-duyet"
+    },
+    {
+        path: "/he-thong/quan-ly-tai-khoan",
+        exact: true,
+        component: UserComponent,
+        name: "quan-ly-tai-khoan"
+    },
+    {
+        path: "/he-thong/thong-tin-ca-nhan",
+        exact: true,
+        component: Profile,
+        name: "thong-tin-ca-nhan"
     },
 ];

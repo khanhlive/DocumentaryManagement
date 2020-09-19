@@ -10,6 +10,7 @@ import Utils from './utils/utils';
 import abpUserConfigurationService from './services/abpUserConfigurationService';
 import * as moment from 'moment';
 import registerServiceWorker from './serviceWorker';
+import ConfigService from './services/danhmuc/config/ConfigService';
 
 declare var abp: any;
 
@@ -18,7 +19,7 @@ Utils.setLocalization();
 abpUserConfigurationService.getAll().then(data => {
   Utils.extend(true, abp, data.data.result);
   abp.clock.provider = Utils.getCurrentClockProvider(data.data.result.clock.provider);
-
+  ConfigService.refreshCache();
   moment.locale(abp.localization.currentLanguage.name);
 
   if (abp.clock.provider.supportsMultipleTimezone) {

@@ -7,4 +7,9 @@ export interface GetUserOutput {
   fullName: string;
   roleNames: string[];
   id: number;
+  organization: string;
+  address: string;
+  provinceId: number;
+  phoneNumber: string;
+  fullName2: string;
 }

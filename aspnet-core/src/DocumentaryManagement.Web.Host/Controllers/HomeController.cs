@@ -5,15 +5,21 @@ using Abp.Extensions;
 using Abp.Notifications;
 using Abp.Timing;
 using DocumentaryManagement.Controllers;
+using DocumentaryManagement.Web.Host.Reports;
+using Abp.Domain.Repositories;
+using DocumentaryManagement.Model;
+using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
 
 namespace DocumentaryManagement.Web.Host.Controllers
 {
     public class HomeController : DocumentaryManagementControllerBase
     {
+        IDocumentaryRepository Repository;
         private readonly INotificationPublisher _notificationPublisher;
 
-        public HomeController(INotificationPublisher notificationPublisher)
+        public HomeController(INotificationPublisher notificationPublisher, IDocumentaryRepository repository)
         {
+            Repository = repository;
             _notificationPublisher = notificationPublisher;
         }
 
@@ -46,6 +52,6 @@ namespace DocumentaryManagement.Web.Host.Controllers
             );
 
             return Content("Sent notification: " + message);
-        }
+        }        
     }
 }

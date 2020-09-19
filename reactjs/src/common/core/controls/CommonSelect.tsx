@@ -77,6 +77,7 @@ export default class CommonSelect extends Component<any, any> {
     input?: HTMLInputElement;
     constructor(props: any) {
         super(props);
+        //console.log('value', this.props.value ? this.props.value : '')
         this.state = {
             value: this.props.value ? this.props.value : ''
         }
@@ -85,6 +86,17 @@ export default class CommonSelect extends Component<any, any> {
     componentDidMount() {
         this.input?.dispatchEvent(new Event('input'));
     }
+
+    // shouldComponentUpdate(nextProps: any) {
+    //     //console.log('shouldComponentUpdate');
+    //     if (nextProps['value'] !== this.state.value) {
+    //         this.setState({
+    //             value: this.props.value ? this.props.value : ''
+    //         })
+    //     }
+    //     return true
+    // }
+
     handleChange(selectedOptions: any) {
         if (typeof selectedOptions === 'object') {
             this.setState({ value: selectedOptions.value }, () => {
@@ -98,10 +110,10 @@ export default class CommonSelect extends Component<any, any> {
     }
     handleInputChange(e: any) {
     }
-    UNSAFE_componentWillReceiveProps = (nextProps: any) => {
-        //console.log("XaPhuong will receive props", nextProps);
-    };
     render() {
+        //console.log('CommonSelect rerender')
+        //let defaultValue = { value: this.props.value, label: this.props.label }
+
         return (
             <BVContext.Consumer>
                 {
@@ -109,7 +121,7 @@ export default class CommonSelect extends Component<any, any> {
                         let isvalid = context ? context.isValid(this.props.fieldName) : null;
                         return (
                             <React.Fragment>
-                                {/* <span>{JSON.stringify(context)}</span> */}
+                                {/* <span>{JSON.stringify(defaultValue)}</span> */}
                                 <Select
                                     placeholder="Chọn..."
                                     styles={(isvalid == null || isvalid == undefined) ? normalStyles : (isvalid ? successStyles : errorStyles)}

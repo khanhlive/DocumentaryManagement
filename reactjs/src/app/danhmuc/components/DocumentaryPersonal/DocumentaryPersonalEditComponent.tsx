@@ -90,6 +90,7 @@ const validationRules = {
 
 export default class DocumentaryPersonalEditComponent extends EditComponentBase<IDocumentaryPersonalEditProps, IDocumentaryPersonalEditState> {
     attachmentRef?: AttachmentsCommon;
+    editor?: CKEditorCommon;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -202,12 +203,12 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
 
                             <div className="row">
                                 <div className="form-group">
-                                    <label className="control-label col-md-2">Ký hiệu</label>
+                                    <label className="control-label col-md-2">Ký hiệu<span className="text-required">(*)</span></label>
                                     <div className="col-md-4">
                                         <input type="text" onChange={this.handleInputChange} value={this.state.model.code} name="code" className="form-control"></input>
                                     </div>
 
-                                    <label className="control-label col-md-2">Tên văn bản</label>
+                                    <label className="control-label col-md-2">Tên văn bản<span className="text-required">(*)</span></label>
                                     <div className="col-md-4">
                                         <input type="text" onChange={this.handleInputChange} name="name" value={this.state.model.name} className="form-control"></input>
                                     </div>
@@ -216,13 +217,13 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
                             <div className="row">
 
                                 <div className="form-group">
-                                    <label className="control-label col-md-2">Loại văn bản</label>
+                                    <label className="control-label col-md-2">Loại văn bản<span className="text-required">(*)</span></label>
                                     <div className="col-md-4">
                                         <DocumentTypeSelect useQuickAdd={true} value={this.state.model.documentTypeId} label={this.state.model.documentTypeId_Name} fieldName="documentTypeId" onChange={this.handleSelectChange}>
 
                                         </DocumentTypeSelect>
                                     </div>
-                                    <label className="control-label col-md-2">Nơi ban hành</label>
+                                    <label className="control-label col-md-2">Nơi ban hành<span className="text-required">(*)</span></label>
                                     <div className="col-md-4">
                                         <AgencyIssuedSelect useQuickAdd={true} value={this.state.model.agencyIssuedId} label={this.state.model.agencyIssuedId_Name} fieldName="agencyIssuedId" onChange={this.handleSelectChange}>
 
@@ -241,7 +242,7 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
                             </div>
                             <div className="row">
                                 <div className="form-group">
-                                    <label className="control-label col-md-2">Trích yếu</label>
+                                    <label className="control-label col-md-2">Trích yếu<span className="text-required">(*)</span></label>
                                     <div className="col-md-10">
                                         <textarea rows={10} className="form-control" value={this.state.model.abridgment} name="abridgment" onChange={this.handleInputChange}>
 
@@ -253,7 +254,7 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
                                 <div className="form-group">
                                     <label className="control-label col-md-2">Nội dung văn bản</label>
                                     <div className="col-md-10">
-                                        <CKEditorCommon fieldName="content" data={this.state.model.content} onChange={this.handleEditorChange}>
+                                        <CKEditorCommon ref={ref => this.editor = ref || undefined} fieldName="content" data={this.state.model.content} onChange={this.handleEditorChange}>
 
                                         </CKEditorCommon>
                                         {/* <textarea rows={10} className="form-control" name="content" onChange={this.handleInputChange}>
@@ -267,6 +268,7 @@ export default class DocumentaryPersonalEditComponent extends EditComponentBase<
                 </Modal.Body>
 
                 <Modal.Footer>
+                    <button type="button" className="btn btn-default" onClick={() => this.editor?.print()}><i className="fa fa-print"></i> In</button>
                     <button type="button" className="btn btn-info" onClick={this.handleSave.bind(this)}><i className="fa fa-save"></i> Lưu lại</button>
                     <button type="button" className="btn btn-default" onClick={this.handleClose.bind(this)}><i className="fa fa-remove"></i> Đóng</button>
                 </Modal.Footer>

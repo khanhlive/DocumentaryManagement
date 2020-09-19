@@ -16,7 +16,7 @@ class LoginInfo extends React.Component<any, any> {
         <span>
           <ToggleShortcut>
             <img src={this.props.picture} alt="me" className="online" />
-            <span>{this.props.sessionStore!.currentLogin.user ? this.props.sessionStore!.currentLogin.user.name : null}</span>
+            <span>{this.props.sessionStore!.currentLogin.user ? this.props.sessionStore!.currentLogin.user.fullName2 : null}</span>
             <i className="fa fa-angle-down" />
           </ToggleShortcut>
         </span>

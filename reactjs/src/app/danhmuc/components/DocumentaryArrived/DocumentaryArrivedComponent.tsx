@@ -14,6 +14,8 @@ import columnFormatDate from '../../../../common/core/functions/columnRenderDate
 import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
 import { inject, observer } from 'mobx-react';
 import Stores from '../../../../stores/storeIdentifier';
+import ConfigService from '../../../../services/danhmuc/config/ConfigService';
+import PrintingComponent from '../../../../common/core/controls/PrintingComponent';
 
 export interface IDocumentaryStates {
 
@@ -28,10 +30,12 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
     dataGrid?: DataGridCustom;
     editComponent?: DocumentaryArrivedEditComponent;
     filterComponent?: DocumentaryArrivedFilterComponent;
+    printingComponent?: PrintingComponent;
     constructor(props: any) {
         super(props);
         this.handleSearch = this.handleSearch.bind(this);
         this.props.breadcrumbStore?.setItems(["Danh mục", "Văn bản đến"]);
+        this.handlePrinting = this.handlePrinting.bind(this);
     }
     store: any = DocumentaryService.GetAspNetDataSource((method: string, ajaxOptions: any) => {
         let filterData = this.filterComponent?.getData();
@@ -39,11 +43,11 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
     });
 
     onGridEditData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         this.editComponent?.edit(dataRow.id, dataRow);
     }
     onGridDeleteData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa văn bản đến");
         result.then(res => {
             if (res) {
@@ -54,9 +58,27 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
             }
         })
     }
+
+    handlePrinting() {
+        let filterData = Object.assign({}, this.filterComponent?.getData());
+
+        this.printingComponent?.open({
+            isPrint: false,
+            url: 'document',
+            params: filterData
+        })
+    }
+
     handleAdNewRow() {
         let createItem: CreateDocumentaryDto = new CreateDocumentaryDto();
         createItem.type = DocumentaryType.DocumentaryArrived;
+
+        createItem.agencyIssuedId = ConfigService.getCacheField('agencyIssuedId');
+        createItem['agencyIssuedId_Name'] = ConfigService.getCacheField('agencyIssuedName');
+
+        createItem.signer = ConfigService.getCacheField('singer');
+        createItem.approvedBy = ConfigService.getCacheField('approvedBy');
+        createItem.receivedBy = ConfigService.getCacheField('receivedBy');
         this.editComponent?.create(createItem);
     }
 
@@ -117,6 +139,8 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
                                     <div className="widget-body no-padding">
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
                                             gridName="grid-van-ban-den"
+                                            usePrint={true}
+                                            onPrinting={this.handlePrinting}
                                             onAddNewRowCustom={this.handleAdNewRow.bind(this)}
                                             keyExpr="id"
                                             customEditing={false}
@@ -191,7 +215,7 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
                     </div>
                 </WidgetGrid>
                 <DocumentaryArrivedEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)} ></DocumentaryArrivedEditComponent>
-
+                <PrintingComponent ref={ref => this.printingComponent = ref || undefined}></PrintingComponent>
             </div>
 
         )

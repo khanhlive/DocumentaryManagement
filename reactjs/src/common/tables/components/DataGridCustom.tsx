@@ -3,7 +3,6 @@ import DataGrid, { Paging, Pager, IDataGridOptions, Editing } from 'devextreme-r
 import dxDataGrid, { dxDataGridSelection } from 'devextreme/ui/data_grid';
 import { dxElement } from 'devextreme/core/element';
 import { dxToolbarOptions, dxToolbarItem } from 'devextreme/ui/toolbar';
-import { isBuffer } from 'util';
 
 export interface IDataGridOptionsCustom extends IDataGridOptions {
     selectionMode?: 'single' | 'multiple' | 'none',
@@ -11,7 +10,9 @@ export interface IDataGridOptionsCustom extends IDataGridOptions {
     customEditing?: boolean,
     gridName?: string,
     onAddNewRowCustom?: () => any,
-    removeButtonAdd?: boolean
+    removeButtonAdd?: boolean,
+    usePrint?: boolean,
+    onPrinting?: () => any
 }
 const buttonExclude: Array<string> = [];// ['columnChooserButton'];
 export default class DataGridCustom extends Component<IDataGridOptionsCustom, any> {
@@ -20,6 +21,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
         super(props);
         this.onSelectionChanged = this.onSelectionChanged.bind(this);
         this.onToolbarPreparing = this.onToolbarPreparing.bind(this);
+        this.handlePrintClick = this.handlePrintClick.bind(this);
     }
     onSelectionChanged(e: { component?: dxDataGrid, element?: dxElement, model?: any, currentSelectedRowKeys?: Array<any>, currentDeselectedRowKeys?: Array<any>, selectedRowKeys?: Array<any>, selectedRowsData?: Array<any> }) {
         if (this.props.selectionMode === 'single') {
@@ -43,12 +45,28 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
         }
     }
 
+    handlePrintClick() {
+        if (this.props.onPrinting !== undefined) {
+            this.props.onPrinting();
+        }
+    }
+
     onToolbarPreparing(e: { component?: dxDataGrid, element?: dxElement, model?: any, toolbarOptions?: dxToolbarOptions }) {
         e.toolbarOptions?.items?.forEach((item: dxToolbarItem) => {
             if (item.widget === "dxButton" && buttonExclude.indexOf(item['name']) < 0) {
                 item.location = "before";
             }
         });
+        if (this.props.usePrint === true) {
+            e.toolbarOptions?.items?.unshift({
+                location: 'before',
+                widget: 'dxButton',
+                options: {
+                    icon: 'print',
+                    onClick: this.handlePrintClick
+                }
+            })
+        }
 
         e.toolbarOptions?.items?.unshift({
             location: 'before',
@@ -58,6 +76,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
                 onClick: this.refresh.bind(this)
             }
         })
+
         if (!this.props.removeButtonAdd === true) {
             e.toolbarOptions?.items?.unshift({
                 location: 'before',

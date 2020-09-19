@@ -151,7 +151,7 @@ class ServiceBase<Dto, CreateDto, UpdateDto>
         ajaxOptions.headers[
           "Abp.TenantId"
         ] = abp.multiTenancy.getTenantIdCookie();
-        ajaxOptions.xhrFields = { withCredentials: true };
+        //ajaxOptions.xhrFields = { withCredentials: true };
         if (ajaxOptions.data) {
           //ajaxOptions.data["data"] = JSON.stringify({ id: 1, name: "khanhnd" });
         }

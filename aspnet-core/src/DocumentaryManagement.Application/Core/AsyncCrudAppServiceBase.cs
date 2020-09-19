@@ -82,7 +82,7 @@ namespace DocumentaryManagement.Core
         [HttpPost]
         [DontWrapResult]
         [ActionName("store-create")]
-        public async Task<IActionResult> StoreCreate(string values)
+        public virtual async Task<IActionResult> StoreCreate(string values)
         {
             TCreateInput item = new TCreateInput();
             JsonConvert.PopulateObject(values, item);
@@ -101,7 +101,7 @@ namespace DocumentaryManagement.Core
         [HttpPut]
         [DontWrapResult]
         [ActionName("store-edit")]
-        public async Task<IActionResult> StoreEdit(TPrimaryKey key, string values)
+        public virtual async Task<IActionResult> StoreEdit(TPrimaryKey key, string values)
         {
             TEntity item = Repository.Get(key);
             JsonConvert.PopulateObject(values, item);
@@ -119,7 +119,7 @@ namespace DocumentaryManagement.Core
         [HttpDelete]
         [DontWrapResult]
         [ActionName("store-delete")]
-        public async Task<IActionResult> StoreDelete(TPrimaryKey key)
+        public virtual async Task<IActionResult> StoreDelete(TPrimaryKey key)
         {
             try
             {

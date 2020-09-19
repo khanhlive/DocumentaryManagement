@@ -32,11 +32,11 @@ export default class DocumentTypeComponent extends Component<IDocumentTypeProps,
 
     }
     onGridEditData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         this.editComponent?.edit(dataRow.id, dataRow);
     }
     onGridDeleteData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa loại văn bản");
         result.then(res => {
             if (res) {

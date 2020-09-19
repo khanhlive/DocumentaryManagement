@@ -11,6 +11,7 @@ import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault'
 import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
 import { inject, observer } from 'mobx-react';
 import Stores from '../../../../stores/storeIdentifier';
+import ConfigService from '../../../../services/danhmuc/config/ConfigService';
 
 const store: any = DocumentaryPersonalService.GetAspNetDataSource();
 
@@ -32,11 +33,11 @@ export default class DocumentaryPersonalComponent extends Component<IDocumentary
 
     }
     onGridEditData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         this.editComponent?.edit(dataRow.id, dataRow);
     }
     onGridDeleteData(cellData: { data: any }) {
-        let dataRow = cellData.data;
+        let dataRow = Object.assign({}, cellData.data);
         let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa văn bản cá nhân");
         result.then(res => {
             if (res) {
@@ -50,6 +51,8 @@ export default class DocumentaryPersonalComponent extends Component<IDocumentary
 
     handleAdNewRow() {
         let createItem: CreateDocumentaryPersonalDto = new CreateDocumentaryPersonalDto();
+        createItem.agencyIssuedId = ConfigService.getCacheField('agencyIssuedId');
+        createItem['agencyIssuedId_Name'] = ConfigService.getCacheField('agencyIssuedName');
         this.editComponent?.create(createItem);
     }
 

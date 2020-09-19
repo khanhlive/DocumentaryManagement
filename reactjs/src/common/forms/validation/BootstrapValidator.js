@@ -74,6 +74,10 @@ class BootstrapValidator extends React.Component {
     form.validate();
     return form.isValid();
   }
+  resetForm() {
+    let form = $(findDOMNode(this)).data('bootstrapValidator');
+    form.resetForm();
+  }
   getFieldValid(fieldName) {
     let form = $(findDOMNode(this)).data('bootstrapValidator');
     let isValid = form == undefined || this.state.validates.find(p => p.field === fieldName) == null ? null : form.isValidField(fieldName);

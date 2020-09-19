@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 export interface IBookCommonFilterProps {
     onSearch?: (filterData: any) => any,
     useTemplate: boolean,
-    type: number
+    type: number,
+    onPrint?: () => any
 }
 export default class BookCommonFilter extends Component<IBookCommonFilterProps, any> {
     constructor(props: any) {
@@ -15,6 +16,7 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
         }
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handlePrinting = this.handlePrinting.bind(this);
     }
     handleSearch() {
         if (this.props.onSearch !== undefined) {
@@ -30,6 +32,12 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
         this.setState({
             filterData: filter,
         });
+    }
+
+    handlePrinting() {
+        if (this.props.onPrint !== undefined) {
+            this.props.onPrint();
+        }
     }
 
     public getData() {
@@ -56,7 +64,7 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
 
                 </div>
                 <button type="button" style={{ marginLeft: '10px' }} onClick={this.handleSearch} className="btn btn-primary"><i className="fa fa-search"></i>&nbsp;Tìm</button>
-                <button type="button" style={{ marginLeft: '10px' }} className="btn btn-info"><i className="fa fa-print"></i>&nbsp;In</button>
+                <button type="button" style={{ marginLeft: '10px' }} onClick={this.handlePrinting} className="btn btn-info"><i className="fa fa-print"></i>&nbsp;In</button>
             </div>
         )
     }

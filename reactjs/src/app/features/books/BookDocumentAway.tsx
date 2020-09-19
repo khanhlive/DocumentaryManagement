@@ -5,24 +5,28 @@ import { dxToolbarOptions } from 'devextreme/ui/toolbar';
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react'
 import { BigBreadcrumbs, JarvisWidget, Stats, WidgetGrid } from '../../../common';
+import PrintingComponent from '../../../common/core/controls/PrintingComponent';
 import columnFormatDate from '../../../common/core/functions/columnRenderDate';
 import { DocumentaryType } from '../../../common/core/models/Attachment';
 import { JavisWidgetDefault } from '../../../common/core/models/JavisDefault';
 import DataGridCustom from '../../../common/tables/components/DataGridCustom';
 import DocumentaryService from '../../../services/danhmuc/documentary/DocumentaryService';
 import BreadcrumbStoreApp from '../../../stores/BreadcrumbStore';
+import SessionStore from '../../../stores/sessionStore';
 import Stores from '../../../stores/storeIdentifier';
 import BookCommonFilter from './BookCommonFilter';
 
 export interface IBookDocumentAwayProps {
-    breadcrumbStore?: BreadcrumbStoreApp
+    breadcrumbStore?: BreadcrumbStoreApp,
+    sessionStore?: SessionStore
 }
 
-@inject(Stores.BreadcrumbStore)
+@inject(Stores.BreadcrumbStore, Stores.SessionStore)
 @observer
 export default class BookDocumentAway extends Component<IBookDocumentAwayProps, any> {
     dataGrid?: DataGridCustom;
     filterComponent?: BookCommonFilter;
+    printingComponent?: PrintingComponent;
     store: any = DocumentaryService.GetAspNetDataSourceBook((method: string, ajaxOptions: any) => {
         let filterData = this.filterComponent?.getData();
         ajaxOptions.data['data'] = JSON.stringify(filterData);
@@ -33,6 +37,7 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
         this.handleSearch = this.handleSearch.bind(this);
         this.handleToolbarPreparing = this.handleToolbarPreparing.bind(this);
         this.toolbarSearchRenderer = this.toolbarSearchRenderer.bind(this);
+        this.handlePrinting = this.handlePrinting.bind(this);
     }
     handleSearch() {
         this.dataGrid?.refresh();
@@ -46,10 +51,21 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
     }
     toolbarSearchRenderer() {
         return (
-            <BookCommonFilter type={DocumentaryType.DocumentaryAway} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
+            <BookCommonFilter type={DocumentaryType.DocumentaryAway} onPrint={this.handlePrinting} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
 
             </BookCommonFilter>
         );
+    }
+    handlePrinting() {
+        let filterData = Object.assign({}, this.filterComponent?.getData(), {
+            id: this.props.sessionStore?.currentLogin.user.id
+        });
+
+        this.printingComponent?.open({
+            isPrint: false,
+            url: 'book',
+            params: filterData
+        })
     }
     render() {
         return (
@@ -86,6 +102,8 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
                                             gridName="grid-so-van-ban-di"
                                             removeButtonAdd={true}
+                                            usePrint={true}
+                                            onPrinting={this.handlePrinting}
                                             keyExpr="id"
                                             filterRow={{ visible: false }}
                                             onToolbarPreparing={this.handleToolbarPreparing}
@@ -175,7 +193,7 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                         </article>
                     </div>
                 </WidgetGrid>
-
+                <PrintingComponent ref={ref => this.printingComponent = ref || undefined}></PrintingComponent>
             </div>
 
         )

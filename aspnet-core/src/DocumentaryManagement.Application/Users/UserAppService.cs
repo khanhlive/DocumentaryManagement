@@ -13,6 +13,10 @@ using Abp.Linq.Extensions;
 using Abp.Localization;
 using Abp.Runtime.Session;
 using Abp.UI;
+using Abp.Web.Models;
+using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Data.ResponseModel;
+using DevExtreme.AspNet.Mvc;
 using DocumentaryManagement.Authorization;
 using DocumentaryManagement.Authorization.Accounts;
 using DocumentaryManagement.Authorization.Roles;
@@ -20,6 +24,7 @@ using DocumentaryManagement.Authorization.Users;
 using DocumentaryManagement.Roles.Dto;
 using DocumentaryManagement.Users.Dto;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DocumentaryManagement.Users
@@ -217,6 +222,14 @@ namespace DocumentaryManagement.Users
             }
 
             return true;
+        }
+
+        [HttpPost]
+        [DontWrapResult]
+        [ActionName("get-devextreme")]
+        public virtual LoadResult GetDevExtreme(DataSourceLoadOptions loadOptions)
+        {
+            return DataSourceLoader.Load(Repository.GetAllList(), loadOptions);
         }
 
     }

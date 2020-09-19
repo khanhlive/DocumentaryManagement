@@ -9,6 +9,7 @@ using DocumentaryManagement.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
@@ -45,7 +46,12 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             }
         }
 
-        public virtual LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions)
+        public List<AppDocumentary> GetFilterReportData(DocumentFilterOptions documentFilterOptions)
+        {
+            return this.GetQueryFilter(documentFilterOptions).ToList();
+        }
+
+        private IQueryable<AppDocumentary> GetQueryFilter(DocumentFilterOptions documentFilterOptions)
         {
             DocumentaryManagementDbContext DbContext = this.GetDevContext();
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
@@ -64,9 +70,29 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
                     }
                 }
             }
-
-            return DataSourceLoader.Load(SetEntityIncludes(query), loadOptions);
+            return SetEntityIncludes(query);
         }
+
+        public virtual LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions)
+        {
+            return DataSourceLoader.Load(GetQueryFilter(documentFilterOptions), loadOptions);
+        }
+
+        public List<AppDocumentary> GetBookReportData(DocumentFilterOptions documentFilterOptions)
+        {
+            return GetBookQuery(documentFilterOptions).ToList();
+        }
+
+        private IQueryable<AppDocumentary> GetBookQuery(DocumentFilterOptions documentFilterOptions)
+        {
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
+            if (documentFilterOptions != null)
+            {
+                query = query.Where(p => p.Type == documentFilterOptions.Type && p.ReleaseDate.Year == documentFilterOptions.Year);
+            }
+            return SetEntityIncludes(query);
+        } 
 
         public virtual LoadResult GetBookDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions)
         {
@@ -79,7 +105,12 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             return DataSourceLoader.Load(SetEntityIncludes(query), loadOptions);
         }
 
-        public LoadResult GetSearchDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentSearchOptions searchOptions)
+        public List<AppDocumentary> GetSearchReportData(DocumentSearchOptions searchOptions)
+        {
+            return this.GetQuerySearch(searchOptions).ToList();
+        }
+
+        private IQueryable<AppDocumentary> GetQuerySearch(DocumentSearchOptions searchOptions)
         {
             DocumentaryManagementDbContext DbContext = this.GetDevContext();
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
@@ -100,7 +131,12 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
                            );
                 }
             }
-            return DataSourceLoader.Load(SetEntityIncludes(query), loadOptions);
+            return SetEntityIncludes(query);
+        }
+
+        public LoadResult GetSearchDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentSearchOptions searchOptions)
+        {            
+            return DataSourceLoader.Load(this.GetQuerySearch(searchOptions), loadOptions);
         }
     }
 }

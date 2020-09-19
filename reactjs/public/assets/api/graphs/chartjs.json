@@ -7,6 +7,8 @@
         "fillColor": "rgba(220,220,220,0.2)",
         "strokeColor": "rgba(220,220,220,1)",
         "pointColor": "rgba(220,220,220,1)",
+        "backgroundColor": "rgba(255, 99, 132, 0.2)",
+        "borderColor": "rgb(255, 99, 132)",
         "pointStrokeColor": "#fff",
         "pointHighlightFill": "#fff",
         "pointHighlightStroke": "rgba(220,220,220,1)",
@@ -15,6 +17,8 @@
       {
         "label": "My Second dataset",
         "fillColor": "rgba(151,187,205,0.2)",
+        "backgroundColor": "rgba(255, 159, 64, 0.2)",
+        "borderColor": "rgb(255, 159, 64)",
         "strokeColor": "rgba(151,187,205,1)",
         "pointColor": "rgba(151,187,205,1)",
         "pointStrokeColor": "#fff",
@@ -25,7 +29,15 @@
     ]
   },
   "radar-chart": {
-    "labels": ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+    "labels": [
+      "Eating",
+      "Drinking",
+      "Sleeping",
+      "Designing",
+      "Coding",
+      "Cycling",
+      "Running"
+    ],
     "datasets": [
       {
         "label": "My First dataset",
@@ -49,13 +61,28 @@
       }
     ]
   },
-  "polar-chart": {"datasets":[{"data":[11,16,7,3,14],"backgroundColor":["#FF6384","#4BC0C0","#FFCE56","#E7E9ED","#36A2EB"],"label":"My dataset"}],"labels":["Red","Green","Yellow","Grey","Blue"]},
-  "bar-chart":{
+  "polar-chart": {
+    "datasets": [
+      {
+        "data": [11, 16, 7, 3, 14],
+        "backgroundColor": [
+          "#FF6384",
+          "#4BC0C0",
+          "#FFCE56",
+          "#E7E9ED",
+          "#36A2EB"
+        ],
+        "label": "My dataset"
+      }
+    ],
+    "labels": ["Red", "Green", "Yellow", "Grey", "Blue"]
+  },
+  "bar-chart": {
     "labels": ["January", "February", "March", "April", "May", "June", "July"],
     "datasets": [
       {
         "label": "My First dataset",
-        "fillColor": "rgba(220,220,220,0.5)",
+        "fillColor": "#FF6384",
         "strokeColor": "rgba(220,220,220,0.8)",
         "highlightFill": "rgba(220,220,220,0.75)",
         "highlightStroke": "rgba(220,220,220,1)",
@@ -71,6 +98,24 @@
       }
     ]
   },
-  "doughnut-chart":{"labels":["Red","Blue","Yellow"],"datasets":[{"data":[300,50,100],"backgroundColor":["#FF6384","#36A2EB","#FFCE56"],"hoverBackgroundColor":["#FF6384","#36A2EB","#FFCE56"]}]},
-  "pie-chart": {"labels":["Red","Blue","Yellow"],"datasets":[{"data":[300,50,100],"backgroundColor":["#FF6384","#36A2EB","#FFCE56"],"hoverBackgroundColor":["#FF6384","#36A2EB","#FFCE56"]}]}
+  "doughnut-chart": {
+    "labels": ["Red", "Blue", "Yellow"],
+    "datasets": [
+      {
+        "data": [300, 50, 100],
+        "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"],
+        "hoverBackgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"]
+      }
+    ]
+  },
+  "pie-chart": {
+    "labels": ["Red", "Blue", "Yellow"],
+    "datasets": [
+      {
+        "data": [300, 50, 100],
+        "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"],
+        "hoverBackgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"]
+      }
+    ]
+  }
 }

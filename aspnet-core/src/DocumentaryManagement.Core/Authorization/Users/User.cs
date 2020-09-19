@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Authorization.Users;
+using Abp.Domain.Entities;
 using Abp.Extensions;
 using DocumentaryManagement.Model;
 
@@ -10,6 +11,8 @@ namespace DocumentaryManagement.Authorization.Users
 {
     public class User : AbpUser<User>
     {
+        [StringLength(250)]
+        public string FullName2 { get; set; }
         [StringLength(250)]
         public string Organization { get; set; }
         [Column("Province_Id")]
@@ -19,7 +22,7 @@ namespace DocumentaryManagement.Authorization.Users
         [ForeignKey("ProvinceId")]
         [InverseProperty("Users")]
         public virtual AppProvince Province { get; set; }
-        public const string DefaultPassword = "123qwe";
+        public const string DefaultPassword = "123qwe";        
 
         public static string CreateRandomPassword()
         {

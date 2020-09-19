@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models
+﻿namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models
 {
     public class DocumentFilterOptions
     {

@@ -104,13 +104,13 @@ export default class DocumentTypeEditComponent extends EditComponentBase<IDocume
 
                         <div ref={ref => this.divForm = ref || undefined} className="form-horizontal">
                             <div className="form-group">
-                                <label className="control-label col-md-2">Mã loại</label>
+                                <label className="control-label col-md-2">Mã loại<span className="text-required">(*)</span></label>
                                 <div className="col-md-10">
                                     <input type="text" onChange={this.handleInputChange.bind(this)} value={this.state.model.code} name="code" className="form-control"></input>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label className="control-label col-md-2">Tên loại</label>
+                                <label className="control-label col-md-2">Tên loại<span className="text-required">(*)</span></label>
                                 <div className="col-md-10">
                                     <input type="text" onChange={this.handleInputChange.bind(this)} name="name" value={this.state.model.name} className="form-control"></input>
                                 </div>

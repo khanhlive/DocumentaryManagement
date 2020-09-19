@@ -1,7 +1,9 @@
 import { Column } from 'devextreme-react/data-grid';
 import { inject, observer } from 'mobx-react';
+import moment from 'moment';
 import React, { Component } from 'react'
 import { BigBreadcrumbs, JarvisWidget, Stats, WidgetGrid } from '../../../common';
+import PrintingComponent from '../../../common/core/controls/PrintingComponent';
 import columnFormatDate from '../../../common/core/functions/columnRenderDate';
 import { DocumentaryType } from '../../../common/core/models/Attachment';
 import { JavisWidgetDefault } from '../../../common/core/models/JavisDefault';
@@ -22,6 +24,7 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
     dataGrid?: DataGridCustom;
     filterComponent?: SearchDocument;
     editComponent?: DocumentView;
+    printingComponent?: PrintingComponent;
     store: any = DocumentaryService.GetAspNetDataSourceSearch((method: string, ajaxOptions: any) => {
         let filterData = this.filterComponent?.getData();
         ajaxOptions.data['data'] = JSON.stringify(filterData);
@@ -31,6 +34,7 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
         this.props.breadcrumbStore?.setItems(["Tìm kiếm", "Văn bản đi"]);
         this.handleSearch = this.handleSearch.bind(this);
         this.onGridViewData = this.onGridViewData.bind(this);
+        this.handlePrinting = this.handlePrinting.bind(this);
     }
     handleSearch() {
         this.dataGrid?.refresh();
@@ -39,6 +43,28 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
     onGridViewData(cellData: { data: any }) {
         let dataRow = cellData.data;
         this.editComponent?.open(dataRow);
+    }
+
+    modifiyDate(data: any, field: string) {
+        if (data[field]) {
+            const _date = moment(data[field], 'DD/MM/YYYY');
+            if (_date.isValid()) {
+                data[field] = _date.format('MM/DD/YYYY')
+            }
+        }
+        return data;
+    }
+    handlePrinting() {
+        let filterData = Object.assign({}, this.filterComponent?.getData());
+        let fields: string[] = ['ngayBanHanhTu', 'ngayBanHanhDen', 'ngayGuiTu', 'ngayGuiDen'];
+        fields.forEach(element => {
+            filterData = this.modifiyDate(filterData, element);
+        });
+        this.printingComponent?.open({
+            isPrint: false,
+            url: 'search',
+            params: filterData
+        })
     }
     render() {
         return (
@@ -76,6 +102,8 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
                                             <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
                                                 gridName="grid-search-van-ban-di"
                                                 removeButtonAdd={true}
+                                                usePrint={true}
+                                                onPrinting={this.handlePrinting}
                                                 keyExpr="id"
                                                 filterRow={{ visible: false }}
                                                 customEditing={false}
@@ -187,6 +215,8 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
                 <DocumentView type={DocumentaryType.DocumentaryAway} ref={ref => this.editComponent = ref || undefined}>
 
                 </DocumentView>
+
+                <PrintingComponent ref={ref => this.printingComponent = ref || undefined}></PrintingComponent>
             </React.Fragment>
         )
     }

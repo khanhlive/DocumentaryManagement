@@ -27,14 +27,27 @@ namespace DocumentaryManagement.Users.Dto
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
         public string EmailAddress { get; set; }
 
-        public bool IsActive { get; set; }
-
-        public string FullName { get; set; }
+        public bool IsActive { get; set; }        
 
         public DateTime? LastLoginTime { get; set; }
 
         public DateTime CreationTime { get; set; }
 
         public string[] RoleNames { get; set; }
+
+        [Required]
+        [StringLength(AbpUserBase.MaxNameLength)]
+        public string FullName2 { get; set; }
+
+        [StringLength(AbpUserBase.MaxSurnameLength)]
+        public string Organization { get; set; }
+
+        public int? ProvinceId { get; set; }
+
+        [StringLength(AbpUserBase.MaxSurnameLength)]
+        public string Address { get; set; }
+
+        [StringLength(11)]
+        public string PhoneNumber { get; set; }
     }
 }

@@ -56,7 +56,8 @@ namespace DocumentaryManagement.Documentary
                     p.DocumentaryId = result.Id;
                     p.IsDeleted = false;
                 });
-                attachments.AddRange(attachmentsDelete.Select(p => { p.IsDeleted = true; return p; }));
+                if (attachmentsDelete != null && attachmentsDelete.Count > 0)
+                    attachments.AddRange(attachmentsDelete.Select(p => { p.IsDeleted = true; return p; }));
                 await attachmentRepository.UpdateAttachmentsAsync(attachments);
             }
             return result;

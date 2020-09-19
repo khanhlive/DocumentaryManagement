@@ -34,7 +34,7 @@ class DocumentaryService extends ServiceBase<
         ajaxOptions.headers[
           "Abp.TenantId"
         ] = abp.multiTenancy.getTenantIdCookie();
-        ajaxOptions.xhrFields = { withCredentials: true };
+        //ajaxOptions.xhrFields = { withCredentials: true };
       },
     });
   }
@@ -60,7 +60,7 @@ class DocumentaryService extends ServiceBase<
         ajaxOptions.headers[
           "Abp.TenantId"
         ] = abp.multiTenancy.getTenantIdCookie();
-        ajaxOptions.xhrFields = { withCredentials: true };
+        //ajaxOptions.xhrFields = { withCredentials: true };
       },
     });
   }

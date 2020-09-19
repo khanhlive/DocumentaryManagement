@@ -17,10 +17,25 @@ namespace DocumentaryManagement.Users.Dto
         [Required]
         [StringLength(AbpUserBase.MaxNameLength)]
         public string Name { get; set; }
-
+       
         [Required]
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
+
+        [Required]
+        [StringLength(AbpUserBase.MaxNameLength)]
+        public string FullName2 { get; set; }
+
+        [StringLength(AbpUserBase.MaxSurnameLength)]
+        public string Organization { get; set; }
+
+        public int? ProvinceId { get; set; }
+
+        [StringLength(AbpUserBase.MaxSurnameLength)]
+        public string Address { get; set; }
+
+        [StringLength(11)]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [EmailAddress]

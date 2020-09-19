@@ -25,22 +25,34 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using DevExpress.AspNetCore;
+using DevExpress.AspNetCore.Reporting;
+using DevExpress.AspNetCore.Reporting.WebDocumentViewer;
+using DevExpress.AspNetCore.Reporting.QueryBuilder;
+using DevExpress.AspNetCore.Reporting.ReportDesigner;
+using DocumentaryManagement.Web.Host.Controllers;
 
 namespace DocumentaryManagement.Web.Host.Startup
 {
     public class Startup
     {
+        public IFileProvider FileProvider { get; }
+        public IConfiguration Configuration { get; }
+
         private const string _defaultCorsPolicyName = "localhost";
 
         private readonly IConfigurationRoot _appConfiguration;
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
+            Configuration = configuration;
             _appConfiguration = env.GetAppConfiguration();
+            FileProvider = env.ContentRootFileProvider;
         }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddDevExpressControls();
             // MVC
             services.AddMvc(options =>
                 {
@@ -49,15 +61,30 @@ namespace DocumentaryManagement.Web.Host.Startup
                     options.OutputFormatters.Add(new JsonOutputFormatter(new JsonSerializerSettings()
                     {
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                        ContractResolver=new CamelCasePropertyNamesContractResolver(),
-                        DateFormatString="dd/MM/yyyy HH:mm:ss"
+                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                        DateFormatString = "dd/MM/yyyy HH:mm:ss"
                     }, ArrayPool<char>.Shared));
                 }
             )
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.ConfigureReportingServices(configurator =>
+            {
+                configurator.ConfigureReportDesigner(designerConfigurator =>
+                {
+                    designerConfigurator.RegisterDataSourceWizardConfigFileConnectionStringsProvider();
+                });
+                configurator.ConfigureWebDocumentViewer(viewerConfigurator =>
+                {
+                    viewerConfigurator.UseCachedReportSourceBuilder();
+                });
+            });
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
+            services.AddTransient<WebDocumentViewerController>();
+            services.AddTransient<ReportDesignerController>();
+            services.AddTransient<QueryBuilderController>();
+            services.AddTransient<ReportController>();
 
             services.AddSignalR();
 
@@ -66,30 +93,36 @@ namespace DocumentaryManagement.Web.Host.Startup
                 options => options.AddPolicy(
                     _defaultCorsPolicyName,
                     builder => builder
-                        .WithOrigins(
-                            // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
-                            _appConfiguration["App:CorsOrigins"]
-                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                .Select(o => o.RemovePostFix("/"))
-                                .ToArray()
-                        )
+                        //.WithOrigins(
+                        //    // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
+                        //    _appConfiguration["App:CorsOrigins"]
+                        //        .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                        //        .Select(o => o.RemovePostFix("/"))
+                        //        .ToArray()
+                        //)
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials()
                 )
             );
 
-            services.Configure<FormOptions>(o => {
+            services.Configure<FormOptions>(o =>
+            {
                 o.ValueLengthLimit = int.MaxValue;
                 o.MultipartBodyLengthLimit = int.MaxValue;
                 o.MemoryBufferThreshold = int.MaxValue;
             });
-
+            var controllerExcludes = new string[] { "QueryBuilder", "ReportDesigner", "WebDocumentViewer" };
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new Info { Title = "DocumentaryManagement API", Version = "v1" });
-                options.DocInclusionPredicate((docName, description) => true);
+                options.DocInclusionPredicate((docName, description) =>
+                {
+                    var controllerName = ((Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)description.ActionDescriptor).ControllerName;
+                    return !controllerExcludes.Any(p => p == controllerName);
+                });
 
                 // Define the BearerAuth scheme that's in use
                 options.AddSecurityDefinition("bearerAuth", new ApiKeyScheme()
@@ -112,6 +145,22 @@ namespace DocumentaryManagement.Web.Host.Startup
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Frame-Options", "ALLOWALL");
+                await next();
+            });
+
+            var reportDirectory = Path.Combine(env.ContentRootPath, "Reports");
+            DevExpress.XtraReports.Web.Extensions.ReportStorageWebExtension.RegisterExtensionGlobal(new ReportStorageWebExtension1(reportDirectory));
+            DevExpress.XtraReports.Configuration.Settings.Default.UserDesignerOptions.DataBindingMode = DevExpress.XtraReports.UI.DataBindingMode.Expressions;
+            app.UseDevExpressControls();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
             app.UseAbp(options => { options.UseAbpRequestLocalization = false; }); // Initializes ABP framework.
 
             app.UseCors(_defaultCorsPolicyName); // Enable CORS!
@@ -122,6 +171,12 @@ namespace DocumentaryManagement.Web.Host.Startup
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads")),
                 RequestPath = new PathString("/Uploads")
+            });
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
+                RequestPath = "/node_modules"
             });
 
             app.UseAuthentication();

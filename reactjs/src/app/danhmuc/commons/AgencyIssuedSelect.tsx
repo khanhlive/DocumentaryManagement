@@ -16,7 +16,9 @@ export interface IAgencyIssuedProps {
     readOnly?: boolean
 }
 export interface IAgencyIssuedStates {
-    options: Array<any>
+    options: Array<any>,
+    value?: any,
+    label?: any
 }
 
 export default class AgencyIssuedSelect extends Component<IAgencyIssuedProps, IAgencyIssuedStates> {
@@ -29,7 +31,9 @@ export default class AgencyIssuedSelect extends Component<IAgencyIssuedProps, IA
         super(props);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.state = {
-            options: []
+            options: [],
+            value: this.props.value,
+            label: this.props.label
         }
     }
     componentDidMount() {
@@ -68,6 +72,7 @@ export default class AgencyIssuedSelect extends Component<IAgencyIssuedProps, IA
         })
     }
     render() {
+        console.log('AgencyIssuedSelect rerender')
         let selectControl = (
             <CommonSelect readOnly={this.props.readOnly} value={this.props.value} label={this.props.label} options={this.state.options} fieldName={this.props.fieldName} onChange={this.handleSelectChange}>
             </CommonSelect>

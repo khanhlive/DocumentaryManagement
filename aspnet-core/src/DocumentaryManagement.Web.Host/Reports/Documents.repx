@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.3.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Documents" Margins="100, 100, 51, 47" PageWidth="850" PageHeight="1100" Version="19.1" EventsInfo="|Detail,BeforePrint,Detail_BeforePrint" Font="Times New Roman, 11.25pt, charSet=0">
+  <Bands>
+    <Item1 Ref="1" ControlType="TopMarginBand" Name="TopMargin" HeightF="51.0416679" />
+    <Item2 Ref="2" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="47.29169" />
+    <Item3 Ref="3" ControlType="DetailBand" Name="Detail" HeightF="27.08333">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRLine" Name="line1" LineStyle="Dot" SizeF="649.999939,2.083332" LocationFloat="0, 24.9999981" BorderDashStyle="Solid">
+          <StylePriority Ref="5" UseBorderDashStyle="false" />
+        </Item1>
+        <Item2 Ref="6" ControlType="XRTable" Name="table2" SizeF="649.999939,25" LocationFloat="0, 0" Padding="2,2,0,0,96" Borders="Left, Right">
+          <Rows>
+            <Item1 Ref="7" ControlType="XRTableRow" Name="tableRow2" Weight="1" TextAlignment="MiddleLeft">
+              <Cells>
+                <Item1 Ref="8" ControlType="XRTableCell" Name="colStt" Weight="0.27777770996093754" Multiline="true" TextAlignment="MiddleCenter">
+                  <ExpressionBindings>
+                    <Item1 Ref="9" PropertyName="Text" EventName="BeforePrint" />
+                    <Item2 Ref="10" PropertyName="Text" EventName="BeforePrint" />
+                    <Item3 Ref="11" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="12" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="13" ControlType="XRTableCell" Name="tableCell10" Weight="0.68750030517578131" Multiline="true">
+                  <ExpressionBindings>
+                    <Item1 Ref="14" Expression="[TextNumber]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                </Item2>
+                <Item3 Ref="15" ControlType="XRTableCell" Name="tableCell11" Weight="0.78472221374511686" Multiline="true">
+                  <ExpressionBindings>
+                    <Item1 Ref="16" Expression="[Code]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                </Item3>
+                <Item4 Ref="17" ControlType="XRTableCell" Name="tableCell12" Weight="0.94444388155610537" TextFormatString="{0:dd/MM/yyyy}" Multiline="true" TextAlignment="MiddleRight">
+                  <ExpressionBindings>
+                    <Item1 Ref="18" Expression="[ReleaseDate]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="19" UseTextAlignment="false" />
+                </Item4>
+                <Item5 Ref="20" ControlType="XRTableCell" Name="tableCell13" Weight="1.2361104248099029" Multiline="true">
+                  <ExpressionBindings>
+                    <Item1 Ref="21" Expression="[SummaryContent]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                </Item5>
+                <Item6 Ref="22" ControlType="XRTableCell" Name="tableCell14" Weight="1.2291664555996769" Multiline="true">
+                  <ExpressionBindings>
+                    <Item1 Ref="23" Expression="[AgencyIssuedId_Name]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                </Item6>
+                <Item7 Ref="24" ControlType="XRTableCell" Name="tableCell15" Weight="0.81250058974950579" Multiline="true">
+                  <ExpressionBindings>
+                    <Item1 Ref="25" Expression="[DocumentTypeId_Name]" PropertyName="Text" EventName="BeforePrint" />
+                  </ExpressionBindings>
+                </Item7>
+                <Item8 Ref="26" ControlType="XRTableCell" Name="tableCell16" Weight="0.52777762128956862" Multiline="true">
+                  <Controls>
+                    <Item1 Ref="27" ControlType="XRCheckBox" Name="checkBox1" AnchorVertical="Both" AnchorHorizontal="Both" SizeF="20.277832,23" LocationFloat="14.8610229, 0.694444358" Padding="2,2,0,0,100" Borders="None">
+                      <ExpressionBindings>
+                        <Item1 Ref="28" Expression="[IsProcessed]" PropertyName="CheckState" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="29" UseBorders="false" />
+                    </Item1>
+                  </Controls>
+                </Item8>
+              </Cells>
+              <StylePriority Ref="30" UseTextAlignment="false" />
+            </Item1>
+          </Rows>
+          <StylePriority Ref="31" UseBorders="false" />
+        </Item2>
+      </Controls>
+    </Item3>
+    <Item4 Ref="32" ControlType="ReportHeaderBand" Name="ReportHeader" HeightF="79.8611">
+      <Controls>
+        <Item1 Ref="33" ControlType="XRLabel" Name="lbl_Title" Multiline="true" TextAlignment="TopCenter" SizeF="650,23" LocationFloat="0, 26.6944427" Font="Times New Roman, 18pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="34" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item4>
+    <Item5 Ref="35" ControlType="PageHeaderBand" Name="PageHeader" HeightF="50.97222">
+      <Controls>
+        <Item1 Ref="36" ControlType="XRTable" Name="table1" TextAlignment="MiddleCenter" SizeF="650,40.97222" LocationFloat="0, 10" Font="Times New Roman, 10pt, style=Bold" Padding="2,2,0,0,96" Borders="All">
+          <Rows>
+            <Item1 Ref="37" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="38" ControlType="XRTableCell" Name="tableCell1" Weight="0.34188038752629213" Multiline="true" Text="#" TextAlignment="MiddleCenter">
+                  <StylePriority Ref="39" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="40" ControlType="XRTableCell" Name="tableCell2" Weight="0.846154092641977" Multiline="true" Text="Số đi" />
+                <Item3 Ref="41" ControlType="XRTableCell" Name="tableCell3" Weight="0.96581195537860587" Multiline="true" Text="Ký hiệu" />
+                <Item4 Ref="42" ControlType="XRTableCell" Name="tableCell4" Weight="1.1623929537259614" Multiline="true" Text="Ngày ban hành" />
+                <Item5 Ref="43" ControlType="XRTableCell" Name="tableCell5" Weight="1.5213669057992789" Multiline="true" Text="Nội dung" />
+                <Item6 Ref="44" ControlType="XRTableCell" Name="tableCell6" Weight="1.5128211388221153" Multiline="true" Text="Nơi ban hành" />
+                <Item7 Ref="45" ControlType="XRTableCell" Name="tableCell7" Weight="1" Multiline="true" Text="Loại văn bản" />
+                <Item8 Ref="46" ControlType="XRTableCell" Name="tableCell8" Weight="0.64957256610576919" Multiline="true" Text="Đã xử lý" />
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="47" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item5>
+  </Bands>
+</XtraReportsLayoutSerializer>

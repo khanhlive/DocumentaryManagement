@@ -9,6 +9,11 @@ export interface CreateUserOutputItem {
   creationTime: Date;
   roleNames: string[];
   id: number;
+  organization: string;
+  address: string;
+  provinceId: number;
+  phoneNumber: string;
+  fullName2: string;
 }
 
 export interface CreateUserOutput {

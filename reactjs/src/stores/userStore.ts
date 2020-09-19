@@ -1,13 +1,13 @@
-import { action, observable } from 'mobx';
+import { action, observable } from "mobx";
 
-import { CreateOrUpdateUserInput } from '../services/user/dto/createOrUpdateUserInput';
-import { EntityDto } from '../services/dto/entityDto';
-import { GetRoles } from '../services/user/dto/getRolesOuput';
-import { GetUserOutput } from '../services/user/dto/getUserOutput';
-import { PagedResultDto } from '../services/dto/pagedResultDto';
-import { PagedUserResultRequestDto } from '../services/user/dto/PagedUserResultRequestDto';
-import { UpdateUserInput } from '../services/user/dto/updateUserInput';
-import userService from '../services/user/userService';
+import { CreateOrUpdateUserInput } from "../services/user/dto/createOrUpdateUserInput";
+import { EntityDto } from "../services/dto/entityDto";
+import { GetRoles } from "../services/user/dto/getRolesOuput";
+import { GetUserOutput } from "../services/user/dto/getUserOutput";
+import { PagedResultDto } from "../services/dto/pagedResultDto";
+import { PagedUserResultRequestDto } from "../services/user/dto/PagedUserResultRequestDto";
+import { UpdateUserInput } from "../services/user/dto/updateUserInput";
+import userService from "../services/user/userService";
 
 class UserStore {
   @observable users!: PagedResultDto<GetUserOutput>;
@@ -32,7 +32,9 @@ class UserStore {
   @action
   async delete(entityDto: EntityDto) {
     await userService.delete(entityDto);
-    this.users.items = this.users.items.filter((x: GetUserOutput) => x.id !== entityDto.id);
+    this.users.items = this.users.items.filter(
+      (x: GetUserOutput) => x.id !== entityDto.id
+    );
   }
 
   @action
@@ -50,14 +52,20 @@ class UserStore {
   @action
   async createUser() {
     this.editUser = {
-      userName: '',
-      name: '',
-      surname: '',
-      emailAddress: '',
+      userName: "",
+      name: "",
+      surname: "",
+      emailAddress: "",
       isActive: false,
       roleNames: [],
-      password: '',
+      password: "",
       id: 0,
+      address: "",
+      fullName: "",
+      phoneNumber: "",
+      organization: "",
+      provinceId: 0,
+      fullName2: "",
     };
     this.roles = [];
   }

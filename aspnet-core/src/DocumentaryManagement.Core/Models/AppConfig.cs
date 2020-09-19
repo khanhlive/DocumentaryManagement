@@ -8,6 +8,8 @@ namespace DocumentaryManagement.Model
 {
     public partial class AppConfig : Entity
     {
+        [Column("User_Id")]
+        public long UserId { get; set; }
         [Required]
         [StringLength(250)]
         public string Singer { get; set; }
