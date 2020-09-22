@@ -6,13 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DocumentaryManagement.Model
 {
-    public partial class AppDocumentary : Entity
+    public partial class AppDocumentary : Entity, ISoftDelete
     {
         public AppDocumentary()
         {
             AppAttachments = new HashSet<AppAttachments>();
         }
-        
+
         [Required]
         [StringLength(200)]
         public string Code { get; set; }

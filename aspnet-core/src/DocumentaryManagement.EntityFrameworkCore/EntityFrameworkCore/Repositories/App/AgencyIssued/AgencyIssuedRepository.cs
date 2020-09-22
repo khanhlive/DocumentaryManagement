@@ -40,6 +40,25 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.AgencyIssue
                 throw new UserFriendlyException($"Mã cơ quan ban hành: \"{entity.Code}\" đã tồn tại trong hệ thống");
             }
         }
-        
+
+        public override void Delete(AppAgencyIssued entity)
+        {
+            if (this.Context.AppDocumentary.Any(p => p.AgencyIssuedId == entity.Id))
+            {
+                throw new UserFriendlyException($"Cơ quan ban hành: \"{entity.Name}\" đang được sử dụng");
+            }
+            else
+            if (this.Context.AppDocumentaryPersonal.Any(p => p.AgencyIssuedId == entity.Id))
+            {
+                throw new UserFriendlyException($"Cơ quan ban hành: \"{entity.Name}\" đang được sử dụng");
+            }
+            else
+            if (this.Context.AppConfig.Any(p => p.AgencyIssuedId == entity.Id))
+            {
+                throw new UserFriendlyException($"Cơ quan ban hành: \"{entity.Name}\" đang được sử dụng");
+            }
+            base.Delete(entity);
+        }
+
     }
 }

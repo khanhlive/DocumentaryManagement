@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "2693bf9811e6694d64208d5f4c9d846e18287d03"
+    "signature": "a27740bbe1fe63293082be220074b4130c1c66be"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
         "dependencies": {
           "Abp.Castle.Log4Net": "4.9.0",
           "Castle.LoggingFacility.MsLogging": "3.1.0",
+          "Dapper": "2.0.35",
           "DevExpress.AspNetCore.Reporting": "19.1.3",
           "DevExtreme.AspNet.Core": "19.1.3",
           "DevExtreme.AspNet.Data": "2.0.0",
@@ -353,6 +354,20 @@
           "lib/netstandard2.0/Castle.Windsor.MsDependencyInjection.dll": {}
         }
       },
+      "Dapper/2.0.35": {
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.35.21366"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Dapper.dll": {}
+        }
+      },
       "DevExpress.AspNetCore.Common/19.1.3": {
         "dependencies": {
           "DevExpress.AspNetCore.Core": "19.1.3",
@@ -498,7 +513,7 @@
           "System.ComponentModel.Annotations": "4.5.0",
           "System.Drawing.Common": "4.5.0",
           "System.Reflection.Emit": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
           "System.ServiceModel.Http": "4.4.0",
           "System.ServiceModel.Primitives": "4.4.0",
           "System.Text.Encoding.CodePages": "4.5.0"
@@ -526,7 +541,7 @@
           "System.Configuration.ConfigurationManager": "4.5.0",
           "System.Data.SqlClient": "4.6.0",
           "System.Reflection.Emit": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0"
+          "System.Reflection.Emit.Lightweight": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.DataAccess.v19.1.dll": {
@@ -3722,7 +3737,7 @@
           "System.Reflection": "4.3.0",
           "System.Reflection.Emit": "4.3.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
           "System.Reflection.TypeExtensions": "4.3.0",
@@ -3913,7 +3928,7 @@
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
           "System.Reflection.TypeExtensions": "4.3.0",
@@ -3980,14 +3995,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.Emit.Lightweight/4.3.0": {
-        "dependencies": {
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
+      "System.Reflection.Emit.Lightweight/4.7.0": {},
       "System.Reflection.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.2.0",
@@ -5096,6 +5104,13 @@
       "sha512": "sha512-AK5ClaDRtP6YxSdCZTngnfMYstRkglxKrYrfWdq6H9QPQguB5Fdq300euqsNMd3CO4qn6tp2Ln4AdrQdmEkL0w==",
       "path": "castle.windsor.msdependencyinjection/3.3.1",
       "hashPath": "castle.windsor.msdependencyinjection.3.3.1.nupkg.sha512"
+    },
+    "Dapper/2.0.35": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/xAgd8BO8EDnJ0sURWEV8LptHHvTKxoYiT63YUF2U/yWE2VyUCqR2jcrtEyNngT9Kjzppecz95UKiBla3PnR7g==",
+      "path": "dapper/2.0.35",
+      "hashPath": "dapper.2.0.35.nupkg.sha512"
     },
     "DevExpress.AspNetCore.Common/19.1.3": {
       "type": "package",
@@ -6784,12 +6799,12 @@
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "hashPath": "system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.Emit.Lightweight/4.3.0": {
+    "System.Reflection.Emit.Lightweight/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==",
-      "path": "system.reflection.emit.lightweight/4.3.0",
-      "hashPath": "system.reflection.emit.lightweight.4.3.0.nupkg.sha512"
+      "sha512": "sha512-a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
+      "path": "system.reflection.emit.lightweight/4.7.0",
+      "hashPath": "system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Extensions/4.3.0": {
       "type": "package",

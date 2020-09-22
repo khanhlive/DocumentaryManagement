@@ -39,6 +39,15 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Province
                 throw new UserFriendlyException($"Mã tỉnh thành: \"{entity.Code}\" đã tồn tại trong hệ thống");
             }
         }
-        
+
+        public override void Delete(AppProvince entity)
+        {
+            if (this.Context.Users.Any(p => p.ProvinceId == entity.Id))
+            {
+                throw new UserFriendlyException($"Tình thành: \"{entity.Name}\" đang được sử dụng, không thể xóa");
+            }
+            base.Delete(entity);
+        }
+
     }
 }

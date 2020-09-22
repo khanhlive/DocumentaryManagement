@@ -85,6 +85,7 @@ namespace DocumentaryManagement.Web.Host.Startup
             services.AddTransient<ReportDesignerController>();
             services.AddTransient<QueryBuilderController>();
             services.AddTransient<ReportController>();
+            services.AddTransient<DashboardController>();
 
             services.AddSignalR();
 

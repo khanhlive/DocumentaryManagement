@@ -57,9 +57,9 @@ http.interceptors.response.use(
       !!error.response.data.error &&
       !!error.response.data.error.message
     ) {
-      alert(error.response.data.error.message, L("LoginFailed"));
+      alert(error.response.data.error.message, L("Thông báo lỗi"));
     } else if (!error.response) {
-      alert(L("UnknownError"), "Lỗi hệ thống");
+      alert(L("Lỗi không xác định"), "Lỗi hệ thống");
     }
 
     setTimeout(() => {}, 1000);

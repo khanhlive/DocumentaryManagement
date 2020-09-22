@@ -30,7 +30,12 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Config
         public async Task<AppConfig> GetAppConfig()
         {
             var userId = this.AbpSession.UserId;
-            return await Task.FromResult(this.GetAllIncluding(p => p.AgencyIssued).FirstOrDefault(p => p.UserId == userId));
+            var item = this.GetAll().FirstOrDefault(p => p.UserId == userId);
+            if (item != null)
+            {
+                item.AgencyIssued = this.Context.AppAgencyIssued.FirstOrDefault(p => p.Id == item.AgencyIssuedId);
+            }
+            return await Task.FromResult(item);
         }
 
         public async Task<AppConfig> UpdateConfig(AppConfig appConfig)

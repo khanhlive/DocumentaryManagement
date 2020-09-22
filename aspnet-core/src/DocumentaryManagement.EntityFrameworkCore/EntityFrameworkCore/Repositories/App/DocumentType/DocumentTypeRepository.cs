@@ -41,10 +41,18 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.DocumentTyp
             }
         }
 
-        //public override void Delete(AppDocumentType entity)
-        //{
-        //    throw new UserFriendlyException($"Mã loại văn bản: \"{entity.Code}\" đã tồn tại trong hệ thống");
-        //    //base.Delete(entity);
-        //}
+        public override void Delete(AppDocumentType entity)
+        {
+            if (this.Context.AppDocumentary.Any(p => p.DocumentTypeId == entity.Id))
+            {
+                throw new UserFriendlyException($"Loại văn bản: \"{entity.Name}\" đang được sử dụng");
+            }
+            else
+            if (this.Context.AppDocumentaryPersonal.Any(p => p.AgencyIssuedId == entity.Id))
+            {
+                throw new UserFriendlyException($"Loại văn bản: \"{entity.Name}\" đang được sử dụng");
+            }
+            base.Delete(entity);
+        }
     }
 }

@@ -6,6 +6,7 @@ import { ChartJsGraph } from "../../../common/graphs/chartjs";
 import {
   JarvisWidget
 } from "../../../common";
+import DashboardService from '../../../services/dashboard/DashboardService'
 
 const options = {
   responsive: false,
@@ -23,33 +24,39 @@ export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      barChartData: {}
+      barChartData: {},
+      thongKe: {
+        soVanBanDi: 0,
+        soVanBanDen: 0,
+        soVanBanDi_DaXuLy: 0,
+        soVanBanDen_DaXuLy: 0,
+      }
     };
   }
   componentDidMount() {
-    this.setState({
-      barChartData: {
-        "labels": ["January", "February", "March", "April", "May", "June", "July"],
-        "datasets": [
-          {
-            "label": "Văn bản đi",
-            "data": [65, 59, 80, 81, 56, 55, 40],
-            "fill": true,
-            "backgroundColor": "#FF6384",//rgba(255, 99, 132, 0.2)",
-            //"borderColor": "rgb(255, 99, 132)",
-            //"borderWidth": 1
-          },
-          {
-            "label": "Văn bản đến",
-            "data": [22, 11, 43, 55, 26, 89, 45],
-            "fill": true,
-            "backgroundColor": "#36A2EB",//"rgba(255, 159, 64, 0.2)",
-            //"borderColor": "rgb(255, 159, 64)",
-            //"borderWidth": 1
-          }
-        ]
-      }
+    DashboardService.get().then(res => {
+      this.setState({
+        barChartData: {
+          "labels": res.bieuDo.labels,
+          "datasets": [
+            {
+              "label": "Văn bản đi",
+              "data": res.bieuDo.vanBanDi,
+              "fill": true,
+              "backgroundColor": "#FF6384"
+            },
+            {
+              "label": "Văn bản đến",
+              "data": res.bieuDo.vanBanDen,
+              "fill": true,
+              "backgroundColor": "#36A2EB",
+            }
+          ]
+        },
+        thongKe: res.thongKeVanBan
+      })
     })
+
 
   }
   render() {
@@ -70,7 +77,7 @@ export default class Dashboard extends React.Component {
               {/* small box */}
               <div className="small-box bg-aqua">
                 <div className="inner">
-                  <h3>150</h3>
+                  <h3>{this.state.thongKe.soVanBanDi}</h3>
                   <p>Văn bản đi</p>
                 </div>
                 <div className="icon">
@@ -86,7 +93,7 @@ export default class Dashboard extends React.Component {
               {/* small box */}
               <div className="small-box bg-green">
                 <div className="inner">
-                  <h3>53<sup style={{ fontSize: 20 }}>%</sup></h3>
+                  <h3>{this.state.thongKe.soVanBanDen}</h3>
                   <p>Văn bản đến</p>
                 </div>
                 <div className="icon">
@@ -102,7 +109,7 @@ export default class Dashboard extends React.Component {
               {/* small box */}
               <div className="small-box bg-yellow">
                 <div className="inner">
-                  <h3>44</h3>
+                  <h3>{this.state.thongKe.soVanBanDi_DaXuLy}</h3>
                   <p>Văn bản đi đã được xử lý</p>
                 </div>
                 <div className="icon">
@@ -118,7 +125,7 @@ export default class Dashboard extends React.Component {
               {/* small box */}
               <div className="small-box bg-red">
                 <div className="inner">
-                  <h3>65</h3>
+                  <h3>{this.state.thongKe.soVanBanDen_DaXuLy}</h3>
                   <p>Văn bản đến đã được xử lý</p>
                 </div>
                 <div className="icon">
