@@ -72,7 +72,6 @@ export default class AgencyIssuedSelect extends Component<IAgencyIssuedProps, IA
         })
     }
     render() {
-        console.log('AgencyIssuedSelect rerender')
         let selectControl = (
             <CommonSelect readOnly={this.props.readOnly} value={this.props.value} label={this.props.label} options={this.state.options} fieldName={this.props.fieldName} onChange={this.handleSelectChange}>
             </CommonSelect>

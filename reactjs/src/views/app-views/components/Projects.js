@@ -14,7 +14,7 @@ import Datatable from "../../../common/tables/components/Datatable";
 export default class Projects extends React.Component {
   render() {
     const options = {
-      ajax: "assets/api/projects/project-list.json",
+      ajax: "/assets/api/projects/project-list.json",
       iDisplayLength: 15,
       columns: [
         {

@@ -57,7 +57,7 @@ export default class AppLayouts extends React.Component {
                 <br />
                 <img
                   alt="layout"
-                  src="assets/img/demo/layout-skins/layout-collapse.png"
+                  src="/assets/img/demo/layout-skins/layout-collapse.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -88,7 +88,7 @@ export default class AppLayouts extends React.Component {
                 <br />
                 <img
                   alt="layout"
-                  src="assets/img/demo/layout-skins/layout-hidden.png"
+                  src="/assets/img/demo/layout-skins/layout-hidden.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -122,7 +122,7 @@ export default class AppLayouts extends React.Component {
                 <br />
                 <img
                   alt="layout"
-                  src="assets/img/demo/layout-skins/layout-menutop.png"
+                  src="/assets/img/demo/layout-skins/layout-menutop.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -154,7 +154,7 @@ export default class AppLayouts extends React.Component {
                 <br />
                 <img
                   alt="layout"
-                  src="assets/img/demo/layout-skins/layout-collapse-minified.png"
+                  src="/assets/img/demo/layout-skins/layout-collapse-minified.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -188,7 +188,7 @@ export default class AppLayouts extends React.Component {
                 <br />
                 <img
                   alt="layout"
-                  src="assets/img/demo/layout-skins/layout-rtl.png"
+                  src="/assets/img/demo/layout-skins/layout-rtl.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -218,7 +218,7 @@ export default class AppLayouts extends React.Component {
                 <br />
                 <img
                   alt="layout"
-                  src="assets/img/demo/layout-skins/layout-rtl-menutop.png"
+                  src="/assets/img/demo/layout-skins/layout-rtl-menutop.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />

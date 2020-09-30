@@ -50,7 +50,6 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
             source.push(index);
         }
         return (
-
             <div className="form-inline" style={this.props.useTemplate === true ? {} : { padding: '13px' }}>
                 <div className="form-group">
                     <label>Năm:&nbsp;</label>
@@ -61,7 +60,6 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
                             })
                         }
                     </select>
-
                 </div>
                 <button type="button" style={{ marginLeft: '10px' }} onClick={this.handleSearch} className="btn btn-primary"><i className="fa fa-search"></i>&nbsp;Tìm</button>
                 <button type="button" style={{ marginLeft: '10px' }} onClick={this.handlePrinting} className="btn btn-info"><i className="fa fa-print"></i>&nbsp;In</button>

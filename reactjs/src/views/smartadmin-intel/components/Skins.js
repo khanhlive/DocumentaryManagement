@@ -43,7 +43,7 @@ export default class Skins extends React.Component {
                 </h5>
                 <img
                   alt="smartadmin skin"
-                  src="assets/img/demo/layout-skins/skin-glass.png"
+                  src="/assets/img/demo/layout-skins/skin-glass.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -61,7 +61,7 @@ export default class Skins extends React.Component {
                 </h5>
                 <img
                   alt="smartadmin skin"
-                  src="assets/img/demo/layout-skins/skin-google.png"
+                  src="/assets/img/demo/layout-skins/skin-google.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -82,7 +82,7 @@ export default class Skins extends React.Component {
                 </h5>
                 <img
                   alt="smartadmin skin"
-                  src="assets/img/demo/layout-skins/skin-pixel.png"
+                  src="/assets/img/demo/layout-skins/skin-pixel.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -100,7 +100,7 @@ export default class Skins extends React.Component {
                 </h5>
                 <img
                   alt="smartadmin skin"
-                  src="assets/img/demo/layout-skins/skin-dark.png"
+                  src="/assets/img/demo/layout-skins/skin-dark.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -121,7 +121,7 @@ export default class Skins extends React.Component {
                 </h5>
                 <img
                   alt="smartadmin skin"
-                  src="assets/img/demo/layout-skins/skin-default.png"
+                  src="/assets/img/demo/layout-skins/skin-default.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />
@@ -139,7 +139,7 @@ export default class Skins extends React.Component {
                 </h5>
                 <img
                   alt="smartadmin skin"
-                  src="assets/img/demo/layout-skins/skin-ultralight.png"
+                  src="/assets/img/demo/layout-skins/skin-ultralight.png"
                   className="img-responsive center-block"
                   style={{ boxShadow: "0px 0px 3px 0px #919191" }}
                 />

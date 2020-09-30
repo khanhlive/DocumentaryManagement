@@ -12,6 +12,7 @@ import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
 import { inject, observer } from 'mobx-react';
 import Stores from '../../../../stores/storeIdentifier';
 import ConfigService from '../../../../services/danhmuc/config/ConfigService';
+import { formatDate } from '../../../../common/core/functions/columnRenderDate';
 
 const store: any = DocumentaryPersonalService.GetAspNetDataSource();
 
@@ -26,7 +27,7 @@ export default class DocumentaryPersonalComponent extends Component<IDocumentary
     editComponent?: DocumentaryPersonalEditComponent;
     constructor(props: any) {
         super(props);
-        this.props.breadcrumbStore?.setItems(["Danh mục", "Văn bản cá nhân"]);
+        this.props.breadcrumbStore?.setItems(["Quản lý", "Văn bản cá nhân"]);
     }
 
     componentDidMount() {
@@ -80,11 +81,11 @@ export default class DocumentaryPersonalComponent extends Component<IDocumentary
                     this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                         <div className="row">
                             <BigBreadcrumbs
-                                items={["Danh mục", "Văn bản cá nhân"]}
+                                items={["Quản lý", "Văn bản cá nhân"]}
                                 icon="fa fa-fw fa-table"
                             />
                             {
-                                this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                this.props.breadcrumbStore?.useStats == true ? (
                                     <Stats />
                                 ) : null
                             }

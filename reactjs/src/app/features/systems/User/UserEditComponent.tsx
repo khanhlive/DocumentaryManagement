@@ -1,3 +1,5 @@
+import axios from 'axios';
+import moment from 'moment';
 import React from 'react'
 import { Modal } from 'react-bootstrap'
 import Select from 'react-select/src/Select';
@@ -8,6 +10,7 @@ import IEditComponentStates from '../../../../common/core/models/EditComponentSt
 import IEditComponentProps from '../../../../common/core/models/EditingComponentProps';
 import BootstrapValidator from '../../../../common/forms/validation/BootstrapValidator';
 import notify from '../../../../common/utils/functions/notify';
+import DepartmentService from '../../../../services/danhmuc/department/DepartmentService';
 import ProvinceService from '../../../../services/danhmuc/province/ProvinceService';
 import userService from '../../../../services/user/userService';
 
@@ -16,7 +19,8 @@ export interface IUserEditProps extends IEditComponentProps {
 }
 export interface IUserEditState extends IEditComponentStates {
     roleNames: any[],
-    provinces: any[]
+    provinces: any[],
+    departments: any[]
 }
 
 export default class UserEditComponent extends EditComponentBase<IUserEditProps, IUserEditState> {
@@ -28,41 +32,29 @@ export default class UserEditComponent extends EditComponentBase<IUserEditProps,
             id: this.props.id,
             isEdit: false,
             roleNames: [],
-            provinces: []
+            provinces: [],
+            departments: []
         }
         this.handleCheckbox = this.handleCheckbox.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.handleSelectChange = this.handleSelectChange.bind(this);
     }
 
-    // handleSave() {
-    //     this.form?.dispatchEvent(new Event('submit'));
-    //     let isValid = this.validator?.isValid();
-    // }
     componentDidMount() {
-        userService.getRoles().then(res => {
-            //console.log(res);
-            this.setState({
-                roleNames: res
-            });
-        });
-        ProvinceService.getPaging(0, 9999999).then(res => {
-            this.setState({
-                provinces: res.items
-            })
-        })
+
     }
 
-    // public edit(id: number, model: any) {
-    //     let roles = model.roleNames || [];
-    //     let roleNames = this.state.roleNames || [];
-
-    //     this.setState({
-    //         isShow: true,
-    //         model: model,
-    //         id: id,
-    //         isEdit: true,
-    //     });
-    // }
+    getFormData() {
+        const req = [userService.getRoles(), ProvinceService.getPaging(0, 9999999), DepartmentService.getPaging(0, 9999999)];
+        axios.all(req).then(axios.spread((...res) => {
+            let departments = res[2].items.map((item: any) => { return { value: item.id, label: item.name } });
+            this.setState({
+                roleNames: res[0],
+                provinces: res[1].items,
+                departments: departments
+            });
+        }));
+    }
 
     handleCheckbox(e: any) {
         let model = this.state.model || {};
@@ -89,11 +81,21 @@ export default class UserEditComponent extends EditComponentBase<IUserEditProps,
         let isValid = this.validator?.isValid();
         if (isValid) {
             if (this.props.onSave !== undefined) {
+                let model = this.state.model;
+                var _date = moment(model.creationTime, 'dd/MM/yyyy HH:mm:ss');
+                model.creationTime = _date.date;
                 this.props.onSave(this.state.id || 0, this.state.model);
             }
         } else {
             notify('Thông báo', 'Dữ liệu nhập chưa chính xác', 'error', 'fa fa-remove');
         }
+    }
+    handleSelectChange(fieldName: string, selectedItem: any) {
+        let model = this.state.model || {};
+        model[fieldName] = selectedItem.value;
+        this.setState({
+            model: model,
+        });
     }
     render() {
         return (
@@ -185,6 +187,24 @@ export default class UserEditComponent extends EditComponentBase<IUserEditProps,
                                         </div>
                                     </div>
                                     <div className="form-group">
+                                        <label className="control-label col-md-3">Phòng ban</label>
+                                        <div className="col-md-9">
+                                            <select
+                                                className="form-control"
+                                                onChange={this.handleInputChange.bind(this)}
+                                                name="departmentId"
+                                                value={this.state.model.departmentId}
+                                            >
+                                                <option>--Chọn phòng ban--</option>
+                                                {
+                                                    this.state.departments.map((item: any) => {
+                                                        return <option key={item.value} value={item.value}>{item.label}</option>
+                                                    })
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
                                         <label className="control-label col-md-3">Điện thoại</label>
                                         <div className="col-md-9">
                                             <input
@@ -204,6 +224,7 @@ export default class UserEditComponent extends EditComponentBase<IUserEditProps,
                                             </input>
                                         </div>
                                     </div>
+
                                     <div className="form-group">
                                         <label className="control-label col-md-3">Đơn vị</label>
                                         <div className="col-md-9">

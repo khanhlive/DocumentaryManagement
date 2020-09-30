@@ -69,21 +69,21 @@ export default class Profile extends React.Component {
                               {/* Slide 1 */}
                               <div className="item active">
                                 <img
-                                  src="assets/img/demo/s1.jpg"
+                                  src="/assets/img/demo/s1.jpg"
                                   alt="demo user"
                                 />
                               </div>
                               {/* Slide 2 */}
                               <div className="item">
                                 <img
-                                  src="assets/img/demo/s2.jpg"
+                                  src="/assets/img/demo/s2.jpg"
                                   alt="demo user"
                                 />
                               </div>
                               {/* Slide 3 */}
                               <div className="item">
                                 <img
-                                  src="assets/img/demo/m3.jpg"
+                                  src="/assets/img/demo/m3.jpg"
                                   alt="demo user"
                                 />
                               </div>
@@ -94,7 +94,7 @@ export default class Profile extends React.Component {
                           <div className="row">
                             <div className="col-sm-3 profile-pic">
                               <img
-                                src="assets/img/avatars/sunny-big.png"
+                                src="/assets/img/avatars/sunny-big.png"
                                 alt="demo user"
                               />
                               <div className="padding-10">
@@ -198,37 +198,37 @@ export default class Profile extends React.Component {
                               <ul className="list-inline friends-list">
                                 <li>
                                   <img
-                                    src="assets/img/avatars/1.png"
+                                    src="/assets/img/avatars/1.png"
                                     alt="friend-1"
                                   />
                                 </li>
                                 <li>
                                   <img
-                                    src="assets/img/avatars/2.png"
+                                    src="/assets/img/avatars/2.png"
                                     alt="friend-2"
                                   />
                                 </li>
                                 <li>
                                   <img
-                                    src="assets/img/avatars/3.png"
+                                    src="/assets/img/avatars/3.png"
                                     alt="friend-3"
                                   />
                                 </li>
                                 <li>
                                   <img
-                                    src="assets/img/avatars/4.png"
+                                    src="/assets/img/avatars/4.png"
                                     alt="friend-4"
                                   />
                                 </li>
                                 <li>
                                   <img
-                                    src="assets/img/avatars/5.png"
+                                    src="/assets/img/avatars/5.png"
                                     alt="friend-5"
                                   />
                                 </li>
                                 <li>
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="friend-6"
                                   />
                                 </li>
@@ -242,19 +242,19 @@ export default class Profile extends React.Component {
                               <ul className="list-inline friends-list">
                                 <li>
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="friend-1"
                                   />
                                 </li>
                                 <li>
                                   <img
-                                    src="assets/img/avatars/female.png"
+                                    src="/assets/img/avatars/female.png"
                                     alt="friend-2"
                                   />
                                 </li>
                                 <li>
                                   <img
-                                    src="assets/img/avatars/female.png"
+                                    src="/assets/img/avatars/female.png"
                                     alt="friend-3"
                                   />
                                 </li>
@@ -359,7 +359,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/female.png"
+                                    src="/assets/img/avatars/female.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Jenn Wilson</a>
@@ -369,7 +369,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Marshall Hitt</a>
@@ -379,7 +379,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Joe Cadena</a>
@@ -387,7 +387,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Mike McBride</a>
@@ -395,7 +395,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Travis Wilson</a>
@@ -405,7 +405,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Marshall Hitt</a>
@@ -418,7 +418,7 @@ export default class Profile extends React.Component {
                                   title="Joe Cadena joe@company.com"
                                 >
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Joe Cadena</a>
@@ -426,7 +426,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Mike McBride</a>
@@ -434,7 +434,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Marshall Hitt</a>
@@ -444,7 +444,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}>Joe Cadena</a>
@@ -452,7 +452,7 @@ export default class Profile extends React.Component {
                                 </div>
                                 <div className="user" title="email@company.com">
                                   <img
-                                    src="assets/img/avatars/male.png"
+                                    src="/assets/img/avatars/male.png"
                                     alt="demo user"
                                   />
                                   <a href="#/" onClick={this.onClick}> Mike McBride</a>
@@ -578,7 +578,7 @@ export default class Profile extends React.Component {
                       <ul>
                         <li className="message">
                           <img
-                            src="assets/img/avatars/sunny.png"
+                            src="/assets/img/avatars/sunny.png"
                             className="online"
                             alt="sunny"
                           />
@@ -627,7 +627,7 @@ export default class Profile extends React.Component {
                         </li>
                         <li className="message message-reply">
                           <img
-                            src="assets/img/avatars/3.png"
+                            src="/assets/img/avatars/3.png"
                             className="online"
                             alt="user"
                           />
@@ -654,7 +654,7 @@ export default class Profile extends React.Component {
                         </li>
                         <li className="message message-reply">
                           <img
-                            src="assets/img/avatars/4.png"
+                            src="/assets/img/avatars/4.png"
                             className="online"
                             alt="user"
                           />
@@ -715,7 +715,7 @@ export default class Profile extends React.Component {
                       <ul>
                         <li className="message">
                           <img
-                            src="assets/img/avatars/1.png"
+                            src="/assets/img/avatars/1.png"
                             className="online"
                             alt="user"
                           />
@@ -759,7 +759,7 @@ export default class Profile extends React.Component {
                         </li>
                         <li className="message message-reply">
                           <img
-                            src="assets/img/avatars/3.png"
+                            src="/assets/img/avatars/3.png"
                             className="online"
                             alt="user"
                           />
@@ -786,7 +786,7 @@ export default class Profile extends React.Component {
                         </li>
                         <li className="message message-reply">
                           <img
-                            src="assets/img/avatars/4.png"
+                            src="/assets/img/avatars/4.png"
                             className="online"
                             alt="user"
                           />
@@ -813,7 +813,7 @@ export default class Profile extends React.Component {
                         </li>
                         <li className="message message-reply">
                           <img
-                            src="assets/img/avatars/4.png"
+                            src="/assets/img/avatars/4.png"
                             className="online"
                             alt="user"
                           />

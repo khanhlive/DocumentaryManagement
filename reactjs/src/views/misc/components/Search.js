@@ -200,7 +200,7 @@ export default class Search extends React.Component {
                             <i className="fa fa-caret-up fa-lg" />
                           </a>
                         </h4>
-                        <img src="assets/img/demo/sample.jpg" alt="" />
+                        <img src="/assets/img/demo/sample.jpg" alt="" />
                         <div>
                           <p className="note">
                             <a href="#/" onClick={this.onClick} className="text-danger">
@@ -455,7 +455,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -484,7 +484,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -513,7 +513,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -542,7 +542,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -571,7 +571,7 @@ export default class Search extends React.Component {
                             <tr className="danger">
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -600,7 +600,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -629,7 +629,7 @@ export default class Search extends React.Component {
                             <tr className="success">
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -658,7 +658,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -687,7 +687,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/female.png"
+                                  src="/assets/img/avatars/female.png"
                                   alt=""
                                   width={20}
                                 />
@@ -716,7 +716,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/female.png"
+                                  src="/assets/img/avatars/female.png"
                                   alt=""
                                   width={20}
                                 />
@@ -745,7 +745,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -774,7 +774,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -803,7 +803,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/female.png"
+                                  src="/assets/img/avatars/female.png"
                                   alt=""
                                   width={20}
                                 />
@@ -832,7 +832,7 @@ export default class Search extends React.Component {
                             <tr className="warning">
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -861,7 +861,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -890,7 +890,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -919,7 +919,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -948,7 +948,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -977,7 +977,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1006,7 +1006,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1035,7 +1035,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/female.png"
+                                  src="/assets/img/avatars/female.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1064,7 +1064,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/female.png"
+                                  src="/assets/img/avatars/female.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1093,7 +1093,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1122,7 +1122,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1151,7 +1151,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1180,7 +1180,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1209,7 +1209,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1238,7 +1238,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1267,7 +1267,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1296,7 +1296,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1325,7 +1325,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1354,7 +1354,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1383,7 +1383,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1412,7 +1412,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/female.png"
+                                  src="/assets/img/avatars/female.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1441,7 +1441,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1470,7 +1470,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1499,7 +1499,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1528,7 +1528,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1557,7 +1557,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1586,7 +1586,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1615,7 +1615,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1644,7 +1644,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1673,7 +1673,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1702,7 +1702,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1731,7 +1731,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1760,7 +1760,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1789,7 +1789,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1818,7 +1818,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1847,7 +1847,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />
@@ -1876,7 +1876,7 @@ export default class Search extends React.Component {
                             <tr>
                               <td>
                                 <img
-                                  src="assets/img/avatars/male.png"
+                                  src="/assets/img/avatars/male.png"
                                   alt=""
                                   width={20}
                                 />

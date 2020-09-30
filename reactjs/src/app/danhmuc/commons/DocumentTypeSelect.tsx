@@ -69,7 +69,14 @@ export default class DocumentTypeSelect extends Component<IDocumentTypeProps, ID
     }
     render() {
         let selectControl = (
-            <CommonSelect readOnly={this.props.readOnly} value={this.props.value} label={this.props.label} options={this.state.options} fieldName={this.props.fieldName} onChange={this.handleSelectChange}>
+            <CommonSelect
+                readOnly={this.props.readOnly}
+                value={this.props.value}
+                label={this.props.label}
+                options={this.state.options}
+                fieldName={this.props.fieldName}
+                onChange={this.handleSelectChange}
+            >
             </CommonSelect>
         );
         return (
@@ -80,10 +87,18 @@ export default class DocumentTypeSelect extends Component<IDocumentTypeProps, ID
                             <div className="input-group">
                                 {selectControl}
                                 <span className="input-group-btn">
-                                    <button type='button' onClick={this.handleAdNewRow.bind(this)} className="btn btn-default"><i className="fa fa-plus"></i></button>
+                                    <button
+                                        type='button'
+                                        onClick={this.handleAdNewRow.bind(this)}
+                                        className="btn btn-default">
+                                        <i className="fa fa-plus"></i>
+                                    </button>
                                 </span>
                             </div>
-                            <DocumentTypeEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)}>
+                            <DocumentTypeEditComponent
+                                ref={ref => this.editComponent = ref || undefined}
+                                onSave={this.handleSave.bind(this)}
+                            >
                             </DocumentTypeEditComponent>
                         </React.Fragment>
                     ) : (selectControl)

@@ -220,7 +220,7 @@ export default class Datatables extends React.Component {
                               <li className="message">
                                 <img
                                   alt=""
-                                  src="assets/img/avatars/1.png"
+                                  src="/assets/img/avatars/1.png"
                                   className="online"
                                 />
                                 <span className="message-text">
@@ -265,7 +265,7 @@ export default class Datatables extends React.Component {
                               <li className="message">
                                 <img
                                   alt=""
-                                  src="assets/img/avatars/2.png"
+                                  src="/assets/img/avatars/2.png"
                                   className="online"
                                 />
                                 <span className="message-text">
@@ -525,7 +525,7 @@ export default class Datatables extends React.Component {
                               <li className="message">
                                 <img
                                   alt=""
-                                  src="assets/img/avatars/1.png"
+                                  src="/assets/img/avatars/1.png"
                                   className="online"
                                 />
                                 <span className="message-text">
@@ -581,7 +581,7 @@ export default class Datatables extends React.Component {
                               <li className="message message-reply">
                                 <img
                                   alt=""
-                                  src="assets/img/avatars/3.png"
+                                  src="/assets/img/avatars/3.png"
                                   className="online"
                                 />
                                 <span className="message-text">
@@ -617,7 +617,7 @@ export default class Datatables extends React.Component {
                               <li className="message message-reply">
                                 <img
                                   alt=""
-                                  src="assets/img/avatars/4.png"
+                                  src="/assets/img/avatars/4.png"
                                   className="online"
                                 />
                                 <span className="message-text">

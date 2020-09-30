@@ -138,7 +138,7 @@ export default class ConfigSystem extends Component<IProvinceProps, any> {
                                 icon="fa fa-fw fa-cog"
                             />
                             {
-                                this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                this.props.breadcrumbStore?.useStats == true ? (
                                     <Stats />
                                 ) : null
                             }

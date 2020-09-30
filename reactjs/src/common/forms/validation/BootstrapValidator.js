@@ -27,6 +27,7 @@ class BootstrapValidator extends React.Component {
       this.props.onStateChange(isValid);
     }
   }
+
   handleValidateField(data) {
     let fields = this.state.validates;
     let field = fields?.find(p => p.field === data.field);
@@ -44,6 +45,18 @@ class BootstrapValidator extends React.Component {
   handleFieldChange(e, data) {
     if (data.status === "VALID" || data.status === "INVALID")
       this.handleValidateField({ field: data.field, valid: data.status === "VALID" });
+  }
+
+  addField(fieldName, options) {
+    if (this.instance) {
+      this.instance.addField(fieldName, options);
+    }
+  }
+
+  removeField(fieldName, options) {
+    if (this.instance) {
+      this.instance.removeField(fieldName, options);
+    }
   }
 
   componentDidMount() {

@@ -4,7 +4,7 @@ class BreadcrumbStoreApp {
   constructor() {
     this.items = ["Trang chủ"];
     this.useBigBreadcrum = true;
-    this.useStats = true;
+    this.useStats = false;
   }
   @observable items?: any[];
   @observable useBigBreadcrum?: boolean;

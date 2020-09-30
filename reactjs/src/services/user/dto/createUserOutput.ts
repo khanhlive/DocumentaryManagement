@@ -14,6 +14,7 @@ export interface CreateUserOutputItem {
   provinceId: number;
   phoneNumber: string;
   fullName2: string;
+  departmentId: number;
 }
 
 export interface CreateUserOutput {

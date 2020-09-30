@@ -23,7 +23,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/1.png"
+                    src="/assets/img/demo/e-comm/1.png"
                     alt="194x228"
                     className="img-responsive"
                   />
@@ -108,7 +108,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/2.png"
+                    src="/assets/img/demo/e-comm/2.png"
                     alt="194x228"
                     className="img-responsive"
                   />
@@ -193,7 +193,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/3.png"
+                    src="/assets/img/demo/e-comm/3.png"
                     alt="194x228"
                     className="img-responsive"
                   />
@@ -227,7 +227,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/4.png"
+                    src="/assets/img/demo/e-comm/4.png"
                     alt="194x228"
                     className="img-responsive"
                   />
@@ -261,7 +261,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/5.png"
+                    src="/assets/img/demo/e-comm/5.png"
                     alt="194x228"
                     className="img-responsive"
                   />
@@ -295,7 +295,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/7.png"
+                    src="/assets/img/demo/e-comm/7.png"
                     alt="194x228"
                     className="img-responsive"
                   />
@@ -329,7 +329,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/8.png"
+                    src="/assets/img/demo/e-comm/8.png"
                     alt="194x228"
                     className="img-responsive"
                   />
@@ -363,7 +363,7 @@ export default () => (
               <div className="col-md-5 col-sm-12 col-xs-12">
                 <div className="product-image">
                   <img
-                    src="assets/img/demo/e-comm/9.png"
+                    src="/assets/img/demo/e-comm/9.png"
                     alt="194x228"
                     className="img-responsive"
                   />

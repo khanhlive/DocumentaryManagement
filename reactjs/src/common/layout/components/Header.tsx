@@ -7,26 +7,36 @@ import SearchMobile from "./SearchMobile";
 
 //import { Activities } from "../../activities";
 import { LanguageSelector } from "../../i18n";
+import { inject, observer } from 'mobx-react';
+import Stores from '../../../stores/storeIdentifier';
 
 //import RecentProjects from "./RecentProjects";
 
-export default class Header extends React.Component {
+@inject(Stores.SessionStore)
+@observer
+export default class Header extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props)
+  }
   render() {
     return (
       <header id="header">
         <div id="logo-group">
           <span id="logo">
             <img
-              src="assets/img/logo.png" // place your logo here
+              src="/assets/img/logo.png" // place your logo here
               alt="SmartAdmin"
             />
           </span>
+
           {/* Note: The activity badge color changes when clicked and resets the number to 0
          Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications */}
 
           {/* <Activities /> */}
         </div>
-
+        <span className="header-title">
+          {this.props.sessionStore && this.props.sessionStore.currentLogin && this.props.sessionStore.currentLogin.user ? this.props.sessionStore.currentLogin.user.organization : ''}
+        </span>
         {/* <RecentProjects /> */}
         <div className="pull-right" /*pulled right: nav area*/>
           <ToggleMenu
@@ -40,26 +50,26 @@ export default class Header extends React.Component {
             className="header-dropdown-list hidden-xs padding-5"
           >
             <li className="">
-              <a href="#/"
+              <a href="/"
                 className="dropdown-toggle no-margin userdropdown"
                 data-toggle="dropdown"
               >
                 <img
-                  src="assets/img/avatars/sunny.png"
+                  src="/assets/img/avatars/sunny.png"
                   alt="John Doe"
                   className="online"
                 />
               </a>
               <ul className="dropdown-menu pull-right">
                 <li>
-                  <a href="#/" className="padding-10 padding-top-0 padding-bottom-0">
+                  <a href="/" className="padding-10 padding-top-0 padding-bottom-0">
                     <i className="fa fa-cog" /> Setting
                   </a>
                 </li>
                 <li className="divider" />
                 <li>
                   <a
-                    href="#/views/profile"
+                    href="/views/profile"
                     className="padding-10 padding-top-0 padding-bottom-0"
                   >
                     <i className="fa fa-user" />
@@ -68,7 +78,7 @@ export default class Header extends React.Component {
                 </li>
                 <li className="divider" />
                 <li>
-                  <a href="#/"
+                  <a href="/"
                     className="padding-10 padding-top-0 padding-bottom-0"
                     data-action="toggleShortcut"
                   >
@@ -77,7 +87,7 @@ export default class Header extends React.Component {
                 </li>
                 <li className="divider" />
                 <li>
-                  <a href="#/"
+                  <a href="/"
                     className="padding-10 padding-top-0 padding-bottom-0"
                     data-action="launchFullscreen"
                   >
@@ -88,7 +98,7 @@ export default class Header extends React.Component {
                 <li className="divider" />
                 <li>
                   <a
-                    href="#/login"
+                    href="/login"
                     className="padding-10 padding-top-5 padding-bottom-5"
                     data-action="userLogout"
                   >
@@ -106,7 +116,7 @@ export default class Header extends React.Component {
           <div id="logout" className="btn-header transparent pull-right">
             <span>
               <a
-                href="#/logout"
+                href="/logout"
                 title="Sign Out"
                 data-logout-msg="You can improve your security further after logging out by closing this opened browser"
               >
@@ -120,7 +130,7 @@ export default class Header extends React.Component {
 
           {/* input: search field */}
           <form
-            action="#/misc/search.html"
+            action="/misc/search.html"
             className="header-search pull-right"
           >
             <input

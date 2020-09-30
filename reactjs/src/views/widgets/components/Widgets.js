@@ -342,7 +342,7 @@ export default class Widgets extends React.Component {
                       </div>
                       <div className="col-md-6 col-lg-4">
                         <img
-                          src="assets/img/demo/widget-colorpicker.png"
+                          src="/assets/img/demo/widget-colorpicker.png"
                           alt="widget colorpicker"
                           className="pull-right hover-transparent img-responsive"
                         />
@@ -420,7 +420,7 @@ export default class Widgets extends React.Component {
               {/* Widget ID (each widget will need unique ID)*/}
               <JarvisWidget
                 id="wid-id-6"
-                load="assets/api/html/widget-demo.html"
+                load="/assets/api/html/widget-demo.html"
                 colorbutton={false}
                 editbutton={false}
                 togglebutton={false}

@@ -26,6 +26,11 @@ export default class DocumentaryDto implements IDocumentaryDto {
   isDeleted?: boolean | undefined;
   appAttachments?: AppAttachments[] | undefined;
   id?: number | undefined;
+  isApproved?: boolean | undefined;
+  approvedDepartmentId?: number | undefined;
+  approvedUserId?: number | undefined;
+  approvedType?: number | undefined;
+  approvedContent?: string | undefined;
 
   constructor(data?: IDocumentaryDto) {
     if (data) {
@@ -154,4 +159,9 @@ export interface IDocumentaryDto {
   isDeleted?: boolean | undefined;
   appAttachments?: AppAttachments[] | undefined;
   id?: number | undefined;
+  isApproved?: boolean | undefined;
+  approvedDepartmentId?: number | undefined;
+  approvedUserId?: number | undefined;
+  approvedType?: number | undefined;
+  approvedContent?: string | undefined;
 }

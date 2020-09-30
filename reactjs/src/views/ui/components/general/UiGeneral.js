@@ -2010,9 +2010,9 @@ export default class UiGeneral extends React.Component {
 
                     <div className="text-center">
                       <img
-                        src="assets/img/demo/demo-smartbig-alert.png"
+                        src="/assets/img/demo/demo-smartbig-alert.png"
                         alt="demo"
-                        className="assets/img-responsive"
+                        className="/assets/img-responsive"
                       />
                     </div>
 
@@ -2224,7 +2224,7 @@ export default class UiGeneral extends React.Component {
                           overlay={
                             <Tooltip id="img-src-styles-img-avatars-sunny-png-alt-me-class-online-tooltip">
                               <img
-                                src="assets/img/avatars/sunny.png"
+                                src="/assets/img/avatars/sunny.png"
                                 alt="me"
                                 className="online"
                               />
@@ -2615,7 +2615,7 @@ export default class UiGeneral extends React.Component {
                       <img
                         className="media-object"
                         alt="64x64"
-                        src="assets/img/demo/64x64.png"
+                        src="/assets/img/demo/64x64.png"
                       />
                     </a>
                     <div className="media-body">
@@ -2631,7 +2631,7 @@ export default class UiGeneral extends React.Component {
                           <img
                             className="media-object"
                             alt="64x64"
-                            src="assets/img/demo/64x64.png"
+                            src="/assets/img/demo/64x64.png"
                           />
                         </a>
                         <div className="media-body">
@@ -2648,7 +2648,7 @@ export default class UiGeneral extends React.Component {
                               <img
                                 className="media-object"
                                 alt="64x64"
-                                src="assets/img/demo/64x64.png"
+                                src="/assets/img/demo/64x64.png"
                               />
                             </a>
                             <div className="media-body">
@@ -2669,7 +2669,7 @@ export default class UiGeneral extends React.Component {
                           <img
                             className="media-object"
                             alt="64x64"
-                            src="assets/img/demo/64x64.png"
+                            src="/assets/img/demo/64x64.png"
                           />
                         </a>
                         <div className="media-body">
@@ -2689,7 +2689,7 @@ export default class UiGeneral extends React.Component {
                       <img
                         className="media-object"
                         alt="64x64"
-                        src="assets/img/demo/64x64.png"
+                        src="/assets/img/demo/64x64.png"
                       />
                     </a>
                     <div className="media-body">
@@ -3064,7 +3064,7 @@ export default class UiGeneral extends React.Component {
         icon: "fa fa-check",
         number: "4"
       },
-      function() {
+      function () {
         this._closedthis();
       }.bind(this)
     );
@@ -3120,7 +3120,7 @@ export default class UiGeneral extends React.Component {
           "This is a confirmation box. Can be programmed for button callback",
         buttons: "[No][Yes]"
       },
-      function(ButtonPressed) {
+      function (ButtonPressed) {
         if (ButtonPressed === "Yes") {
           smallBox({
             title: "Callback function",
@@ -3152,7 +3152,7 @@ export default class UiGeneral extends React.Component {
         input: "text",
         placeholder: "Enter your user name"
       },
-      function(ButtonPress, Value) {
+      function (ButtonPress, Value) {
         alert(ButtonPress + " " + Value);
       }
     );
@@ -3175,7 +3175,7 @@ export default class UiGeneral extends React.Component {
         input: "select",
         options: "[Costa Rica][United States][Autralia][Spain]"
       },
-      function(ButtonPress, Value) {
+      function (ButtonPress, Value) {
         alert(ButtonPress + " " + Value);
       }
     );
@@ -3190,7 +3190,7 @@ export default class UiGeneral extends React.Component {
         input: "text",
         placeholder: "Enter your user name"
       },
-      function(ButtonPress, Value) {
+      function (ButtonPress, Value) {
         if (ButtonPress === "Cancel") {
           alert("Why did you cancel that? :(");
           return 0;
@@ -3206,7 +3206,7 @@ export default class UiGeneral extends React.Component {
             input: "password",
             placeholder: "Password"
           },
-          function(ButtonPress, Value) {
+          function (ButtonPress, Value) {
             alert(
               "Username: " + ValueOriginal + " and your password is: " + Value
             );

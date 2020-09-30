@@ -24,6 +24,11 @@ export default class UpdateDocumentaryDto implements IUpdateDocumentaryDto {
   appAttachments?: UpdateAttachmentDto[] | undefined;
   appAttachmentsDelete?: UpdateAttachmentDto[] | undefined;
   id?: number | undefined;
+  isApproved?: boolean | undefined;
+  approvedDepartmentId?: number | undefined;
+  approvedUserId?: number | undefined;
+  approvedType?: number | undefined;
+  approvedContent?: string | undefined;
 
   constructor(data?: IUpdateDocumentaryDto) {
     if (data) {
@@ -150,4 +155,9 @@ export interface IUpdateDocumentaryDto {
   appAttachments?: UpdateAttachmentDto[] | undefined;
   appAttachmentsDelete?: UpdateAttachmentDto[] | undefined;
   id?: number | undefined;
+  isApproved?: boolean | undefined;
+  approvedDepartmentId?: number | undefined;
+  approvedUserId?: number | undefined;
+  approvedType?: number | undefined;
+  approvedContent?: string | undefined;
 }

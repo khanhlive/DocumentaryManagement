@@ -1,5 +1,6 @@
 import Loadable from "react-loadable";
 import { Loading } from "../../common/navigation";
+import { PermissionNames } from '../../lib/PermissionName';
 
 const TinhThanh = Loadable({
     loader: () => import("./components/TinhThanh/TinhThanh"),
@@ -35,12 +36,18 @@ const DocumentaryArrived = Loadable({
     loader: () => import("./components/DocumentaryArrived/DocumentaryArrivedComponent"),
     loading: Loading
 });
+
+const Department = Loadable({
+    loader: () => import("./components/Department/DepartmentComponent"),
+    loading: Loading
+});
 export const routes = [
     {
         path: "/danh-muc/tinh-thanh",
         exact: true,
         component: TinhThanh,
-        name: "tinh-thanh"
+        name: "tinh-thanh",
+        permission: PermissionNames.Pages_Province
     },
     {
         path: "/danh-muc/quan-huyen",
@@ -58,30 +65,42 @@ export const routes = [
         path: "/danh-muc/loai-van-ban",
         exact: true,
         component: DocumentType,
-        name: "loai-van-ban"
+        name: "loai-van-ban",
+        permission: PermissionNames.Pages_DocumentType
     },
     {
         path: "/danh-muc/co-quan-ban-hanh",
         exact: true,
         component: AgencyIssued,
-        name: "co-quan-ban-hanh"
+        name: "co-quan-ban-hanh",
+        permission: PermissionNames.Pages_AgencyIssued
     },
     {
-        path: "/danh-muc/van-ban-ca-nhan",
+        path: "/quan-ly-van-ban/van-ban-ca-nhan",
         exact: true,
         component: DocumentaryPersonal,
-        name: "van-ban-ca-nhan"
+        name: "van-ban-ca-nhan",
+        permission: PermissionNames.Pages_DocumentPersonal
     },
     {
-        path: "/danh-muc/van-ban-di",
+        path: "/quan-ly-van-ban/van-ban-di",
         exact: true,
         component: DocumentaryAway,
-        name: "van-ban-di"
+        name: "van-ban-di",
+        permission: PermissionNames.Pages_DocumentAway
     },
     {
-        path: "/danh-muc/van-ban-den",
+        path: "/quan-ly-van-ban/van-ban-den",
         exact: true,
         component: DocumentaryArrived,
-        name: "van-ban-den"
+        name: "van-ban-den",
+        permission: PermissionNames.Pages_DocumentArrived
+    },
+    {
+        path: "/danh-muc/phong-ban",
+        exact: true,
+        component: Department,
+        name: "danh-muc-phong-ban",
+        permission: PermissionNames.Pages_Department
     },
 ];

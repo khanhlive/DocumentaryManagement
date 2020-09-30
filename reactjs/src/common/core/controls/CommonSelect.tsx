@@ -75,6 +75,7 @@ interface IProps extends CommonProps<any> {
 }
 export default class CommonSelect extends Component<any, any> {
     input?: HTMLInputElement;
+    instance?: Select;
     constructor(props: any) {
         super(props);
         //console.log('value', this.props.value ? this.props.value : '')
@@ -98,8 +99,12 @@ export default class CommonSelect extends Component<any, any> {
     // }
 
     handleChange(selectedOptions: any) {
-        if (typeof selectedOptions === 'object') {
+        if (selectedOptions && typeof selectedOptions === 'object') {
             this.setState({ value: selectedOptions.value }, () => {
+                this.input?.dispatchEvent(new Event('input'));
+            });
+        } else {
+            this.setState({ value: '' }, () => {
                 this.input?.dispatchEvent(new Event('input'));
             });
         }
@@ -108,6 +113,14 @@ export default class CommonSelect extends Component<any, any> {
         }
 
     }
+
+    clearValue() {
+        this.instance?.select.clearValue();
+        this.setState({ value: '' }, () => {
+            this.input?.dispatchEvent(new Event('input'));
+        });
+    }
+
     handleInputChange(e: any) {
     }
     render() {
@@ -122,7 +135,7 @@ export default class CommonSelect extends Component<any, any> {
                         return (
                             <React.Fragment>
                                 {/* <span>{JSON.stringify(defaultValue)}</span> */}
-                                <Select
+                                <Select ref={ref => this.instance = ref || undefined}
                                     placeholder="Chọn..."
                                     styles={(isvalid == null || isvalid == undefined) ? normalStyles : (isvalid ? successStyles : errorStyles)}
                                     options={this.props.options}

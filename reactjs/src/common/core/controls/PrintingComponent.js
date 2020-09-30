@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 import AppConsts from '../../../lib/appconst';
 import LoadingOverlay from 'react-loading-overlay';
-
+import { getPermissionType } from '../../../lib/abpUtility';
 // export interface IPrintingProps {
 
 // }
@@ -30,16 +30,18 @@ export default class PrintingComponent extends Component {
     }
 
     open(model) {
+        let _type = getPermissionType();
         let _url = `${AppConsts.remoteServiceBaseUrl}/report/${model.url}?`;
         let _params = [];
         for (const key in model.params) {
             _params.push(`${key}=${model.params[key]}`);
         }
-        _url = _url + _params.join('&') + (model.isPrint === true ? "&autoprint=true" : '');
+        _url = _url + _params.join('&') + (model.isPrint === true ? "&autoprint=true" : '') + ("&permissionType=" + _type);
         let _model = Object.assign({}, model, { url: _url });
         this.setState({
             isShow: true,
-            model: _model, spinner: true
+            model: _model,
+            spinner: true
         });
     }
 
@@ -60,7 +62,7 @@ export default class PrintingComponent extends Component {
                     </iframe>
                     <LoadingOverlay
                         active={this.state.spinner}
-                        className="loading-component"
+                        className={this.state.spinner ? "loading-component" : ""}
                         spinner
                         text='Đang tải dữ liệu...'
                     >

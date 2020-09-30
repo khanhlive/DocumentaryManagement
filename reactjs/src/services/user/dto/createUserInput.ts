@@ -12,6 +12,7 @@ export interface CreateUserInput {
   provinceId: number;
   phoneNumber: string;
   fullName2: string;
+  departmentId: number;
 }
 
 export class CreateUserDto implements ICreateUserDto {
@@ -22,6 +23,7 @@ export class CreateUserDto implements ICreateUserDto {
   isActive?: boolean | undefined;
   roleNames?: string[] | undefined;
   password!: string;
+  departmentId!: number;
 
   constructor(data?: ICreateUserDto) {
     if (data) {
@@ -86,4 +88,5 @@ export interface ICreateUserDto {
   isActive?: boolean | undefined;
   roleNames?: string[] | undefined;
   password: string;
+  departmentId: number;
 }

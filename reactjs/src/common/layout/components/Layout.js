@@ -10,6 +10,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 import { routes } from "../../../routes";
+import { isGranted } from '../../../lib/abpUtility';
 
 class Layout extends React.Component {
   render() {
@@ -27,11 +28,15 @@ class Layout extends React.Component {
 
           <Switch>
             {routes.map((route, idx) => {
+              const isCheckGranted = route.permission && !isGranted(route.permission);
+              if (isCheckGranted)
+                return null;
               return route.component ? (
                 <Route
                   key={idx}
                   path={route.path}
                   exact={route.exact}
+
                   name={route.name}
                   render={props => <route.component {...props} />}
                 />

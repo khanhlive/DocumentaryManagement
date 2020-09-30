@@ -1,7 +1,10 @@
+import { reaction } from 'mobx';
 import React, { Component } from 'react'
 import { JarvisWidget } from '../../../../common'
 import { DocumentaryType } from '../../../../common/core/models/Attachment';
 import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
+import { isGranted } from '../../../../lib/abpUtility';
+import { PermissionNames } from '../../../../lib/PermissionName';
 
 export interface IDocumentaryArrivedFilterProps {
     onSearch?: (filterData: any) => any
@@ -15,7 +18,8 @@ export default class DocumentaryArrivedFilterComponent extends Component<IDocume
                 keyword: '',
                 filterBy: 1,
                 exactly: false,
-                type: DocumentaryType.DocumentaryArrived
+                type: DocumentaryType.DocumentaryArrived,
+                approved: 0
             }
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -42,6 +46,8 @@ export default class DocumentaryArrivedFilterComponent extends Component<IDocume
         });
     }
     render() {
+        const allowApproved = isGranted(PermissionNames.Permission_Approved);
+        const allowDocument = isGranted(PermissionNames.Permission_DocumentManager);
         return (
             <JarvisWidget id="wid-id-filter-van-ban-den" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                 <header>
@@ -52,13 +58,93 @@ export default class DocumentaryArrivedFilterComponent extends Component<IDocume
                 </header>
                 <div>
                     <div className="widget-body" style={{ minHeight: 'unset' }}>
-                        <div className="row form-horizontal form-custom">
+                        <div className="form-horizontal form-custom">
+                            <div className="col-lg-3 col-md-6">
+                                <div className="form-group">
 
-                            <div className="form-group">
+                                    <label htmlFor="inputEmail3" className="col-sm-2 control-label">Từ khóa</label>
+                                    <div className="col-sm-10">
+                                        <input className="form-control" onChange={this.handleInputChange} value={this.state.filterData.keyword} placeholder="Nhập từ khóa cần tìm kiếm..." name="keyword" type="text"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-3 col-md-6">
+                                <div className="form-group">
+                                    <label htmlFor="inputEmail3" className="col-sm-2 control-label">Duyệt</label>
+                                    <div className="col-sm-10">
+                                        <select className="form-control" value={this.state.filterData.approved} id="approved" name="approved"
+                                            onChange={this.handleInputChange}>
+                                            <option value="0">Tất cả</option>
+                                            <option value="1">Đã duyệt</option>
+                                            <option value="2">Chưa duyệt</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="dynamic-clear"></div>
+                            <div className="col-lg-3 col-md-6">
+                                <div className="form-group">
+                                    <div className="col-lg-12 col-lg-offset-0 col-md-10 col-md-offset-2  col-sm-10 col-sm-offset-2">
+                                        <div className="form-control">
+                                            <label className="radio-inline" style={{ width: '47%' }}>
+                                                <input onChange={this.handleInputChange} checked={this.state.filterData.filterBy == '1'} type="radio" value="1" name="filterBy"></input>Theo ký hiệu
+                                                            </label>
+                                            <label className="radio-inline">
+                                                <input onChange={this.handleInputChange} checked={this.state.filterData.filterBy == '2'} type="radio" value="2" name="filterBy"></input>Theo tóm tắt
+                                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="col-lg-2 col-md-6">
+                                <div className="form-group">
+                                    <div className="col-lg-12 col-lg-offset-0 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">
+                                        <label className="checkbox-inline">
+                                            <input
+                                                onChange={this.handleInputChange}
+                                                checked={this.state.filterData.exactly}
+                                                type="checkbox" name="exactly"
+                                            ></input>
+                                                Tìm chính xác
+                                                </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={{ clear: 'both' }}></div>
+
+                            <div className="col-lg-12 col-md-12">
+                                <div className="form-group">
+                                    <div className="col-sm-12 text-right">
+                                        <button type="button" onClick={this.handleSearch} className="btn btn-primary"><i className="fa fa-search"></i>&nbsp;Tìm kiếm</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            {/* <div className="form-group">
                                 <label className="control-label col-md-1">Từ khóa:&nbsp;&nbsp;</label>
-                                <div className="col-md-5">
+                                <div className={(allowApproved || allowDocument) ? ("col-md-2") : "col-md-5"}>
                                     <input className="form-control" onChange={this.handleInputChange} value={this.state.filterData.keyword} placeholder="Nhập từ khóa cần tìm kiếm..." name="keyword" type="text"></input>
                                 </div>
+                                {
+                                    (allowApproved || allowDocument) ? (
+                                        <React.Fragment>
+                                            <label className="control-label col-md-1">Duyệt:&nbsp;&nbsp;</label>
+                                            <div className="col-md-2">
+                                                <select className="form-control" value={this.state.filterData.approved} id="approved" name="approved"
+                                                    onChange={this.handleInputChange}>
+                                                    <option value="0">Tất cả</option>
+                                                    <option value="1">Đã duyệt</option>
+                                                    <option value="2">Chưa duyệt</option>
+                                                </select>
+                                            </div>
+                                        </React.Fragment>
+                                    ) : null
+                                }
+
                                 <div className="col-md-3">
                                     <div className="form-control">
                                         <label className="radio-inline" style={{ width: '47%' }}>
@@ -77,6 +163,7 @@ export default class DocumentaryArrivedFilterComponent extends Component<IDocume
                                     <button type="button" onClick={this.handleSearch} className="btn btn-primary"><i className="fa fa-search"></i>&nbsp;Tìm kiếm</button>
                                 </div>
                             </div>
+                         */}
                         </div>
                     </div>
                 </div>

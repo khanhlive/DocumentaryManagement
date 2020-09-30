@@ -289,10 +289,10 @@ export default class OutlookCompose extends React.Component {
                 Send <i className="fa fa-arrow-circle-right fa-lg" />
               </button>
             ) : (
-              <button className="btn btn-primary pull-right" type="button">
-                <i className="fa fa-refresh fa-spin" /> Sending...
-              </button>
-            )}
+                <button className="btn btn-primary pull-right" type="button">
+                  <i className="fa fa-refresh fa-spin" /> Sending...
+                </button>
+              )}
           </div>
         </form>
 
@@ -338,13 +338,13 @@ export default class OutlookCompose extends React.Component {
 
           <ul className="list-inline">
             <li>
-              <img src="assets/img/avatars/5.png" alt="me" width="30px" />
+              <img src="/assets/img/avatars/5.png" alt="me" width="30px" />
             </li>
             <li>
-              <img src="assets/img/avatars/3.png" alt="me" width="30px" />
+              <img src="/assets/img/avatars/3.png" alt="me" width="30px" />
             </li>
             <li>
-              <img src="assets/img/avatars/sunny.png" alt="me" width="30px" />
+              <img src="/assets/img/avatars/sunny.png" alt="me" width="30px" />
             </li>
             <li>
               <a href="#/">1 more</a>

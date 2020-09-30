@@ -10,7 +10,7 @@ import DocumentaryAwayEditComponent from './DocumentaryAwayEditComponent';
 import { DocumentaryType } from '../../../../common/core/models/Attachment';
 import DocumentaryFilterComponent from './DocumentaryFilterComponent';
 import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
-import columnFormatDate from '../../../../common/core/functions/columnRenderDate';
+import columnFormatDate, { formatDate } from '../../../../common/core/functions/columnRenderDate';
 import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
 import { inject, observer } from 'mobx-react';
 import Stores from '../../../../stores/storeIdentifier';
@@ -34,7 +34,7 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
     printingComponent?: PrintingComponent;
     constructor(props: any) {
         super(props);
-        this.props.breadcrumbStore?.setItems(["Danh mục", "Văn bản đi"]);
+        this.props.breadcrumbStore?.setItems(["Quản lý", "Văn bản đi"]);
         this.handleSearch = this.handleSearch.bind(this);
         this.handlePrinting = this.handlePrinting.bind(this);
     }
@@ -45,6 +45,8 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
 
     onGridEditData(cellData: { data: any }) {
         let dataRow = Object.assign({}, cellData.data);
+        dataRow.releaseDate = formatDate(dataRow.releaseDate, 'DD/MM/YYYY HH:mm:ss');
+        dataRow.receivedDate = formatDate(dataRow.receivedDate, 'DD/MM/YYYY HH:mm:ss');
         this.editComponent?.edit(dataRow.id, dataRow);
     }
     onGridDeleteData(cellData: { data: any }) {
@@ -109,11 +111,11 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
                     this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                         <div className="row">
                             <BigBreadcrumbs
-                                items={["Danh mục", "Văn bản đi"]}
+                                items={["Quản lý", "Văn bản đi"]}
                                 icon="fa fa-fw fa-table"
                             />
                             {
-                                this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                this.props.breadcrumbStore?.useStats == true ? (
                                     <Stats />
                                 ) : null
                             }

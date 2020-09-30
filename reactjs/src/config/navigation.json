@@ -1,15 +1,9 @@
 {
   "items": [
     {
-      "title": "Bảng điều khiển",
-
-      "icon": "fa fa-lg fa-fw fa-home",
-      "items": [
-        {
-          "route": "/dashboard/analytics",
-          "title": "Thống kê"
-        }
-      ]
+      "title": "Thống kê",
+      "route": "/",
+      "icon": "fa fa-lg fa-fw fa-home"
     },
     {
       "title": "Tìm kiếm",
@@ -17,11 +11,13 @@
       "items": [
         {
           "route": "/tim-kiem/van-ban-di",
-          "title": "Văn bản đi"
+          "title": "Văn bản đi",
+          "permission": "Pages.SearchDocumentAway"
         },
         {
           "route": "/tim-kiem/van-ban-den",
-          "title": "Văn bản đến"
+          "title": "Văn bản đến",
+          "permission": "Pages.SearchDocumentArrived"
         }
       ]
     },
@@ -31,11 +27,34 @@
       "items": [
         {
           "route": "/so-van-ban/so-van-ban-di",
-          "title": "Sổ văn bản đi"
+          "title": "Sổ văn bản đi",
+          "permission": "Pages.BookDocumentAway"
         },
         {
           "route": "/so-van-ban/so-van-ban-den",
-          "title": "Sổ văn bản đến"
+          "title": "Sổ văn bản đến",
+          "permission": "Pages.BookDocumentArrived"
+        }
+      ]
+    },
+    {
+      "title": "Văn bản",
+      "icon": "fa fa-lg fa-fw fa-file",
+      "items": [
+        {
+          "route": "/quan-ly-van-ban/van-ban-ca-nhan",
+          "title": "Văn bản cá nhân",
+          "permission": "Pages.DocumentPersonal"
+        },
+        {
+          "route": "/quan-ly-van-ban/van-ban-di",
+          "title": "Văn bản đi",
+          "permission": "Pages.DocumentAway"
+        },
+        {
+          "route": "/quan-ly-van-ban/van-ban-den",
+          "title": "Văn bản đến",
+          "permission": "Pages.DocumentArrived"
         }
       ]
     },
@@ -46,27 +65,23 @@
       "items": [
         {
           "route": "/danh-muc/tinh-thanh",
-          "title": "Tỉnh thành"
+          "title": "Tỉnh thành",
+          "permission": "Pages.Province"
         },
         {
           "route": "/danh-muc/loai-van-ban",
-          "title": "Loại văn bản"
+          "title": "Loại văn bản",
+          "permission": "Pages.DocumentType"
         },
         {
           "route": "/danh-muc/co-quan-ban-hanh",
-          "title": "Cơ quan ban hành"
+          "title": "Cơ quan ban hành",
+          "permission": "Pages.AgencyIssued"
         },
         {
-          "route": "/danh-muc/van-ban-ca-nhan",
-          "title": "Văn bản cá nhân"
-        },
-        {
-          "route": "/danh-muc/van-ban-di",
-          "title": "Văn bản đi"
-        },
-        {
-          "route": "/danh-muc/van-ban-den",
-          "title": "Văn bản đến"
+          "route": "/danh-muc/phong-ban",
+          "title": "Phòng ban",
+          "permission": "Pages.Department"
         }
       ]
     },
@@ -76,15 +91,23 @@
       "items": [
         {
           "route": "/cau-hinh/thong-tin-nguoi-ky-duyet",
-          "title": "Cấu hình thông tin người ký duyệt"
+          "title": "Cấu hình thông tin người ký duyệt",
+          "permission": "Pages.Config"
         },
         {
           "route": "/he-thong/quan-ly-tai-khoan",
-          "title": "Quản lý tài khoản"
+          "title": "Quản lý tài khoản",
+          "permission": "Pages.Users"
+        },
+        {
+          "route": "/he-thong/quyen",
+          "title": "Quản lý quyền",
+          "permission": "Pages.Roles"
         },
         {
           "route": "/he-thong/thong-tin-ca-nhan",
-          "title": "Thông tin cá nhân"
+          "title": "Thông tin cá nhân",
+          "permission": "Pages.Profile"
         }
       ]
     }

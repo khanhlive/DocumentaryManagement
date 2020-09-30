@@ -13,6 +13,7 @@ export interface CreateOrUpdateUserInput {
   provinceId: number;
   phoneNumber: string;
   fullName2: string;
+  departmentId: number;
 }
 
 export interface ChangePasswordInput {

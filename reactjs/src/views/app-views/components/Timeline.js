@@ -30,7 +30,7 @@ export default class Timeline extends React.Component {
                       <li>
                         <div className="smart-timeline-icon">
                           <img
-                            src="assets/img/avatars/sunny.png"
+                            src="/assets/img/avatars/sunny.png"
                             width={32}
                             height={32}
                             alt="user"
@@ -55,7 +55,7 @@ export default class Timeline extends React.Component {
                             </a>
                           </p>
                           <img
-                            src="assets/img/superbox/superbox-thumb-4.jpg"
+                            src="/assets/img/superbox/superbox-thumb-4.jpg"
                             alt="img"
                             width={150}
                           />
@@ -150,21 +150,21 @@ export default class Timeline extends React.Component {
                           <ul className="list-inline">
                             <li>
                               <img
-                                src="assets/img/superbox/superbox-thumb-6.jpg"
+                                src="/assets/img/superbox/superbox-thumb-6.jpg"
                                 alt="img"
                                 width={50}
                               />
                             </li>
                             <li>
                               <img
-                                src="assets/img/superbox/superbox-thumb-5.jpg"
+                                src="/assets/img/superbox/superbox-thumb-5.jpg"
                                 alt="img"
                                 width={50}
                               />
                             </li>
                             <li>
                               <img
-                                src="assets/img/superbox/superbox-thumb-7.jpg"
+                                src="/assets/img/superbox/superbox-thumb-7.jpg"
                                 alt="img"
                                 width={50}
                               />

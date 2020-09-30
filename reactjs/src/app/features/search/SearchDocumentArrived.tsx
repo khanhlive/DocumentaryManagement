@@ -10,15 +10,17 @@ import { JavisWidgetDefault } from '../../../common/core/models/JavisDefault';
 import DataGridCustom from '../../../common/tables/components/DataGridCustom';
 import DocumentaryService from '../../../services/danhmuc/documentary/DocumentaryService';
 import BreadcrumbStoreApp from '../../../stores/BreadcrumbStore';
+import SessionStore from '../../../stores/sessionStore';
 import Stores from '../../../stores/storeIdentifier';
 import DocumentView from './DocumentView';
 import SearchDocument from './SearchDocument';
 
 export interface ISearchDocumentArrivedProps {
-    breadcrumbStore?: BreadcrumbStoreApp
+    breadcrumbStore?: BreadcrumbStoreApp,
+    sessionStore?: SessionStore
 }
 
-@inject(Stores.BreadcrumbStore)
+@inject(Stores.BreadcrumbStore, Stores.SessionStore)
 @observer
 export default class SearchDocumentArrived extends Component<ISearchDocumentArrivedProps, any> {
     dataGrid?: DataGridCustom;
@@ -54,7 +56,7 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
         return data;
     }
     handlePrinting() {
-        let filterData = Object.assign({}, this.filterComponent?.getData());
+        let filterData = Object.assign({}, this.filterComponent?.getData(), { userId: this.props.sessionStore?.currentLogin.user.id });
         let fields: string[] = ['ngayBanHanhTu', 'ngayBanHanhDen', 'ngayGuiTu', 'ngayGuiDen'];
         fields.forEach(element => {
             filterData = this.modifiyDate(filterData, element);
@@ -77,7 +79,7 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
                                     icon="fa fa-fw fa-table"
                                 />
                                 {
-                                    this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                    this.props.breadcrumbStore?.useStats == true ? (
                                         <Stats />
                                     ) : null
                                 }

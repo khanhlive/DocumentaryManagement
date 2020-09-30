@@ -14,7 +14,7 @@ export default class ChartJs extends React.Component {
   state = {};
 
   componentDidMount() {
-    getJSON("assets/api/graphs/chartjs.json").then(data => {
+    getJSON("/assets/api/graphs/chartjs.json").then(data => {
       this.setState(data);
     });
   }

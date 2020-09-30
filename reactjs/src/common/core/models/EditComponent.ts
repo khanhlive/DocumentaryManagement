@@ -26,6 +26,8 @@ export default abstract class EditComponentBase<
   public form?: HTMLFormElement;
   public divForm?: HTMLDivElement;
   public validator?: BootstrapValidator;
+  public getFormData() {}
+
   public handleSave() {
     if (this.form != undefined) {
       this.form?.dispatchEvent(new Event("submit"));
@@ -34,6 +36,7 @@ export default abstract class EditComponentBase<
     }
   }
   public create(model: any) {
+    this.getFormData();
     this.setState({
       isShow: true,
       model: model || {},
@@ -42,6 +45,7 @@ export default abstract class EditComponentBase<
     });
   }
   public edit(id: number, model: any) {
+    this.getFormData();
     this.setState({
       isShow: true,
       model: model,

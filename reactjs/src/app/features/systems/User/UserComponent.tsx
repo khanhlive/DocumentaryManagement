@@ -84,7 +84,7 @@ export default class UserComponent extends Component<IUserProps, any> {
                                 icon="fa fa-fw fa-table"
                             />
                             {
-                                this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                this.props.breadcrumbStore?.useStats == true ? (
                                     <Stats />
                                 ) : null
                             }
@@ -125,6 +125,11 @@ export default class UserComponent extends Component<IUserProps, any> {
                                             <Column
                                                 dataField="emailAddress"
                                                 caption="Email"
+                                                dataType="string"
+                                            />
+                                            <Column
+                                                dataField="departmentName"
+                                                caption="Phòng ban"
                                                 dataType="string"
                                             />
                                             <Column

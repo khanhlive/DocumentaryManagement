@@ -78,7 +78,7 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
                                     icon="fa fa-fw fa-table"
                                 />
                                 {
-                                    this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                    this.props.breadcrumbStore?.useStats == true ? (
                                         <Stats />
                                     ) : null
                                 }

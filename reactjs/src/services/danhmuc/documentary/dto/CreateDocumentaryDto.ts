@@ -23,6 +23,11 @@ export default class CreateDocumentaryDto implements ICreateDocumentaryDto {
   creationId?: number | undefined;
   creationDate?: Date | undefined;
   appAttachments?: FileUploadInfo[] | undefined;
+  isApproved?: boolean | undefined;
+  approvedDepartmentId?: number | undefined;
+  approvedUserId?: number | undefined;
+  approvedType?: number | undefined;
+  approvedContent?: string | undefined;
 
   constructor(data?: ICreateDocumentaryDto) {
     if (data) {
@@ -143,4 +148,9 @@ export interface ICreateDocumentaryDto {
   creationId?: number | undefined;
   creationDate?: Date | undefined;
   appAttachments?: FileUploadInfo[] | undefined;
+  isApproved?: boolean | undefined;
+  approvedDepartmentId?: number | undefined;
+  approvedUserId?: number | undefined;
+  approvedType?: number | undefined;
+  approvedContent?: string | undefined;
 }

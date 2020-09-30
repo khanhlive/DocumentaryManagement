@@ -13,7 +13,7 @@ export default class FlotCharts extends React.Component {
   state = {};
 
   componentDidMount = () => {
-    getJSON("assets/api/graphs/flot.json").then(data => {
+    getJSON("/assets/api/graphs/flot.json").then(data => {
       this.setState(data);
     });
 
@@ -270,7 +270,7 @@ const fillChartDemoOptions = {
     tickDecimals: 0
   },
   yaxis: {
-    tickFormatter: function(v) {
+    tickFormatter: function (v) {
       return v + " cm";
     }
   }
@@ -285,7 +285,7 @@ const pieChartDemoOptions = {
       label: {
         show: false,
         radius: 2 / 3,
-        formatter: function(label, series) {
+        formatter: function (label, series) {
           return (
             '<div style="font-size:11px;text-align:center;padding:4px;color:white;">' +
             label +
@@ -401,7 +401,7 @@ const autoUpdatingChartDemoOptions = {
 const FakeDataSource = {
   data: [],
   total: 200,
-  getRandomData: function() {
+  getRandomData: function () {
     if (this.data.length > 0) this.data = this.data.slice(1);
 
     // do a random walk

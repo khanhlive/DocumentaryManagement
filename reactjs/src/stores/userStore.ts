@@ -66,6 +66,7 @@ class UserStore {
       organization: "",
       provinceId: 0,
       fullName2: "",
+      departmentId: 0,
     };
     this.roles = [];
   }

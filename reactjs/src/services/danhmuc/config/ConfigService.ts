@@ -34,6 +34,7 @@ class ConfigService extends ServiceBase<any, any, any> {
 
   public getCacheField(field: string) {
     let cache = this.getCache();
+    cache = cache ? cache : {};
     return cache[field] || "";
   }
 

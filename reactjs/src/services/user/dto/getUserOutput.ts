@@ -12,4 +12,5 @@ export interface GetUserOutput {
   provinceId: number;
   phoneNumber: string;
   fullName2: string;
+  departmentId: number;
 }

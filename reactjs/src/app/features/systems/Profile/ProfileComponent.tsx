@@ -96,7 +96,7 @@ export default class ProfileComponent extends Component<IProfileProps, any> {
                                 icon="fa fa-fw fa-cog"
                             />
                             {
-                                this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+                                this.props.breadcrumbStore?.useStats == true ? (
                                     <Stats />
                                 ) : null
                             }

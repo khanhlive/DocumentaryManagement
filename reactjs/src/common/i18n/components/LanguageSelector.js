@@ -14,9 +14,9 @@ class LanguageSelector extends React.Component {
     return (
       <ul className="header-dropdown-list hidden-xs ng-cloak">
         <li className="dropdown">
-          <a href="#/" className="dropdown-toggle" data-toggle="dropdown">
+          <a href="/" className="dropdown-toggle" data-toggle="dropdown">
             <img
-              src="assets/img/blank.gif"
+              src="/assets/img/blank.gif"
               className={classnames(["flag", "flag-" + language.key])}
               alt={language.alt}
             />
@@ -32,9 +32,9 @@ class LanguageSelector extends React.Component {
                     active: lang.key === language.key
                   })}
                 >
-                  <a href="#/" onClick={e=>this.selectLanguage(lang)}>
+                  <a href="/" onClick={e => this.selectLanguage(lang)}>
                     <img
-                      src="assets/img/blank.gif"
+                      src="/assets/img/blank.gif"
                       className={classnames(["flag", "flag-" + lang.key])}
                       alt={lang.alt}
                     />

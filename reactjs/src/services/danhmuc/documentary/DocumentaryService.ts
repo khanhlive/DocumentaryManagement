@@ -3,6 +3,7 @@ import CreateDocumentaryDto from "./dto/CreateDocumentaryDto";
 import DocumentaryDto from "./dto/DocumentaryDto";
 import UpdateDocumentaryDto from "./dto/UpdateDocumentaryDto";
 import * as AspNetData from "devextreme-aspnet-data-nojquery";
+import { ApprovedDocumentDto } from "./dto/ApprovedDocumentDto";
 
 class DocumentaryService extends ServiceBase<
   DocumentaryDto,
@@ -63,6 +64,17 @@ class DocumentaryService extends ServiceBase<
         //ajaxOptions.xhrFields = { withCredentials: true };
       },
     });
+  }
+
+  public async approved(
+    id: number,
+    input: ApprovedDocumentDto
+  ): Promise<DocumentaryDto> {
+    let req = await this.httpBase.post(
+      `${this.baseUrl}/api/services/app/${this.entityName}/approved`,
+      input
+    );
+    return this.processResponseData(req);
   }
 }
 

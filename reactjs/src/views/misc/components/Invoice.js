@@ -76,7 +76,7 @@ export default class Invoice extends React.Component {
                       <br />
                       <div className="pull-left">
                         <img
-                          src="assets/img/logo-blacknwhite.png"
+                          src="/assets/img/logo-blacknwhite.png"
                           width={150}
                           height={32}
                           alt="invoice icon"
@@ -218,25 +218,25 @@ export default class Invoice extends React.Component {
                             <div className="payment-methods">
                               <h5>Payment Methods</h5>
                               <img
-                                src="assets/img/invoice/paypal.png"
+                                src="/assets/img/invoice/paypal.png"
                                 width={64}
                                 height={64}
                                 alt="paypal"
                               />
                               <img
-                                src="assets/img/invoice/americanexpress.png"
+                                src="/assets/img/invoice/americanexpress.png"
                                 width={64}
                                 height={64}
                                 alt="american express"
                               />
                               <img
-                                src="assets/img/invoice/mastercard.png"
+                                src="/assets/img/invoice/mastercard.png"
                                 width={64}
                                 height={64}
                                 alt="mastercard"
                               />
                               <img
-                                src="assets/img/invoice/visa.png"
+                                src="/assets/img/invoice/visa.png"
                                 width={64}
                                 height={64}
                                 alt="visa"

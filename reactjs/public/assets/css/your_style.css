@@ -59,6 +59,7 @@ html > body:not(.menu-on-top).fixed-header {
 }
 .dx-datagrid-smart .dx-toolbar-before {
   margin-left: 10px;
+  width: max-content;
 }
 
 /* .td-no-padding {
@@ -174,10 +175,13 @@ html > body:not(.menu-on-top).fixed-header {
   background-color: #c1c1c1;
   border: 1px solid #aba8a8;
 }
-.form-no-padding .control-label {
-  padding-left: 0;
-  padding-right: 0;
+@media (min-width: 768px) {
+  .form-no-padding .control-label {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
+
 @media (min-width: 992px) {
   .form-custom .radio-inline {
     padding-top: 0px;
@@ -468,4 +472,30 @@ html > body:not(.menu-on-top).fixed-header {
 }
 .bg-maroon-active {
   background-color: #ca195a !important;
+}
+.header-title {
+  float: left;
+  line-height: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 14px;
+  color: #4a4a4c;
+}
+.page-title {
+  margin: 0 0 10px;
+}
+
+.input-group-addon .select-control {
+  border: none;
+  height: unset;
+  padding-right: 0;
+  min-width: 100px;
+}
+.dynamic-clear {
+  clear: both;
+}
+@media (min-width: 1200px) {
+  .dynamic-clear {
+    display: none;
+  }
 }

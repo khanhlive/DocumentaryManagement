@@ -14,4 +14,5 @@ export interface UpdateUserInput {
   provinceId: number;
   phoneNumber: string;
   fullName2: string;
+  departmentId: number;
 }

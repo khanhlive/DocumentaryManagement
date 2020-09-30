@@ -12,7 +12,7 @@ import { DygraphsChart } from "../../../common/graphs/dygraphs";
 export default class Dygraphs extends React.Component {
   state = {};
   componentDidMount() {
-    getJSON("assets/api/graphs/dygraphs.json").then(data => {
+    getJSON("/assets/api/graphs/dygraphs.json").then(data => {
       this.setState(data);
     });
   }

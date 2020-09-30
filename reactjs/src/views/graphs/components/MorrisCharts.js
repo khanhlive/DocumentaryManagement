@@ -15,7 +15,7 @@ export default class MorrisCharts extends React.Component {
   state = {};
 
   UNSAFE_componentWillMount() {
-    request("GET", "assets/api/graphs/morris.json", { json: true }).done(
+    request("GET", "/assets/api/graphs/morris.json", { json: true }).done(
       res => {
         this.setState(JSON.parse(res.getBody()));
       }
@@ -272,7 +272,7 @@ export default class MorrisCharts extends React.Component {
                       ykeys={["licensed", "sorned", "other"]}
                       labels={["Licensed", "SORN", "Other"]}
                       xLabels={"day"}
-                      xLabelFormat={function(d) {
+                      xLabelFormat={function (d) {
                         return (
                           d.getMonth() +
                           1 +

@@ -100,6 +100,13 @@ class UserService {
       },
     });
   }
+
+  public async getUserForApproved(): Promise<any> {
+    let result = await http.get(
+      `/api/services/app/documentary/get-user-approvedd`
+    );
+    return result.data.result;
+  }
 }
 
 export default new UserService();

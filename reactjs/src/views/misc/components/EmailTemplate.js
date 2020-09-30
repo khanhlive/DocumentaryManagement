@@ -10,7 +10,7 @@ export default class EmailTemplate extends React.Component {
         <div className="row">
           <div className="col-xs-12 col-sm-4 col-md-3 col-lg-2">
             <img
-              src="assets/img/demo/basic.png"
+              src="/assets/img/demo/basic.png"
               alt="Basic Email Template"
               style={{ width: "100%", height: "auto" }}
             />
@@ -18,7 +18,7 @@ export default class EmailTemplate extends React.Component {
             <br />
             <a
               onClick={this.onClick}
-              href="../COMMON_ASSETS/GOODIES/email-templates/basic.html"
+              href="../COMMON_/assets/GOODIES/email-templates/basic.html"
               target="_blank"
               className="btn btn-primary btn-block"
             >
@@ -27,7 +27,7 @@ export default class EmailTemplate extends React.Component {
           </div>
           <div className="col-xs-12 col-sm-4 col-md-3 col-lg-2">
             <img
-              src="assets/img/demo/sidebar.png"
+              src="/assets/img/demo/sidebar.png"
               alt="Sidebar Email Template"
               style={{ width: "100%", height: "auto" }}
             />
@@ -35,7 +35,7 @@ export default class EmailTemplate extends React.Component {
             <br />
             <a
               onClick={this.onClick}
-              href="../COMMON_ASSETS/GOODIES/email-templates/sidebar.html"
+              href="../COMMON_/assets/GOODIES/email-templates/sidebar.html"
               target="_blank"
               className="btn btn-primary btn-block"
             >
@@ -44,7 +44,7 @@ export default class EmailTemplate extends React.Component {
           </div>
           <div className="col-xs-12 col-sm-4 col-md-3 col-lg-2">
             <img
-              src="assets/img/demo/hero.png"
+              src="/assets/img/demo/hero.png"
               alt="Hero Email Template"
               style={{ width: "100%", height: "auto" }}
             />
@@ -52,7 +52,7 @@ export default class EmailTemplate extends React.Component {
             <br />
             <a
               onClick={this.onClick}
-              href="../COMMON_ASSETS/GOODIES/email-templates/hero.html"
+              href="../COMMON_/assets/GOODIES/email-templates/hero.html"
               target="_blank"
               className="btn btn-primary btn-block"
             >
@@ -61,7 +61,7 @@ export default class EmailTemplate extends React.Component {
           </div>
           <div className="col-xs-12 col-sm-4 col-md-3 col-lg-2">
             <img
-              src="assets/img/demo/sidebarhero.png"
+              src="/assets/img/demo/sidebarhero.png"
               alt="Sidebar with Hero"
               style={{ width: "100%", height: "auto" }}
             />
@@ -69,7 +69,7 @@ export default class EmailTemplate extends React.Component {
             <br />
             <a
               onClick={this.onClick}
-              href="../COMMON_ASSETS/GOODIES/email-templates/sidebar-hero.html"
+              href="../COMMON_/assets/GOODIES/email-templates/sidebar-hero.html"
               target="_blank"
               className="btn btn-primary btn-block"
             >
@@ -78,7 +78,7 @@ export default class EmailTemplate extends React.Component {
           </div>
           <div className="col-xs-12 col-sm-4 col-md-3 col-lg-2">
             <img
-              src="assets/img/demo/newsletter.png"
+              src="/assets/img/demo/newsletter.png"
               alt="Newsletter Email Template"
               style={{ width: "100%", height: "auto" }}
             />
@@ -86,7 +86,7 @@ export default class EmailTemplate extends React.Component {
             <br />
             <a
               onClick={this.onClick}
-              href="../COMMON_ASSETS/GOODIES/email-templates/newsletter.html"
+              href="../COMMON_/assets/GOODIES/email-templates/newsletter.html"
               target="_blank"
               className="btn btn-primary btn-block"
             >

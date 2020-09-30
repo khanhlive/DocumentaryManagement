@@ -34,11 +34,15 @@ class Login extends React.Component<any, any> {
   }
   async onSubmit(e: any) {
     e.preventDefault();
+
     let loginModel = this.state.loginModel;
-    await this.props.authenticationStore.login(loginModel);
-    sessionStorage.setItem("rememberMe", loginModel.rememberMe ? "1" : "0");
-    const { state } = this.props.location;
-    window.location = state ? state.from.pathname : "/";
+    if (loginModel.userNameOrEmailAddress && loginModel.password) {
+      await this.props.authenticationStore.login(loginModel);
+      sessionStorage.setItem("rememberMe", loginModel.rememberMe ? "1" : "0");
+      const { state } = this.props.location;
+      window.location = state ? state.from.pathname : "/";
+    }
+
   }
 
   render() {
@@ -49,23 +53,26 @@ class Login extends React.Component<any, any> {
         <header id="header" className="animated fadeInDown">
           <div id="logo-group">
             <span id="logo">
-              <img src="assets/img/logo.png" alt="SmartAdmin" />
+              <img src="/assets/img/logo.png" alt="SmartAdmin" />
             </span>
           </div>
 
-          <span id="extr-page-header-space">
+          {/* <span id="extr-page-header-space">
             <span className="hidden-mobile hiddex-xs">
               Need an account?
                 </span>
                 &nbsp;
-                <a href="#/register" className="btn btn-danger">
+                <a href="/register" className="btn btn-danger">
               Create account
                 </a>
-          </span>
+          </span> */}
         </header>
         <div id="main" role="main" className="animated fadeInDown">
           <div id="content" className="container">
             <div className="row">
+              {/* <div className="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+                <img src={'/assets/img/bg1.png'} style={{ width: '100%', height: '100%' }}></img>
+              </div> */}
               <div className="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
                 <h1 className="txt-color-red login-header-big">
                   SmartAdmin
@@ -80,14 +87,14 @@ class Login extends React.Component<any, any> {
 
                     <div className="login-app-icons">
                       <a
-                        href="#/dashboard/analytics"
+                        href="/dashboard/analytics"
                         className="btn btn-danger btn-sm"
                       >
                         Frontend Template
                           </a>
                       <span> </span>
                       <a
-                        href="#/smartadmin/different-versions.html"
+                        href="/smartadmin/different-versions.html"
                         className="btn btn-danger btn-sm"
                       >
                         Find out more
@@ -95,7 +102,7 @@ class Login extends React.Component<any, any> {
                     </div>
                   </div>
                   <img
-                    src="assets/img/demo/iphoneview.png"
+                    src="/assets/img/demo/iphoneview.png"
                     className="pull-right display-image"
                     alt=""
                     style={{ width: "210px" }}
@@ -135,50 +142,51 @@ class Login extends React.Component<any, any> {
                       onSubmit={this.onSubmit}
                       className="smart-form client-form"
                     >
-                      <header>Sign In</header>
+                      <header>Đăng nhập</header>
                       <fieldset>
                         <section>
-                          <label className="label">E-mail</label>
+                          <label className="label">Tên đăng nhập</label>
                           <label className="input">
                             <i className="icon-append fa fa-user" />
                             <input
                               type="text"
                               name="userNameOrEmailAddress"
-                              //data-smart-validate-input=""
-                              data-required=""
+                              data-smart-validate-input=""
+                              data-required="true"
                               //data-email=""
                               onChange={this.onChange}
-                              data-message-required="Please enter your email address"
+                              data-message-required="Bạn chưa nhập tên đăng nhập"
                             //data-message-email="Please enter a VALID email address"
                             />
                             <b className="tooltip tooltip-top-right">
                               <i className="fa fa-user txt-color-teal" />
-                                  Please enter email address/username
+                                  Nhập tài khoản đăng nhập của bạn
                                 </b>
                           </label>
                         </section>
                         <section>
-                          <label className="label">Password</label>
+                          <label className="label">Mật khẩu</label>
                           <label className="input">
                             <i className="icon-append fa fa-lock" />
                             <input
                               type="password"
                               name="password"
                               data-smart-validate-input=""
-                              data-required=""
+                              data-required="true"
                               onChange={this.onChange}
                               data-minlength="3"
-                              data-maxnlength="20"
-                              data-message="Please enter your email password"
+                              data-maxnlength="50"
+                              data-message="Mật khẩu từ 3-50 ký tự"
+                              data-message-required="Chưa nhập mật khẩu"
                             />
                             <b className="tooltip tooltip-top-right">
-                              <i className="fa fa-lock txt-color-teal" />{" "}
-                                  Enter your password
+                              <i className="fa fa-lock txt-color-teal" />
+                                  Nhập mật khẩu
                                 </b>
                           </label>
 
                           <div className="note">
-                            <a href="#/forgot">Forgot password?</a>
+                            <a href="/forgot">Quên mật khẩu?</a>
                           </div>
                         </section>
                         <section>
@@ -190,48 +198,18 @@ class Login extends React.Component<any, any> {
                               defaultChecked={true}
                             />
                             <i />
-                                Stay signed in
+                                Ghi nhớ đăng nhập
                               </label>
                         </section>
                       </fieldset>
                       <footer>
                         <button type="submit" className="btn btn-primary">
-                          Sign in
+                          Đăng nhập
                             </button>
                       </footer>
                     </form>
                   </UiValidate>
                 </div>
-                <h5 className="text-center"> - Or sign in using -</h5>
-                <ul className="list-inline text-center">
-                  <li>
-                    <a
-                      href="#/"
-                      onClick={this.onClick}
-                      className="btn btn-primary btn-circle"
-                    >
-                      <i className="fa fa-facebook" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#/"
-                      onClick={this.onClick}
-                      className="btn btn-info btn-circle"
-                    >
-                      <i className="fa fa-twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#/"
-                      onClick={this.onClick}
-                      className="btn btn-warning btn-circle"
-                    >
-                      <i className="fa fa-linkedin" />
-                    </a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

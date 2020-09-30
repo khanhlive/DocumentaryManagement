@@ -7,6 +7,9 @@ import {
   JarvisWidget
 } from "../../../common";
 import DashboardService from '../../../services/dashboard/DashboardService'
+import { inject, observer } from 'mobx-react';
+import Stores from '../../../stores/storeIdentifier';
+import BreadcrumbStoreApp from '../../../stores/BreadcrumbStore';
 
 const options = {
   responsive: false,
@@ -19,9 +22,14 @@ const options = {
       }]
   }
 }
+export interface IDashboardProps {
+  breadcrumbStore?: BreadcrumbStoreApp
+}
 
-export default class Dashboard extends React.Component {
-  constructor(props) {
+@inject(Stores.BreadcrumbStore)
+@observer
+export default class Dashboard extends React.Component<IDashboardProps, any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       barChartData: {},
@@ -62,13 +70,21 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <div id="content" className="animated fadeInUp">
-        <div className="row">
-          <BigBreadcrumbs
-            items={["Bảng điều khiển"]}
-            className="col-xs-12 col-sm-7 col-md-7 col-lg-4"
-          />
-          <Stats />
-        </div>
+        {
+          this.props.breadcrumbStore?.useBigBreadcrum == true ? (
+            <div className="row">
+              <BigBreadcrumbs
+                items={["Thống kê"]}
+                icon="fa fa-fw fa-table"
+              />
+              {
+                this.props.breadcrumbStore?.useStats == true ? (
+                  <Stats />
+                ) : null
+              }
+            </div>
+          ) : null
+        }
 
         <WidgetGrid>
 

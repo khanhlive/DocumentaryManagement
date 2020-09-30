@@ -37,7 +37,7 @@ export default class ForumPost extends React.Component {
                   <tr>
                     <td className="text-center">
                       <a href="#/views/profile">
-                        <img alt="" src="assets/img/flags/us.png" /> &nbsp;
+                        <img alt="" src="/assets/img/flags/us.png" /> &nbsp;
                         <strong>John Doe</strong>
                       </a>
                     </td>
@@ -50,7 +50,7 @@ export default class ForumPost extends React.Component {
                       <div className="push-bit">
                         <a href="#/views/profile">
                           <img
-                            src="assets/img/avatars/sunny.png"
+                            src="/assets/img/avatars/sunny.png"
                             width={50}
                             alt="avatar"
                             className="online"
@@ -102,7 +102,7 @@ export default class ForumPost extends React.Component {
                   <tr>
                     <td className="text-center">
                       <a href="#/views/profile">
-                        <img alt="" src="assets/img/flags/es.png" /> &nbsp;
+                        <img alt="" src="/assets/img/flags/es.png" /> &nbsp;
                         <strong>Sadi Orlaf</strong>
                       </a>
                     </td>
@@ -115,7 +115,7 @@ export default class ForumPost extends React.Component {
                       <div className="push-bit">
                         <a href="#/views/profile">
                           <img
-                            src="assets/img/avatars/5.png"
+                            src="/assets/img/avatars/5.png"
                             width={50}
                             alt="avatar"
                             className="offline"
@@ -171,7 +171,7 @@ export default class ForumPost extends React.Component {
                   <tr>
                     <td className="text-center">
                       <a href="#/views/profile">
-                        <img alt="" src="assets/img/flags/us.png" /> &nbsp;
+                        <img alt="" src="/assets/img/flags/us.png" /> &nbsp;
                         <strong>Me</strong>
                       </a>
                     </td>
@@ -184,7 +184,7 @@ export default class ForumPost extends React.Component {
                       <div className="push-bit">
                         <a href="#/views/profile">
                           <img
-                            src="assets/img/avatars/sunny.png"
+                            src="/assets/img/avatars/sunny.png"
                             width={50}
                             alt="avatar"
                             className="online"

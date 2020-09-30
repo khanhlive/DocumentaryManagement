@@ -23,7 +23,7 @@ export const routes = [
   //...forms,
   //...graphs,
   //...maps,
-  //...misc,
+  ...misc,
   //...outlook,
   //...smartadminIntel,
   //...tables,

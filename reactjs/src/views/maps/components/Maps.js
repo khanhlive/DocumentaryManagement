@@ -20,26 +20,26 @@ const MapView = Loadable({
 export default class Maps extends React.Component {
   static defaultProps = {
     styles: {
-      colorful: { name: "Colorful", url: "assets/api/maps/colorful.json" },
-      greyscale: { name: "greyscale", url: "assets/api/maps/greyscale.json" },
-      metro: { name: "metro", url: "assets/api/maps/metro.json" },
+      colorful: { name: "Colorful", url: "/assets/api/maps/colorful.json" },
+      greyscale: { name: "greyscale", url: "/assets/api/maps/greyscale.json" },
+      metro: { name: "metro", url: "/assets/api/maps/metro.json" },
       "mono-color": {
         name: "mono-color",
-        url: "assets/api/maps/mono-color.json"
+        url: "/assets/api/maps/mono-color.json"
       },
       monochrome: {
         name: "monochrome",
-        url: "assets/api/maps/monochrome.json"
+        url: "/assets/api/maps/monochrome.json"
       },
       nightvision: {
         name: "Nightvision",
-        url: "assets/api/maps/nightvision.json"
+        url: "/assets/api/maps/nightvision.json"
       },
       "nightvision-highlight": {
         name: "nightvision-highlight",
-        url: "assets/api/maps/nightvision-highlight.json"
+        url: "/assets/api/maps/nightvision-highlight.json"
       },
-      "old-paper": { name: "Old Paper", url: "assets/api/maps/old-paper.json" }
+      "old-paper": { name: "Old Paper", url: "/assets/api/maps/old-paper.json" }
     }
   };
 

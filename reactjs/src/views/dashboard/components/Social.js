@@ -32,7 +32,7 @@ const Social = () => {
               <div className="panel-body status">
                 <div className="who clearfix">
                   <img
-                    src="assets/img/avatars/5.png"
+                    src="/assets/img/avatars/5.png"
                     alt="img"
                     className="online"
                   />
@@ -44,7 +44,7 @@ const Social = () => {
                   </span>
                 </div>
                 <div className="image">
-                  <img src="assets/img/realestate/6.png" alt="img" />
+                  <img src="/assets/img/realestate/6.png" alt="img" />
                 </div>
                 <ul className="links">
                   <li>
@@ -66,7 +66,7 @@ const Social = () => {
                 <ul className="comments">
                   <li>
                     <img
-                      src="assets/img/avatars/sunny.png"
+                      src="/assets/img/avatars/sunny.png"
                       alt="img"
                       className="online"
                     />
@@ -76,7 +76,7 @@ const Social = () => {
                   </li>
                   <li>
                     <img
-                      src="assets/img/avatars/2.png"
+                      src="/assets/img/avatars/2.png"
                       alt="img"
                       className="online"
                     />
@@ -85,7 +85,7 @@ const Social = () => {
                   </li>
                   <li>
                     <img
-                      src="assets/img/avatars/sunny.png"
+                      src="/assets/img/avatars/sunny.png"
                       alt="img"
                       className="online"
                     />
@@ -108,7 +108,7 @@ const Social = () => {
                     <div className="col-sm-12 col-md-6 col-lg-4">
                       <div className="well text-center connect">
                         <img
-                          src="assets/img/avatars/female.png"
+                          src="/assets/img/avatars/female.png"
                           alt="img"
                           className="margin-bottom-5 margin-top-5"
                         />
@@ -127,7 +127,7 @@ const Social = () => {
                     <div className="col-sm-12 col-md-6 col-lg-4">
                       <div className="well text-center connect">
                         <img
-                          src="assets/img/avatars/female.png"
+                          src="/assets/img/avatars/female.png"
                           alt="img"
                           className="margin-bottom-5 margin-top-5"
                         />
@@ -146,7 +146,7 @@ const Social = () => {
                     <div className="col-sm-12 col-md-6 col-lg-4">
                       <div className="well text-center connect">
                         <img
-                          src="assets/img/avatars/female.png"
+                          src="/assets/img/avatars/female.png"
                           alt="img"
                           className="margin-bottom-5 margin-top-5"
                         />
@@ -179,7 +179,7 @@ const Social = () => {
               <div className="panel-body status">
                 <div className="who clearfix">
                   <img
-                    src="assets/img/avatars/sunny.png"
+                    src="/assets/img/avatars/sunny.png"
                     alt="img"
                     className="online"
                   />
@@ -212,7 +212,7 @@ const Social = () => {
               <div className="panel-body status smart-form vote">
                 <div className="who clearfix">
                   <img
-                    src="assets/img/avatars/3.png"
+                    src="/assets/img/avatars/3.png"
                     alt="img"
                     className="offline"
                   />
@@ -284,7 +284,7 @@ const Social = () => {
                 </div>
                 <div className="who clearfix">
                   <img
-                    src="assets/img/avatars/2.png"
+                    src="/assets/img/avatars/2.png"
                     alt="img"
                     className="busy"
                   />
@@ -304,7 +304,7 @@ const Social = () => {
                 </div>
                 <div className="who clearfix">
                   <img
-                    src="assets/img/avatars/3.png"
+                    src="/assets/img/avatars/3.png"
                     alt="img"
                     className="offline"
                   />
@@ -324,7 +324,7 @@ const Social = () => {
                 </div>
                 <div className="who clearfix">
                   <img
-                    src="assets/img/avatars/4.png"
+                    src="/assets/img/avatars/4.png"
                     alt="img"
                     className="away"
                   />
@@ -350,7 +350,7 @@ const Social = () => {
               <div className="panel-body status">
                 <div className="who clearfix">
                   <img
-                    src="assets/img/avatars/sunny.png"
+                    src="/assets/img/avatars/sunny.png"
                     alt="img"
                     className="busy"
                   />
@@ -444,7 +444,7 @@ const Social = () => {
                   <ul>
                     <li className="message">
                       <img
-                        src="assets/img/avatars/5.png"
+                        src="/assets/img/avatars/5.png"
                         className="online"
                         alt="img"
                       />
@@ -476,7 +476,7 @@ const Social = () => {
                     </li>
                     <li className="message">
                       <img
-                        src="assets/img/avatars/sunny.png"
+                        src="/assets/img/avatars/sunny.png"
                         className="online"
                         alt="img"
                       />

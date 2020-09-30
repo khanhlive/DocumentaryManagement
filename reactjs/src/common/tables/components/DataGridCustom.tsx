@@ -115,8 +115,9 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
             searchPanel: { visible: true, width: 350, placeholder: 'Tìm kiếm...' },
             stateStoring: {
                 type: 'localStorage',
-                enabled: true,
-                storageKey: this.props.gridName
+                enabled: false,
+                storageKey: this.props.gridName,
+
             },
             columnChooser: {
                 enabled: true,
@@ -148,7 +149,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
                     this.props.onInitialized(e)
                 };
             },
-        })
+        }, { keyExpr: null })
         return (
             <DataGrid ref={ref => this.dataGrid = ref ? ref : undefined}
                 {...options}

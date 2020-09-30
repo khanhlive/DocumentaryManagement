@@ -209,7 +209,7 @@ export default class ImageCropping extends React.Component {
                   rows={9}
                   readOnly={true}
                   value={JSON.stringify(this.state.crop, null, 2)}
-                  onChange={e => {}}
+                  onChange={e => { }}
                 />
               </div>
             </div>
