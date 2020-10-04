@@ -1,19 +1,23 @@
 ﻿using Abp.UI;
 using DocumentaryManagement.Attachment.Dto;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.IO;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 
 namespace DocumentaryManagement.Core
 {
     public class FileHelperProvider
     {
+        readonly IHostingEnvironment _hostingEnvironment;
         private readonly HttpRequest request;
 
         public FileHelperProvider(HttpRequest request)
         {
             this.request = request;
+            //_hostingEnvironment = hostingEnvironment;
         }
 
         private void CreateIfNotExisted(string path)
@@ -23,7 +27,25 @@ namespace DocumentaryManagement.Core
                 Directory.CreateDirectory(path);
             }
         }
+        //public string VirtualToPhysicalPath(string vPath)
+        //{
+        //    // Remove query string:
+        //    vPath = Regex.Replace(vPath, @"\?.+", "").ToLower();
 
+        //    // Check if file is in standard folder:
+        //    var pPath = _hostingEnvironment.ma.MapPath("~" + vPath);
+        //    if (System.IO.File.Exists(pPath)) return pPath;
+
+        //    // Else check for IIS virtual directory:
+        //    var siteName = _hostingEnvironment.ApplicationHost.GetSiteName();
+        //    var sm = new Microsoft.Web.Administration.ServerManager();
+        //    var vDirs = sm.Sites[siteName].Applications[0].VirtualDirectories;
+        //    foreach (var vd in vDirs)
+        //    {
+        //        if (vd.Path != "/" && vPath.Contains(vd.Path.ToLower())) pPath = vPath.Replace(vd.Path.ToLower(), vd.PhysicalPath).Replace("/", "\\");
+        //    }
+        //    return pPath;
+        //}
         public CreateAttachmentDto SaveToServer()
         {
             var file = request.Form.Files[0];

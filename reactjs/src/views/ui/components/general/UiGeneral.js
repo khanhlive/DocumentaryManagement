@@ -2010,9 +2010,9 @@ export default class UiGeneral extends React.Component {
 
                     <div className="text-center">
                       <img
-                        src="/assets/img/demo/demo-smartbig-alert.png"
+                        src="assets/img/demo/demo-smartbig-alert.png"
                         alt="demo"
-                        className="/assets/img-responsive"
+                        className="assets/img-responsive"
                       />
                     </div>
 
@@ -2224,7 +2224,7 @@ export default class UiGeneral extends React.Component {
                           overlay={
                             <Tooltip id="img-src-styles-img-avatars-sunny-png-alt-me-class-online-tooltip">
                               <img
-                                src="/assets/img/avatars/sunny.png"
+                                src="assets/img/avatars/sunny.png"
                                 alt="me"
                                 className="online"
                               />
@@ -2615,7 +2615,7 @@ export default class UiGeneral extends React.Component {
                       <img
                         className="media-object"
                         alt="64x64"
-                        src="/assets/img/demo/64x64.png"
+                        src="assets/img/demo/64x64.png"
                       />
                     </a>
                     <div className="media-body">
@@ -2631,7 +2631,7 @@ export default class UiGeneral extends React.Component {
                           <img
                             className="media-object"
                             alt="64x64"
-                            src="/assets/img/demo/64x64.png"
+                            src="assets/img/demo/64x64.png"
                           />
                         </a>
                         <div className="media-body">
@@ -2648,7 +2648,7 @@ export default class UiGeneral extends React.Component {
                               <img
                                 className="media-object"
                                 alt="64x64"
-                                src="/assets/img/demo/64x64.png"
+                                src="assets/img/demo/64x64.png"
                               />
                             </a>
                             <div className="media-body">
@@ -2669,7 +2669,7 @@ export default class UiGeneral extends React.Component {
                           <img
                             className="media-object"
                             alt="64x64"
-                            src="/assets/img/demo/64x64.png"
+                            src="assets/img/demo/64x64.png"
                           />
                         </a>
                         <div className="media-body">
@@ -2689,7 +2689,7 @@ export default class UiGeneral extends React.Component {
                       <img
                         className="media-object"
                         alt="64x64"
-                        src="/assets/img/demo/64x64.png"
+                        src="assets/img/demo/64x64.png"
                       />
                     </a>
                     <div className="media-body">

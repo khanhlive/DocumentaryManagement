@@ -4,6 +4,7 @@ using Abp.UI;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
+using DocumentaryManagement.Authorization.Users;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models;
 using DocumentaryManagement.Model;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
 {
@@ -46,15 +48,38 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             }
         }
 
-        public List<AppDocumentary> GetFilterReportData(DocumentFilterOptions documentFilterOptions)
+        public List<AppDocumentary> GetFilterReportData(DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType, long userId)
         {
-            return this.GetQueryFilter(documentFilterOptions).ToList();
+            return this.GetQueryFilter(documentFilterOptions, permissionType, userId).ToList();
         }
 
-        private IQueryable<AppDocumentary> GetQueryFilter(DocumentFilterOptions documentFilterOptions)
+        private IQueryable<AppDocumentary> GetQueryFilter(DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType, long userId)
         {
             DocumentaryManagementDbContext DbContext = this.GetDevContext();
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
+            User user = this.Context.Users.FirstOrDefault(p => p.Id == userId);
+            int? departmentId = user == null ? 0 : user.DepartmentId;
+            if (permissionType == Authorization.PermissionType.Admin || permissionType == Authorization.PermissionType.DocumentManager)
+            {
+
+            }
+            else if (permissionType == Authorization.PermissionType.Approved)
+            {
+                query = (from a in query
+                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         where (a.ApprovedType == 1 ? a.ApprovedUserId == userId : a.ApprovedDepartmentId == departmentId) || (kq.Any())
+                         select a
+                        );
+            }
+            else
+            {
+                query = (from a in query
+                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         where (kq.Any())
+                         select a
+                        );
+            }
+
             if (documentFilterOptions != null)
             {
                 query = query.Where(p => p.Type == documentFilterOptions.Type);
@@ -69,13 +94,37 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
                         query = query.Where(p => documentFilterOptions.Exactly ? p.SummaryContent.Equals(documentFilterOptions.Keyword.Trim()) : p.SummaryContent.Contains(documentFilterOptions.Keyword));
                     }
                 }
+                if (documentFilterOptions.Approved != 0)
+                {
+                    query = query.Where(p => documentFilterOptions.Approved == 1 ? p.IsApproved == true : (p.IsApproved == false || p.IsApproved == null));
+                }
             }
+
             return SetEntityIncludes(query);
         }
 
-        public virtual LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions)
+        public virtual LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType)
         {
-            return DataSourceLoader.Load(GetQueryFilter(documentFilterOptions), loadOptions);
+            var query = GetQueryFilter(documentFilterOptions, permissionType, AbpSession.UserId ?? 0);
+            var query2 = (from a in query
+                          join b in Context.Users on a.ApprovedUserId equals b.Id into kq
+                          from u in kq.DefaultIfEmpty()
+                          join c in Context.AppDepartment on a.ApprovedDepartmentId equals c.Id into kq1
+                          from d in kq1.DefaultIfEmpty()
+                          select new
+                          {
+                              a,
+                              UserName = u == null ? null : u.FullName2,
+                              DepartmentName = d == null ? null : d.Name
+                          }
+                       ).AsEnumerable().Select(p =>
+                       {
+                           var item = p.a;
+                           item.ApprovedUserId_Name = p.UserName;
+                           item.ApprovedDepartmentId_Name = p.DepartmentName;
+                           return item;
+                       });
+            return DataSourceLoader.Load(query2, loadOptions);
         }
 
         public List<AppDocumentary> GetBookReportData(DocumentFilterOptions documentFilterOptions)
@@ -92,7 +141,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
                 query = query.Where(p => p.Type == documentFilterOptions.Type && p.ReleaseDate.Year == documentFilterOptions.Year);
             }
             return SetEntityIncludes(query);
-        } 
+        }
 
         public virtual LoadResult GetBookDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions)
         {
@@ -105,15 +154,37 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             return DataSourceLoader.Load(SetEntityIncludes(query), loadOptions);
         }
 
-        public List<AppDocumentary> GetSearchReportData(DocumentSearchOptions searchOptions)
+        public List<AppDocumentary> GetSearchReportData(DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType, long userId)
         {
-            return this.GetQuerySearch(searchOptions).ToList();
+            return this.GetQuerySearch(searchOptions, permissionType, userId).ToList();
         }
 
-        private IQueryable<AppDocumentary> GetQuerySearch(DocumentSearchOptions searchOptions)
+        private IQueryable<AppDocumentary> GetQuerySearch(DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType, long userId)
         {
             DocumentaryManagementDbContext DbContext = this.GetDevContext();
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
+            User user = this.Context.Users.FirstOrDefault(p => p.Id == userId);
+            int? departmentId = user == null ? 0 : user.DepartmentId;
+            if (permissionType == Authorization.PermissionType.Admin || permissionType == Authorization.PermissionType.DocumentManager)
+            {
+
+            }
+            else if (permissionType == Authorization.PermissionType.Approved)
+            {
+                query = (from a in query
+                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         where (a.ApprovedType == 1 ? a.ApprovedUserId == userId : a.ApprovedDepartmentId == departmentId) || (kq.Any())
+                         select a
+                        );
+            }
+            else
+            {
+                query = (from a in query
+                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         where (kq.Any())
+                         select a
+                        );
+            }
             if (searchOptions != null)
             {
                 query = (from doc in query.Where(p => p.Type == searchOptions.Type)
@@ -134,9 +205,24 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             return SetEntityIncludes(query);
         }
 
-        public LoadResult GetSearchDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentSearchOptions searchOptions)
-        {            
-            return DataSourceLoader.Load(this.GetQuerySearch(searchOptions), loadOptions);
+        public LoadResult GetSearchDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType)
+        {
+            return DataSourceLoader.Load(this.GetQuerySearch(searchOptions, permissionType, AbpSession.UserId ?? 0), loadOptions);
         }
+
+        public async Task<List<User>> GetUserApproved()
+        {
+            return await Context.Users.ToListAsync();
+        }
+
+        public override void Delete(AppDocumentary entity)
+        {
+            if (entity.IsApproved == true)
+            {
+                throw new UserFriendlyException("Văn bản này đã được duyệt, không được phép xóa");
+            }
+            base.Delete(entity);
+        }
+
     }
 }

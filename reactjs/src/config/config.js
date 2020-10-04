@@ -5,12 +5,12 @@ const SmartadminConfig = {
 
   smartSkin: "smart-style-0",
 
-  apiRootUrl: "/assets/api",
+  apiRootUrl: "assets/api",
   buildUrl: "build",
   skins: [
     {
       name: "smart-style-0",
-      logo: "/assets/img/logo.png",
+      logo: "assets/img/logo.png",
       class: "btn btn-block btn-xs txt-color-white margin-right-5",
       style: {
         backgroundColor: "#4E463F"
@@ -20,7 +20,7 @@ const SmartadminConfig = {
 
     {
       name: "smart-style-1",
-      logo: "/assets/img/logo-white.png",
+      logo: "assets/img/logo-white.png",
       class: "btn btn-block btn-xs txt-color-white",
       style: {
         background: "#3A4558"
@@ -30,7 +30,7 @@ const SmartadminConfig = {
 
     {
       name: "smart-style-2",
-      logo: "/assets/img/logo-blue.png",
+      logo: "assets/img/logo-blue.png",
       class: "btn btn-xs btn-block txt-color-darken margin-top-5",
       style: {
         background: "#fff"
@@ -40,7 +40,7 @@ const SmartadminConfig = {
 
     {
       name: "smart-style-3",
-      logo: "/assets/img/logo-pale.png",
+      logo: "assets/img/logo-pale.png",
       class: "btn btn-xs btn-block txt-color-white margin-top-5",
       style: {
         background: "#f78c40"
@@ -50,7 +50,7 @@ const SmartadminConfig = {
 
     {
       name: "smart-style-4",
-      logo: "/assets/img/logo-pale.png",
+      logo: "assets/img/logo-pale.png",
       class: "btn btn-xs btn-block txt-color-white margin-top-5",
       style: {
         background: "#bbc0cf",
@@ -62,7 +62,7 @@ const SmartadminConfig = {
 
     {
       name: "smart-style-5",
-      logo: "/assets/img/logo-pale.png",
+      logo: "assets/img/logo-pale.png",
       class: "btn btn-xs btn-block txt-color-white margin-top-5",
       style: {
         background: "rgba(153, 179, 204, 0.2)",
@@ -74,7 +74,7 @@ const SmartadminConfig = {
 
     {
       name: "smart-style-6",
-      logo: "/assets/img/logo-pale.png",
+      logo: "assets/img/logo-pale.png",
       class: "btn btn-xs btn-block txt-color-white margin-top-5",
       style: {
         background: "rgba(153, 179, 204, 0.2)",
@@ -87,7 +87,7 @@ const SmartadminConfig = {
   ]
 };
 
-SmartadminConfig.sound_path = "/assets/sound/";
+SmartadminConfig.sound_path = "assets/sound/";
 SmartadminConfig.sound_on = true;
 
 /*

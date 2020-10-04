@@ -4,8 +4,10 @@ using Abp.Runtime.Session;
 using DocumentaryManagement.Attachment.Dto;
 using DocumentaryManagement.Core;
 using DocumentaryManagement.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace DocumentaryManagement.Documentary.Dto
 {
@@ -19,7 +21,9 @@ namespace DocumentaryManagement.Documentary.Dto
         }
         public string Code { get; set; }
         public string Name { get; set; }
+        [JsonIgnore]
         public DateTime ReleaseDate { get; set; }
+        [JsonIgnore]
         public DateTime ReceivedDate { get; set; }
         public string TextNumber { get; set; }
         public string Signer { get; set; }
@@ -35,8 +39,15 @@ namespace DocumentaryManagement.Documentary.Dto
         public string SummaryContent { get; set; }
         public string Content { get; set; }
         public int? Type { get; set; }
+        [JsonIgnore]
         public long? UpdatedId { get; set; }
+        [JsonIgnore]
         public DateTime? UpdatedDate { get; set; }
+        //public bool? IsApproved { get; set; }
+        public int? ApprovedDepartmentId { get; set; }
+        public long? ApprovedUserId { get; set; }
+        public int? ApprovedType { get; set; }
+        //public string ApprovedContent { get; set; }
         public virtual ICollection<UpdateAttachmentDto> AppAttachments { get; set; }
         public virtual ICollection<UpdateAttachmentDto> AppAttachmentsDelete { get; set; }
 
@@ -44,6 +55,37 @@ namespace DocumentaryManagement.Documentary.Dto
         {
             UpdatedId = abpSession.UserId ?? 0;
             UpdatedDate = DateTime.Now;
+        }
+
+        [JsonProperty("releaseDate")]
+        public string ReleaseDateSync
+        {
+            get
+            {
+                return string.Empty;
+            }
+            set
+            {
+                if (DateTime.TryParseExact(value, new string[] { "dd/MM/yyyy", "dd/MM/yyyy HH:mm:ss" }, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime _date))
+                {
+                    this.ReleaseDate = _date;
+                }
+            }
+        }
+        [JsonProperty("receivedDate")]
+        public string ReceivedDateSync
+        {
+            get
+            {
+                return string.Empty;
+            }
+            set
+            {
+                if (DateTime.TryParseExact(value, new string[] { "dd/MM/yyyy", "dd/MM/yyyy HH:mm:ss" }, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime _date))
+                {
+                    this.ReceivedDate = _date;
+                }
+            }
         }
     }
 }

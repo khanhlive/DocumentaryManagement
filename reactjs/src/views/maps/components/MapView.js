@@ -36,7 +36,7 @@ export default class MapView extends React.Component {
   }
 
   fetchStyle = style => {
-    getJSON("/assets/api/maps/" + style + ".json").then(styles => {
+    getJSON("assets/api/maps/" + style + ".json").then(styles => {
       this.currentStyleId = style;
       this.currentStyles = styles;
       this.forceUpdate();

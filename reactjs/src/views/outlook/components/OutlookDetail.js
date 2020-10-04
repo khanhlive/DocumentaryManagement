@@ -162,13 +162,13 @@ class OutlookDetail extends React.Component {
 
           <ul className="list-inline">
             <li>
-              <img src="/assets/img/avatars/5.png" alt="me" width="30px" />
+              <img src="assets/img/avatars/5.png" alt="me" width="30px" />
             </li>
             <li>
-              <img src="/assets/img/avatars/3.png" alt="me" width="30px" />
+              <img src="assets/img/avatars/3.png" alt="me" width="30px" />
             </li>
             <li>
-              <img src="/assets/img/avatars/sunny.png" alt="me" width="30px" />
+              <img src="assets/img/avatars/sunny.png" alt="me" width="30px" />
             </li>
             <li>
               <a href="#/">1 more</a>

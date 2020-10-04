@@ -1,3 +1,4 @@
+import { SelectBox } from 'devextreme-react';
 import { Template } from 'devextreme-react/core/template';
 import { Column } from 'devextreme-react/data-grid';
 import { dxElement } from 'devextreme/core/element';
@@ -29,7 +30,8 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
     filterComponent?: BookCommonFilter;
     printingComponent?: PrintingComponent;
     store: any = DocumentaryService.GetAspNetDataSourceBook((method: string, ajaxOptions: any) => {
-        let filterData = this.filterComponent?.getData();
+        //let filterData = this.filterComponent?.getData();
+        let filterData = this.state.filterData;
         ajaxOptions.data['data'] = JSON.stringify(filterData);
     });
     constructor(props: any) {
@@ -39,12 +41,45 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
         this.handleToolbarPreparing = this.handleToolbarPreparing.bind(this);
         this.toolbarSearchRenderer = this.toolbarSearchRenderer.bind(this);
         this.handlePrinting = this.handlePrinting.bind(this);
+        this.handleYearChange = this.handleYearChange.bind(this);
+        this.state = {
+            filterData: {
+                year: new Date().getFullYear(),
+                type: DocumentaryType.DocumentaryAway
+            }
+        }
     }
     handleSearch() {
         this.dataGrid?.refresh();
     }
+
+    getYears() {
+        const _year = new Date().getFullYear();
+        let source = [];
+        for (let index = _year; index >= _year - 20; index--) {
+            source.push({ value: index, text: index });
+        }
+        return source;
+    }
+
+    handleYearChange(e: any) {
+        let { filterData } = this.state;
+        filterData.year = e.value;
+        this.setState(filterData);
+    }
+
     handleToolbarPreparing(e: { component?: any, element?: dxElement, model?: any, toolbarOptions?: dxToolbarOptions }) {
         e.toolbarOptions?.items?.forEach(item => item.location = 'after');
+
+        e.toolbarOptions?.items?.unshift({
+            location: 'before',
+            widget: 'dxButton',
+            options: {
+                icon: 'search',
+                text: 'Tìm kiếm',
+                onClick: this.handleSearch
+            }
+        })
         e.toolbarOptions?.items?.unshift({
             location: 'before',
             template: "searchTemplate"
@@ -52,21 +87,36 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
     }
     toolbarSearchRenderer() {
         return (
-            <BookCommonFilter type={DocumentaryType.DocumentaryArrived} onPrint={this.handlePrinting} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
+            <div className="dx-field">
+                <div className="dx-field-label" style={{ width: 'auto' }}>Năm</div>
+                <SelectBox
+                    items={this.getYears()}
+                    displayExpr="text"
+                    style={{ width: '100px' }}
+                    valueExpr="value"
+                    value={this.state.filterData.year}
+                    className="dx-field-value"
+                    onValueChanged={this.handleYearChange}
+                ></SelectBox>
+            </div>
+        )
+        // return (
+        //     <BookCommonFilter type={DocumentaryType.DocumentaryArrived} onPrint={this.handlePrinting} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
 
-            </BookCommonFilter>
-        );
+        //     </BookCommonFilter>
+        // );
     }
 
     handlePrinting() {
-        let filterData = Object.assign({}, this.filterComponent?.getData(), {
+        let { filterData } = this.state;
+        let _filterData = Object.assign({}, filterData, {
             id: this.props.sessionStore?.currentLogin.user.id
         });
 
         this.printingComponent?.open({
             isPrint: false,
             url: 'book',
-            params: filterData
+            params: _filterData
         })
     }
     render() {
@@ -145,7 +195,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                             />
                                             <Column
                                                 dataField="summaryContent"
-                                                caption="Trích yếu"
+                                                caption="Nội dung tóm tắt"
                                                 dataType="string"
                                             />
                                             <Column

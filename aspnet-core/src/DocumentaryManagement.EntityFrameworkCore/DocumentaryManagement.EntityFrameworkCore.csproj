@@ -30,4 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DocumentaryManagement.Core\DocumentaryManagement.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EntityFrameworkCore\Repositories\App\NewFolder\" />
+  </ItemGroup>
 </Project>

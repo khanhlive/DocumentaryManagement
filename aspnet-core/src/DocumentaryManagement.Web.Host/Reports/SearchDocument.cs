@@ -1,5 +1,6 @@
 ﻿using System;
 using DevExpress.XtraReports.UI;
+using DocumentaryManagement.Authorization;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models;
 
@@ -9,10 +10,14 @@ namespace DocumentaryManagement.Web.Host.Reports
     {
         IDocumentaryRepository Repository;
         DocumentSearchOptions Options;
-        public SearchDocument(IDocumentaryRepository repository, DocumentSearchOptions documentFilterOptions)
+        PermissionType _permissionType;
+        long _userId;
+        public SearchDocument(IDocumentaryRepository repository, DocumentSearchOptions documentFilterOptions, PermissionType permissionType, long userId)
         {
             Repository = repository;
             Options = documentFilterOptions;
+            _permissionType = permissionType;
+            _userId = userId;
             InitializeComponent();
             LoadData();
         }
@@ -32,8 +37,14 @@ namespace DocumentaryManagement.Web.Host.Reports
             }
             colSTT.Summary = new XRSummary(SummaryRunning.Report);
             ((XRSummary)colSTT.Summary).Func = SummaryFunc.RecordNumber;
-            var source = Repository.GetSearchReportData(Options);
+            var source = Repository.GetSearchReportData(Options, _permissionType, _userId);
             this.DataSource = source;
+        }
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (CurrentRowIndex == (RowCount - 1))
+                line1.LineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
         }
     }
 }

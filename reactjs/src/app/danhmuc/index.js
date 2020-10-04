@@ -83,14 +83,14 @@ export const routes = [
         permission: PermissionNames.Pages_DocumentPersonal
     },
     {
-        path: "/quan-ly-van-ban/van-ban-di",
+        path: "/quan-ly-van-ban/van-ban-di/:isApproved?",
         exact: true,
         component: DocumentaryAway,
         name: "van-ban-di",
         permission: PermissionNames.Pages_DocumentAway
     },
     {
-        path: "/quan-ly-van-ban/van-ban-den",
+        path: "/quan-ly-van-ban/van-ban-den/:isApproved?",
         exact: true,
         component: DocumentaryArrived,
         name: "van-ban-den",

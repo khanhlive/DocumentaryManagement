@@ -138,7 +138,7 @@ export default class PricingTables extends React.Component {
                   <div className="col-xs-12 col-sm-6 col-md-3">
                     <div className="panel panel-primary pricing-big">
                       <img
-                        src="/assets/img/ribbon.png"
+                        src="assets/img/ribbon.png"
                         className="ribbon"
                         alt=""
                       />
@@ -309,7 +309,7 @@ export default class PricingTables extends React.Component {
                   <div className="col-xs-12 col-sm-6 col-md-3">
                     <div className="panel panel-primary">
                       <img
-                        src="/assets/img/ribbon.png"
+                        src="assets/img/ribbon.png"
                         className="ribbon"
                         alt=""
                       />
@@ -503,7 +503,7 @@ export default class PricingTables extends React.Component {
                   <div className="col-xs-12 col-sm-4 col-md-2">
                     <div className="panel panel-purple">
                       <img
-                        src="/assets/img/ribbon.png"
+                        src="assets/img/ribbon.png"
                         className="ribbon"
                         alt=""
                       />

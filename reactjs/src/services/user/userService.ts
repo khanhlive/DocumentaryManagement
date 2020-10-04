@@ -65,6 +65,11 @@ class UserService {
     return result.data.result;
   }
 
+  public async getCurrent(): Promise<CreateOrUpdateUserInput> {
+    let result = await http.get("api/services/app/User/get-current");
+    return result.data.result;
+  }
+
   public async getAll(
     pagedFilterAndSortedRequest: PagedUserResultRequestDto
   ): Promise<PagedResultDto<GetAllUserOutput>> {

@@ -40,6 +40,8 @@ class Login extends React.Component<any, any> {
       await this.props.authenticationStore.login(loginModel);
       sessionStorage.setItem("rememberMe", loginModel.rememberMe ? "1" : "0");
       const { state } = this.props.location;
+      //window.location.assign('#' + state.from.pathname);
+      //debugger
       window.location = state ? state.from.pathname : "/";
     }
 
@@ -53,7 +55,7 @@ class Login extends React.Component<any, any> {
         <header id="header" className="animated fadeInDown">
           <div id="logo-group">
             <span id="logo">
-              <img src="/assets/img/logo.png" alt="SmartAdmin" />
+              <img src="assets/img/logo.png" alt="SmartAdmin" />
             </span>
           </div>
 
@@ -71,7 +73,7 @@ class Login extends React.Component<any, any> {
           <div id="content" className="container">
             <div className="row">
               {/* <div className="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-                <img src={'/assets/img/bg1.png'} style={{ width: '100%', height: '100%' }}></img>
+                <img src={'assets/img/bg1.png'} style={{ width: '100%', height: '100%' }}></img>
               </div> */}
               <div className="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
                 <h1 className="txt-color-red login-header-big">
@@ -102,7 +104,7 @@ class Login extends React.Component<any, any> {
                     </div>
                   </div>
                   <img
-                    src="/assets/img/demo/iphoneview.png"
+                    src="assets/img/demo/iphoneview.png"
                     className="pull-right display-image"
                     alt=""
                     style={{ width: "210px" }}

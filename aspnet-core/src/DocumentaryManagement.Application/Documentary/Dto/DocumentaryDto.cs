@@ -36,7 +36,14 @@ namespace DocumentaryManagement.Documentary.Dto
         public long? UpdatedId { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
-        
+        public bool? IsApproved { get; set; }
+        public int? ApprovedDepartmentId { get; set; }
+        public long? ApprovedUserId { get; set; }
+        public int? ApprovedType { get; set; }
+        public string ApprovedContent { get; set; }
+        public string ApprovedUserId_Name { get; set; }
+        public string ApprovedDepartmentId_Name { get; set; }
+
         public virtual AppAgencyIssued AgencyIssued { get; set; }
         public virtual AppDocumentType DocumentType { get; set; }
         public virtual ICollection<AppAttachments> AppAttachments { get; set; }

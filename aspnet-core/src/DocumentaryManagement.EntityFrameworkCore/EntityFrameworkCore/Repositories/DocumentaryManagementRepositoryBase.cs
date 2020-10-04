@@ -22,7 +22,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories
     public abstract class DocumentaryManagementRepositoryBase<TEntity, TPrimaryKey> : EfCoreRepositoryBase<DocumentaryManagementDbContext, TEntity, TPrimaryKey>, IDocumentaryManagementRepositoryBase<TEntity>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        protected readonly IAbpSession AbpSession;
+        protected IAbpSession AbpSession;
         protected IDbContextProvider<DocumentaryManagementDbContext> _dbContextProvider;
         protected IConfiguration _configuration;
         protected DocumentaryManagementRepositoryBase(IDbContextProvider<DocumentaryManagementDbContext> dbContextProvider, IConfiguration configuration, IAbpSession abpSession)
@@ -36,6 +36,11 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories
         public virtual void Before_InsertUpdate(TEntity entity)
         {
 
+        }
+
+        public void SetSession(IAbpSession abpSession)
+        {
+            AbpSession = abpSession;
         }
 
         public override TEntity Insert(TEntity entity)
@@ -152,11 +157,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories
         {
             return entities;
         }
-
-        public void SetSession(IAbpSession abpSession)
-        {
-            //AbpSession = abpSession;
-        }
+        
 
         // Add your common methods for all repositories
     }

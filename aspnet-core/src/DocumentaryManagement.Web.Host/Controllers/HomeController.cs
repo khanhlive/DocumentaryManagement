@@ -9,6 +9,7 @@ using DocumentaryManagement.Web.Host.Reports;
 using Abp.Domain.Repositories;
 using DocumentaryManagement.Model;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
+using Microsoft.AspNetCore.Hosting;
 
 namespace DocumentaryManagement.Web.Host.Controllers
 {
@@ -16,10 +17,12 @@ namespace DocumentaryManagement.Web.Host.Controllers
     {
         IDocumentaryRepository Repository;
         private readonly INotificationPublisher _notificationPublisher;
+        IHostingEnvironment _hostingEnvironment;
 
-        public HomeController(INotificationPublisher notificationPublisher, IDocumentaryRepository repository)
+        public HomeController(INotificationPublisher notificationPublisher, IDocumentaryRepository repository, IHostingEnvironment hostingEnvironment)
         {
             Repository = repository;
+            _hostingEnvironment = hostingEnvironment;
             _notificationPublisher = notificationPublisher;
         }
 
@@ -53,5 +56,10 @@ namespace DocumentaryManagement.Web.Host.Controllers
 
             return Content("Sent notification: " + message);
         }        
+
+        public string GetPath()
+        {
+            return _hostingEnvironment.ContentRootPath;
+        }
     }
 }

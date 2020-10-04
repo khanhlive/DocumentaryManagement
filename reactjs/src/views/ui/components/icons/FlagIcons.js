@@ -112,7 +112,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-dz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Algeria"
                         />
                         Algeria
@@ -120,7 +120,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ao"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Angola"
                         />
                         Angola
@@ -128,7 +128,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bj"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Benin"
                         />
                         Benin
@@ -136,7 +136,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Botswana"
                         />{" "}
                         Botswana
@@ -144,7 +144,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bf"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Burkina Faso"
                         />{" "}
                         Burkina Faso
@@ -152,7 +152,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bi"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Burundi"
                         />
                         Burundi
@@ -160,7 +160,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cameroon"
                         />{" "}
                         Cameroon
@@ -168,7 +168,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cv"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cape Verde"
                         />{" "}
                         Cape Verde
@@ -176,7 +176,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cf"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Central African Republic"
                         />{" "}
                         Central African Republic
@@ -184,7 +184,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-td"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Chad"
                         />
                         Chad
@@ -192,7 +192,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-km"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Comoros"
                         />
                         Comoros
@@ -200,7 +200,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Congo"
                         />
                         Congo
@@ -208,7 +208,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cd"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Congo, The Democratic Republic of the"
                         />{" "}
                         Congo, The Democratic Republic of the
@@ -216,7 +216,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ci"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="C&#xF4;te d'Ivoire"
                         />{" "}
                         C&#xF4;te d'Ivoire
@@ -224,7 +224,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-dj"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Djibouti"
                         />{" "}
                         Djibouti
@@ -232,7 +232,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-eg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Egypt"
                         />
                         Egypt
@@ -240,7 +240,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gq"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Equatorial Guinea"
                         />{" "}
                         Equatorial Guinea
@@ -248,7 +248,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-er"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Eritrea"
                         />
                         Eritrea
@@ -256,7 +256,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-et"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Ethiopia"
                         />{" "}
                         Ethiopia
@@ -264,7 +264,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ga"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Gabon"
                         />
                         Gabon
@@ -272,7 +272,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Gambia"
                         />
                         Gambia
@@ -280,7 +280,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gh"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Ghana"
                         />
                         Ghana
@@ -288,7 +288,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Guinea"
                         />
                         Guinea
@@ -296,7 +296,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Guinea-Bissau"
                         />{" "}
                         Guinea-Bissau
@@ -304,7 +304,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ke"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Kenya"
                         />
                         Kenya
@@ -312,7 +312,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ls"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Lesotho"
                         />
                         Lesotho
@@ -320,7 +320,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-lr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Liberia"
                         />
                         Liberia
@@ -328,7 +328,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ly"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Libya"
                         />
                         Libya
@@ -336,7 +336,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Madagascar"
                         />{" "}
                         Madagascar
@@ -344,7 +344,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Malawi"
                         />
                         Malawi
@@ -352,7 +352,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ml"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Mali"
                         />
                         Mali
@@ -360,7 +360,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Mauritania"
                         />{" "}
                         Mauritania
@@ -368,7 +368,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Mauritius"
                         />{" "}
                         Mauritius
@@ -376,7 +376,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-yt"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Mayotte"
                         />
                         Mayotte
@@ -384,7 +384,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ma"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Morocco"
                         />
                         Morocco
@@ -392,7 +392,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Mozambique"
                         />{" "}
                         Mozambique
@@ -400,7 +400,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-na"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Namibia"
                         />
                         Namibia
@@ -408,7 +408,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ne"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Niger"
                         />
                         Niger
@@ -416,7 +416,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ng"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Nigeria"
                         />
                         Nigeria
@@ -424,7 +424,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-rw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Rwanda"
                         />
                         Rwanda
@@ -432,7 +432,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-re"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="R&#xE9;union"
                         />{" "}
                         R&#xE9;union
@@ -440,7 +440,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sh"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Saint Helena"
                         />{" "}
                         Saint Helena
@@ -448,7 +448,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-st"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Sao Tome and Principe"
                         />{" "}
                         Sao Tome and Principe
@@ -456,7 +456,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Senegal"
                         />
                         Senegal
@@ -464,7 +464,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sc"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Seychelles"
                         />{" "}
                         Seychelles
@@ -472,7 +472,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sl"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Sierra Leone"
                         />{" "}
                         Sierra Leone
@@ -480,7 +480,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-so"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Somalia"
                         />
                         Somalia
@@ -488,7 +488,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-za"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="South Africa"
                         />{" "}
                         South Africa
@@ -496,7 +496,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ss"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="South Sudan"
                         />{" "}
                         South Sudan
@@ -504,7 +504,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sd"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Sudan"
                         />
                         Sudan
@@ -512,7 +512,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Swaziland"
                         />{" "}
                         Swaziland
@@ -520,7 +520,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Tanzania"
                         />{" "}
                         Tanzania
@@ -528,7 +528,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Togo"
                         />
                         Togo
@@ -536,7 +536,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Tunisia"
                         />
                         Tunisia
@@ -544,7 +544,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ug"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Uganda"
                         />
                         Uganda
@@ -552,7 +552,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-eh"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Western Sahara"
                         />{" "}
                         Western Sahara
@@ -560,7 +560,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-zm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Zambia"
                         />
                         Zambia
@@ -568,7 +568,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-zw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Zimbabwe"
                         />{" "}
                         Zimbabwe
@@ -581,7 +581,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ai"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Anguilla"
                         />{" "}
                         Anguilla
@@ -589,7 +589,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ag"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Antigua and Barbuda"
                         />{" "}
                         Antigua and Barbuda
@@ -597,7 +597,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ar"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Argentina"
                         />{" "}
                         Argentina
@@ -605,7 +605,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-aw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Aruba"
                         />
                         Aruba
@@ -613,7 +613,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bs"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bahamas"
                         />
                         Bahamas
@@ -621,7 +621,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bb"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Barbados"
                         />{" "}
                         Barbados
@@ -629,7 +629,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Belize"
                         />
                         Belize
@@ -637,7 +637,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bermuda"
                         />
                         Bermuda
@@ -645,7 +645,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bo"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bolivia, Plurinational State of"
                         />{" "}
                         Bolivia, Plurinational State of
@@ -653,7 +653,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-br"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Brazil"
                         />
                         Brazil
@@ -661,7 +661,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ca"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Canada"
                         />
                         Canada
@@ -669,7 +669,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ky"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cayman Islands"
                         />{" "}
                         Cayman Islands
@@ -677,7 +677,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cl"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Chile"
                         />
                         Chile
@@ -685,7 +685,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-co"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Colombia"
                         />{" "}
                         Colombia
@@ -693,7 +693,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Costa Rica"
                         />{" "}
                         Costa Rica
@@ -701,7 +701,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cuba"
                         />
                         Cuba
@@ -709,7 +709,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cura&#xE7;ao"
                         />{" "}
                         Cura&#xE7;ao
@@ -717,7 +717,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-dm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Dominica"
                         />{" "}
                         Dominica
@@ -725,7 +725,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-do"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Dominican Republic"
                         />{" "}
                         Dominican Republic
@@ -733,7 +733,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ec"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Ecuador"
                         />
                         Ecuador
@@ -741,7 +741,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sv"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="El Salvador"
                         />{" "}
                         El Salvador
@@ -749,7 +749,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-fk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Falkland Islands (Malvinas)"
                         />{" "}
                         Falkland Islands (Malvinas)
@@ -757,7 +757,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gf"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="French Guiana"
                         />{" "}
                         French Guiana
@@ -765,7 +765,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gl"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Greenland"
                         />{" "}
                         Greenland
@@ -773,7 +773,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gd"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Grenada"
                         />
                         Grenada
@@ -781,7 +781,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gp"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Guadeloupe"
                         />{" "}
                         Guadeloupe
@@ -789,7 +789,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gt"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Guatemala"
                         />{" "}
                         Guatemala
@@ -797,7 +797,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gy"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Guyana"
                         />
                         Guyana
@@ -805,7 +805,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ht"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Haiti"
                         />
                         Haiti
@@ -813,7 +813,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-hn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Honduras"
                         />{" "}
                         Honduras
@@ -821,7 +821,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-jm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Jamaica"
                         />
                         Jamaica
@@ -829,7 +829,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mq"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Martinique"
                         />{" "}
                         Martinique
@@ -837,7 +837,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mx"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Mexico"
                         />
                         Mexico
@@ -845,7 +845,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ms"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Montserrat"
                         />{" "}
                         Montserrat
@@ -853,7 +853,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-an"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Netherlands Antilles"
                         />{" "}
                         Netherlands Antilles
@@ -861,7 +861,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ni"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Nicaragua"
                         />{" "}
                         Nicaragua
@@ -869,7 +869,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pa"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Panama"
                         />
                         Panama
@@ -877,7 +877,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-py"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Paraguay"
                         />{" "}
                         Paraguay
@@ -885,7 +885,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pe"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Peru"
                         />
                         Peru
@@ -893,7 +893,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Puerto Rico"
                         />{" "}
                         Puerto Rico
@@ -901,7 +901,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Saint Kitts and Nevis"
                         />{" "}
                         Saint Kitts and Nevis
@@ -909,7 +909,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-lc"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Saint Lucia"
                         />{" "}
                         Saint Lucia
@@ -917,7 +917,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Saint Pierre and Miquelon"
                         />{" "}
                         Saint Pierre and Miquelon
@@ -925,7 +925,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-vc"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Saint Vincent and the Grenadines"
                         />{" "}
                         Saint Vincent and the Grenadines
@@ -933,7 +933,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sx"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Sint Maarten"
                         />{" "}
                         Sint Maarten
@@ -941,7 +941,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Suriname"
                         />{" "}
                         Suriname
@@ -949,7 +949,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tt"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Trinidad and Tobago"
                         />{" "}
                         Trinidad and Tobago
@@ -957,7 +957,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tc"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Turks and Caicos Islands"
                         />{" "}
                         Turks and Caicos Islands
@@ -965,7 +965,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-us"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="United States"
                         />{" "}
                         United States
@@ -973,7 +973,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-uy"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Uruguay"
                         />
                         Uruguay
@@ -981,7 +981,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ve"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Venezuela, Bolivarian Republic of"
                         />{" "}
                         Venezuela, Bolivarian Republic of
@@ -989,7 +989,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-vg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Virgin Islands, British"
                         />{" "}
                         Virgin Islands, British
@@ -997,7 +997,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-vi"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Virgin Islands, U.S."
                         />{" "}
                         Virgin Islands, U.S.
@@ -1010,7 +1010,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-af"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Afghanistan"
                         />{" "}
                         Afghanistan
@@ -1018,7 +1018,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-am"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Armenia"
                         />
                         Armenia
@@ -1026,7 +1026,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-az"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Azerbaijan"
                         />{" "}
                         Azerbaijan
@@ -1034,7 +1034,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bh"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bahrain"
                         />
                         Bahrain
@@ -1042,7 +1042,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bd"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bangladesh"
                         />{" "}
                         Bangladesh
@@ -1050,7 +1050,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bt"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bhutan"
                         />
                         Bhutan
@@ -1058,7 +1058,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Brunei Darussalam"
                         />{" "}
                         Brunei Darussalam
@@ -1066,7 +1066,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kh"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cambodia"
                         />{" "}
                         Cambodia
@@ -1074,7 +1074,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="China"
                         />
                         China
@@ -1082,7 +1082,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cy"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cyprus"
                         />
                         Cyprus
@@ -1090,7 +1090,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ge"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Georgia"
                         />
                         Georgia
@@ -1098,7 +1098,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-hk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Hong Kong"
                         />{" "}
                         Hong Kong
@@ -1106,7 +1106,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-in"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="India"
                         />
                         India
@@ -1114,7 +1114,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-id"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Indonesia"
                         />{" "}
                         Indonesia
@@ -1122,7 +1122,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ir"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Iran, Islamic Republic of"
                         />{" "}
                         Iran, Islamic Republic of
@@ -1130,7 +1130,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-iq"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Iraq"
                         />
                         Iraq
@@ -1138,7 +1138,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-il"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Israel"
                         />
                         Israel
@@ -1146,7 +1146,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-jp"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Japan"
                         />
                         Japan
@@ -1154,7 +1154,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-jo"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Jordan"
                         />
                         Jordan
@@ -1162,7 +1162,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Kazakhstan"
                         />{" "}
                         Kazakhstan
@@ -1170,7 +1170,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kp"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Korea, Democratic People's Republic of"
                         />{" "}
                         Korea, Democratic People's Republic of
@@ -1178,7 +1178,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Korea, Republic of"
                         />{" "}
                         Korea, Republic of
@@ -1186,7 +1186,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Kuwait"
                         />
                         Kuwait
@@ -1194,7 +1194,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Kyrgyzstan"
                         />{" "}
                         Kyrgyzstan
@@ -1202,7 +1202,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-la"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Lao People's Democratic Republic"
                         />{" "}
                         Lao People's Democratic Republic
@@ -1210,7 +1210,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-lb"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Lebanon"
                         />
                         Lebanon
@@ -1218,7 +1218,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mo"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Macao"
                         />
                         Macao
@@ -1226,7 +1226,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-my"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Malaysia"
                         />{" "}
                         Malaysia
@@ -1234,7 +1234,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mv"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Maldives"
                         />{" "}
                         Maldives
@@ -1242,7 +1242,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Mongolia"
                         />{" "}
                         Mongolia
@@ -1250,7 +1250,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Myanmar"
                         />
                         Myanmar
@@ -1258,7 +1258,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-np"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Nepal"
                         />
                         Nepal
@@ -1266,7 +1266,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-om"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Oman"
                         />
                         Oman
@@ -1274,7 +1274,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Pakistan"
                         />{" "}
                         Pakistan
@@ -1282,7 +1282,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ps"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Palestinian Territory, Occupied"
                         />{" "}
                         Palestinian Territory, Occupied
@@ -1290,7 +1290,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ph"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Philippines"
                         />{" "}
                         Philippines
@@ -1298,7 +1298,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-qa"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Qatar"
                         />
                         Qatar
@@ -1306,7 +1306,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sa"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Saudi Arabia"
                         />{" "}
                         Saudi Arabia
@@ -1314,7 +1314,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Singapore"
                         />{" "}
                         Singapore
@@ -1322,7 +1322,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-lk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Sri Lanka"
                         />{" "}
                         Sri Lanka
@@ -1330,7 +1330,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sy"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Syrian Arab Republic"
                         />{" "}
                         Syrian Arab Republic
@@ -1338,7 +1338,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Taiwan, Province of China"
                         />{" "}
                         Taiwan, Province of China
@@ -1346,7 +1346,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tj"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Tajikistan"
                         />{" "}
                         Tajikistan
@@ -1354,7 +1354,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-th"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Thailand"
                         />{" "}
                         Thailand
@@ -1362,7 +1362,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tl"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Timor-Leste"
                         />{" "}
                         Timor-Leste
@@ -1370,7 +1370,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Turkey"
                         />
                         Turkey
@@ -1378,7 +1378,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Turkmenistan"
                         />{" "}
                         Turkmenistan
@@ -1386,7 +1386,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ae"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="United Arab Emirates"
                         />{" "}
                         United Arab Emirates
@@ -1394,7 +1394,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-uz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Uzbekistan"
                         />{" "}
                         Uzbekistan
@@ -1402,7 +1402,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-vn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Viet Nam"
                         />{" "}
                         Viet Nam
@@ -1410,7 +1410,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ye"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Yemen"
                         />
                         Yemen
@@ -1423,7 +1423,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-as"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="American Samoa"
                         />{" "}
                         American Samoa
@@ -1431,7 +1431,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-au"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Australia"
                         />{" "}
                         Australia
@@ -1439,7 +1439,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ck"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Cook Islands"
                         />{" "}
                         Cook Islands
@@ -1447,7 +1447,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-fj"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Fiji"
                         />
                         Fiji
@@ -1455,7 +1455,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pf"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="French Polynesia"
                         />{" "}
                         French Polynesia
@@ -1463,7 +1463,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Guam"
                         />
                         Guam
@@ -1471,7 +1471,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ki"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Kiribati"
                         />{" "}
                         Kiribati
@@ -1479,7 +1479,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mh"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Marshall Islands"
                         />{" "}
                         Marshall Islands
@@ -1487,7 +1487,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-fm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Micronesia, Federated States of"
                         />{" "}
                         Micronesia, Federated States of
@@ -1495,7 +1495,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-nr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Nauru"
                         />
                         Nauru
@@ -1503,7 +1503,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-nc"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="New Caledonia"
                         />{" "}
                         New Caledonia
@@ -1511,7 +1511,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-nz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="New Zealand"
                         />{" "}
                         New Zealand
@@ -1519,7 +1519,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-nu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Niue"
                         />
                         Niue
@@ -1527,7 +1527,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-nf"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Norfolk Island"
                         />{" "}
                         Norfolk Island
@@ -1535,7 +1535,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mp"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Northern Mariana Islands"
                         />{" "}
                         Northern Mariana Islands
@@ -1543,7 +1543,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pw"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Palau"
                         />
                         Palau
@@ -1551,7 +1551,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Papua New Guinea"
                         />{" "}
                         Papua New Guinea
@@ -1559,7 +1559,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pn"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Pitcairn"
                         />{" "}
                         Pitcairn
@@ -1567,7 +1567,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ws"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Samoa"
                         />
                         Samoa
@@ -1575,7 +1575,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sb"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Solomon Islands"
                         />{" "}
                         Solomon Islands
@@ -1583,7 +1583,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Tokelau"
                         />
                         Tokelau
@@ -1591,7 +1591,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-to"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Tonga"
                         />
                         Tonga
@@ -1599,7 +1599,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tv"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Tuvalu"
                         />
                         Tuvalu
@@ -1607,7 +1607,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-vu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Vanuatu"
                         />
                         Vanuatu
@@ -1615,7 +1615,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-wf"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Wallis and Futuna"
                         />{" "}
                         Wallis and Futuna
@@ -1628,7 +1628,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-al"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Albania"
                         />
                         Albania
@@ -1636,7 +1636,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ad"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Andorra"
                         />
                         Andorra
@@ -1644,7 +1644,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-at"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Austria"
                         />
                         Austria
@@ -1652,7 +1652,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-by"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Belarus"
                         />
                         Belarus
@@ -1660,7 +1660,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-be"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Belgium"
                         />
                         Belgium
@@ -1668,7 +1668,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ba"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bosnia and Herzegovina"
                         />{" "}
                         Bosnia and Herzegovina
@@ -1676,7 +1676,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bulgaria"
                         />{" "}
                         Bulgaria
@@ -1684,7 +1684,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-hr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Croatia"
                         />
                         Croatia
@@ -1692,7 +1692,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-cz"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Czech Republic"
                         />{" "}
                         Czech Republic
@@ -1700,7 +1700,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-dk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Denmark"
                         />
                         Denmark
@@ -1708,7 +1708,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ee"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Estonia"
                         />
                         Estonia
@@ -1716,7 +1716,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-fo"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Faroe Islands"
                         />{" "}
                         Faroe Islands
@@ -1724,7 +1724,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-fi"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Finland"
                         />
                         Finland
@@ -1732,7 +1732,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-fr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="France"
                         />
                         France
@@ -1740,7 +1740,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-de"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Germany"
                         />
                         Germany
@@ -1748,7 +1748,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gi"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Gibraltar"
                         />{" "}
                         Gibraltar
@@ -1756,7 +1756,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gr"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Greece"
                         />
                         Greece
@@ -1764,7 +1764,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-va"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Holy See (Vatican City State)"
                         />{" "}
                         Holy See (Vatican City State)
@@ -1772,7 +1772,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-hu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Hungary"
                         />
                         Hungary
@@ -1780,7 +1780,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-is"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Iceland"
                         />
                         Iceland
@@ -1788,7 +1788,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ie"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Ireland"
                         />
                         Ireland
@@ -1796,7 +1796,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-it"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Italy"
                         />
                         Italy
@@ -1804,7 +1804,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-lv"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Latvia"
                         />
                         Latvia
@@ -1812,7 +1812,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-li"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Liechtenstein"
                         />{" "}
                         Liechtenstein
@@ -1820,7 +1820,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-lt"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Lithuania"
                         />{" "}
                         Lithuania
@@ -1828,7 +1828,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-lu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Luxembourg"
                         />{" "}
                         Luxembourg
@@ -1836,7 +1836,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Macedonia, The Former Yugoslav Republic of"
                         />{" "}
                         Macedonia, The Former Yugoslav Republic of
@@ -1844,7 +1844,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mt"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Malta"
                         />
                         Malta
@@ -1852,7 +1852,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-md"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Moldova, Republic of"
                         />{" "}
                         Moldova, Republic of
@@ -1860,7 +1860,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-mc"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Monaco"
                         />
                         Monaco
@@ -1868,7 +1868,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-me"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Montenegro"
                         />{" "}
                         Montenegro
@@ -1876,7 +1876,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-nl"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Netherlands"
                         />{" "}
                         Netherlands
@@ -1884,7 +1884,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-no"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Norway"
                         />
                         Norway
@@ -1892,7 +1892,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pl"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Poland"
                         />
                         Poland
@@ -1900,7 +1900,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-pt"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Portugal"
                         />{" "}
                         Portugal
@@ -1908,7 +1908,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ro"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Romania"
                         />
                         Romania
@@ -1916,7 +1916,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ru"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Russian Federation"
                         />{" "}
                         Russian Federation
@@ -1924,7 +1924,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="San Marino"
                         />{" "}
                         San Marino
@@ -1932,7 +1932,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-rs"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Serbia"
                         />
                         Serbia
@@ -1940,7 +1940,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-sk"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Slovakia"
                         />{" "}
                         Slovakia
@@ -1948,7 +1948,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-si"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Slovenia"
                         />{" "}
                         Slovenia
@@ -1956,7 +1956,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-es"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Spain"
                         />
                         Spain
@@ -1964,7 +1964,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-se"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Sweden"
                         />
                         Sweden
@@ -1972,7 +1972,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ch"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Switzerland"
                         />{" "}
                         Switzerland
@@ -1980,7 +1980,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ua"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Ukraine"
                         />
                         Ukraine
@@ -1988,7 +1988,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gb"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="United Kingdom"
                         />{" "}
                         United Kingdom
@@ -2001,7 +2001,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-bv"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Bouvet Island"
                         />{" "}
                         Bouvet Island
@@ -2009,7 +2009,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-io"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="British Indian Ocean Territory"
                         />{" "}
                         British Indian Ocean Territory
@@ -2017,7 +2017,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-ic"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Canary Islands"
                         />{" "}
                         Canary Islands
@@ -2025,7 +2025,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-catalonia"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Catalonia"
                         />{" "}
                         Catalonia
@@ -2033,7 +2033,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-england"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="England"
                         />{" "}
                         England
@@ -2041,7 +2041,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-eu"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="European Union"
                         />{" "}
                         European Union
@@ -2049,7 +2049,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-tf"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="French Southern Territories"
                         />{" "}
                         French Southern Territories
@@ -2057,7 +2057,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gg"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Guernsey"
                         />{" "}
                         Guernsey
@@ -2065,7 +2065,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-hm"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Heard Island and McDonald Islands"
                         />{" "}
                         Heard Island and McDonald Islands
@@ -2073,7 +2073,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-im"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Isle of Man"
                         />{" "}
                         Isle of Man
@@ -2081,7 +2081,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-je"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Jersey"
                         />
                         Jersey
@@ -2089,7 +2089,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-kurdistan"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Kurdistan"
                         />{" "}
                         Kurdistan
@@ -2097,7 +2097,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-scotland"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Scotland"
                         />{" "}
                         Scotland
@@ -2105,7 +2105,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-somaliland"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Somaliland"
                         />{" "}
                         Somaliland
@@ -2113,7 +2113,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-gs"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="South Georgia and the South Sandwich Islands"
                         />{" "}
                         South Georgia and the South Sandwich Islands
@@ -2121,7 +2121,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-um"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="United States Minor Outlying Islands"
                         />{" "}
                         United States Minor Outlying Islands
@@ -2129,7 +2129,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-wales"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Wales"
                         />{" "}
                         Wales
@@ -2137,7 +2137,7 @@ export default class FlagIcons extends React.Component {
                       <div className="col-xs-6 col-md-3 col-sm-4 demo-icon-font">
                         <img
                           className="flag flag-zanzibar"
-                          src="/assets/img/blank.gif"
+                          src="assets/img/blank.gif"
                           alt="Zanzibar"
                         />{" "}
                         Zanzibar

@@ -6,7 +6,7 @@ export const OUTLOOK_FETCH_MESSAGE = "OUTLOOK_FETCH_MESSAGE";
 
 export function outlookInit() {
   return dispatch => {
-    return getJSON("/assets/api/outlook/outlook.json").then(res => {
+    return getJSON("assets/api/outlook/outlook.json").then(res => {
       dispatch({
         type: OUTLOOK_INIT,
         payload: {
@@ -19,7 +19,7 @@ export function outlookInit() {
 
 export function outlookFetchFolder(folder) {
   return dispatch => {
-    return getJSON(`/assets/api/outlook/${folder}.json`).then(res => {
+    return getJSON(`assets/api/outlook/${folder}.json`).then(res => {
       dispatch({
         type: OUTLOOK_FETCH_FOLDER,
         payload: {
@@ -33,7 +33,7 @@ export function outlookFetchFolder(folder) {
 
 export function outlookFetchMeesage(id) {
   return dispatch => {
-    return getJSON(`/assets/api/outlook/message.json`).then(res => {
+    return getJSON(`assets/api/outlook/message.json`).then(res => {
       dispatch({
         type: OUTLOOK_FETCH_MESSAGE,
         payload: {

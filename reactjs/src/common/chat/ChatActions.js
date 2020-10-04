@@ -7,7 +7,7 @@ export const CHAT_MESSAGE_SEND = 'CHAT_MESSAGE_SEND';
 
 export function chatInit() {
   return dispatch => {
-    return getJSON('/assets/api/chat/chat.json')
+    return getJSON('assets/api/chat/chat.json')
       .then(data => {
         dispatch({
           type: CHAT_INIT,

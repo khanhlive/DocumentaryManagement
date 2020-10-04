@@ -52,7 +52,8 @@ namespace DocumentaryManagement.Authorization.Users
                 userOrganizationUnitRepository, 
                 organizationUnitSettings, 
                 settingManager)
-        {
+        {            
         }
+        
     }
 }

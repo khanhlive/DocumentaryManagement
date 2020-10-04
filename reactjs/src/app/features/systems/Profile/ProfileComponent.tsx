@@ -51,7 +51,7 @@ export default class ProfileComponent extends Component<IProfileProps, any> {
         })
     }
     getData() {
-        userService.get({ id: this.props.sessionStore?.currentLogin.user.id || 0 }).then(res => {
+        userService.getCurrent().then(res => {
             this.setState({ model: res });
         })
     }

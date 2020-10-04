@@ -19,6 +19,12 @@ namespace DocumentaryManagement.Authorization.Users
         public int? ProvinceId { get; set; }
         [StringLength(500)]
         public string Address { get; set; }
+        [Column("Department_Id")]
+        public int? DepartmentId { get; set; }
+
+        [NotMapped]
+        public string DepartmentName { get; set; }
+
         [ForeignKey("ProvinceId")]
         [InverseProperty("Users")]
         public virtual AppProvince Province { get; set; }

@@ -14,7 +14,6 @@ using Abp.Castle.Logging.Log4Net;
 using Abp.Extensions;
 using DocumentaryManagement.Configuration;
 using DocumentaryManagement.Identity;
-
 using Abp.AspNetCore.SignalR.Hubs;
 using Microsoft.AspNetCore.Mvc;
 using System.Buffers;
@@ -39,7 +38,7 @@ namespace DocumentaryManagement.Web.Host.Startup
         public IFileProvider FileProvider { get; }
         public IConfiguration Configuration { get; }
 
-        private const string _defaultCorsPolicyName = "localhost";
+        private const string _defaultCorsPolicyName = "DocumentaryManagement";
 
         private readonly IConfigurationRoot _appConfiguration;
 
@@ -170,7 +169,8 @@ namespace DocumentaryManagement.Web.Host.Startup
 
             app.UseStaticFiles(new StaticFileOptions()
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads")),
+                //FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads")),
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, @"Uploads")),
                 RequestPath = new PathString("/Uploads")
             });
 

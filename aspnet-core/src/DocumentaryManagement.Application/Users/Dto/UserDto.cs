@@ -10,6 +10,10 @@ namespace DocumentaryManagement.Users.Dto
     [AutoMapFrom(typeof(User))]
     public class UserDto : EntityDto<long>
     {
+        //public UserDto()
+        //{
+        //    this.RoleNames = new string[] { };
+        //}
         [Required]
         [StringLength(AbpUserBase.MaxUserNameLength)]
         public string UserName { get; set; }
@@ -49,5 +53,7 @@ namespace DocumentaryManagement.Users.Dto
 
         [StringLength(11)]
         public string PhoneNumber { get; set; }
+        public int? DepartmentId { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

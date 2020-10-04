@@ -12,7 +12,7 @@ export default class Forgot extends React.Component {
           <div id="logo-group">
             <span id="logo">
               {" "}
-              <img src="/assets/img/logo.png" alt="SmartAdmin" />{" "}
+              <img src="assets/img/logo.png" alt="SmartAdmin" />{" "}
             </span>
           </div>
 
@@ -55,7 +55,7 @@ export default class Forgot extends React.Component {
                   </div>
 
                   <img
-                    src="/assets/img/demo/iphoneview.png"
+                    src="assets/img/demo/iphoneview.png"
                     className="pull-right display-image"
                     alt=""
                     style={{ width: "210px" }}

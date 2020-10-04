@@ -44,13 +44,13 @@ class App extends React.Component<IAppProps> {
     return (
       <React.Fragment>
         <Provider store={store}>
-          <BrowserRouter  >
+          <HashRouter  >
             <Switch>
               <Route key="login" path="/login" render={(props) => <Login {...props}></Login>} />
               <Route key="logout" path="/logout" render={(props) => <Logout {...props}></Logout>} />
               <ProtectedRoute path="/" component={Layout} />
             </Switch>
-          </BrowserRouter>
+          </HashRouter>
         </Provider>
       </React.Fragment>
     );

@@ -5,7 +5,7 @@
     "data": [
       {
         "title": "John Doe",
-        "image": "/assets/img/avatars/4.png",
+        "image": "assets/img/avatars/4.png",
         "time": "2 minutes ago",
         "subject": "Msed quia non numquam eius modi tempora",
         "message": "Hello again and thanks for being a part of the newsletter.",
@@ -14,7 +14,7 @@
       },
       {
         "title": "Sonya Birthday",
-        "image": "/assets/img/avatars/female.png",
+        "image": "assets/img/avatars/female.png",
         "time": "Thursday, September 19th",
         "subject": "Incidunt ut labor",
         "message": "sed quia non numquam eius modi tempora incidunt ut labor",
@@ -23,7 +23,7 @@
       },
       {
         "title": "Cristina Algera",
-        "image": "/assets/img/avatars/1.png",
+        "image": "assets/img/avatars/1.png",
         "time": "TSunday, September 15th",
         "subject": "Best-Selling Teethers",
         "message": "ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
@@ -32,7 +32,7 @@
       },
       {
         "title": "Lam Tampora",
-        "image": "/assets/img/avatars/male.png",
+        "image": "assets/img/avatars/male.png",
         "time": "TSunday, September 14th",
         "subject": "Deadline due date",
         "message": "mus qui blanditiis praesentium voluptatum deleniti atque corrup",
@@ -41,7 +41,7 @@
       },
       {
         "title": "Project approved! ",
-        "image": "/assets/img/avatars/sunny.png",
+        "image": "assets/img/avatars/sunny.png",
         "time": "TSunday, June 14th",
         "subject": "Et harum quidem rerum facilis est et expedita distinctio",
         "message": "...",

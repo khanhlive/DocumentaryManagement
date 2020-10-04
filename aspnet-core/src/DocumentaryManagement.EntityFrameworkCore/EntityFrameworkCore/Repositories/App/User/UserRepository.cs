@@ -1,4 +1,5 @@
-﻿using Abp.EntityFrameworkCore;
+﻿using Abp.Authorization.Users;
+using Abp.EntityFrameworkCore;
 using Abp.Runtime.Session;
 using Abp.UI;
 using DocumentaryManagement.Model;
@@ -8,7 +9,7 @@ using System.Linq;
 
 namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.User
 {
-    public class UserRepository : DocumentaryManagementRepositoryBase<AppUser>, IUserRepository
+    public class UserRepository : Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase<DocumentaryManagementDbContext, AbpUser, long>, IUserRepository
     {
         public UserRepository(IDbContextProvider<DocumentaryManagementDbContext> dbContextProvider, IConfiguration configuration, IAbpSession abpSession)
             : base(dbContextProvider, configuration, abpSession)

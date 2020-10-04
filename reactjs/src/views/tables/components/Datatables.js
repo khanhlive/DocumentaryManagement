@@ -37,7 +37,7 @@ export default class Datatables extends React.Component {
                   <div className="widget-body no-padding">
                     <Datatable
                       options={{
-                        ajax: "/assets/api/tables/datatables.standard.json",
+                        ajax: "assets/api/tables/datatables.standard.json",
                         columns: [
                           {
                             data: "id",
@@ -110,7 +110,7 @@ export default class Datatables extends React.Component {
                   <div className="widget-body no-padding">
                     <Datatable
                       options={{
-                        ajax: "/assets/api/tables/datatables.filters.json",
+                        ajax: "assets/api/tables/datatables.filters.json",
                         columns: [
                           { data: "name" },
                           { data: "position" },
@@ -225,7 +225,7 @@ export default class Datatables extends React.Component {
                   <div className="widget-body no-padding">
                     <Datatable
                       options={{
-                        ajax: "/assets/api/tables/datatables.standard.json",
+                        ajax: "assets/api/tables/datatables.standard.json",
                         columns: [
                           { data: "id" },
                           { data: "name" },
@@ -266,7 +266,7 @@ export default class Datatables extends React.Component {
                   <div className="widget-body no-padding">
                     <Datatable
                       options={{
-                        ajax: "/assets/api/tables/datatables.standard.json",
+                        ajax: "assets/api/tables/datatables.standard.json",
                         columns: [
                           { data: "id" },
                           { data: "name" },

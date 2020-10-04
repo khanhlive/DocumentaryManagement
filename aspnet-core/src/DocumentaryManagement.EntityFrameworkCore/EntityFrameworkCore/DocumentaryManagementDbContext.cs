@@ -24,6 +24,11 @@ namespace DocumentaryManagement.EntityFrameworkCore
         public virtual DbSet<AppDocumentary> AppDocumentary { get; set; }
         public virtual DbSet<AppDocumentaryPersonal> AppDocumentaryPersonal { get; set; }
         public virtual DbSet<AppProvince> AppProvince { get; set; }
+
+        public virtual DbSet<AppDepartment> AppDepartment { get; set; }
+
+        public virtual DbSet<AppRotation> AppRotation { get; set; }
+
         #endregion
 
         #region OnModelCreating
@@ -98,6 +103,11 @@ namespace DocumentaryManagement.EntityFrameworkCore
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_AppDocumentaryPersonal_AppDocumentType");
             });
+
+            modelBuilder.Entity<AppDepartment>(entity =>
+            {
+                entity.Property(e => e.Code).IsUnicode(false);
+            });            
 
             modelBuilder.Entity<AppProvince>(entity =>
             {

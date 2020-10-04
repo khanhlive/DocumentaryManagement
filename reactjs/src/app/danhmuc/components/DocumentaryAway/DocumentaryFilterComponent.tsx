@@ -5,7 +5,8 @@ import { DocumentaryType } from '../../../../common/core/models/Attachment';
 import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
 
 export interface IDocumentaryFilterProps {
-    onSearch?: (filterData: any) => any
+    onSearch?: (filterData: any) => any,
+    isApproved?: boolean
 }
 
 export default class DocumentaryAwayFilterComponent extends Component<IDocumentaryFilterProps, any> {

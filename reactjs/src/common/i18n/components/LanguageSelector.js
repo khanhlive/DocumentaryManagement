@@ -16,7 +16,7 @@ class LanguageSelector extends React.Component {
         <li className="dropdown">
           <a href="/" className="dropdown-toggle" data-toggle="dropdown">
             <img
-              src="/assets/img/blank.gif"
+              src="assets/img/blank.gif"
               className={classnames(["flag", "flag-" + language.key])}
               alt={language.alt}
             />
@@ -34,7 +34,7 @@ class LanguageSelector extends React.Component {
                 >
                   <a href="/" onClick={e => this.selectLanguage(lang)}>
                     <img
-                      src="/assets/img/blank.gif"
+                      src="assets/img/blank.gif"
                       className={classnames(["flag", "flag-" + lang.key])}
                       alt={lang.alt}
                     />

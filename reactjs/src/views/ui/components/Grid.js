@@ -18,7 +18,7 @@ export default class BlankPage extends React.Component {
           <div className="row">
             <div className="col-sm-3">
               <img
-                src="/assets/img/demo/responseimg.png"
+                src="assets/img/demo/responseimg.png"
                 alt=""
                 style={{ maxWidth: 300, width: "100%" }}
               />

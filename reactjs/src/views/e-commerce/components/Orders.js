@@ -35,7 +35,7 @@ export default () => (
               <div className="widget-body no-padding">
                 <Datatable
                   options={{
-                    ajax: "/assets/api/e-commerce/orders.json",
+                    ajax: "assets/api/e-commerce/orders.json",
                     columns: [
                       { data: "orderId" },
                       { data: "customerId" },

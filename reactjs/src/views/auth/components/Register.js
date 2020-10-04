@@ -13,7 +13,7 @@ export default class Register extends React.Component {
         <header id="header" className="animated fadeInDown">
           <div id="logo-group">
             <span id="logo">
-              <img src="/assets/img/logo.png" alt="SmartAdmin" />
+              <img src="assets/img/logo.png" alt="SmartAdmin" />
             </span>
           </div>
 
@@ -55,7 +55,7 @@ export default class Register extends React.Component {
                   </div>
 
                   <img
-                    src="/assets/img/demo/iphoneview.png"
+                    src="assets/img/demo/iphoneview.png"
                     alt=""
                     className="pull-right display-image"
                     style={{ width: "210px" }}

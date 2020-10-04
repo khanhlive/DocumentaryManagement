@@ -47,5 +47,11 @@ namespace DocumentaryManagement.Web.Host.Reports
             var source = Repository.GetBookReportData(Options);
             this.DataSource = source;
         }
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (CurrentRowIndex == (RowCount - 1))
+                line1.LineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+        }
     }
 }

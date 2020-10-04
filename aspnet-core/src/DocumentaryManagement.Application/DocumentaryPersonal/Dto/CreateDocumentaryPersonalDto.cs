@@ -1,6 +1,7 @@
 ﻿using Abp.AutoMapper;
 using DocumentaryManagement.Attachment.Dto;
 using DocumentaryManagement.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -21,7 +22,9 @@ namespace DocumentaryManagement.DocumentaryPersonal.Dto
         public string SummaryContent { get; set; }
         public string Content { get; set; }
         public string Abridgment { get; set; }
+        [JsonIgnore]
         public long CreationId { get; set; }
+        [JsonIgnore]
         public DateTime CreationDate { get; set; }
 
         public virtual ICollection<UpdateAttachmentDto> AppAttachments { get; set; }

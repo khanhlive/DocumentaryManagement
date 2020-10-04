@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Domain.Repositories;
+using Abp.MultiTenancy;
 using Abp.Notifications;
 using Abp.Runtime.Session;
+using DocumentaryManagement.Authorization;
 using DocumentaryManagement.Authorization.Users;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models;
@@ -13,6 +15,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DocumentaryManagement.Web.Host.Controllers
 {
+    
+
     public class ReportController : Controller
     {
         private readonly IDocumentaryRepository Repository;
@@ -40,22 +44,41 @@ namespace DocumentaryManagement.Web.Host.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Document(DocumentFilterOptions documentFilterOptions, bool autoPrint = false)
+        private PermissionType GetPermissionType(int permissionType)
         {
-            var documentReport = new Documents(Repository, documentFilterOptions);
+            switch (permissionType)
+            {
+                case 1:
+                    return PermissionType.Admin;
+                case 2:
+                    return PermissionType.DocumentManager;
+                case 3:
+                    return PermissionType.Approved;
+                case 4:
+                    return PermissionType.Employee;
+                default:
+                    return PermissionType.Employee;
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Document(DocumentFilterOptions documentFilterOptions, bool autoPrint = false, int permissionType = 0, long userId =0)
+        {
+            var _type = this.GetPermissionType(permissionType);
+            var documentReport = new Documents(Repository, documentFilterOptions, _type, userId);
             documentReport.CreateDocument();
             ViewBag.autoPrint = autoPrint;
             return View("Viewer", documentReport);
         }
 
         [HttpGet]
-        public IActionResult Search(DocumentSearchOptions searchOptions, bool autoPrint = false)
+        public IActionResult Search(DocumentSearchOptions searchOptions, bool autoPrint = false, int permissionType = 0, long userId = 0)
         {
+            var _type = this.GetPermissionType(permissionType);
             searchOptions.Code = searchOptions.Code ?? "";
             searchOptions.NoiBanHanh = searchOptions.NoiBanHanh ?? "";
             searchOptions.NoiDungTomTat = searchOptions.NoiDungTomTat ?? "";
-            var documentReport = new SearchDocument(Repository, searchOptions);
+            var documentReport = new SearchDocument(Repository, searchOptions, _type, userId);
             ViewBag.autoPrint = autoPrint;
             documentReport.CreateDocument();
             return View("Viewer", documentReport);

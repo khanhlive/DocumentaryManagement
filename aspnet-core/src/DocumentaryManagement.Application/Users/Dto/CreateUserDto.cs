@@ -36,6 +36,7 @@ namespace DocumentaryManagement.Users.Dto
 
         [StringLength(11)]
         public string PhoneNumber { get; set; }
+        public int? DepartmentId { get; set; }
 
         [Required]
         [EmailAddress]

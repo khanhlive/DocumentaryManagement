@@ -24,7 +24,7 @@ export default class Header extends React.Component<any, any> {
         <div id="logo-group">
           <span id="logo">
             <img
-              src="/assets/img/logo.png" // place your logo here
+              src="assets/img/logo.png" // place your logo here
               alt="SmartAdmin"
             />
           </span>
@@ -55,7 +55,7 @@ export default class Header extends React.Component<any, any> {
                 data-toggle="dropdown"
               >
                 <img
-                  src="/assets/img/avatars/sunny.png"
+                  src="assets/img/avatars/sunny.png"
                   alt="John Doe"
                   className="online"
                 />
@@ -116,7 +116,7 @@ export default class Header extends React.Component<any, any> {
           <div id="logout" className="btn-header transparent pull-right">
             <span>
               <a
-                href="/logout"
+                href="#/logout"
                 title="Sign Out"
                 data-logout-msg="You can improve your security further after logging out by closing this opened browser"
               >

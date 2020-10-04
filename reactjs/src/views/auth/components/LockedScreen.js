@@ -13,12 +13,12 @@ export default class LockedScreen extends React.Component {
           >
             <div className="logo">
               <h1 className="semi-bold">
-                <img src="/assets/img/logo-o.png" alt="" /> SmartAdmin
+                <img src="assets/img/logo-o.png" alt="" /> SmartAdmin
               </h1>
             </div>
             <div>
               <img
-                src="/assets/img/avatars/sunny-big.png"
+                src="assets/img/avatars/sunny-big.png"
                 alt=""
                 width="120"
                 height="120"

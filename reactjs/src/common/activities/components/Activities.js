@@ -136,7 +136,7 @@ export class Activities extends React.Component {
   };
 
   fetch = () => {
-    return getJSON("/assets/api/activities/activities.json").then(activities => {
+    return getJSON("assets/api/activities/activities.json").then(activities => {
       this.setState({
         activities: activities,
         activity: activities[0],

@@ -4,6 +4,7 @@ using Abp.Runtime.Session;
 using DocumentaryManagement.Attachment.Dto;
 using DocumentaryManagement.Core;
 using DocumentaryManagement.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -24,7 +25,9 @@ namespace DocumentaryManagement.DocumentaryPersonal.Dto
         public string SummaryContent { get; set; }
         public string Content { get; set; }
         public string Abridgment { get; set; }
+        [JsonIgnore]
         public long? UpdatedId { get; set; }
+        [JsonIgnore]
         public DateTime? UpdatedDate { get; set; }
         public virtual ICollection<UpdateAttachmentDto> AppAttachments { get; set; }
         public virtual ICollection<UpdateAttachmentDto> AppAttachmentsDelete { get; set; }

@@ -8,11 +8,16 @@ using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.IdentityFramework;
 using Abp.Linq.Extensions;
+using Abp.Web.Models;
+using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Data.ResponseModel;
+using DevExtreme.AspNet.Mvc;
 using DocumentaryManagement.Authorization;
 using DocumentaryManagement.Authorization.Roles;
 using DocumentaryManagement.Authorization.Users;
 using DocumentaryManagement.Roles.Dto;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DocumentaryManagement.Roles
@@ -143,6 +148,15 @@ namespace DocumentaryManagement.Roles
                 GrantedPermissionNames = grantedPermissions.Select(p => p.Name).ToList()
             };
         }
+
+        [HttpPost]
+        [DontWrapResult]
+        [ActionName("get-devextreme")]
+        public virtual LoadResult GetDevExtreme(DataSourceLoadOptions loadOptions)
+        {
+            return DataSourceLoader.Load(Repository.GetAllList(), loadOptions);
+        }
+
     }
 }
 

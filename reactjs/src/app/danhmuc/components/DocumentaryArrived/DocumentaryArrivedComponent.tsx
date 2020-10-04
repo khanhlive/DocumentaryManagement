@@ -97,9 +97,12 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
 
     handleSave(id: number, model: any) {
         if (id > 0) {
-            model.releaseDate = formatDate(model.releaseDate, model.releaseDate.length > 10 ? 'DD/MM/YYYY HH:mm:ss' : 'DD/MM/YYYY');
-            model.receivedDate = formatDate(model.receivedDate, model.receivedDate.length > 10 ? 'DD/MM/YYYY HH:mm:ss' : 'DD/MM/YYYY');
-            model.updatedDate = formatDate(model.updatedDate, model.updatedDate.length > 10 ? 'DD/MM/YYYY HH:mm:ss' : 'DD/MM/YYYY');
+            if (model.releaseDate)
+                model.releaseDate = formatDate(model.releaseDate, model.releaseDate.length > 10 ? 'DD/MM/YYYY HH:mm:ss' : 'DD/MM/YYYY');
+            if (model.receivedDate)
+                model.receivedDate = formatDate(model.receivedDate, model.receivedDate.length > 10 ? 'DD/MM/YYYY HH:mm:ss' : 'DD/MM/YYYY');
+            if (model.updatedDate)
+                model.updatedDate = formatDate(model.updatedDate, model.updatedDate.length > 10 ? 'DD/MM/YYYY HH:mm:ss' : 'DD/MM/YYYY');
             DocumentaryService.update(model).then(res => {
                 notify('', `Cập nhật văn bản đến thành công`, 'success');
                 this.dataGrid?.refresh();

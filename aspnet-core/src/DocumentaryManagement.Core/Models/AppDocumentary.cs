@@ -37,6 +37,20 @@ namespace DocumentaryManagement.Model
         public int AgencyIssuedId { get; set; }
         public int TotalPage { get; set; }
         public bool IsProcessed { get; set; }
+        public bool? IsApproved { get; set; }
+        [Column("Approved_DepartmentId")]
+        public int? ApprovedDepartmentId { get; set; }
+        [Column("Approved_UserId")]
+        public long? ApprovedUserId { get; set; }
+        [Column("Approved_Type")]
+        public int? ApprovedType { get; set; }
+
+        [Column("Approved_Content")]
+        public string ApprovedContent { get; set; }
+
+        [Column("Approved_Confirm_UserId")]
+        public long? ApprovedConfirmUserId { get; set; }
+
         [StringLength(250)]
         public string CategoryName { get; set; }
         [StringLength(250)]
@@ -74,6 +88,7 @@ namespace DocumentaryManagement.Model
                 return this.DocumentType?.Name;
             }
         }
+
         [NotMapped]
         public string AgencyIssuedId_Name
         {
@@ -82,5 +97,11 @@ namespace DocumentaryManagement.Model
                 return this.AgencyIssued?.Name;
             }
         }
+
+        [NotMapped]
+        public string ApprovedUserId_Name { get; set; }
+
+        [NotMapped]
+        public string ApprovedDepartmentId_Name { get; set; }
     }
 }

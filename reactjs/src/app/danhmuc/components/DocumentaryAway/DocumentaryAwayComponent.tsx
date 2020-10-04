@@ -105,6 +105,7 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
     }
 
     render() {
+        const { search } = this.props['location'];
         return (
             <div id="content">
                 {

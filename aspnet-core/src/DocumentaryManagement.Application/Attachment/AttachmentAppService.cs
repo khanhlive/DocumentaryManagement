@@ -3,6 +3,7 @@ using DocumentaryManagement.Attachment.Dto;
 using DocumentaryManagement.Core;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Attachment;
 using DocumentaryManagement.Model;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,9 +18,11 @@ namespace DocumentaryManagement.Attachment
     public class AttachmentAppService : AsyncCrudAppServiceBase<AppAttachments, AttachmentDto, int, PagedAttachmentRequestDto, CreateAttachmentDto, UpdateAttachmentDto>, IAttachmentAppService
     {
         readonly IHttpContextAccessor httpContext;
-        public AttachmentAppService(IAttachmentRepository repository, IHttpContextAccessor httpContext) : base(repository)
+        IHostingEnvironment hostingEnvironment;
+        public AttachmentAppService(IAttachmentRepository repository, IHttpContextAccessor httpContext, IHostingEnvironment hostingEnvironment) : base(repository)
         {
             this.httpContext = httpContext;
+            this.hostingEnvironment = hostingEnvironment;
         }
 
         [HttpGet]

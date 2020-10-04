@@ -21,6 +21,7 @@ using DocumentaryManagement.Authorization;
 using DocumentaryManagement.Authorization.Accounts;
 using DocumentaryManagement.Authorization.Roles;
 using DocumentaryManagement.Authorization.Users;
+using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Department;
 using DocumentaryManagement.Roles.Dto;
 using DocumentaryManagement.Users.Dto;
 using Microsoft.AspNetCore.Identity;
@@ -39,6 +40,8 @@ namespace DocumentaryManagement.Users
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
 
+        private readonly IDepartmentRepository _departmentRepository;
+
         public UserAppService(
             IRepository<User, long> repository,
             UserManager userManager,
@@ -46,7 +49,8 @@ namespace DocumentaryManagement.Users
             IRepository<Role> roleRepository,
             IPasswordHasher<User> passwordHasher,
             IAbpSession abpSession,
-            LogInManager logInManager)
+            LogInManager logInManager,
+            IDepartmentRepository departmentRepository)
             : base(repository)
         {
             _userManager = userManager;
@@ -55,6 +59,7 @@ namespace DocumentaryManagement.Users
             _passwordHasher = passwordHasher;
             _abpSession = abpSession;
             _logInManager = logInManager;
+            _departmentRepository = departmentRepository;
         }
 
         public override async Task<UserDto> Create(CreateUserDto input)
@@ -229,7 +234,32 @@ namespace DocumentaryManagement.Users
         [ActionName("get-devextreme")]
         public virtual LoadResult GetDevExtreme(DataSourceLoadOptions loadOptions)
         {
-            return DataSourceLoader.Load(Repository.GetAllList(), loadOptions);
+            var query = (from a in Repository.GetAllList()
+                         join b in _departmentRepository.GetAllList() on a.DepartmentId equals b.Id into kq
+                         from c in kq.DefaultIfEmpty()
+                         select new { a, DepartmentName = c == null ? null : c.Name }).AsEnumerable().Select(p =>
+                         {
+                             var item = p.a;
+                             item.DepartmentName = p.DepartmentName;
+                             return item;
+                         });
+            return DataSourceLoader.Load(query, loadOptions);
+        }
+
+        [HttpGet]
+        [ActionName("get-current")]
+        public async Task<UserDto> GetCurrentUserInfo()
+        {
+            var userId = AbpSession.UserId;
+            if (userId.HasValue)
+            {
+                var user = await this.GetEntityByIdAsync(userId.Value);
+                return MapToEntityDto(user);
+            }
+            else
+            {
+                throw new UserFriendlyException("Chưa đăng nhập, lấy thông tin tài khoản thất bại");
+            }
         }
 
     }

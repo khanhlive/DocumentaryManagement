@@ -13,7 +13,7 @@ export default class FlotCharts extends React.Component {
   state = {};
 
   componentDidMount = () => {
-    getJSON("/assets/api/graphs/flot.json").then(data => {
+    getJSON("assets/api/graphs/flot.json").then(data => {
       this.setState(data);
     });
 

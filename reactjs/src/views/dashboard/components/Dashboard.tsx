@@ -10,6 +10,7 @@ import DashboardService from '../../../services/dashboard/DashboardService'
 import { inject, observer } from 'mobx-react';
 import Stores from '../../../stores/storeIdentifier';
 import BreadcrumbStoreApp from '../../../stores/BreadcrumbStore';
+import { Link } from 'react-router-dom';
 
 const options = {
   responsive: false,
@@ -99,9 +100,12 @@ export default class Dashboard extends React.Component<IDashboardProps, any> {
                 <div className="icon">
                   <i className="fa fa-shopping-cart" />
                 </div>
-                <a href="#" className="small-box-footer">
+                <Link to={'/quan-ly-van-ban/van-ban-di'} className="small-box-footer">
                   Xem thêm <i className="fa fa-arrow-circle-right" />
-                </a>
+                </Link>
+                {/* <a href="#" className="small-box-footer">
+                  Xem thêm <i className="fa fa-arrow-circle-right" />
+                </a> */}
               </div>
             </div>
             {/* ./col */}
@@ -115,9 +119,12 @@ export default class Dashboard extends React.Component<IDashboardProps, any> {
                 <div className="icon">
                   <i className="fa fa-bar-chart-o" />
                 </div>
-                <a href="#" className="small-box-footer">
+                <Link to={'/quan-ly-van-ban/van-ban-den'} className="small-box-footer">
                   Xem thêm <i className="fa fa-arrow-circle-right" />
-                </a>
+                </Link>
+                {/* <a href="#" className="small-box-footer">
+                  Xem thêm <i className="fa fa-arrow-circle-right" />
+                </a> */}
               </div>
             </div>
             {/* ./col */}
@@ -131,9 +138,12 @@ export default class Dashboard extends React.Component<IDashboardProps, any> {
                 <div className="icon">
                   <i className="fa fa-users" />
                 </div>
-                <a href="#" className="small-box-footer">
+                <Link to={'/quan-ly-van-ban/van-ban-di'} className="small-box-footer">
                   Xem thêm <i className="fa fa-arrow-circle-right" />
-                </a>
+                </Link>
+                {/* <a href="#" className="small-box-footer">
+                  Xem thêm <i className="fa fa-arrow-circle-right" />
+                </a> */}
               </div>
             </div>
             {/* ./col */}
@@ -147,9 +157,12 @@ export default class Dashboard extends React.Component<IDashboardProps, any> {
                 <div className="icon">
                   <i className="fa fa-pie-chart" />
                 </div>
-                <a href="#" className="small-box-footer">
+                <Link to={'/quan-ly-van-ban/van-ban-den'} className="small-box-footer">
                   Xem thêm <i className="fa fa-arrow-circle-right" />
-                </a>
+                </Link>
+                {/* <a href="#" className="small-box-footer">
+                  Xem thêm <i className="fa fa-arrow-circle-right" />
+                </a> */}
               </div>
             </div>
             {/* ./col */}

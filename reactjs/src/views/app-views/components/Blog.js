@@ -25,9 +25,9 @@ export default class Blog extends React.Component {
                 <div className="row">
                   <div className="col-md-4">
                     <img
-                      src="/assets/img/superbox/superbox-full-15.jpg"
+                      src="assets/img/superbox/superbox-full-15.jpg"
                       className="img-responsive"
-                      alt="/assets/img"
+                      alt="assets/img"
                     />
                     <ul className="list-inline padding-10">
                       <li>
@@ -88,9 +88,9 @@ export default class Blog extends React.Component {
                 <div className="row">
                   <div className="col-md-4">
                     <img
-                      src="/assets/img/superbox/superbox-full-19.jpg"
+                      src="assets/img/superbox/superbox-full-19.jpg"
                       className="img-responsive"
-                      alt="/assets/img"
+                      alt="assets/img"
                     />
                     <ul className="list-inline padding-10">
                       <li>
@@ -145,9 +145,9 @@ export default class Blog extends React.Component {
                 <div className="row">
                   <div className="col-md-4">
                     <img
-                      src="/assets/img/superbox/superbox-full-24.jpg"
+                      src="assets/img/superbox/superbox-full-24.jpg"
                       className="img-responsive"
-                      alt="/assets/img"
+                      alt="assets/img"
                     />
                     <ul className="list-inline padding-10">
                       <li>
@@ -199,9 +199,9 @@ export default class Blog extends React.Component {
                 <div className="row">
                   <div className="col-md-4">
                     <img
-                      src="/assets/img/superbox/superbox-full-7.jpg"
+                      src="assets/img/superbox/superbox-full-7.jpg"
                       className="img-responsive"
-                      alt="/assets/img"
+                      alt="assets/img"
                     />
                     <ul className="list-inline padding-10">
                       <li>

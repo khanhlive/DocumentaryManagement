@@ -2,6 +2,8 @@
 using DevExtreme.AspNet.Data.ResponseModel;
 using DocumentaryManagement.Core;
 using DocumentaryManagement.Documentary.Dto;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DocumentaryManagement.Documentary
 {
@@ -9,5 +11,6 @@ namespace DocumentaryManagement.Documentary
     {
         LoadResult GetBookDevExtreme(DataSourceLoadOptionsCustom loadOptions);
         LoadResult GetSearchDevExtreme(DataSourceLoadOptionsCustom loadOptions);
+        Task<IEnumerable<Users.Dto.UserDto>> GetUserApproved();
     }
 }
