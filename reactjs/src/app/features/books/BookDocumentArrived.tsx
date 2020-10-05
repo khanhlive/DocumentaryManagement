@@ -45,7 +45,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
         this.state = {
             filterData: {
                 year: new Date().getFullYear(),
-                type: DocumentaryType.DocumentaryAway
+                type: DocumentaryType.DocumentaryArrived
             }
         }
     }
