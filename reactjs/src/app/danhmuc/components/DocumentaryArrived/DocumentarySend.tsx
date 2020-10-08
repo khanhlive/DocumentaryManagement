@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 import notify from '../../../../common/utils/functions/notify';
 import DepartmentService from '../../../../services/danhmuc/department/DepartmentService';
-import { TreeView } from 'devextreme-react';
+import { TreeView, } from 'devextreme-react';
+import { TreeList, Selection, Column } from 'devextreme-react/tree-list';
 import dxTreeView from 'devextreme/ui/tree_view';
 import { dxElement } from 'devextreme/core/element';
 import { CreateRotationDto } from '../../../../services/danhmuc/rotation/dto/CreateRotationDto';
 import RotationService from '../../../../services/danhmuc/rotation/RotationService';
+import dxTreeList from 'devextreme/ui/tree_list';
+import columnFormatDate from '../../../../common/core/functions/columnRenderDate';
 
 export interface IDocumentarySendProps {
     id?: any,
@@ -18,7 +21,10 @@ export interface IDocumentarySendState {
     model: any,
     id: any,
     treeViewData: any[],
-    selectedItems?: any[]
+    selectedItems?: any[],
+    treeListData?: any[],
+    selectedRowKeys?: [],
+    selectedRowData?: []
 }
 
 export default class DocumentarySendComponent extends Component<IDocumentarySendProps, IDocumentarySendState> {
@@ -30,10 +36,14 @@ export default class DocumentarySendComponent extends Component<IDocumentarySend
             model: {},
             id: this.props.id,
             treeViewData: [],
-            selectedItems: []
+            selectedItems: [],
+            treeListData: [],
+            selectedRowKeys: [],
+            selectedRowData: []
             //isEdit: false,
         }
         this.handleTreeViewSelected = this.handleTreeViewSelected.bind(this);
+        this.handleTreeListSelected = this.handleTreeListSelected.bind(this);
     }
 
     onSubmit(e: any) {
@@ -45,11 +55,22 @@ export default class DocumentarySendComponent extends Component<IDocumentarySend
     }
 
     public send(id: any) {
-        DepartmentService.getDepartmentUserTreeViewData(id).then(res => {
+        // DepartmentService.getDepartmentUserTreeViewData(id).then(res => {
+        //     this.setState({
+        //         treeViewData: res,
+        //         isShow: true,
+        //         id: id,
+        //     });
+        // })
+        DepartmentService.getDepartmentUserTreeListData(id).then(res => {
+            let _selectedRowData = res.filter((item: any) => item.selected);
+            let _selectedRowKeys = _selectedRowData.map((item: any) => item.id);
             this.setState({
-                treeViewData: res,
+                treeListData: res.map((item: any) => { item.isView = item.isView == true; return item; }),
                 isShow: true,
                 id: id,
+                selectedRowKeys: _selectedRowKeys,
+                selectedRowData: _selectedRowData
             });
         })
     }
@@ -57,7 +78,7 @@ export default class DocumentarySendComponent extends Component<IDocumentarySend
         let input: CreateRotationDto = new CreateRotationDto();
         input.init({
             documentId: this.state.id,
-            items: this.state.selectedItems
+            items: this.state.selectedRowData
         })
         RotationService.send(input).then(() => {
             notify('', `Chuyển văn bản đến thành công`, 'success');
@@ -84,6 +105,13 @@ export default class DocumentarySendComponent extends Component<IDocumentarySend
         });
     }
 
+    handleTreeListSelected(e: { component?: dxTreeList, element?: dxElement, model?: any, currentSelectedRowKeys?: Array<any>, currentDeselectedRowKeys?: Array<any>, selectedRowKeys?: Array<any>, selectedRowsData?: Array<any> }) {
+        this.setState({
+            selectedRowData: e.selectedRowsData as [],
+            selectedRowKeys: e.selectedRowKeys as []
+        })
+    }
+
     render() {
 
         return (
@@ -98,7 +126,7 @@ export default class DocumentarySendComponent extends Component<IDocumentarySend
                         <legend>Chọn phòng ban\ nhân viên cần chuyển văn bản</legend>
                         <section>
 
-                            <TreeView
+                            {/* <TreeView
                                 id="treeview"
                                 //ref={ref=> this.treeViewRef}
                                 items={this.state.treeViewData}
@@ -108,7 +136,25 @@ export default class DocumentarySendComponent extends Component<IDocumentarySend
                                 selectionMode="multiple"
                                 onSelectionChanged={this.handleTreeViewSelected}
                                 itemRender={(item: any) => `${item.name}`}
-                            />
+                            /> */}
+
+                            <TreeList
+                                id="TreeList"
+                                dataSource={this.state.treeListData}
+                                showRowLines={true}
+                                showBorders={true}
+                                columnAutoWidth={true}
+                                autoExpandAll={true}
+                                selectedRowKeys={this.state.selectedRowKeys}
+                                keyExpr="id"
+                                parentIdExpr="parrentExpr"
+                                onSelectionChanged={this.handleTreeListSelected}
+                            >
+                                <Selection recursive={true} mode="multiple" />
+                                <Column dataField="name" caption="Tất cả" />
+                                <Column dataField="isView" caption="Đã xem" />
+                                <Column width={120} dataField="viewDate" dataType="date" caption="Ngày xem" cellRender={columnFormatDate} />
+                            </TreeList>
                         </section>
                     </fieldset>
                 </Modal.Body>

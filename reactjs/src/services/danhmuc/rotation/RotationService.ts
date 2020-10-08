@@ -19,6 +19,17 @@ class RotationService extends ServiceBase<
     );
     return this.processResponseData(res);
   }
+  public async view(documentId: number): Promise<RotationDto[]> {
+    let res = await this.httpBase.get(
+      `/api/services/app/${this.entityName}/view`,
+      {
+        params: {
+          documentId: documentId,
+        },
+      }
+    );
+    return this.processResponseData(res);
+  }
 }
 
 export default new RotationService();

@@ -71,17 +71,26 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Department
                                  Type = 1,
                                  Value = p.Id,
                                  Selected = departmentSelected,
+                                 RotationId = rotations.FirstOrDefault(r => r.DepartmentId == p.Id && r.UserId == null)?.Id,
                                  Expanded = true,
                                  ParentId = -1,
-                                 Items = p.items.Select(m => new DepartmentUserTreeViewItem
+                                 Items = p.items.Select(m =>
                                  {
-                                     Id = $"NV_{m.Id.ToString()}",
-                                     Name = m.FullName2,
-                                     Expanded = true,
-                                     Type = 2,
-                                     Value = m.Id,
-                                     ParentId = p.Id,
-                                     Selected = departmentSelected || rotations.Any(s => s.UserId != null && s.UserId == m.Id)
+                                     var _v = rotations.FirstOrDefault(r => r.DepartmentId == p.Id && r.UserId == m.Id);
+                                     return new DepartmentUserTreeViewItem
+                                     {
+                                         Id = $"NV_{m.Id.ToString()}",
+                                         Name = m.FullName2,
+                                         Expanded = true,
+                                         Type = 2,
+                                         Value = m.Id,
+                                         IsView = _v?.IsView ?? false,
+                                         ViewDate = _v?.ViewDate,
+                                         ParrentExpr = $"PB_{p.Id.ToString()}",
+                                         ParentId = p.Id,
+                                         RotationId = _v?.Id,
+                                         Selected = departmentSelected || rotations.Any(s => s.UserId != null && s.UserId == m.Id)
+                                     };
                                  }).ToList()
                              };
                          });

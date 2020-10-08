@@ -8,5 +8,6 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Rotation
     public interface IRotationRepository : IRepository<AppRotation,long>
     {
         Task<List<AppRotation>> Send(List<AppRotation> rotations);
+        Task<AppRotation> SetView(long documentId, long userId);
     }
 }

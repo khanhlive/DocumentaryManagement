@@ -3,6 +3,7 @@ using DocumentaryManagement.Authorization;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models;
 using System;
+using System.Linq;
 
 namespace DocumentaryManagement.Web.Host.Reports
 {
@@ -43,7 +44,7 @@ namespace DocumentaryManagement.Web.Host.Reports
             colStt.Summary = new XRSummary(SummaryRunning.Report);
             ((XRSummary)colStt.Summary).Func = SummaryFunc.RecordNumber;
             var source = Repository.GetFilterReportData(Options, _permissionType, _userId);
-            this.DataSource = source;
+            this.DataSource = source?.OrderBy(p => p.TextNumber);
         }
 
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

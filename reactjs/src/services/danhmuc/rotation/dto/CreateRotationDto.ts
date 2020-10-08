@@ -55,6 +55,9 @@ export class DepartmentUserTreeViewItem implements IDepartmentUserTreeViewItem {
   expanded?: boolean | undefined;
   parentId?: number | undefined;
   items?: DepartmentUserTreeViewItem[] | undefined;
+  rotationId?: number;
+  isView?: boolean;
+  viewDate?: Date;
 
   constructor(data?: IDepartmentUserTreeViewItem) {
     if (data) {
@@ -75,6 +78,9 @@ export class DepartmentUserTreeViewItem implements IDepartmentUserTreeViewItem {
       this.isRoot = _data["isRoot"];
       this.expanded = _data["expanded"];
       this.parentId = _data["parentId"];
+      this.rotationId = _data["rotationId"];
+      this.isView = _data["isView"];
+      this.viewDate = _data["viewDate"];
       if (Array.isArray(_data["items"])) {
         this.items = [] as any;
         for (let item of _data["items"])
@@ -100,6 +106,9 @@ export class DepartmentUserTreeViewItem implements IDepartmentUserTreeViewItem {
     data["isRoot"] = this.isRoot;
     data["expanded"] = this.expanded;
     data["parentId"] = this.parentId;
+    data["rotationId"] = this.rotationId;
+    data["isView"] = this.isView;
+    data["viewDate"] = this.viewDate;
     if (Array.isArray(this.items)) {
       data["items"] = [];
       for (let item of this.items) data["items"].push(item.toJSON());
@@ -118,4 +127,7 @@ export interface IDepartmentUserTreeViewItem {
   expanded?: boolean | undefined;
   parentId?: number | undefined;
   items?: DepartmentUserTreeViewItem[] | undefined;
+  rotationId?: number;
+  isView?: boolean;
+  viewDate?: Date;
 }

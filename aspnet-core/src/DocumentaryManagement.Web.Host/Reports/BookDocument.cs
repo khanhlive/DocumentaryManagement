@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using DevExpress.XtraReports.UI;
 using DocumentaryManagement.Authorization.Users;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
@@ -45,7 +46,7 @@ namespace DocumentaryManagement.Web.Host.Reports
             colSTT.Summary = new XRSummary(SummaryRunning.Report);
             ((XRSummary)colSTT.Summary).Func = SummaryFunc.RecordNumber;
             var source = Repository.GetBookReportData(Options);
-            this.DataSource = source;
+            this.DataSource = source?.OrderBy(p => p.TextNumber);
         }
 
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

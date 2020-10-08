@@ -25,7 +25,16 @@ namespace DocumentaryManagement.Rotation
             var items = input.CreateData(AbpSession.UserId);
             await ((IRotationRepository)AbpRepository).Send(items);
             CurrentUnitOfWork.SaveChanges();
-            return items.Select(p=>MapToEntityDto(p));
+            return items.Select(p => MapToEntityDto(p));
+        }
+
+        [HttpGet]
+        [ActionName("view")]
+        public async Task<RotationDto> View(long documentId)
+        {
+            long userId = AbpSession.UserId ?? 0;
+            var item = await ((IRotationRepository)AbpRepository).SetView(documentId, userId);
+            return MapToEntityDto(item);
         }
     }
 }

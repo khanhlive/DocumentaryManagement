@@ -17,7 +17,7 @@ namespace DocumentaryManagement.Rotation.Dto
             if (Items != null && Items.Count > 0)
             {
                 var departments = Items.Where(p => p.Type == 1);
-                var users = Items.Where(p => p.Type == 2 && !departments.Any(a => a.Value == p.ParentId));
+                var users = Items.Where(p => p.Type == 2 && (p.RotationId > 0 || !departments.Any(a => a.Value == p.ParentId)));
                 foreach (var item in departments)
                 {
                     items.Add(new AppRotation
@@ -26,7 +26,9 @@ namespace DocumentaryManagement.Rotation.Dto
                         CreationUserId = creationUserId,
                         DocumentId = this.DocumentId,
                         DepartmentId = item.Value,
-                        UserId = null
+                        UserId = null,
+                        Id = item.RotationId ?? 0,
+                        IsView = false
                     });
                 }
                 foreach (var item in users)
@@ -37,7 +39,10 @@ namespace DocumentaryManagement.Rotation.Dto
                         CreationUserId = creationUserId,
                         DocumentId = this.DocumentId,
                         DepartmentId = item.ParentId,
-                        UserId = item.Value
+                        UserId = item.Value,
+                        Id = item.RotationId ?? 0,
+                        IsView = item.IsView,
+                        ViewDate = item.ViewDate
                     });
                 }
 

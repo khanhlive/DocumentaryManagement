@@ -8,6 +8,7 @@ namespace DocumentaryManagement.Rotation
     public interface IRotationAppService : IAsyncCrudAppService<RotationDto, long, PagedRotationRequestDto, CreateRotationDto, RotationDto>
     {
         Task<IEnumerable<RotationDto>> Send(CreateRotationDto rotations);
+        Task<RotationDto> View(long documentId);
 
     }
 }

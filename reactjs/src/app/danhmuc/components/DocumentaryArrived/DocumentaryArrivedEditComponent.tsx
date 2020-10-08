@@ -8,6 +8,7 @@ import EditComponentBase from '../../../../common/core/models/EditComponent';
 import DocumentTypeSelect from '../../commons/DocumentTypeSelect';
 import AgencyIssuedSelect from '../../commons/AgencyIssuedSelect';
 import { validatorCode, validatorDate } from '../../../../common/core';
+import { validatorTextNumber } from '../../../../common/core/functions/validateRules';
 import CKEditorCommon from '../../../../common/forms/editors/CKEditorCommon';
 import AttachmentsCommon from '../../../../common/core/controls/AttachmentsCommon';
 import { DocumentaryType, FileUploadInfo } from '../../../../common/core/models/Attachment';
@@ -19,6 +20,7 @@ import DepartmentService from '../../../../services/danhmuc/department/Departmen
 import ApprovedSelect from '../../commons/ApprovedSelect';
 import { isGranted } from '../../../../lib/abpUtility';
 import { PermissionNames } from '../../../../lib/PermissionName';
+import RotationService from '../../../../services/danhmuc/rotation/RotationService';
 
 export interface IDocumentaryArrivedEditProps extends IEditComponentProps {
     onApproved: (id: number, data: any) => any
@@ -48,7 +50,7 @@ const validationRules = {
                 },
                 callback: {
                     message: 'Mã chỉ bao gồm chữ số, chữ cái và dấu gạch dưới',
-                    callback: validatorCode
+                    callback: validatorTextNumber
                 }
             }
         },
@@ -314,6 +316,9 @@ export default class DocumentaryArrivedEditComponent extends EditComponentBase<I
         }, () => {
             this.attachmentRef?.loadData();
         });
+        RotationService.view(id).then(res => {
+            console.log(`you are view document with id: ${id}`, res);
+        })
     }
     handleValidateField(data: { field: string, valid: boolean }) {
         let fields = this.state.validates;

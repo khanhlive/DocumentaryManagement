@@ -1,5 +1,6 @@
 ﻿using Abp.Configuration.Startup;
 using Dapper;
+using DocumentaryManagement.Authorization;
 using DocumentaryManagement.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,15 +21,48 @@ namespace DocumentaryManagement.Web.Host.Controllers
             conStr = configuration.DefaultNameOrConnectionString;
         }
 
+        private PermissionType GetPermissionType()
+        {
+            bool isDocumentManager = PermissionChecker.IsGrantedAsync(PermissionNames.Permission_DocumentManager).GetAwaiter().GetResult();
+            if (isDocumentManager)
+            {
+                return PermissionType.DocumentManager;
+            }
+            else
+            {
+                bool isApprove = PermissionChecker.IsGrantedAsync(PermissionNames.Permission_Approved).GetAwaiter().GetResult();
+                if (isApprove)
+                {
+                    return PermissionType.Approved;
+                }
+                else
+                {
+                    return PermissionType.Employee;
+                }
+            }
+        }
+
         [HttpGet]
         public DashboardResult Get()
         {
+            var permissionType = this.GetPermissionType();
             DashboardResult dashboardResult = new DashboardResult();
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@permission", permissionType == PermissionType.Admin || permissionType == PermissionType.DocumentManager ? "admin" : (permissionType == PermissionType.Approved ? "approved" : "employee"));
+            parameters.Add("@userId", AbpSession.UserId ?? 0);
             using (SqlConnection con = new SqlConnection(this.conStr))
             {
-                using (var dr = con.QueryMultiple("Dashboard", null, null, null, System.Data.CommandType.StoredProcedure))
+                using (var dr = con.QueryMultiple("Dashboard", parameters, null, null, System.Data.CommandType.StoredProcedure))
                 {
-                    dashboardResult.ThongKeVanBan = dr.ReadFirst<ThongKeVanBan>();
+                    if(permissionType == PermissionType.Admin || permissionType == PermissionType.DocumentManager)
+                    {
+                        dashboardResult.ThongKeVanBan = dr.ReadFirst<ThongKeVanBan>();
+                    }
+                    else
+                    {
+                        dashboardResult.ThongKeVanBan_Viewer = dr.ReadFirst<ThongKeVanBan_Viewer>();
+                    }
+                    
                     IEnumerable<ThongKeVanBanTheoThang> enumerable = dr.Read<ThongKeVanBanTheoThang>();
                     dashboardResult.Init(enumerable);
                 }
@@ -39,6 +73,7 @@ namespace DocumentaryManagement.Web.Host.Controllers
     public class DashboardResult
     {
         public ThongKeVanBan ThongKeVanBan { get; set; }
+        public ThongKeVanBan_Viewer ThongKeVanBan_Viewer { get; set; }
         public BieuDo BieuDo { get; set; }
         public void Init(IEnumerable<ThongKeVanBanTheoThang> thongKeVanBanTheos)
         {
@@ -76,6 +111,14 @@ namespace DocumentaryManagement.Web.Host.Controllers
         public int SoVanBanDi_DaXuLy { get; set; }
         public int SoVanBanDen_DaXuLy { get; set; }
     }
+
+    public class ThongKeVanBan_Viewer
+    {
+        public int SoVanBanDen { get; set; }
+        public int SoVanBanDenDaXem { get; set; }
+        public int SoVanBanDenChuaXem { get; set; }
+    }
+
     public class ThongKeVanBanTheoThang
     {
         public int Type { get; set; }

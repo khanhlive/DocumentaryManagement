@@ -7,7 +7,7 @@ import IEditComponentStates from '../../../../common/core/models/EditComponentSt
 import EditComponentBase from '../../../../common/core/models/EditComponent';
 import DocumentTypeSelect from '../../commons/DocumentTypeSelect';
 import AgencyIssuedSelect from '../../commons/AgencyIssuedSelect';
-import { validatorCode, validatorDate } from '../../../../common/core';
+import { validatorCode, validatorDate, validatorTextNumber } from '../../../../common/core';
 import CKEditorCommon from '../../../../common/forms/editors/CKEditorCommon';
 import AttachmentsCommon from '../../../../common/core/controls/AttachmentsCommon';
 import { DocumentaryType, FileUploadInfo } from '../../../../common/core/models/Attachment';
@@ -40,7 +40,7 @@ const validationRules = {
                 },
                 callback: {
                     message: 'Mã chỉ bao gồm chữ số, chữ cái và dấu gạch dưới',
-                    callback: validatorCode
+                    callback: validatorTextNumber
                 }
             }
         },

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using DocumentaryManagement.Models.Lib;
+using Newtonsoft.Json;
 
 namespace DocumentaryManagement.Department
 {
@@ -38,6 +39,29 @@ namespace DocumentaryManagement.Department
                 Value = -1,
                 Items = ((IDepartmentRepository)AbpRepository).GetTreeData(documentId)?.ToList()
             });
+            return await Task.FromResult(data);
+        }
+        [HttpGet]
+        [ActionName("get-department-user-treelist")]
+        public async Task<IEnumerable<DepartmentUserTreeViewItem>> GetTreeViewDataList(long documentId)
+        {
+            var data = new List<DepartmentUserTreeViewItem>();
+            //data.Add(new DepartmentUserTreeViewItem
+            //{
+            //    Id = "ROOT",
+            //    IsRoot = true,
+            //    Name = "Tất cả",
+            //    Type = -1,
+            //    Value = -1
+            //});
+            foreach (var item in ((IDepartmentRepository)AbpRepository).GetTreeData(documentId)?.ToList())
+            {
+                var items = JsonConvert.SerializeObject(item.Items);
+                item.Items = null;
+                //item.ParrentExpr = "ROOT";
+                data.Add(item);
+                data.AddRange(JsonConvert.DeserializeObject<List<DepartmentUserTreeViewItem>>(items));
+            } 
             return await Task.FromResult(data);
         }
     }

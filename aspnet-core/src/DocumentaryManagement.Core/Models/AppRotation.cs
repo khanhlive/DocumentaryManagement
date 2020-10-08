@@ -16,5 +16,7 @@ namespace DocumentaryManagement.Model
         public DateTime? Date { get; set; }
         [Column("Creation_UserId")]
         public long? CreationUserId { get; set; }
+        public bool? IsView { get; set; }
+        public DateTime? ViewDate { get; set; }
     }
 }

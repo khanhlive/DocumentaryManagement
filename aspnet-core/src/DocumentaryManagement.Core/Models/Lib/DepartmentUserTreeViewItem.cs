@@ -8,6 +8,9 @@ namespace DocumentaryManagement.Models.Lib
     public class DepartmentUserTreeViewItem
     {
         public string Id { get; set; }
+        public long? RotationId { get; set; }
+        public bool? IsView { get; set; }
+        public DateTime? ViewDate { get; set; }
         public long Value { get; set; }
         public string Name { get; set; }
         public int Type { get; set; }
@@ -16,6 +19,8 @@ namespace DocumentaryManagement.Models.Lib
         public bool Expanded { get; set; }
         public int ParentId { get; set; }
         public List<DepartmentUserTreeViewItem> Items { get; set; }
+
+        public string ParrentExpr { get; set; }
 
         public List<AppRotation> GetRotations()
         {

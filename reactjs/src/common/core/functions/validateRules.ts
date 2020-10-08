@@ -5,6 +5,11 @@ export function validatorCode(value: any, validator: any, $field: any) {
   return reg.test(value);
 }
 
+export function validatorTextNumber(value: any, validator: any, $field: any) {
+  var reg = /^[\d\w_\-\,\/]+$/;
+  return reg.test(value);
+}
+
 export function validatorDate(value: any, validator: any, $field: any) {
   if (value == null || value == undefined || value.trim() == "") {
     return true;
