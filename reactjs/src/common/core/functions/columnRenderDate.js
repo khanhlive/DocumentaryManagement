@@ -1,15 +1,16 @@
 import moment from 'moment';
-export default function columnFormatDate(cellData, format) {
+export default function columnFormatDate(cellData, format, formatOutput) {
     let _date = cellData.value;
-    return formatDate(_date, format);
+    return formatDate(_date, format, formatOutput);
 }
 
-export function formatDate(value, format) {
+export function formatDate(value, format, formatOutput) {
+    formatOutput = formatOutput ? formatOutput : "DD/MM/YYYY";
     let _date = value;
     if (_date) {
         const m = moment(_date, format ? format : 'DD/MM/YYYY');
         if (m.isValid()) {
-            return m.format("DD/MM/YYYY");
+            return m.format(formatOutput);
         }
     }
     return null;

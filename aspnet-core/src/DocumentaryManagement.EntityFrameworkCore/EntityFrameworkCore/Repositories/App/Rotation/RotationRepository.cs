@@ -69,7 +69,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Rotation
                         IsView = true,
                         ViewDate = DateTime.Now,
                         Date = itemDepartment.Date,
-                        DepartmentId = user.Id,
+                        DepartmentId = itemDepartment.DepartmentId,
                         UserId = userId
 
                     };

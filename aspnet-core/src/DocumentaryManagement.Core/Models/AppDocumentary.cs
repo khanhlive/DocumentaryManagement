@@ -103,5 +103,7 @@ namespace DocumentaryManagement.Model
 
         [NotMapped]
         public string ApprovedDepartmentId_Name { get; set; }
+        [NotMapped]
+        public bool IsView { get; set; }
     }
 }

@@ -153,7 +153,7 @@ export default class DocumentarySendComponent extends Component<IDocumentarySend
                                 <Selection recursive={true} mode="multiple" />
                                 <Column dataField="name" caption="Tất cả" />
                                 <Column dataField="isView" caption="Đã xem" />
-                                <Column width={120} dataField="viewDate" dataType="date" caption="Ngày xem" cellRender={columnFormatDate} />
+                                <Column width={150} dataField="viewDate" dataType="date" caption="Ngày xem" cellRender={(cellData: any) => columnFormatDate(cellData, 'DD/MM/YYYY HH:mm:ss', 'DD/MM/YYYY HH:mm')} />
                             </TreeList>
                         </section>
                     </fieldset>

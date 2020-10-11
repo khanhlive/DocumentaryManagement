@@ -50,14 +50,15 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
 
         public List<AppDocumentary> GetFilterReportData(DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType, long userId)
         {
-            return this.GetQueryFilter(documentFilterOptions, permissionType, userId).ToList();
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            return this.GetQueryFilter(DbContext, documentFilterOptions, permissionType, userId).ToList();
         }
 
-        private IQueryable<AppDocumentary> GetQueryFilter(DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType, long userId)
+        private IQueryable<AppDocumentary> GetQueryFilter(DocumentaryManagementDbContext DbContext, DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType, long userId)
         {
-            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            //DocumentaryManagementDbContext DbContext = this.GetDevContext();
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
-            User user = this.Context.Users.FirstOrDefault(p => p.Id == userId);
+            User user = DbContext.Users.FirstOrDefault(p => p.Id == userId);
             int? departmentId = user == null ? 0 : user.DepartmentId;
             if (permissionType == Authorization.PermissionType.Admin || permissionType == Authorization.PermissionType.DocumentManager)
             {
@@ -66,7 +67,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             else if (permissionType == Authorization.PermissionType.Approved)
             {
                 query = (from a in query
-                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         join b in DbContext.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
                          where (a.ApprovedType == 1 ? a.ApprovedUserId == userId : a.ApprovedDepartmentId == departmentId) || (kq.Any())
                          select a
                         );
@@ -74,7 +75,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             else
             {
                 query = (from a in query
-                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         join b in DbContext.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
                          where (kq.Any())
                          select a
                         );
@@ -105,15 +106,17 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
 
         public virtual LoadResult GetDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType)
         {
-            var query = GetQueryFilter(documentFilterOptions, permissionType, AbpSession.UserId ?? 0);
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            var query = GetQueryFilter(DbContext, documentFilterOptions, permissionType, AbpSession.UserId ?? 0);
             var query2 = (from a in query
-                          join b in Context.Users on a.ApprovedUserId equals b.Id into kq
+                          join b in DbContext.Users on a.ApprovedUserId equals b.Id into kq
                           from u in kq.DefaultIfEmpty()
-                          join c in Context.AppDepartment on a.ApprovedDepartmentId equals c.Id into kq1
+                          join c in DbContext.AppDepartment on a.ApprovedDepartmentId equals c.Id into kq1
                           from d in kq1.DefaultIfEmpty()
                           select new
                           {
                               a,
+                              IsView = (permissionType != Authorization.PermissionType.Admin && permissionType != Authorization.PermissionType.DocumentManager) ? DbContext.AppRotation.Any(p => p.DocumentId == a.Id && p.UserId == AbpSession.UserId && p.IsView == true) : false,
                               UserName = u == null ? null : u.FullName2,
                               DepartmentName = d == null ? null : d.Name
                           }
@@ -122,6 +125,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
                            var item = p.a;
                            item.ApprovedUserId_Name = p.UserName;
                            item.ApprovedDepartmentId_Name = p.DepartmentName;
+                           item.IsView = p.IsView;
                            return item;
                        });
             return DataSourceLoader.Load(query2, loadOptions);
@@ -163,7 +167,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
         {
             DocumentaryManagementDbContext DbContext = this.GetDevContext();
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
-            User user = this.Context.Users.FirstOrDefault(p => p.Id == userId);
+            User user = DbContext.Users.FirstOrDefault(p => p.Id == userId);
             int? departmentId = user == null ? 0 : user.DepartmentId;
             if (permissionType == Authorization.PermissionType.Admin || permissionType == Authorization.PermissionType.DocumentManager)
             {
@@ -172,7 +176,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             else if (permissionType == Authorization.PermissionType.Approved)
             {
                 query = (from a in query
-                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         join b in DbContext.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
                          where (a.ApprovedType == 1 ? a.ApprovedUserId == userId : a.ApprovedDepartmentId == departmentId) || (kq.Any())
                          select a
                         );
@@ -180,7 +184,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             else
             {
                 query = (from a in query
-                         join b in Context.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
+                         join b in DbContext.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
                          where (kq.Any())
                          select a
                         );

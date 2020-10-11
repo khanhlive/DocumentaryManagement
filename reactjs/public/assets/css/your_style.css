@@ -76,18 +76,22 @@ html > body:not(.menu-on-top).fixed-header {
   width: 50px !important;
   min-width: 50px !important;
 }
-
-.modal-large-80vw {
-  width: 80vw;
-  min-width: 800px;
-}
-.modal-large-70vw {
-  width: 70vw;
-  min-width: 700px;
-}
-.modal-large-60vw {
-  width: 60vw;
-  min-width: 600px;
+@media (min-width: 1200px) {
+  .modal-large-80vw {
+    width: 80vw;
+    min-width: 800px;
+  }
+  .modal-large-70vw {
+    width: 70vw;
+    min-width: 700px;
+  }
+  .modal-large-60vw {
+    width: 60vw;
+    min-width: 600px;
+  }
+  .dx-datagrid-search-panel {
+    width: 350px !important;
+  }
 }
 
 .has-error .input-group .input-group-btn .btn {

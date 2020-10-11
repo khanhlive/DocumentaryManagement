@@ -189,6 +189,20 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
                                             selectionMode="single"
                                             onSelectionChanged={(e: any) => console.log(e)}
                                         >
+                                            {
+                                                !allowDocumentManager ? (
+                                                    <Column
+                                                        dataField="isView"
+                                                        caption=""
+                                                        allowFiltering={false}
+                                                        dataType="string"
+                                                        cellRender={(cellData: any) => {
+                                                            let isView = cellData.data.isView;
+                                                            return <i title={isView ? 'Đã xem' : 'Chưa xem'} className={`fa fa-flag text-${isView ? 'success' : 'warning'}`}></i>;
+                                                        }}
+                                                    />
+                                                ) : null
+                                            }
                                             <Column
                                                 dataField="textNumber"
                                                 caption="Số đến"

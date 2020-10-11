@@ -112,7 +112,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
             selection: _selection,
             customSelection: false,
             filterRow: { visible: true },
-            searchPanel: { visible: true, width: 350, placeholder: 'Tìm kiếm...' },
+            searchPanel: { visible: true, placeholder: 'Tìm kiếm...' },
             stateStoring: {
                 type: 'localStorage',
                 enabled: false,
