@@ -1,7 +1,8 @@
 import { SelectBox } from 'devextreme-react';
 import { Template } from 'devextreme-react/core/template';
-import { Column } from 'devextreme-react/data-grid';
+import { Column, Summary, TotalItem } from 'devextreme-react/data-grid';
 import { dxElement } from 'devextreme/core/element';
+import dxDataGrid from 'devextreme/ui/data_grid';
 import { dxToolbarOptions } from 'devextreme/ui/toolbar';
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react'
@@ -17,6 +18,8 @@ import SessionStore from '../../../stores/sessionStore';
 import Stores from '../../../stores/storeIdentifier';
 import BookCommonFilter from './BookCommonFilter';
 
+declare var $: any;
+
 export interface IBookDocumentAwayProps {
     breadcrumbStore?: BreadcrumbStoreApp,
     sessionStore?: SessionStore
@@ -29,8 +32,8 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
     filterComponent?: BookCommonFilter;
     printingComponent?: PrintingComponent;
     store: any = DocumentaryService.GetAspNetDataSourceBook((method: string, ajaxOptions: any) => {
-        //let filterData = this.filterComponent?.getData();
-        let filterData = this.state.filterData;
+        let filterData = this.filterComponent?.getData();
+        //let filterData = this.state.filterData;
         ajaxOptions.data['data'] = JSON.stringify(filterData);
     });
     constructor(props: any) {
@@ -41,12 +44,12 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
         this.toolbarSearchRenderer = this.toolbarSearchRenderer.bind(this);
         this.handlePrinting = this.handlePrinting.bind(this);
         this.handleYearChange = this.handleYearChange.bind(this);
-        this.state = {
-            filterData: {
-                year: new Date().getFullYear(),
-                type: DocumentaryType.DocumentaryAway
-            }
-        }
+        // this.state = {
+        //     filterData: {
+        //         year: new Date().getFullYear(),
+        //         type: DocumentaryType.DocumentaryAway
+        //     }
+        // }
     }
     handleSearch() {
         this.dataGrid?.refresh();
@@ -106,7 +109,8 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
         // );
     }
     handlePrinting() {
-        let { filterData } = this.state;
+        //let { filterData } = this.state;
+        let filterData = this.filterComponent?.getData();
         let _filterData = Object.assign({}, filterData, {
             id: this.props.sessionStore?.currentLogin.user.id
         });
@@ -137,6 +141,12 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                 <WidgetGrid>
                     <div className="row">
                         <article className="col-sm-12">
+                            <BookCommonFilter
+                                ref={ref => this.filterComponent = ref || undefined}
+                                type={DocumentaryType.DocumentaryAway}
+                                useTemplate={false} onPrint={this.handlePrinting}
+                                onSearch={this.handleSearch}
+                            ></BookCommonFilter>
                             <JarvisWidget id="wid-id-list-van-ban-di" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                 <header>
                                     <span className="widget-icon">
@@ -155,16 +165,20 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                             onPrinting={this.handlePrinting}
                                             keyExpr="id"
                                             filterRow={{ visible: false }}
-                                            onToolbarPreparing={this.handleToolbarPreparing}
+                                            //onToolbarPreparing={this.handleToolbarPreparing}
                                             customEditing={false}
                                             dataSource={this.store}
                                             selectionMode="none"
                                             onSelectionChanged={(e: any) => console.log(e)}
                                             searchPanel={{ visible: false }}
+                                            onContentReady={(e: { component?: dxDataGrid | undefined, element?: dxElement | undefined, model?: any }) => {
+                                                $(e.element).find('.summary-footer').closest('td').attr('colspan', 5)
+                                            }}
                                         >
                                             <Column
                                                 caption="STT"
                                                 dataType="string"
+                                                width={60}
                                                 alignment="center"
                                                 cellRender={(celldata: any) => {
                                                     let rowIndex = celldata['rowIndex'];
@@ -181,6 +195,11 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                             <Column
                                                 dataField="code"
                                                 caption="Số văn bản"
+                                                dataType="string"
+                                            />
+                                            <Column
+                                                dataField="documentTypeId_Name"
+                                                caption="Loại văn bản"
                                                 dataType="string"
                                             />
                                             <Column
@@ -235,6 +254,15 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                                 visible={false}
                                             />
                                             <Template name="searchTemplate" render={this.toolbarSearchRenderer}></Template>
+                                            <Summary >
+                                                <TotalItem
+                                                    column="textNumber"
+                                                    summaryType="count"
+                                                    displayFormat={'Tổng số: {0} văn bản'}
+                                                    showInColumn="textNumber" cssClass="summary-footer"
+                                                    alignment="left"
+                                                />
+                                            </Summary>
                                         </DataGridCustom>
                                     </div>
                                 </div>

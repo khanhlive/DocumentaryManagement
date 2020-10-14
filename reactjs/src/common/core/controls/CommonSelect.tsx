@@ -28,6 +28,12 @@ const baseStyle = {
             marginTop: 4
         }
     },
+    clearIndicator: (provided: any, state: any) => {
+        return {
+            ...provided,
+            padding: 4
+        }
+    },
 }
 const normalStyles = {
     ...baseStyle,
@@ -137,6 +143,7 @@ export default class CommonSelect extends Component<any, any> {
                                 {/* <span>{JSON.stringify(defaultValue)}</span> */}
                                 <Select ref={ref => this.instance = ref || undefined}
                                     placeholder="Chọn..."
+                                    isClearable={this.props.isClearable}
                                     styles={(isvalid == null || isvalid == undefined) ? normalStyles : (isvalid ? successStyles : errorStyles)}
                                     options={this.props.options}
                                     onChange={this.handleChange}

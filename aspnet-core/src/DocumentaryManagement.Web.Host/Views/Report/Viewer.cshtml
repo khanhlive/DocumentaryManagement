@@ -9,6 +9,10 @@
     {
         autoPrint = (bool)ViewBag.autoPrint;
     }
+    if (Model != null)
+    {
+        Model.RequestParameters = false;
+    }
 }
 
 @section styles{
@@ -39,11 +43,19 @@
     <script src="~/node_modules/devextreme/dist/js/dx.all.js"></script>
     <script src="~/node_modules/@@devexpress/analytics-core/dist/js/dx-analytics-core.min.js"></script>
     <script src="~/node_modules/devexpress-reporting/dist/js/dx-webdocumentviewer.min.js"></script>
+    <script>
+        function collapsed(s, e) {
+            var preview = s.GetPreviewModel();
+            debugger
+            preview.tabPanel.collapsed(true);
+        }
+    </script>
     @if (autoPrint)
     {
         <script>
             function onDocumentReady(s, e) {
                 console.log("onDocumentReady: ", s, e);
+                collapsed(s, e);
                 setTimeout(function () {
                     s.previewModel.Print();
                 }, 100)

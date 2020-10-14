@@ -142,20 +142,18 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
             if (documentFilterOptions != null)
             {
-                query = query.Where(p => p.Type == documentFilterOptions.Type && p.ReleaseDate.Year == documentFilterOptions.Year);
+                query = from a in query.Where(p => p.Type == documentFilterOptions.Type)
+                        where (documentFilterOptions.LoaiVanBan != null ? a.DocumentTypeId == documentFilterOptions.LoaiVanBan : true)
+                        where (documentFilterOptions.NgayTuDate != null ? a.ReleaseDate >= documentFilterOptions.NgayTuDate : true)
+                        where (documentFilterOptions.NgayDenDate != null ? a.ReleaseDate <= documentFilterOptions.NgayDenDate : true)
+                        select a;
             }
             return SetEntityIncludes(query);
         }
 
         public virtual LoadResult GetBookDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions)
         {
-            DocumentaryManagementDbContext DbContext = this.GetDevContext();
-            var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
-            if (documentFilterOptions != null)
-            {
-                query = query.Where(p => p.Type == documentFilterOptions.Type && p.ReleaseDate.Year == documentFilterOptions.Year);
-            }
-            return DataSourceLoader.Load(SetEntityIncludes(query), loadOptions);
+            return DataSourceLoader.Load(GetBookQuery(documentFilterOptions), loadOptions);
         }
 
         public List<AppDocumentary> GetSearchReportData(DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType, long userId)

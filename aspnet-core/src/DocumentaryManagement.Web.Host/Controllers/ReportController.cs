@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Domain.Repositories;
@@ -85,12 +86,15 @@ namespace DocumentaryManagement.Web.Host.Controllers
         }
 
         [HttpGet]
-        public IActionResult Book(int type, int year, int id, bool autoPrint = false)
+        public IActionResult Book(int type, int year, int id,string ngaytu, string ngayden, int? loaivanban, bool autoPrint = false)
         {
             DocumentFilterOptions documentFilterOptions = new DocumentFilterOptions
             {
                 Type = type,
-                Year = year
+                Year = year,
+                LoaiVanBan = loaivanban,
+                NgayTu = ngaytu,
+                NgayDen = ngayden
             };
             var user = userRepository.Get(id);
             var documentReport = new BookDocument(Repository, documentFilterOptions, user);
