@@ -118,7 +118,6 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories
             if (entity == null) throw new NullReferenceException($"Đối tượng không tồn tại trong hệ thống");
             else
                 this.Before_InsertUpdate(entity);
-            this.Before_InsertUpdate(entity);
             return base.Update(id, updateAction);
         }
 

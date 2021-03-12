@@ -7,8 +7,18 @@ const BookDocumentaryAway = Loadable({
     loading: Loading
 });
 
+const BookDocumentaryInternal = Loadable({
+    loader: () => import("./books/BookDocumentInternal"),
+    loading: Loading
+});
+
 const BookDocumentaryArrived = Loadable({
     loader: () => import("./books/BookDocumentArrived"),
+    loading: Loading
+});
+
+const BookEDocumentary = Loadable({
+    loader: () => import("./books/BookEDocument"),
     loading: Loading
 });
 
@@ -17,8 +27,18 @@ const SearchDocumentaryAway = Loadable({
     loading: Loading
 });
 
+const SearchDocumentaryInternal = Loadable({
+    loader: () => import("./search/SearchDocumentInternal"),
+    loading: Loading
+});
+
 const SearchDocumentaryArrived = Loadable({
     loader: () => import("./search/SearchDocumentArrived"),
+    loading: Loading
+});
+
+const SearchEDocumentary = Loadable({
+    loader: () => import("./search/SearchEDocument"),
     loading: Loading
 });
 
@@ -48,11 +68,25 @@ export const routes = [
         permission: PermissionNames.Pages_BookDocumentAway
     },
     {
+        path: "/so-van-ban/so-van-ban-noi-bo",
+        exact: true,
+        component: BookDocumentaryInternal,
+        name: "so-van-ban-noi-bo",
+        permission: PermissionNames.Pages_BookDocumentInternal
+    },
+    {
         path: "/so-van-ban/so-van-ban-den",
         exact: true,
         component: BookDocumentaryArrived,
         name: "so-van-ban-den",
         permission: PermissionNames.Pages_BookDocumentArrived
+    },
+    {
+        path: "/so-van-ban/so-van-ban-dien-tu",
+        exact: true,
+        component: BookEDocumentary,
+        name: "so-van-ban-dien-tu",
+        permission: PermissionNames.Pages_BookEDocument
     },
     {
         path: "/tim-kiem/van-ban-di",
@@ -62,11 +96,25 @@ export const routes = [
         permission: PermissionNames.Pages_SearchDocumentAway
     },
     {
+        path: "/tim-kiem/van-ban-noi-bo",
+        exact: true,
+        component: SearchDocumentaryInternal,
+        name: "tim-kiem-van-ban-noi-bo",
+        permission: PermissionNames.Pages_SearchDocumentInternal
+    },
+    {
         path: "/tim-kiem/van-ban-den",
         exact: true,
         component: SearchDocumentaryArrived,
         name: "tim-kiem-van-ban-den",
         permission: PermissionNames.Pages_SearchDocumentArrived
+    },
+    {
+        path: "/tim-kiem/van-ban-dien-tu",
+        exact: true,
+        component: SearchEDocumentary,
+        name: "tim-kiem-van-ban-dien-tu",
+        permission: PermissionNames.Pages_SearchEDocument
     },
     {
         path: "/cau-hinh/thong-tin-nguoi-ky-duyet",

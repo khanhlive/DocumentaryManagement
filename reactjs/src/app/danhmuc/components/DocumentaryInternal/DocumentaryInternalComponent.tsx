@@ -6,9 +6,9 @@ import DataGridCustom from '../../../../common/tables/components/DataGridCustom'
 import { confirm } from 'devextreme/ui/dialog';
 import notify from '../../../../common/utils/functions/notify';
 import CreateDocumentaryDto from '../../../../services/danhmuc/documentary/dto/CreateDocumentaryDto';
-import DocumentaryAwayEditComponent from './DocumentaryAwayEditComponent';
+import DocumentaryInternalEditComponent from './DocumentaryInternalEditComponent';
 import { DocumentaryType } from '../../../../common/core/models/Attachment';
-import DocumentaryFilterComponent from './DocumentaryFilterComponent';
+import DocumentaryFilterComponent from './DocumentaryInternalFilterComponent';
 import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
 import columnFormatDate, { formatDate } from '../../../../common/core/functions/columnRenderDate';
 import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
@@ -27,14 +27,14 @@ export interface IDocumentaryProps {
 
 @inject(Stores.BreadcrumbStore)
 @observer
-export default class DocumentaryAwayComponent extends Component<IDocumentaryProps, any> {
+export default class DocumentaryInternalComponent extends Component<IDocumentaryProps, any> {
     dataGrid?: DataGridCustom;
-    editComponent?: DocumentaryAwayEditComponent;
+    editComponent?: DocumentaryInternalEditComponent;
     filterComponent?: DocumentaryFilterComponent;
     printingComponent?: PrintingComponent;
     constructor(props: any) {
         super(props);
-        this.props.breadcrumbStore?.setItems(["Quản lý", "Văn bản đi"]);
+        this.props.breadcrumbStore?.setItems(["Quản lý", "Văn bản nội bộ"]);
         this.handleSearch = this.handleSearch.bind(this);
         this.handlePrinting = this.handlePrinting.bind(this);
     }
@@ -51,7 +51,7 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
     }
     onGridDeleteData(cellData: { data: any }) {
         let dataRow = Object.assign({}, cellData.data);
-        let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa văn bản đi");
+        let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa văn bản nội bộ");
         result.then(res => {
             if (res) {
                 DocumentaryService.delete(dataRow.id).then(res1 => {
@@ -63,7 +63,7 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
     }
     handleAdNewRow() {
         let createItem: CreateDocumentaryDto = new CreateDocumentaryDto();
-        createItem.type = DocumentaryType.DocumentaryAway;
+        createItem.type = DocumentaryType.DocumentaryInternal;
         createItem.agencyIssuedId = ConfigService.getCacheField('agencyIssuedId');
         createItem['agencyIssuedId_Name'] = ConfigService.getCacheField('agencyIssuedName');
 
@@ -76,14 +76,14 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
     handleSave(id: number, model: any) {
         if (id > 0) {
             DocumentaryService.update(model).then(res => {
-                notify('', `Cập nhật văn bản đi thành công`, 'success');
+                notify('', `Cập nhật văn bản nội bộ thành công`, 'success');
                 this.dataGrid?.refresh();
                 this.editComponent?.handleClose();
             })
         } else {
             let data = Object.assign({}, model);
             DocumentaryService.create(data).then(res => {
-                notify('', `Thêm mới văn bản đi thành công`, 'success');
+                notify('', `Thêm mới văn bản nội bộ thành công`, 'success');
                 this.dataGrid?.refresh();
                 this.editComponent?.handleClose();
             })
@@ -112,7 +112,7 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
                     this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                         <div className="row">
                             <BigBreadcrumbs
-                                items={["Quản lý", "Văn bản đi"]}
+                                items={["Quản lý", "Văn bản nội bộ"]}
                                 icon="fa fa-fw fa-table"
                             />
                             {
@@ -130,17 +130,17 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
                             <DocumentaryFilterComponent onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
 
                             </DocumentaryFilterComponent>
-                            <JarvisWidget id="wid-id-list-van-ban-di" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
+                            <JarvisWidget id="wid-id-list-van-ban-noi-bo" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                 <header>
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />
                                     </span>
-                                    <h2>Danh sách văn bản đi</h2>
+                                    <h2>Danh sách văn bản nội bộ</h2>
                                 </header>
                                 <div>
                                     <div className="widget-body no-padding">
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
-                                            gridName="grid-van-ban-di"
+                                            gridName="grid-van-ban-noi-bo"
                                             usePrint={true}
                                             onPrinting={this.handlePrinting}
                                             onAddNewRowCustom={this.handleAdNewRow.bind(this)}
@@ -226,7 +226,7 @@ export default class DocumentaryAwayComponent extends Component<IDocumentaryProp
                         </article>
                     </div>
                 </WidgetGrid>
-                <DocumentaryAwayEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)} ></DocumentaryAwayEditComponent>
+                <DocumentaryInternalEditComponent ref={ref => this.editComponent = ref || undefined} onSave={this.handleSave.bind(this)} ></DocumentaryInternalEditComponent>
                 <PrintingComponent ref={ref => this.printingComponent = ref || undefined}></PrintingComponent>
             </div>
 

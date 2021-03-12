@@ -22,10 +22,10 @@ import { isGranted } from '../../../../lib/abpUtility';
 import { PermissionNames } from '../../../../lib/PermissionName';
 import RotationService from '../../../../services/danhmuc/rotation/RotationService';
 
-export interface IDocumentaryArrivedEditProps extends IEditComponentProps {
+export interface IEDocumentaryEditProps extends IEditComponentProps {
     onApproved: (id: number, data: any) => any
 }
-export interface IDocumentaryArrivedEditState extends IEditComponentStates {
+export interface IEDocumentaryEditState extends IEditComponentStates {
     validates?: Array<any>,
     isApproved?: boolean
 }
@@ -222,7 +222,7 @@ const validationRules = {
     }
 }
 
-export default class DocumentaryArrivedEditComponent extends EditComponentBase<IDocumentaryArrivedEditProps, IDocumentaryArrivedEditState> {
+export default class EDocumentaryEditComponent extends EditComponentBase<IEDocumentaryEditProps, IEDocumentaryEditState> {
     attachmentRef?: AttachmentsCommon;
     editor?: CKEditorCommon;
     constructor(props: any) {
@@ -320,7 +320,6 @@ export default class DocumentaryArrivedEditComponent extends EditComponentBase<I
             console.log(`you are view document with id: ${id}`, res);
         })
     }
-
     handleValidateField(data: { field: string, valid: boolean }) {
         let fields = this.state.validates;
         let field = fields?.find(p => p.field === data.field);
@@ -414,7 +413,7 @@ export default class DocumentaryArrivedEditComponent extends EditComponentBase<I
             <Modal show={this.state.isShow} onHide={() => this.setState({ isShow: false })} dialogClassName="modal-large-80vw" autoFocus={true}>
 
                 <Modal.Header closeButton>
-                    <Modal.Title>{this.state.isEdit ? 'Cập nhật' : 'Thêm mới '} văn bản đến</Modal.Title>
+                    <Modal.Title>{this.state.isEdit ? 'Cập nhật' : 'Thêm mới '} văn bản điện tử</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -583,7 +582,7 @@ export default class DocumentaryArrivedEditComponent extends EditComponentBase<I
                                 <div className="form-group">
                                     <label className="control-label col-md-1">Tệp đính kèm</label>
                                     <div className="col-md-11">
-                                        <AttachmentsCommon readOnly={!allowDocument} onChange={this.handleAttachmentChange} ref={ref => this.attachmentRef = ref || undefined} id={this.state.model.id || 0} type={DocumentaryType.DocumentaryArrived}></AttachmentsCommon>
+                                        <AttachmentsCommon readOnly={!allowDocument} onChange={this.handleAttachmentChange} ref={ref => this.attachmentRef = ref || undefined} id={this.state.model.id || 0} type={DocumentaryType.EDocumentary}></AttachmentsCommon>
                                     </div>
                                 </div>
                             </div>

@@ -6,9 +6,9 @@ import DataGridCustom from '../../../../common/tables/components/DataGridCustom'
 import { confirm } from 'devextreme/ui/dialog';
 import notify from '../../../../common/utils/functions/notify';
 import CreateDocumentaryDto from '../../../../services/danhmuc/documentary/dto/CreateDocumentaryDto';
-import DocumentaryArrivedEditComponent from './DocumentaryArrivedEditComponent';
+import EDocumentaryEditComponent from './EDocumentaryEditComponent';
 import { DocumentaryType } from '../../../../common/core/models/Attachment';
-import DocumentaryArrivedFilterComponent from './DocumentaryArrivedFilterComponent';
+import EDocumentaryFilterComponent from './EDocumentaryFilterComponent';
 import { JavisWidgetDefault } from '../../../../common/core/models/JavisDefault';
 import columnFormatDate, { formatDate } from '../../../../common/core/functions/columnRenderDate';
 import BreadcrumbStoreApp from '../../../../stores/BreadcrumbStore';
@@ -18,31 +18,31 @@ import ConfigService from '../../../../services/danhmuc/config/ConfigService';
 import PrintingComponent from '../../../../common/core/controls/PrintingComponent';
 import { ApprovedType } from '../../../../lib/ApprovedType';
 import { ApprovedDocumentDto } from '../../../../services/danhmuc/documentary/dto/ApprovedDocumentDto';
-import DocumentarySendComponent from './DocumentarySend';
+import DocumentarySendComponent from './EDocumentarySend';
 import { isGranted } from '../../../../lib/abpUtility';
 import { PermissionNames } from '../../../../lib/PermissionName';
 import SessionStore from '../../../../stores/sessionStore';
 
-export interface IDocumentaryStates {
+export interface IEDocumentaryStates {
 
 }
-export interface IDocumentaryArivedProps {
+export interface IEDocumentaryArivedProps {
     breadcrumbStore?: BreadcrumbStoreApp,
     sessionStore?: SessionStore
 }
 
 @inject(Stores.BreadcrumbStore, Stores.SessionStore)
 @observer
-export default class DocumentaryArivedComponent extends Component<IDocumentaryArivedProps, any> {
+export default class EDocumentaryComponent extends Component<IEDocumentaryArivedProps, any> {
     dataGrid?: DataGridCustom;
-    editComponent?: DocumentaryArrivedEditComponent;
-    filterComponent?: DocumentaryArrivedFilterComponent;
+    editComponent?: EDocumentaryEditComponent;
+    filterComponent?: EDocumentaryFilterComponent;
     printingComponent?: PrintingComponent;
     documentSend?: DocumentarySendComponent
     constructor(props: any) {
         super(props);
         this.handleSearch = this.handleSearch.bind(this);
-        this.props.breadcrumbStore?.setItems(["Quản lý", "Văn bản đến"]);
+        this.props.breadcrumbStore?.setItems(["Quản lý", "Văn bản điện tử"]);
         this.handlePrinting = this.handlePrinting.bind(this);
     }
     store: any = DocumentaryService.GetAspNetDataSource((method: string, ajaxOptions: any) => {
@@ -58,7 +58,7 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
     }
     onGridDeleteData(cellData: { data: any }) {
         let dataRow = Object.assign({}, cellData.data);
-        let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa văn bản đến");
+        let result = confirm("Bạn có muốn xóa bản ghi này không?", "Xóa văn bản điện tử");
         result.then(res => {
             if (res) {
                 DocumentaryService.delete(dataRow.id).then(res1 => {
@@ -82,7 +82,7 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
 
     handleAdNewRow() {
         let createItem: CreateDocumentaryDto = new CreateDocumentaryDto();
-        createItem.type = DocumentaryType.DocumentaryArrived;
+        createItem.type = DocumentaryType.EDocumentary;
 
         createItem.agencyIssuedId = ConfigService.getCacheField('agencyIssuedId');
         createItem['agencyIssuedId_Name'] = ConfigService.getCacheField('agencyIssuedName');
@@ -104,14 +104,14 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
             if (model.updatedDate)
                 model.updatedDate = formatDate(model.updatedDate, model.updatedDate.length > 10 ? 'DD/MM/YYYY HH:mm:ss' : 'DD/MM/YYYY');
             DocumentaryService.update(model).then(res => {
-                notify('', `Cập nhật văn bản đến thành công`, 'success');
+                notify('', `Cập nhật văn bản điện tử thành công`, 'success');
                 this.dataGrid?.refresh();
                 this.editComponent?.handleClose();
             })
         } else {
             let data = Object.assign({}, model);
             DocumentaryService.create(data).then(res => {
-                notify('', `Thêm mới văn bản đến thành công`, 'success');
+                notify('', `Thêm mới văn bản điện tử thành công`, 'success');
                 this.dataGrid?.refresh();
                 this.editComponent?.handleClose();
             })
@@ -122,7 +122,7 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
         let item: ApprovedDocumentDto = new ApprovedDocumentDto();
         item.init(model);
         DocumentaryService.approved(id, item).then(res => {
-            notify('', `Duyệt văn bản đến thành công`, 'success');
+            notify('', `Duyệt văn bản điện tử thành công`, 'success');
             this.dataGrid?.refresh();
             this.editComponent?.handleClose();
         })
@@ -151,7 +151,7 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
                     this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                         <div className="row">
                             <BigBreadcrumbs
-                                items={["Quản lý", "Văn bản đến"]}
+                                items={["Quản lý", "Văn bản điện tử"]}
                                 icon="fa fa-fw fa-table"
                             />
                             {
@@ -166,20 +166,20 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
                     <div className="row">
                         <article className="col-sm-12">
 
-                            <DocumentaryArrivedFilterComponent onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
+                            <EDocumentaryFilterComponent onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
 
-                            </DocumentaryArrivedFilterComponent>
-                            <JarvisWidget id="wid-id-list-van-ban-den" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
+                            </EDocumentaryFilterComponent>
+                            <JarvisWidget id="wid-id-list-van-ban-dien-tu" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                 <header>
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />
                                     </span>
-                                    <h2>Danh sách văn bản đến</h2>
+                                    <h2>Danh sách văn bản điện tử</h2>
                                 </header>
                                 <div>
                                     <div className="widget-body no-padding">
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
-                                            gridName="grid-van-ban-den"
+                                            gridName="grid-van-ban-dien-tu"
                                             usePrint={true}
                                             onPrinting={this.handlePrinting}
                                             onAddNewRowCustom={this.handleAdNewRow.bind(this)}
@@ -194,10 +194,9 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
                                                     <Column
                                                         dataField="isView"
                                                         caption=""
-                                                        width={70}
-                                                        fixed
                                                         allowFiltering={false}
                                                         dataType="string"
+                                                        width={70}
                                                         cellRender={(cellData: any) => {
                                                             let isView = cellData.data.isView;
                                                             return <i title={isView ? 'Đã xem' : 'Chưa xem'} className={`fa fa-flag text-${isView ? 'success' : 'warning'}`}></i>;
@@ -321,11 +320,11 @@ export default class DocumentaryArivedComponent extends Component<IDocumentaryAr
                         </article>
                     </div>
                 </WidgetGrid>
-                <DocumentaryArrivedEditComponent
+                <EDocumentaryEditComponent
                     ref={ref => this.editComponent = ref || undefined}
                     onSave={this.handleSave.bind(this)}
                     onApproved={this.hanleApproved.bind(this)}
-                ></DocumentaryArrivedEditComponent>
+                ></EDocumentaryEditComponent>
                 <PrintingComponent ref={ref => this.printingComponent = ref || undefined}></PrintingComponent>
                 <DocumentarySendComponent
                     onApproved={this.handleSendSuccess.bind(this)}

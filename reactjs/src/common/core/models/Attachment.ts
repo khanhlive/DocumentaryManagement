@@ -3,11 +3,15 @@ export interface IDocumentaryType {
   DocumentaryAway: number;
   DocumentaryArrived: number;
   DocumentaryPersonal: number;
+  EDocumentary: number;
+  DocumentaryInternal: number;
 }
 export const DocumentaryType: IDocumentaryType = {
   DocumentaryAway: 1,
   DocumentaryArrived: 2,
   DocumentaryPersonal: 3,
+  EDocumentary: 4,
+  DocumentaryInternal: 5,
 };
 export interface IAttachmentsItemProps {
   file?: FileUploadInfo;

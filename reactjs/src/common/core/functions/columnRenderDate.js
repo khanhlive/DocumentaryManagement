@@ -1,6 +1,6 @@
 import moment from 'moment';
 export default function columnFormatDate(cellData, format, formatOutput) {
-    let _date = cellData.value;
+    let _date = cellData.data[cellData['column']['dataField']];
     return formatDate(_date, format, formatOutput);
 }
 

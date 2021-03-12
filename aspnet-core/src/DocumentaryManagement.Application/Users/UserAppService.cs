@@ -247,6 +247,7 @@ namespace DocumentaryManagement.Users
         }
 
         [HttpGet]
+        [AbpAllowAnonymous]
         [ActionName("get-current")]
         public async Task<UserDto> GetCurrentUserInfo()
         {

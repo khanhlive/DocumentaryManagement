@@ -17,16 +17,17 @@ import BreadcrumbStoreApp from '../../../stores/BreadcrumbStore';
 import SessionStore from '../../../stores/sessionStore';
 import Stores from '../../../stores/storeIdentifier';
 import BookCommonFilter from './BookCommonFilter';
+
 declare var $: any;
 
-export interface IBookDocumentArrivedProps {
+export interface IBookDocumentInternalProps {
     breadcrumbStore?: BreadcrumbStoreApp,
     sessionStore?: SessionStore
 }
 
 @inject(Stores.BreadcrumbStore, Stores.SessionStore)
 @observer
-export default class BookDucumentArrived extends Component<IBookDocumentArrivedProps, any> {
+export default class BookDocumentInternal extends Component<IBookDocumentInternalProps, any> {
     dataGrid?: DataGridCustom;
     filterComponent?: BookCommonFilter;
     printingComponent?: PrintingComponent;
@@ -37,7 +38,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
     });
     constructor(props: any) {
         super(props);
-        this.props.breadcrumbStore?.setItems(["Sổ văn bản", "Văn bản đến"]);
+        this.props.breadcrumbStore?.setItems(["Sổ văn bản", "Văn bản nội bộ"]);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleToolbarPreparing = this.handleToolbarPreparing.bind(this);
         this.toolbarSearchRenderer = this.toolbarSearchRenderer.bind(this);
@@ -46,7 +47,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
         // this.state = {
         //     filterData: {
         //         year: new Date().getFullYear(),
-        //         type: DocumentaryType.DocumentaryArrived
+        //         type: DocumentaryType.DocumentaryInternal
         //     }
         // }
     }
@@ -70,21 +71,21 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
     }
 
     handleToolbarPreparing(e: { component?: any, element?: dxElement, model?: any, toolbarOptions?: dxToolbarOptions }) {
-        //e.toolbarOptions?.items?.forEach(item => item.location = 'after');
+        e.toolbarOptions?.items?.forEach(item => item.location = 'after');
 
-        // e.toolbarOptions?.items?.unshift({
-        //     location: 'before',
-        //     widget: 'dxButton',
-        //     options: {
-        //         icon: 'search',
-        //         text: 'Tìm kiếm',
-        //         onClick: this.handleSearch
-        //     }
-        // })
-        // e.toolbarOptions?.items?.unshift({
-        //     location: 'before',
-        //     template: "searchTemplate"
-        // })
+        e.toolbarOptions?.items?.unshift({
+            location: 'before',
+            widget: 'dxButton',
+            options: {
+                icon: 'search',
+                text: 'Tìm kiếm',
+                onClick: this.handleSearch
+            }
+        })
+        e.toolbarOptions?.items?.unshift({
+            location: 'before',
+            template: "searchTemplate"
+        })
     }
     toolbarSearchRenderer() {
         return (
@@ -102,19 +103,17 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
             </div>
         )
         // return (
-        //     <BookCommonFilter type={DocumentaryType.DocumentaryArrived} onPrint={this.handlePrinting} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
+        //     <BookCommonFilter type={DocumentaryType.DocumentaryInternal} onPrint={this.handlePrinting} useTemplate={true} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
 
         //     </BookCommonFilter>
         // );
     }
-
     handlePrinting() {
-        //let { filterData } = this.state;        
+        //let { filterData } = this.state;
         let filterData = this.filterComponent?.getData();
         let _filterData = Object.assign({}, filterData, {
             id: this.props.sessionStore?.currentLogin.user.id
         });
-
         this.printingComponent?.open({
             isPrint: false,
             url: 'book',
@@ -128,7 +127,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                     this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                         <div className="row">
                             <BigBreadcrumbs
-                                items={["Sổ", "Sổ văn bản đến"]}
+                                items={["Sổ", "Sổ văn bản nội bộ"]}
                                 icon="fa fa-fw fa-table"
                             />
                             {
@@ -144,28 +143,29 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                         <article className="col-sm-12">
                             <BookCommonFilter
                                 ref={ref => this.filterComponent = ref || undefined}
-                                type={DocumentaryType.DocumentaryArrived}
-                                useTemplate={false}
-                                onPrint={this.handlePrinting}
+                                type={DocumentaryType.DocumentaryInternal}
+                                useTemplate={false} onPrint={this.handlePrinting}
                                 onSearch={this.handleSearch}
                             ></BookCommonFilter>
-                            <JarvisWidget id="wid-id-list-van-ban-di" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
+                            <JarvisWidget id="wid-id-list-van-ban-noi-bo" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                 <header>
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />
                                     </span>
-                                    <h2>Danh sách văn bản đến</h2>
+                                    <h2>Danh sách văn bản nội bộ</h2>
                                 </header>
                                 <div>
+
                                     <div className="widget-body no-padding">
+
                                         <DataGridCustom ref={ref => this.dataGrid = ref || undefined}
-                                            gridName="grid-so-van-ban-den"
+                                            gridName="grid-so-van-ban-noi-bo"
                                             removeButtonAdd={true}
                                             usePrint={true}
                                             onPrinting={this.handlePrinting}
                                             keyExpr="id"
                                             filterRow={{ visible: false }}
-                                            onToolbarPreparing={this.handleToolbarPreparing}
+                                            //onToolbarPreparing={this.handleToolbarPreparing}
                                             customEditing={false}
                                             dataSource={this.store}
                                             selectionMode="none"
@@ -178,12 +178,10 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                             <Column
                                                 caption="STT"
                                                 dataType="string"
-                                                alignment="center"
-                                                dataField="id"
                                                 width={60}
                                                 fixed
+                                                alignment="center"
                                                 cellRender={(celldata: any) => {
-                                                    console.log(celldata)
                                                     let rowIndex = celldata['rowIndex'];
                                                     let pageIndex = celldata.component.pageIndex();
                                                     let pageSize = celldata.component.pageSize();
@@ -192,7 +190,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                             />
                                             <Column
                                                 dataField="textNumber"
-                                                caption="Số đến"
+                                                caption="Số đi"
                                                 dataType="string"
                                                 width={80}
                                                 fixed
@@ -224,12 +222,12 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                                 dataType="string"
                                                 minWidth={250}
                                             />
-                                            <Column
+                                            {/* <Column
                                                 dataField="documentTypeId_Name"
                                                 caption="Loại văn bản"
                                                 dataType="string"
                                                 visible={false}
-                                            />
+                                            /> */}
                                             <Column
                                                 dataField="agencyIssuedId_Name"
                                                 caption="Nơi ban hành"
@@ -238,29 +236,29 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                             />
                                             <Column
                                                 dataField="receivedDate"
-                                                caption="Ngày nhận"
-                                                width={100}
+                                                caption="Ngày gửi"
                                                 dataType="datetime"
+                                                width={100}
                                                 format="dd/MM/yyyy"
                                                 cellRender={columnFormatDate}
                                             />
                                             <Column
                                                 dataField="receivedBy"
-                                                caption="Người nhận"
+                                                caption="Người gửi"
                                                 dataType="string"
                                                 width={150}
                                             />
                                             <Column
                                                 dataField="performancePerson"
-                                                caption="Người thực hiện"
+                                                caption="Nơi nhận"
                                                 dataType="string"
-                                                width={150}
+                                                width={200}
                                             />
                                             <Column
                                                 dataField="description"
                                                 caption="Ghi chú"
                                                 dataType="string"
-                                                minWidth={200}
+                                                minWidth={150}
                                             />
                                             <Column
                                                 dataField="isProcessed"
@@ -286,7 +284,6 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                     </div>
                 </WidgetGrid>
                 <PrintingComponent ref={ref => this.printingComponent = ref || undefined}></PrintingComponent>
-
             </div>
 
         )

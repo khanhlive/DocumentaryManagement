@@ -18,14 +18,20 @@ namespace DocumentaryManagement.Authorization
             context.CreatePermission(PermissionNames.Pages_Department, L("Pages_Department"));
             context.CreatePermission(PermissionNames.Pages_DocumentArrived, L("Pages_DocumentArrived"));
             context.CreatePermission(PermissionNames.Pages_DocumentAway, L("Pages_DocumentAway"));
+            context.CreatePermission(PermissionNames.Pages_DocumentInternal, L("Pages_DocumentInternal"));
             context.CreatePermission(PermissionNames.Pages_DocumentPersonal, L("Pages_DocumentPersonal"));
+            context.CreatePermission(PermissionNames.Pages_BookDocumentInternal, L("Pages_BookDocumentInternal"));
             context.CreatePermission(PermissionNames.Pages_DocumentType, L("Pages_DocumentType"));
             context.CreatePermission(PermissionNames.Pages_Profile, L("Pages_Profile"));
             context.CreatePermission(PermissionNames.Pages_Province, L("Pages_Province"));
             context.CreatePermission(PermissionNames.Pages_SearchDocumentArrived, L("Pages_SearchDocumentArrived"));
             context.CreatePermission(PermissionNames.Pages_SearchDocumentAway, L("Pages_SearchDocumentAway"));
+            context.CreatePermission(PermissionNames.Pages_SearchDocumentInternal, L("Pages_SearchDocumentInternal"));
             context.CreatePermission(PermissionNames.Permission_Approved, L("Permission_Approved"));
             context.CreatePermission(PermissionNames.Permission_DocumentManager, L("Permission_DocumentManager"));
+            context.CreatePermission(PermissionNames.Pages_EDocument, L("Pages_EDocument"));
+            context.CreatePermission(PermissionNames.Pages_SearchEDocument, L("Pages_SearchEDocument"));
+            context.CreatePermission(PermissionNames.Pages_BookEDocument, L("Pages_BookEDocument"));
         }
 
         private static ILocalizableString L(string name)

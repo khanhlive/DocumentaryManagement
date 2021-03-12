@@ -15,14 +15,14 @@ import Stores from '../../../stores/storeIdentifier';
 import DocumentView from './DocumentView';
 import SearchDocument from './SearchDocument';
 
-export interface ISearchDocumentArrivedProps {
+export interface ISearchEDocumentProps {
     breadcrumbStore?: BreadcrumbStoreApp,
     sessionStore?: SessionStore
 }
 
 @inject(Stores.BreadcrumbStore, Stores.SessionStore)
 @observer
-export default class SearchDocumentArrived extends Component<ISearchDocumentArrivedProps, any> {
+export default class SearchEDocument extends Component<ISearchEDocumentProps, any> {
     dataGrid?: DataGridCustom;
     filterComponent?: SearchDocument;
     editComponent?: DocumentView;
@@ -33,7 +33,7 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
     });
     constructor(props: any) {
         super(props);
-        this.props.breadcrumbStore?.setItems(["Tìm kiếm", "Văn bản đến"]);
+        this.props.breadcrumbStore?.setItems(["Tìm kiếm", "Văn bản điện tử"]);
         this.handleSearch = this.handleSearch.bind(this);
         this.onGridViewData = this.onGridViewData.bind(this);
         this.handlePrinting = this.handlePrinting.bind(this);
@@ -75,7 +75,7 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
                         this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                             <div className="row">
                                 <BigBreadcrumbs
-                                    items={["Tìm kiếm", "Văn bản đến"]}
+                                    items={["Tìm kiếm", "Văn bản điện tử"]}
                                     icon="fa fa-fw fa-table"
                                 />
                                 {
@@ -89,14 +89,14 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
                     <WidgetGrid>
                         <div className="row">
                             <article className="col-sm-12">
-                                <SearchDocument type={DocumentaryType.DocumentaryArrived} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
+                                <SearchDocument type={DocumentaryType.EDocumentary} onSearch={this.handleSearch} ref={ref => this.filterComponent = ref || undefined}>
                                 </SearchDocument>
                                 <JarvisWidget id="wid-id-search-van-ban-den" editbutton={false} color={JavisWidgetDefault.color} refresh={true}>
                                     <header>
                                         <span className="widget-icon">
                                             <i className="fa fa-table" />
                                         </span>
-                                        <h2>Danh sách văn bản đến</h2>
+                                        <h2>Danh sách văn bản điện tử</h2>
                                     </header>
                                     <div>
                                         <div className="widget-body no-padding">
@@ -144,8 +144,8 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
                                                     dataField="releaseDate"
                                                     caption="Ngày ban hành"
                                                     dataType="datetime"
-                                                    width={100}
                                                     format="dd/MM/yyyy"
+                                                    width={100}
                                                     cellRender={columnFormatDate}
                                                 />
                                                 <Column
@@ -164,8 +164,8 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
                                                 <Column
                                                     dataField="agencyIssuedId_Name"
                                                     caption="Nơi ban hành"
-                                                    width={150}
                                                     dataType="string"
+                                                    width={150}
                                                 />
                                                 <Column
                                                     dataField="signer"
@@ -190,16 +190,16 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
                                                 <Column
                                                     dataField="performancePerson"
                                                     caption="Người thực hiện"
-                                                    width={150}
                                                     dataType="string"
+                                                    width={150}
                                                     visible={false}
                                                 />
                                                 <Column
                                                     dataField="description"
                                                     caption="Ghi chú"
-                                                    minWidth={200}
                                                     dataType="string"
                                                     visible={false}
+                                                    minWidth={200}
                                                 />
                                                 <Column
                                                     dataField="isProcessed"
@@ -228,7 +228,7 @@ export default class SearchDocumentArrived extends Component<ISearchDocumentArri
                         </div>
                     </WidgetGrid>
                 </div>
-                <DocumentView type={DocumentaryType.DocumentaryArrived} ref={ref => this.editComponent = ref || undefined}>
+                <DocumentView type={DocumentaryType.EDocumentary} ref={ref => this.editComponent = ref || undefined}>
 
                 </DocumentView>
                 <PrintingComponent ref={ref => this.printingComponent = ref || undefined}></PrintingComponent>

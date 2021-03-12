@@ -116,6 +116,8 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
                                                     caption="STT"
                                                     dataType="string"
                                                     alignment="center"
+                                                    width={60}
+                                                    fixed
                                                     cellRender={(celldata: any) => {
                                                         let rowIndex = celldata['rowIndex'];
                                                         let pageIndex = celldata.component.pageIndex();
@@ -127,43 +129,53 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
                                                     dataField="textNumber"
                                                     caption="Số đi"
                                                     dataType="string"
+                                                    width={80}
+                                                    fixed
                                                 />
                                                 <Column
                                                     dataField="code"
                                                     caption="Ký hiệu"
                                                     dataType="string"
+                                                    width={100}
+                                                    fixed
                                                 />
                                                 <Column
                                                     dataField="releaseDate"
                                                     caption="Ngày ban hành"
                                                     dataType="datetime"
                                                     format="dd/MM/yyyy"
+                                                    width={100}
                                                     cellRender={columnFormatDate}
                                                 />
                                                 <Column
                                                     dataField="summaryContent"
                                                     caption="Tóm tắt"
                                                     dataType="string"
+                                                    minWidth={250}
                                                 />
                                                 <Column
                                                     dataField="documentTypeId_Name"
                                                     caption="Loại văn bản"
                                                     dataType="string"
+                                                    width={150}
                                                     visible={true}
                                                 />
                                                 <Column
                                                     dataField="agencyIssuedId_Name"
                                                     caption="Nơi ban hành"
                                                     dataType="string"
+                                                    width={150}
                                                 />
                                                 <Column
                                                     dataField="signer"
                                                     caption="Người ký"
                                                     dataType="string"
+                                                    width={150}
                                                 />
                                                 <Column
                                                     dataField="receivedDate"
                                                     caption="Ngày gửi"
+                                                    width={100}
                                                     dataType="datetime"
                                                     format="dd/MM/yyyy"
                                                     cellRender={columnFormatDate}
@@ -171,6 +183,7 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
                                                 <Column
                                                     dataField="receivedBy"
                                                     caption="Người gửi"
+                                                    width={150}
                                                     dataType="string"
                                                 />
                                                 <Column
@@ -178,10 +191,12 @@ export default class SearchDocumentAway extends Component<ISearchDocumentAwayPro
                                                     caption="Nơi nhận"
                                                     dataType="string"
                                                     visible={false}
+                                                    width={150}
                                                 />
                                                 <Column
                                                     dataField="description"
                                                     caption="Ghi chú"
+                                                    minWidth={200}
                                                     dataType="string"
                                                     visible={false}
                                                 />

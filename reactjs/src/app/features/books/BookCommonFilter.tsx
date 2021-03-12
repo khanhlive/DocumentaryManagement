@@ -23,8 +23,8 @@ export default class BookCommonFilter extends Component<IBookCommonFilterProps, 
                 type: this.props.type,
                 ngayTu: '',
                 ngayDen: '',
-                loaiVanBan: undefined,
-                loaiVanBan_Name: undefined
+                loaiVanBan: '',
+                loaiVanBan_Name: ''
             },
             documentTypeOption: []
         }

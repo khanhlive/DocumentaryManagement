@@ -10,17 +10,29 @@
 
         public const string Pages_SearchDocumentAway = "Pages.SearchDocumentAway";
 
+        public const string Pages_SearchDocumentInternal = "Pages.SearchDocumentInternal";
+
         public const string Pages_SearchDocumentArrived = "Pages.SearchDocumentArrived";
+
+        public const string Pages_SearchEDocument = "Pages.SearchEDocument";
 
         public const string Pages_BookDocumentAway = "Pages.BookDocumentAway";
 
+        public const string Pages_BookDocumentInternal = "Pages.BookDocumentInternal";
+
         public const string Pages_BookDocumentArrived = "Pages.BookDocumentArrived";
+
+        public const string Pages_BookEDocument = "Pages.BookEDocument";
 
         public const string Pages_DocumentPersonal = "Pages.DocumentPersonal";
 
         public const string Pages_DocumentAway = "Pages.DocumentAway";
 
+        public const string Pages_DocumentInternal = "Pages.DocumentInternal";
+
         public const string Pages_DocumentArrived = "Pages.DocumentArrived";
+
+        public const string Pages_EDocument = "Pages.EDocument";
 
         public const string Pages_Province = "Pages.Province";
 

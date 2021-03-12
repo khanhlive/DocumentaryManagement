@@ -179,6 +179,7 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                                 caption="STT"
                                                 dataType="string"
                                                 width={60}
+                                                fixed
                                                 alignment="center"
                                                 cellRender={(celldata: any) => {
                                                     let rowIndex = celldata['rowIndex'];
@@ -191,21 +192,27 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                                 dataField="textNumber"
                                                 caption="Số đi"
                                                 dataType="string"
+                                                width={80}
+                                                fixed
                                             />
                                             <Column
                                                 dataField="code"
                                                 caption="Số văn bản"
                                                 dataType="string"
+                                                width={100}
+                                                fixed
                                             />
                                             <Column
                                                 dataField="documentTypeId_Name"
                                                 caption="Loại văn bản"
                                                 dataType="string"
+                                                width={150}
                                             />
                                             <Column
                                                 dataField="releaseDate"
                                                 caption="Ngày ban hành"
                                                 dataType="datetime"
+                                                width={100}
                                                 format="dd/MM/yyyy"
                                                 cellRender={columnFormatDate}
                                             />
@@ -213,22 +220,25 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                                 dataField="summaryContent"
                                                 caption="Nội dung tóm tắt"
                                                 dataType="string"
+                                                minWidth={250}
                                             />
-                                            <Column
+                                            {/* <Column
                                                 dataField="documentTypeId_Name"
                                                 caption="Loại văn bản"
                                                 dataType="string"
                                                 visible={false}
-                                            />
+                                            /> */}
                                             <Column
                                                 dataField="agencyIssuedId_Name"
                                                 caption="Nơi ban hành"
                                                 dataType="string"
+                                                width={200}
                                             />
                                             <Column
                                                 dataField="receivedDate"
                                                 caption="Ngày gửi"
                                                 dataType="datetime"
+                                                width={100}
                                                 format="dd/MM/yyyy"
                                                 cellRender={columnFormatDate}
                                             />
@@ -236,16 +246,19 @@ export default class BookDocumentAway extends Component<IBookDocumentAwayProps, 
                                                 dataField="receivedBy"
                                                 caption="Người gửi"
                                                 dataType="string"
+                                                width={150}
                                             />
                                             <Column
                                                 dataField="performancePerson"
                                                 caption="Nơi nhận"
                                                 dataType="string"
+                                                width={200}
                                             />
                                             <Column
                                                 dataField="description"
                                                 caption="Ghi chú"
                                                 dataType="string"
+                                                minWidth={150}
                                             />
                                             <Column
                                                 dataField="isProcessed"

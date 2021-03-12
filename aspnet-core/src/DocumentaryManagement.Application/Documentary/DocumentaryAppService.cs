@@ -1,23 +1,21 @@
-﻿using DocumentaryManagement.Documentary.Dto;
-using DocumentaryManagement.Core;
-using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
-using DocumentaryManagement.Model;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Attachment;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Abp.Domain.Repositories;
 using Abp.Web.Models;
 using DevExtreme.AspNet.Data.ResponseModel;
-using DevExtreme.AspNet.Mvc;
-using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models;
-using DocumentaryManagement.Users.Dto;
-using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Department;
-using DocumentaryManagement.Models.Lib;
-using Abp.Domain.Repositories;
-using DocumentaryManagement.Authorization.Users;
 using DocumentaryManagement.Authorization;
+using DocumentaryManagement.Authorization.Users;
+using DocumentaryManagement.Core;
+using DocumentaryManagement.Documentary.Dto;
+using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Attachment;
+using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary;
+using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models;
+using DocumentaryManagement.Model;
+using DocumentaryManagement.Models.Lib;
+using DocumentaryManagement.Users.Dto;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DocumentaryManagement.Documentary
 {
@@ -33,7 +31,7 @@ namespace DocumentaryManagement.Documentary
             this.attachmentRepository = attachmentRepository;
             this.userRepository = userRepository;
         }
-        public async override Task<DocumentaryDto> Create(CreateDocumentaryDto input)
+        public override async Task<DocumentaryDto> Create(CreateDocumentaryDto input)
         {
             StandardizedStringOfEntity(input);
             var stringJson = JsonConvert.SerializeObject(input.AppAttachments);
@@ -59,7 +57,7 @@ namespace DocumentaryManagement.Documentary
             }
             return result;
         }
-        public async override Task<DocumentaryDto> Update(UpdateDocumentaryDto input)
+        public override async Task<DocumentaryDto> Update(UpdateDocumentaryDto input)
         {
             StandardizedStringOfEntity(input);
             var stringJson = JsonConvert.SerializeObject(input.AppAttachments);

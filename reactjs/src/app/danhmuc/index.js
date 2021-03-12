@@ -32,8 +32,19 @@ const DocumentaryAway = Loadable({
     loading: Loading
 });
 
+
+const DocumentaryInternal = Loadable({
+    loader: () => import("./components/DocumentaryInternal/DocumentaryInternalComponent"),
+    loading: Loading
+});
+
 const DocumentaryArrived = Loadable({
     loader: () => import("./components/DocumentaryArrived/DocumentaryArrivedComponent"),
+    loading: Loading
+});
+
+const EDocumentary = Loadable({
+    loader: () => import("./components/EDocumentary/EDocumentaryComponent"),
     loading: Loading
 });
 
@@ -90,11 +101,25 @@ export const routes = [
         permission: PermissionNames.Pages_DocumentAway
     },
     {
+        path: "/quan-ly-van-ban/van-ban-noi-bo/:isApproved?",
+        exact: true,
+        component: DocumentaryInternal,
+        name: "van-ban-noi-bo",
+        permission: PermissionNames.Pages_DocumentInternal
+    },
+    {
         path: "/quan-ly-van-ban/van-ban-den/:isApproved?",
         exact: true,
         component: DocumentaryArrived,
         name: "van-ban-den",
         permission: PermissionNames.Pages_DocumentArrived
+    },
+    {
+        path: "/quan-ly-van-ban/van-ban-dien-tu/:isApproved?",
+        exact: true,
+        component: EDocumentary,
+        name: "van-ban-dien-tu",
+        permission: PermissionNames.Pages_EDocument
     },
     {
         path: "/danh-muc/phong-ban",

@@ -117,32 +117,40 @@ export default class DocumentaryPersonalComponent extends Component<IDocumentary
                                                 dataField="code"
                                                 caption="Ký hiệu"
                                                 dataType="string"
+                                                fixed
+                                                width={80}
                                             />
                                             <Column
                                                 dataField="name"
                                                 caption="Tên"
                                                 dataType="string"
+                                                fixed
+                                                width={130}
                                             />
                                             <Column
                                                 dataField="documentTypeId_Name"
                                                 caption="Loại văn bản"
                                                 dataType="string"
+                                                width={150}
                                             />
                                             <Column
                                                 dataField="agencyIssuedId_Name"
                                                 caption="Cơ quan ban hành"
                                                 dataType="string"
+                                                width={150}
                                             />
                                             <Column
                                                 dataField="abridgment"
                                                 caption="Trích yếu"
                                                 dataType="string"
+                                                minWidth={250}
                                             />
                                             <Column
                                                 dataField="creationDate"
                                                 caption="Ngày tạo"
                                                 dataType="datetime"
                                                 format="dd/MM/yyyy"
+                                                minWidth={120}
                                             />
                                             <Column
                                                 dataField="id"

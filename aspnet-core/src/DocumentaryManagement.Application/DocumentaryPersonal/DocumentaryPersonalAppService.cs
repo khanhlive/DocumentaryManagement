@@ -17,7 +17,8 @@ namespace DocumentaryManagement.DocumentaryPersonal
         {
             this.attachmentRepository = attachmentRepository;
         }
-        public async override Task<DocumentaryPersonalDto> Create(CreateDocumentaryPersonalDto input)
+
+        public override async Task<DocumentaryPersonalDto> Create(CreateDocumentaryPersonalDto input)
         {
             StandardizedStringOfEntity(input);
             var stringJson = JsonConvert.SerializeObject(input.AppAttachments);
@@ -35,7 +36,7 @@ namespace DocumentaryManagement.DocumentaryPersonal
             }
             return result;
         }
-        public async override Task<DocumentaryPersonalDto> Update(UpdateDocumentaryPersonalDto input)
+        public override async Task<DocumentaryPersonalDto> Update(UpdateDocumentaryPersonalDto input)
         {
             StandardizedStringOfEntity(input);
             var stringJson = JsonConvert.SerializeObject(input.AppAttachments);

@@ -19,14 +19,14 @@ import Stores from '../../../stores/storeIdentifier';
 import BookCommonFilter from './BookCommonFilter';
 declare var $: any;
 
-export interface IBookDocumentArrivedProps {
+export interface IBookEDocumentProps {
     breadcrumbStore?: BreadcrumbStoreApp,
     sessionStore?: SessionStore
 }
 
 @inject(Stores.BreadcrumbStore, Stores.SessionStore)
 @observer
-export default class BookDucumentArrived extends Component<IBookDocumentArrivedProps, any> {
+export default class BookEDocument extends Component<IBookEDocumentProps, any> {
     dataGrid?: DataGridCustom;
     filterComponent?: BookCommonFilter;
     printingComponent?: PrintingComponent;
@@ -37,7 +37,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
     });
     constructor(props: any) {
         super(props);
-        this.props.breadcrumbStore?.setItems(["Sổ văn bản", "Văn bản đến"]);
+        this.props.breadcrumbStore?.setItems(["Sổ văn bản", "Văn bản điện tử"]);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleToolbarPreparing = this.handleToolbarPreparing.bind(this);
         this.toolbarSearchRenderer = this.toolbarSearchRenderer.bind(this);
@@ -128,7 +128,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                     this.props.breadcrumbStore?.useBigBreadcrum == true ? (
                         <div className="row">
                             <BigBreadcrumbs
-                                items={["Sổ", "Sổ văn bản đến"]}
+                                items={["Sổ", "Sổ Văn bản điện tử"]}
                                 icon="fa fa-fw fa-table"
                             />
                             {
@@ -144,7 +144,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                         <article className="col-sm-12">
                             <BookCommonFilter
                                 ref={ref => this.filterComponent = ref || undefined}
-                                type={DocumentaryType.DocumentaryArrived}
+                                type={DocumentaryType.EDocumentary}
                                 useTemplate={false}
                                 onPrint={this.handlePrinting}
                                 onSearch={this.handleSearch}
@@ -154,7 +154,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                     <span className="widget-icon">
                                         <i className="fa fa-table" />
                                     </span>
-                                    <h2>Danh sách văn bản đến</h2>
+                                    <h2>Danh sách Văn bản điện tử</h2>
                                 </header>
                                 <div>
                                     <div className="widget-body no-padding">
@@ -181,7 +181,6 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                                 alignment="center"
                                                 dataField="id"
                                                 width={60}
-                                                fixed
                                                 cellRender={(celldata: any) => {
                                                     console.log(celldata)
                                                     let rowIndex = celldata['rowIndex'];
@@ -201,7 +200,7 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                                 dataField="code"
                                                 caption="Số văn bản"
                                                 dataType="string"
-                                                width={100}
+                                                width={120}
                                                 fixed
                                             />
                                             <Column
@@ -214,34 +213,35 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                                 dataField="releaseDate"
                                                 caption="Ngày ban hành"
                                                 dataType="datetime"
-                                                width={100}
                                                 format="dd/MM/yyyy"
                                                 cellRender={columnFormatDate}
+                                                width={100}
                                             />
                                             <Column
                                                 dataField="summaryContent"
                                                 caption="Nội dung tóm tắt"
                                                 dataType="string"
-                                                minWidth={250}
+                                                minWidth={200}
                                             />
                                             <Column
                                                 dataField="documentTypeId_Name"
                                                 caption="Loại văn bản"
                                                 dataType="string"
                                                 visible={false}
+                                                width={150}
                                             />
                                             <Column
                                                 dataField="agencyIssuedId_Name"
                                                 caption="Nơi ban hành"
                                                 dataType="string"
-                                                width={200}
+                                                width={150}
                                             />
                                             <Column
                                                 dataField="receivedDate"
                                                 caption="Ngày nhận"
-                                                width={100}
                                                 dataType="datetime"
                                                 format="dd/MM/yyyy"
+                                                width={100}
                                                 cellRender={columnFormatDate}
                                             />
                                             <Column
@@ -260,13 +260,14 @@ export default class BookDucumentArrived extends Component<IBookDocumentArrivedP
                                                 dataField="description"
                                                 caption="Ghi chú"
                                                 dataType="string"
-                                                minWidth={200}
+                                                minWidth={150}
                                             />
                                             <Column
                                                 dataField="isProcessed"
                                                 caption="Đã xử lý"
                                                 dataType="boolean"
                                                 visible={false}
+                                                minWidth={80}
                                             />
                                             <Template name="searchTemplate" render={this.toolbarSearchRenderer}></Template>
                                             <Summary >

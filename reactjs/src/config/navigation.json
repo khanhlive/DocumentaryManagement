@@ -18,6 +18,16 @@
           "route": "/tim-kiem/van-ban-den",
           "title": "Văn bản đến",
           "permission": "Pages.SearchDocumentArrived"
+        },
+        {
+          "route": "/tim-kiem/van-ban-dien-tu",
+          "title": "Văn bản điện tử",
+          "permission": "Pages.SearchEDocument"
+        },
+        {
+          "route": "/tim-kiem/van-ban-noi-bo",
+          "title": "Văn bản nội bộ",
+          "permission": "Pages.SearchDocumentInternal"
         }
       ]
     },
@@ -31,9 +41,19 @@
           "permission": "Pages.BookDocumentAway"
         },
         {
+          "route": "/so-van-ban/so-van-ban-noi-bo",
+          "title": "Sổ văn bản nội bộ",
+          "permission": "Pages.BookDocumentInternal"
+        },
+        {
           "route": "/so-van-ban/so-van-ban-den",
           "title": "Sổ văn bản đến",
           "permission": "Pages.BookDocumentArrived"
+        },
+        {
+          "route": "/so-van-ban/so-van-ban-dien-tu",
+          "title": "Sổ văn bản điện tủ",
+          "permission": "Pages.BookEDocument"
         }
       ]
     },
@@ -55,6 +75,16 @@
           "route": "/quan-ly-van-ban/van-ban-den",
           "title": "Văn bản đến",
           "permission": "Pages.DocumentArrived"
+        },
+        {
+          "route": "/quan-ly-van-ban/van-ban-dien-tu",
+          "title": "Văn bản điện tử",
+          "permission": "Pages.EDocument"
+        },
+        {
+          "route": "/quan-ly-van-ban/van-ban-noi-bo",
+          "title": "Văn bản nội bộ",
+          "permission": "Pages.DocumentInternal"
         }
       ]
     },

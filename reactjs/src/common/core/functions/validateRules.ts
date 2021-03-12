@@ -6,7 +6,7 @@ export function validatorCode(value: any, validator: any, $field: any) {
 }
 
 export function validatorTextNumber(value: any, validator: any, $field: any) {
-  var reg = /^[\d\w_\-\,\/\đ]+$/;
+  var reg = /^[\d\w_\-\,\/\u0110\u0111]+$/;
   return reg.test(value);
 }
 

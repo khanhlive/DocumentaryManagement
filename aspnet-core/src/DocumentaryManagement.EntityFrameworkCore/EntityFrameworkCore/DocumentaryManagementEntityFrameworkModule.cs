@@ -1,13 +1,16 @@
 ﻿using Abp.Configuration.Startup;
 using Abp.Domain.Repositories;
+using Abp.Domain.Uow;
 using Abp.EntityFrameworkCore.Configuration;
 using Abp.Modules;
+using Abp.MultiTenancy;
 using Abp.Reflection.Extensions;
 using Abp.Zero.EntityFrameworkCore;
 using Castle.MicroKernel.Registration;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.DocumentType;
 using DocumentaryManagement.EntityFrameworkCore.Seed;
 using DocumentaryManagement.Model;
+using Microsoft.AspNetCore.Http;
 
 namespace DocumentaryManagement.EntityFrameworkCore
 {
@@ -23,6 +26,14 @@ namespace DocumentaryManagement.EntityFrameworkCore
 
         public override void PreInitialize()
         {
+            //Configuration.ReplaceService(typeof(IConnectionStringResolver), () =>
+            //{
+            //    IocManager.IocContainer.Register(
+            //        Component.For<IConnectionStringResolver, IDbPerTenantConnectionStringResolver>()
+            //            .ImplementedBy<DbPerTenantConnectionStringResolver>()
+            //            .LifestyleTransient()
+            //        );
+            //});
             if (!SkipDbContextRegistration)
             {
                 Configuration.Modules.AbpEfCore().AddDbContext<DocumentaryManagementDbContext>(options =>

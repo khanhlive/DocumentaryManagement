@@ -9,21 +9,21 @@ namespace DocumentaryManagement.Web.Host.Reports
 {
     public partial class BookDocument
     {
-        IDocumentaryRepository Repository;
-        DocumentFilterOptions Options;
-        User user;
+        private readonly IDocumentaryRepository _repository;
+        private readonly DocumentFilterOptions _options;
+        private readonly User _user;
         public BookDocument(IDocumentaryRepository repository, DocumentFilterOptions documentFilterOptions,User  user)
         {
-            Repository = repository;
-            this.user = user;
-            Options = documentFilterOptions;
+            _repository = repository;
+            this._user = user;
+            _options = documentFilterOptions;
             InitializeComponent();
             LoadData();
         }
 
         public void LoadData()
         {
-            if (this.Options.Type == 1)
+            if (this._options.Type == 1)
             {
                 //van ban di
                 lblTitle.Text = "Sổ văn bản đi".ToUpper();
@@ -32,7 +32,7 @@ namespace DocumentaryManagement.Web.Host.Reports
                 colNguoiNhan.Text = "Người gửi";
                 colNguoiThucHien.Text = "Nơi nhận";
             }
-            else
+            else if(this._options.Type == 2)
             {
                 lblTitle.Text = "Sổ văn bản đến".ToUpper();
                 colSoDen.Text = "Số đến";
@@ -40,12 +40,28 @@ namespace DocumentaryManagement.Web.Host.Reports
                 colNguoiNhan.Text = "Người nhận";
                 colNguoiThucHien.Text = "Người thực hiện";
             }
-            cellYear.Text = "Năm: " + this.Options.Year.ToString();
-            cellDonVi.Text = user.Organization?.ToUpper();
-            cellDiaChi.Text = user.Address;
+            else if (this._options.Type == 4)
+            {
+                lblTitle.Text = "Sổ văn bản điện tử".ToUpper();
+                colSoDen.Text = "Số";
+                colNgayNhan.Text = "Ngày nhận";
+                colNguoiNhan.Text = "Người nhận";
+                colNguoiThucHien.Text = "Người thực hiện";
+            }
+            else if (this._options.Type == 5)
+            {
+                lblTitle.Text = "Sổ văn bản nội bộ".ToUpper();
+                colSoDen.Text = "Số";
+                colNgayNhan.Text = "Ngày gửi";
+                colNguoiNhan.Text = "Người gửi";
+                colNguoiThucHien.Text = "Nơi nhận";
+            }
+            cellYear.Text = "Năm: " + this._options.Year.ToString();
+            cellDonVi.Text = _user.Organization?.ToUpper();
+            cellDiaChi.Text = _user.Address;
             colSTT.Summary = new XRSummary(SummaryRunning.Report);
             ((XRSummary)colSTT.Summary).Func = SummaryFunc.RecordNumber;
-            var source = Repository.GetBookReportData(Options);
+            var source = _repository.GetBookReportData(_options);
             this.DataSource = source?.OrderBy(p => p.TextNumber);
         }
 

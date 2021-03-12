@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -73,30 +74,33 @@ namespace DocumentaryManagement.Model
 
         [ForeignKey("AgencyIssuedId")]
         [InverseProperty("AppDocumentary")]
+        [JsonIgnore]
         public virtual AppAgencyIssued AgencyIssued { get; set; }
         [ForeignKey("DocumentTypeId")]
         [InverseProperty("AppDocumentary")]
+        [JsonIgnore]
         public virtual AppDocumentType DocumentType { get; set; }
         [InverseProperty("Documentary")]
+        [JsonIgnore]
         public virtual ICollection<AppAttachments> AppAttachments { get; set; }
 
         [NotMapped]
-        public string DocumentTypeId_Name
-        {
-            get
-            {
-                return this.DocumentType?.Name;
-            }
-        }
+        public string DocumentTypeId_Name { get; set; }
+        //{
+        //    get
+        //    {
+        //        return this.DocumentType?.Name;
+        //    }
+        //}
 
         [NotMapped]
-        public string AgencyIssuedId_Name
-        {
-            get
-            {
-                return this.AgencyIssued?.Name;
-            }
-        }
+        public string AgencyIssuedId_Name { get; set; }
+        //{
+        //    get
+        //    {
+        //        return this.AgencyIssued?.Name;
+        //    }
+        //}
 
         [NotMapped]
         public string ApprovedUserId_Name { get; set; }

@@ -96,11 +96,14 @@
     <text name="Settings">Settings</text>
     <text name="Filter">Filter</text>
     <text name="Pages_SearchDocumentAway">Tìm kiếm văn bản đi</text>
+    <text name="Pages_SearchDocumentInternal">Tìm kiếm văn bản nội bộ</text>
     <text name="Pages_SearchDocumentArrived">Tìm kiếm văn bản đến</text>
     <text name="Pages_BookDocumentAway">Sổ văn bản đi</text>
     <text name="Pages_BookDocumentArrived">Sổ văn bản đến</text>
+    <text name="Pages_BookDocumentInternal">Sổ văn bản nội bộ</text>
     <text name="Pages_DocumentPersonal">Văn bản cá nhân</text>
     <text name="Pages_DocumentAway">Văn bản đi</text>
+    <text name="Pages_DocumentInternal">Văn bản nội bộ</text>
     <text name="Pages_DocumentArrived">Văn bản đến</text>
     <text name="Pages_Province">Tỉnh thành</text>
     <text name="Pages_DocumentType">Loại văn bản</text>
@@ -110,5 +113,8 @@
     <text name="Pages_Profile">Thông tin tài khoản</text>
     <text name="Permission_Approved">Duyệt văn bản</text>
     <text name="Permission_DocumentManager">Văn thư</text>
+    <text name="Pages_EDocument">Văn bản điện tử</text>
+    <text name="Pages_BookEDocument">Sổ văn bản điện tử</text>
+    <text name="Pages_SearchEDocument">Tìm kiếm văn bản điện tử</text>
   </texts>
 </localizationDictionary>

@@ -7,15 +7,21 @@ export const PermissionNames = {
 
   Pages_SearchDocumentAway: "Pages.SearchDocumentAway",
 
+  Pages_SearchDocumentInternal: "Pages.SearchDocumentInternal",
+
   Pages_SearchDocumentArrived: "Pages.SearchDocumentArrived",
 
   Pages_BookDocumentAway: "Pages.BookDocumentAway",
+
+  Pages_BookDocumentInternal: "Pages.BookDocumentInternal",
 
   Pages_BookDocumentArrived: "Pages.BookDocumentArrived",
 
   Pages_DocumentPersonal: "Pages.DocumentPersonal",
 
   Pages_DocumentAway: "Pages.DocumentAway",
+
+  Pages_DocumentInternal: "Pages.DocumentInternal",
 
   Pages_DocumentArrived: "Pages.DocumentArrived",
 
@@ -34,6 +40,8 @@ export const PermissionNames = {
   Permission_Approved: "Permission.Approved",
 
   Permission_DocumentManager: "Permission.DocumentManager",
+
+  Pages_EDocument: "Pages.EDocument",
 };
 
 export const PermissionType = {

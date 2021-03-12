@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.IO;
 using System.Net.Http.Headers;
-using System.Text.RegularExpressions;
 
 namespace DocumentaryManagement.Core
 {

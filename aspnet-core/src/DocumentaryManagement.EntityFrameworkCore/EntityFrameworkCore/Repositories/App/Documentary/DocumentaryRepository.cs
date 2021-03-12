@@ -3,7 +3,6 @@ using Abp.Runtime.Session;
 using Abp.UI;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
-using DevExtreme.AspNet.Mvc;
 using DocumentaryManagement.Authorization.Users;
 using DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary.Models;
 using DocumentaryManagement.Model;
@@ -26,7 +25,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
 
         protected override IQueryable<AppDocumentary> SetEntityIncludes(IQueryable<AppDocumentary> entities)
         {
-            return entities.Where(p => !p.IsDeleted).Include(p => p.DocumentType).Include(p => p.AgencyIssued);
+            return entities.Where(p => !p.IsDeleted);//.Include(p => p.DocumentType).Include(p => p.AgencyIssued);
         }
 
         public override void Before_InsertUpdate(AppDocumentary entity)
@@ -35,12 +34,12 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             if (entity.Id == 0)
             {
                 entity.CreationDate = DateTime.Now;
-                entity.CreationId = AbpSession.UserId.Value;
+                if (AbpSession.UserId != null) entity.CreationId = AbpSession.UserId.Value;
             }
             else
             {
                 entity.UpdatedDate = DateTime.Now;
-                entity.UpdatedId = AbpSession.UserId.Value;
+                if (AbpSession.UserId != null) entity.UpdatedId = AbpSession.UserId.Value;
             }
             if (item != null)
             {
@@ -51,7 +50,7 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
         public List<AppDocumentary> GetFilterReportData(DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType, long userId)
         {
             DocumentaryManagementDbContext DbContext = this.GetDevContext();
-            return this.GetQueryFilter(DbContext, documentFilterOptions, permissionType, userId).ToList();
+            return this.MapName(DbContext, this.GetQueryFilter(DbContext, documentFilterOptions, permissionType, userId)).ToList();
         }
 
         private IQueryable<AppDocumentary> GetQueryFilter(DocumentaryManagementDbContext DbContext, DocumentFilterOptions documentFilterOptions, Authorization.PermissionType permissionType, long userId)
@@ -113,12 +112,19 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
                           from u in kq.DefaultIfEmpty()
                           join c in DbContext.AppDepartment on a.ApprovedDepartmentId equals c.Id into kq1
                           from d in kq1.DefaultIfEmpty()
+                          join doc in DbContext.AppDocumentType on a.DocumentTypeId equals doc.Id into kq2
+                          from doc1 in kq2.DefaultIfEmpty()
+                          join agen in DbContext.AppAgencyIssued on a.AgencyIssuedId equals agen.Id into kq3
+                          from agen1 in kq3.DefaultIfEmpty()
+                          orderby a.TextNumber
                           select new
                           {
                               a,
-                              IsView = (permissionType != Authorization.PermissionType.Admin && permissionType != Authorization.PermissionType.DocumentManager) ? DbContext.AppRotation.Any(p => p.DocumentId == a.Id && p.UserId == AbpSession.UserId && p.IsView == true) : false,
+                              IsView = (permissionType != Authorization.PermissionType.Admin && permissionType != Authorization.PermissionType.DocumentManager) && DbContext.AppRotation.Any(p => p.DocumentId == a.Id && p.UserId == AbpSession.UserId && p.IsView == true),
                               UserName = u == null ? null : u.FullName2,
-                              DepartmentName = d == null ? null : d.Name
+                              DepartmentName = d == null ? null : d.Name,
+                              DocTypeName = doc1 == null ? null : doc1.Name,
+                              AgencyName = agen1 == null ? null : agen1.Name,
                           }
                        ).AsEnumerable().Select(p =>
                        {
@@ -126,6 +132,8 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
                            item.ApprovedUserId_Name = p.UserName;
                            item.ApprovedDepartmentId_Name = p.DepartmentName;
                            item.IsView = p.IsView;
+                           item.DocumentTypeId_Name = p.DocTypeName;
+                           item.AgencyIssuedId_Name = p.AgencyName;
                            return item;
                        });
             return DataSourceLoader.Load(query2, loadOptions);
@@ -133,37 +141,66 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
 
         public List<AppDocumentary> GetBookReportData(DocumentFilterOptions documentFilterOptions)
         {
-            return GetBookQuery(documentFilterOptions).ToList();
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            return MapName(DbContext, GetBookQuery(DbContext, documentFilterOptions)).ToList();
         }
 
-        private IQueryable<AppDocumentary> GetBookQuery(DocumentFilterOptions documentFilterOptions)
+        private IEnumerable<AppDocumentary> MapName(DocumentaryManagementDbContext DbContext, IQueryable<AppDocumentary> documentaries)
         {
-            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            var query2 = (from a in documentaries
+                          join doc in DbContext.AppDocumentType on a.DocumentTypeId equals doc.Id into kq2
+                          from doc1 in kq2.DefaultIfEmpty()
+                          join agen in DbContext.AppAgencyIssued on a.AgencyIssuedId equals agen.Id into kq3
+                          from agen1 in kq3.DefaultIfEmpty()
+                          select new
+                          {
+                              a,
+                              DocTypeName = doc1 == null ? null : doc1.Name,
+                              AgencyName = agen1 == null ? null : agen1.Name,
+                          }
+                       ).AsEnumerable().Select(p =>
+                       {
+                           var item = p.a;
+                           item.DocumentTypeId_Name = p.DocTypeName;
+                           item.AgencyIssuedId_Name = p.AgencyName;
+                           return item;
+                       });
+            return query2;
+        }
+
+        private IQueryable<AppDocumentary> GetBookQuery(DocumentaryManagementDbContext DbContext, DocumentFilterOptions documentFilterOptions)
+        {
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
             if (documentFilterOptions != null)
             {
-                query = from a in query.Where(p => p.Type == documentFilterOptions.Type)
-                        where (documentFilterOptions.LoaiVanBan != null ? a.DocumentTypeId == documentFilterOptions.LoaiVanBan : true)
-                        where (documentFilterOptions.NgayTuDate != null ? a.ReleaseDate >= documentFilterOptions.NgayTuDate : true)
-                        where (documentFilterOptions.NgayDenDate != null ? a.ReleaseDate <= documentFilterOptions.NgayDenDate : true)
-                        select a;
+                query = (from a in query.Where(p => p.Type == documentFilterOptions.Type)
+                    where (documentFilterOptions.LoaiVanBan == null ||
+                           a.DocumentTypeId == documentFilterOptions.LoaiVanBan)
+                    where (documentFilterOptions.NgayTuDate == null ||
+                           a.ReleaseDate >= documentFilterOptions.NgayTuDate)
+                    where (documentFilterOptions.NgayDenDate == null ||
+                           a.ReleaseDate <= documentFilterOptions.NgayDenDate)
+                    orderby a.TextNumber
+                    select a);
+
             }
             return SetEntityIncludes(query);
         }
 
         public virtual LoadResult GetBookDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentFilterOptions documentFilterOptions)
         {
-            return DataSourceLoader.Load(GetBookQuery(documentFilterOptions), loadOptions);
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            return DataSourceLoader.Load(MapName(DbContext, GetBookQuery(DbContext, documentFilterOptions)), loadOptions);
         }
 
         public List<AppDocumentary> GetSearchReportData(DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType, long userId)
         {
-            return this.GetQuerySearch(searchOptions, permissionType, userId).ToList();
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            return this.GetQuerySearch(DbContext, searchOptions, permissionType, userId).ToList();
         }
 
-        private IQueryable<AppDocumentary> GetQuerySearch(DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType, long userId)
+        private IQueryable<AppDocumentary> GetQuerySearch(DocumentaryManagementDbContext DbContext, DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType, long userId)
         {
-            DocumentaryManagementDbContext DbContext = this.GetDevContext();
             var query = DbContext.Set<AppDocumentary>().Where(p => p.IsDeleted == false);
             User user = DbContext.Users.FirstOrDefault(p => p.Id == userId);
             int? departmentId = user == null ? 0 : user.DepartmentId;
@@ -174,34 +211,52 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
             else if (permissionType == Authorization.PermissionType.Approved)
             {
                 query = (from a in query
-                         join b in DbContext.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
-                         where (a.ApprovedType == 1 ? a.ApprovedUserId == userId : a.ApprovedDepartmentId == departmentId) || (kq.Any())
-                         select a
-                        );
+                        join b in DbContext.AppRotation.Where(p =>
+                            p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b
+                            .DocumentId into kq
+                        where (a.ApprovedType == 1
+                            ? a.ApprovedUserId == userId
+                            : a.ApprovedDepartmentId == departmentId) || (kq.Any())
+                        orderby a.TextNumber
+                        select a
+                    );
             }
             else
             {
                 query = (from a in query
-                         join b in DbContext.AppRotation.Where(p => p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b.DocumentId into kq
-                         where (kq.Any())
-                         select a
-                        );
+                        join b in DbContext.AppRotation.Where(p =>
+                            p.UserId == null ? p.DepartmentId == departmentId : p.UserId == userId) on a.Id equals b
+                            .DocumentId into kq
+                        where (kq.Any())
+                        orderby a.TextNumber
+                        select a
+                    );
             }
             if (searchOptions != null)
             {
                 query = (from doc in query.Where(p => p.Type == searchOptions.Type)
-                         where (searchOptions.Code != null && searchOptions.Code != string.Empty) ? doc.Code.ToLower().Contains(searchOptions.Code.ToLower()) : true
-                         where (searchOptions.NoiDungTomTat != null && searchOptions.NoiDungTomTat != string.Empty) ? doc.SummaryContent.ToLower().Contains(searchOptions.NoiDungTomTat.ToLower()) : true
-                         where ((searchOptions.NgayBanHanhTu.HasValue ? doc.ReleaseDate >= searchOptions.NgayBanHanhTu : true) && (searchOptions.NgayBanHanhDen.HasValue ? doc.ReleaseDate <= searchOptions.NgayBanHanhDen : true))
-                         where ((searchOptions.NgayGuiTu.HasValue ? doc.ReceivedDate >= searchOptions.NgayGuiTu : true) && (searchOptions.NgayGuiDen.HasValue ? doc.ReceivedDate <= searchOptions.NgayGuiDen : true))
-                         select doc
-                          );
-                if (searchOptions.NoiBanHanh != null && searchOptions.NoiBanHanh != string.Empty)
+                        where (searchOptions.Code == null || searchOptions.Code == string.Empty) ||
+                              doc.Code.ToLower().Contains(searchOptions.Code.ToLower())
+                        where (searchOptions.NoiDungTomTat == null || searchOptions.NoiDungTomTat == string.Empty) ||
+                              doc.SummaryContent.ToLower().Contains(searchOptions.NoiDungTomTat.ToLower())
+                        where ((!searchOptions.NgayBanHanhTu.HasValue ||
+                                doc.ReleaseDate >= searchOptions.NgayBanHanhTu) &&
+                               (!searchOptions.NgayBanHanhDen.HasValue ||
+                                doc.ReleaseDate <= searchOptions.NgayBanHanhDen))
+                        where ((!searchOptions.NgayGuiTu.HasValue || doc.ReceivedDate >= searchOptions.NgayGuiTu) &&
+                               (!searchOptions.NgayGuiDen.HasValue || doc.ReceivedDate <= searchOptions.NgayGuiDen))
+                        orderby doc.TextNumber
+                        select doc
+                    );
+                if (!string.IsNullOrEmpty(searchOptions.NoiBanHanh))
                 {
                     query = (from doc in query
-                             join pl in DbContext.AppAgencyIssued.Where(p => p.Name.ToLower().Contains(searchOptions.NoiBanHanh)).Select(p => p.Id) on doc.AgencyIssuedId equals pl
-                             select doc
-                           );
+                            join pl in DbContext.AppAgencyIssued
+                                .Where(p => p.Name.ToLower().Contains(searchOptions.NoiBanHanh))
+                                .Select(p => p.Id) on doc.AgencyIssuedId equals pl
+                            orderby doc.TextNumber
+                            select doc
+                        );
                 }
             }
             return SetEntityIncludes(query);
@@ -209,7 +264,8 @@ namespace DocumentaryManagement.EntityFrameworkCore.Repositories.App.Documentary
 
         public LoadResult GetSearchDevExtreme(DataSourceLoadOptionsBase loadOptions, DocumentSearchOptions searchOptions, Authorization.PermissionType permissionType)
         {
-            return DataSourceLoader.Load(this.GetQuerySearch(searchOptions, permissionType, AbpSession.UserId ?? 0), loadOptions);
+            DocumentaryManagementDbContext DbContext = this.GetDevContext();
+            return DataSourceLoader.Load(MapName(DbContext, this.GetQuerySearch(DbContext, searchOptions, permissionType, AbpSession.UserId ?? 0)), loadOptions);
         }
 
         public async Task<List<User>> GetUserApproved()

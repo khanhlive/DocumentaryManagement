@@ -92,6 +92,7 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
         };
     }
     render() {
+        console.log('render')
         let _selection: dxDataGridSelection = {};
 
         if (this.props.selectionMode !== 'none') {
@@ -127,7 +128,9 @@ export default class DataGridCustom extends Component<IDataGridOptionsCustom, an
             },
             columnResizingMode: 'nextColumn',
             allowColumnResizing: true,
-            columnAutoWidth: true
+            columnAutoWidth: true,
+            wordWrapEnabled: true,
+            hoverStateEnabled: true
         }
         let editing = {
             allowAdding: true,
